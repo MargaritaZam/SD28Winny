@@ -69,15 +69,118 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Anjali.sql" />
+    <Content Include="images\facebook.png" />
+    <Content Include="images\flickr.png" />
+    <Content Include="images\gallery\image_01.jpg" />
+    <Content Include="images\gallery\image_02.jpg" />
+    <Content Include="images\gallery\image_03.jpg" />
+    <Content Include="images\gallery\image_04.jpg" />
+    <Content Include="images\gallery\image_05.jpg" />
+    <Content Include="images\gallery\image_06.jpg" />
+    <Content Include="images\gallery\image_07.jpg" />
+    <Content Include="images\gallery\image_08.jpg" />
+    <Content Include="images\gallery\image_09.jpg" />
+    <Content Include="images\gallery\image_10.jpg" />
+    <Content Include="images\gallery\image_11.jpg" />
+    <Content Include="images\gallery\image_12.jpg" />
+    <Content Include="images\myspace.png" />
+    <Content Include="images\onebit_08.png" />
+    <Content Include="images\onebit_11.png" />
+    <Content Include="images\onebit_12.png" />
+    <Content Include="images\onebit_17.png" />
+    <Content Include="images\onebit_21.png" />
+    <Content Include="images\tooplate_content_bg.png" />
+    <Content Include="images\tooplate_image_01.jpg" />
+    <Content Include="images\tooplate_image_02.jpg" />
+    <Content Include="images\tooplate_image_03.jpg" />
+    <Content Include="images\tooplate_logo.png" />
+    <Content Include="images\tooplate_menu.png" />
+    <Content Include="images\tooplate_menu_divider.png" />
+    <Content Include="images\twitter.png" />
+    <Content Include="images\winnipeg.jpg" />
+    <Content Include="images\youtube.png" />
+    <Content Include="index.aspx" />
     <Content Include="Margo.sql" />
     <Content Include="Natalia.sql" />
+    <Content Include="Pictures\Restaurants\1.png" />
+    <Content Include="Pictures\Restaurants\10.png" />
+    <Content Include="Pictures\Restaurants\11.jpg" />
+    <Content Include="Pictures\Restaurants\12.png" />
+    <Content Include="Pictures\Restaurants\13.png" />
+    <Content Include="Pictures\Restaurants\14.png" />
+    <Content Include="Pictures\Restaurants\15.png" />
+    <Content Include="Pictures\Restaurants\16.png" />
+    <Content Include="Pictures\Restaurants\17.jpg" />
+    <Content Include="Pictures\Restaurants\18.jpg" />
+    <Content Include="Pictures\Restaurants\19.jpg" />
+    <Content Include="Pictures\Restaurants\19.png" />
+    <Content Include="Pictures\Restaurants\2.png" />
+    <Content Include="Pictures\Restaurants\20.jpg" />
+    <Content Include="Pictures\Restaurants\21.jpg" />
+    <Content Include="Pictures\Restaurants\22.png" />
+    <Content Include="Pictures\Restaurants\23.png" />
+    <Content Include="Pictures\Restaurants\24.png" />
+    <Content Include="Pictures\Restaurants\25.jpg" />
+    <Content Include="Pictures\Restaurants\26.png" />
+    <Content Include="Pictures\Restaurants\27.jpg" />
+    <Content Include="Pictures\Restaurants\28.png" />
+    <Content Include="Pictures\Restaurants\29.png" />
+    <Content Include="Pictures\Restaurants\3.jpg" />
+    <Content Include="Pictures\Restaurants\30.png" />
+    <Content Include="Pictures\Restaurants\31.png" />
+    <Content Include="Pictures\Restaurants\32.jpg" />
+    <Content Include="Pictures\Restaurants\33.png" />
+    <Content Include="Pictures\Restaurants\34.jpg" />
+    <Content Include="Pictures\Restaurants\35.jpg" />
+    <Content Include="Pictures\Restaurants\36.jpg" />
+    <Content Include="Pictures\Restaurants\37.png" />
+    <Content Include="Pictures\Restaurants\38.jpg" />
+    <Content Include="Pictures\Restaurants\39.png" />
+    <Content Include="Pictures\Restaurants\4.jpg" />
+    <Content Include="Pictures\Restaurants\40.png" />
+    <Content Include="Pictures\Restaurants\41.jpg" />
+    <Content Include="Pictures\Restaurants\42.jpg" />
+    <Content Include="Pictures\Restaurants\43.jpg" />
+    <Content Include="Pictures\Restaurants\44.png" />
+    <Content Include="Pictures\Restaurants\45.jpg" />
+    <Content Include="Pictures\Restaurants\46.jpg" />
+    <Content Include="Pictures\Restaurants\47.jpg" />
+    <Content Include="Pictures\Restaurants\48.jpg" />
+    <Content Include="Pictures\Restaurants\49.jpg" />
+    <Content Include="Pictures\Restaurants\5.png" />
+    <Content Include="Pictures\Restaurants\50.png" />
+    <Content Include="Pictures\Restaurants\51.jpg" />
+    <Content Include="Pictures\Restaurants\52.jpg" />
+    <Content Include="Pictures\Restaurants\53.jpg" />
+    <Content Include="Pictures\Restaurants\54.jpg" />
+    <Content Include="Pictures\Restaurants\6.jpg" />
+    <Content Include="Pictures\Restaurants\7.png" />
+    <Content Include="Pictures\Restaurants\8.png" />
+    <Content Include="Pictures\Restaurants\9.png" />
+    <Content Include="StyleSheet1.css" />
+    <Content Include="tooplate_style.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Site1.Master.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site1.Master.designer.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="Site1.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -87,7 +190,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pictures\Attractions\" />
-    <Folder Include="Pictures\Restaurants\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
