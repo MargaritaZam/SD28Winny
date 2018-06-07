@@ -70,7 +70,6 @@
   <ItemGroup>
     <Content Include="Anjali.sql" />
     <Content Include="Margo.sql" />
-    <Content Include="Tracy.sql" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -84,6 +83,10 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Pictures\Attractions\" />
+    <Folder Include="Pictures\Restaurants\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

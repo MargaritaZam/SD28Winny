@@ -1,10 +1,10 @@
 ﻿use master
 go
-drop database dbGroupProject
+drop database dbRestaurants
 go
-create database dbGroupProject
+create database dbRestaurants
 go
-use dbGroupProject
+use dbRestaurants
 go
 create table tbLocation
 (
