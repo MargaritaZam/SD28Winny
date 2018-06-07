@@ -70,6 +70,7 @@
   <ItemGroup>
     <Content Include="Anjali.sql" />
     <Content Include="Margo.sql" />
+    <Content Include="Natalia.sql" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
