@@ -71,25 +71,27 @@
     <Content Include="Anjali.sql" />
     <Content Include="Margo.sql" />
     <Content Include="Natalia.sql" />
-    <Content Include="Pictures\Attractions\art-gallery.jpg" />
-    <Content Include="Pictures\Attractions\assiniboine-park-zoo.jpg" />
-    <Content Include="Pictures\Attractions\assinpark.jpg" />
-    <Content Include="Pictures\Attractions\Canadian-Museum-for-Human-Rights.jpg" />
-    <Content Include="Pictures\Attractions\childrenmuseum.jpg" />
-    <Content Include="Pictures\Attractions\Costume-Museum-of-Canada.jpg" />
-    <Content Include="Pictures\Attractions\kildonanpark.jpg" />
-    <Content Include="Pictures\Attractions\loch_winnipeg.jpg" />
-    <Content Include="Pictures\Attractions\Manitoba-Museum.jpg" />
-    <Content Include="Pictures\Attractions\manitogahan.jpg" />
-    <Content Include="Pictures\Attractions\oseredok.jpg" />
-    <Content Include="Pictures\Attractions\pulse.jpg" />
-    <Content Include="Pictures\Attractions\redriverex.jpg" />
-    <Content Include="Pictures\Attractions\Royal-Winnipeg-Rifles-Museum-Archives.jpg" />
-    <Content Include="Pictures\Attractions\warehouse.jpg" />
-    <Content Include="Pictures\Attractions\whytefort.jpg" />
-    <Content Include="Pictures\Attractions\Winnipeg-Police-Museum.jpg" />
-    <Content Include="Pictures\Attractions\Winnipeg-Railway-Museum.jpg" />
-    <Content Include="Pictures\Attractions\woodland.jpg" />
+    <Content Include="Pictures\Shopping\Abbey Antiques &amp; Art.jpg" />
+    <Content Include="Pictures\Shopping\Antiques &amp; Funk.jpg" />
+    <Content Include="Pictures\Shopping\Coles.jpg" />
+    <Content Include="Pictures\Shopping\Collectibles Canada.png" />
+    <Content Include="Pictures\Shopping\Dog Eared Books.jpg" />
+    <Content Include="Pictures\Shopping\Family Book Exchange.jpg" />
+    <Content Include="Pictures\Shopping\Frazer Antiques.jpg" />
+    <Content Include="Pictures\Shopping\Indigo.jpg" />
+    <Content Include="Pictures\Shopping\Johnston Terminal.jpg" />
+    <Content Include="Pictures\Shopping\Marway Militaria Inc.jpg" />
+    <Content Include="Pictures\Shopping\Mike General Store.jpg" />
+    <Content Include="Pictures\Shopping\Nerman Books &amp; Collectibles.jpg" />
+    <Content Include="Pictures\Shopping\Sams Place.jpg" />
+    <Content Include="Pictures\Shopping\Selim Antiques.jpg" />
+    <Content Include="Pictures\Shopping\Selkirk Book Exchange.jpg" />
+    <Content Include="Pictures\Shopping\The Old House Revival Company &amp; Antique Mall.jpg" />
+    <Content Include="Pictures\Shopping\Things.jpg" />
+    <Content Include="Pictures\Shopping\Thirsty Flea Market &amp; Auction.png" />
+    <Content Include="Pictures\Shopping\Vintage Glory.jpg" />
+    <Content Include="Pictures\Shopping\Vintage Veruca Antiques.jpg" />
+    <Content Include="Pictures\Shopping\Winnipeg Trading Post.jpg" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -105,6 +107,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Pictures\Attractions\" />
     <Folder Include="Pictures\Restaurants\" />
   </ItemGroup>
   <PropertyGroup>
