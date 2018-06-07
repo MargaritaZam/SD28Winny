@@ -71,6 +71,25 @@
     <Content Include="Anjali.sql" />
     <Content Include="Margo.sql" />
     <Content Include="Natalia.sql" />
+    <Content Include="Pictures\Attractions\art-gallery.jpg" />
+    <Content Include="Pictures\Attractions\assiniboine-park-zoo.jpg" />
+    <Content Include="Pictures\Attractions\assinpark.jpg" />
+    <Content Include="Pictures\Attractions\Canadian-Museum-for-Human-Rights.jpg" />
+    <Content Include="Pictures\Attractions\childrenmuseum.jpg" />
+    <Content Include="Pictures\Attractions\Costume-Museum-of-Canada.jpg" />
+    <Content Include="Pictures\Attractions\kildonanpark.jpg" />
+    <Content Include="Pictures\Attractions\loch_winnipeg.jpg" />
+    <Content Include="Pictures\Attractions\Manitoba-Museum.jpg" />
+    <Content Include="Pictures\Attractions\manitogahan.jpg" />
+    <Content Include="Pictures\Attractions\oseredok.jpg" />
+    <Content Include="Pictures\Attractions\pulse.jpg" />
+    <Content Include="Pictures\Attractions\redriverex.jpg" />
+    <Content Include="Pictures\Attractions\Royal-Winnipeg-Rifles-Museum-Archives.jpg" />
+    <Content Include="Pictures\Attractions\warehouse.jpg" />
+    <Content Include="Pictures\Attractions\whytefort.jpg" />
+    <Content Include="Pictures\Attractions\Winnipeg-Police-Museum.jpg" />
+    <Content Include="Pictures\Attractions\Winnipeg-Railway-Museum.jpg" />
+    <Content Include="Pictures\Attractions\woodland.jpg" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -86,7 +105,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Pictures\Attractions\" />
     <Folder Include="Pictures\Restaurants\" />
   </ItemGroup>
   <PropertyGroup>
