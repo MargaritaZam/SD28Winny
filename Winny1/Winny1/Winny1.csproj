@@ -69,6 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Anjali.sql" />
+    <Content Include="images\aboutUs.jpg" />
     <Content Include="images\facebook.png" />
     <Content Include="images\flickr.png" />
     <Content Include="images\gallery\image_01.jpg" />
