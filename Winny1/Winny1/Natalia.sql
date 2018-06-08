@@ -251,12 +251,190 @@ exec spStores @Crud='c', @StoreName='McNally Robinson',
 			  @Address='1120 Grant Avenue, Winnipeg, MB, R3M 2A6 ' ,
 			  @PhoneNumber='204.475.0483', @LocationId=5, @CategoryId=2 
 
-exec spStores @Crud='c', @StoreName='McNally Robinson', 
-              @Description='McNally Robinson Store',
-              @Path='McNally Robinson.jpg',
-			  @Address='1120 Grant Avenue, Winnipeg, MB, R3M 2A6 ' ,
-			  @PhoneNumber='204.475.0483', @LocationId=5, @CategoryId=2 
+exec spStores @Crud='c', @StoreName='Prairie Sky Books', 
+              @Description='This small, locally-owned and operated bookstore has served the community for 30 years.
+			  Their focus of interest includes Buddhism, Yoga and Vedanta, Native American, Islam, Judaism, 
+			  Christian, Wicca, Paganism, Health, Vegetarian and Vegan cooking, Astrology, Tarot, Occult, 
+			  Birthing and Parenting, and other Conscious Lifestyle material.',
+              @Path='Prairie Sky Books.jpg',
+			  @Address='871 Westminster Avenue, Winnipeg, MB, R3G 1B3 ' ,
+			  @PhoneNumber=' 204.774.6152', @LocationId=5, @CategoryId=2 
 			  
+exec spStores @Crud='c', @StoreName='Whodunit? Mystery Book Store', 
+              @Description='WHODUNIT carries both new and used books and will special-order, 
+			  as well as ship to out of town customers and deliver to those unable to reach the bookstore themselves.',
+              @Path='Whoodonit.jpg',
+			  @Address='165 Lilac Street, Winnipeg, MB, R3M 2S1 ' ,
+			  @PhoneNumber='204.284.9100', @LocationId=6, @CategoryId=2 
+
+exec spStores @Crud='c', @StoreName='A Book Fair', 
+              @Description='Book Fair Winnipeg is a used book store and new comic book shop located in downtown 
+			  Winnipeg. Book Fair Buys, Sells, & Trades quality slightly used books.
+			  Book Fair carries a large selection of current paperback best sellers in all major categories
+			  - from Fiction to Science Fiction / Fantasy to Romance and more. ',
+              @Path='A Book Fair.jpg',
+			  @Address='340 Portage Avenue, Winnipeg, MB, R3C 0C3 ' ,
+			  @PhoneNumber='204.944.1630', @LocationId=9, @CategoryId=2 
+
+exec spStores @Crud='c', @StoreName='Red River Books', 
+              @Description='Red River Books Store',
+              @Path='Red River Books.jpg',
+			  @Address='92 Arthur Street, Winnipeg, MB, R3B 1H3 ' ,
+			  @PhoneNumber=' 204.943.9788 ', @LocationId=9, @CategoryId=2 
+
+exec spStores @Crud='c', @StoreName='Spalifetstyle & Boutique', 
+              @Description='Spalifestyle & Fashion Boutique is devoted to relaxation,
+			  fashion and premium customer service.',
+              @Path='Spalifetstyle Boutique.jpg',
+			  @Address='2001 Henderson Highway, Winnipeg, MB, R2G 1P7 ' ,
+			  @PhoneNumber=' 204.661.6111  ', @LocationId=2, @CategoryId=3 
+
+exec spStores @Crud='c', @StoreName='Bijou Treasures', 
+              @Description='Founded in 2000 Bijou offers an eclectic collection of stylish, handcrafted jewellery.
+			  Bijou is devoted to providing original and creatively designed jewellery. 
+			  Based in Winnipeg, Manitoba they make inspired jewellery from conception to realization.',
+              @Path='Bijou Treasures.jpg',
+			  @Address='2539 Osborne St., Winnipeg, MB, R3L 2B2 ' ,
+			  @PhoneNumber=' 204.233.9744 ', @LocationId=5, @CategoryId=3 
+
+exec spStores @Crud='c', @StoreName='Hush Clothing', 
+              @Description='Located in the hustle & bustle of Winnipeg’s Osborne Village,
+			  Hush Clothing provides affordable & fashionable clothing & accessories in a relaxed place.',
+              @Path='Hush Clothing.jpg',
+			  @Address=' 203-99 Osborne Street, Winnipeg, MB, R3L 2R4 ' ,
+			  @PhoneNumber=' 204.474.1208 ', @LocationId=5, @CategoryId=3 
+
+exec spStores @Crud='c', @StoreName='Jose & Markham', 
+              @Description='Jose & Markham develops new and innovative footwear and accessories for men. ',
+              @Path='Jose  Markham.png',
+			  @Address=' 73 Princess Street, Winnipeg, MB, R3B 1K1 ' ,
+			  @PhoneNumber=' 1.888.872.0701 ', @LocationId=5, @CategoryId=3 
+
+exec spStores @Crud='c', @StoreName='Luxe & Charm', 
+              @Description='Jose & Markham develops new and innovative footwear and accessories for men. ',
+              @Path='Luxe  Charm.jpg',
+			  @Address=' 109 Osborne Street, Winnipeg, MB, R3L 1Y4 ' ,
+			  @PhoneNumber=' 204.415.1734  ', @LocationId=5, @CategoryId=3 
+
+exec spStores @Crud='c', @StoreName='Out of the Blue', 
+              @Description='Out of the Blue is the go to place for 
+			  everything fun, fabulous and wonderful in clothes, shoes, accessories, jewellery and more. ',
+              @Path='Out of the Blue.jpg',
+			  @Address=' 103-99 Osborne Street, Winnipeg, MB, R3L 2R4 ' ,
+			  @PhoneNumber=' 204.475.9771 ', @LocationId=5, @CategoryId=3 
+
+exec spStores @Crud='c', @StoreName='Rockabetty', 
+              @Description='Rockabetty is a 1950*s inspired boutique with clothing for men, 
+			  women and children. Along with carrying international brands, 
+			  they design and manufacture the Rockabetty & Vintage Betty Brands right in Manitoba. ',
+              @Path='Rockabetty.jpg',
+			  @Address='121-B Osborne Street, Winnipeg, MB, R3L 1Y4 ' ,
+			  @PhoneNumber=' 204.414.5511 ', @LocationId=5, @CategoryId=3 
+
+exec spStores @Crud='c', @StoreName='Rooster Shoes', 
+              @Description='Designer shoes, handbags and luggage.
+			  Popular brands include Mat & Nat, Fly, Kenneth Cole and much more.',
+              @Path='Rooster Shoes.jpg',
+			  @Address='452 River Avenue, Winnipeg, MB, R3L 0C7 ' ,
+			  @PhoneNumber='204.219.7008 ', @LocationId=5, @CategoryId=3 
+
+exec spStores @Crud='c', @StoreName='Shakti', 
+              @Description='Located in Winnipeg*s Osborne Village, Shakti is a boutique store offering beads,
+			  clothing, housewares, jewelry and jewelry making supplies.',
+              @Path='Shakti.png',
+			  @Address='194 B Osborne Street, Winnipeg, MB, R3L 1Y8 ' ,
+			  @PhoneNumber='204.415.3338', @LocationId=5, @CategoryId=3 
+
+exec spStores @Crud='c', @StoreName='Silver Lotus', 
+              @Description='Silver jewellery and accessories',
+              @Path='Silver Lotus.jpg',
+			  @Address='103 Osborne Street, Winnipeg, MB, R3L 1Y4 ' ,
+			  @PhoneNumber='204.452.3648', @LocationId=5, @CategoryId=3 
+
+exec spStores @Crud='c', @StoreName='Sophia*s Boutique', 
+              @Description='Silver jewellery and accessories',
+              @Path='Sophias Boutique.jpg',
+			  @Address=' 836 St. Mary Road, Winnipeg, MB, R2M 3P4 ' ,
+			  @PhoneNumber='204.254.2595', @LocationId=5, @CategoryId=3 
+
+exec spStores @Crud='c', @StoreName='The Closet on River', 
+              @Description='Guys and gal*s trendy fashion bar selling new, vintage and consignment 
+			  clothing and accessories priced at least 50-90% off retail value.',
+              @Path='The Closet on River.jpg',
+			  @Address='470 River Avenue, Winnipeg, MB, R3L 0C8' ,
+			  @PhoneNumber='204.233.2442', @LocationId=5, @CategoryId=3 
+
+
+exec spStores @Crud='c', @StoreName='Cha Cha Palace', 
+              @Description='Shoe brands include Fly London, Frye, Fluevog, Camper, Neosens, and OTBT, to name a few.',
+              @Path='Cha Cha Palace.jpg',
+			  @Address='A-580 Academy Road, Winnipeg, MB, R3N 0E3 ' ,
+			  @PhoneNumber=' 204.284.4128 ', @LocationId=6, @CategoryId=3 
+
+exec spStores @Crud='c', @StoreName='Luxe Label', 
+              @Description='Luxe Label sells women clothing that has been edited with timelss modern
+			  and effortless appeal.  Luxe Label carries name brands such as Bailey 44,
+			  Black Halo, David Lerner, Mackage, Rebecca Minkoff , Rich & Skinny, Spanx, Three Dots  and many more.',
+              @Path='Luxe Label.jpg',
+			  @Address='1693 Corydon Avenue, Winnipeg, MB, R3N 0J9 ' ,
+			  @PhoneNumber='204.415.1415', @LocationId=6, @CategoryId=3 
+
+exec spStores @Crud='c', @StoreName='Soul Shoes and Accessories', 
+              @Description='Soul Shoes carries fashionable footwear, hanbags and accessories for both men and women. 
+			  The owners constantly source new product lines to introduce to the Winnipeg market. ',
+              @Path='Soul Shoes and Accessories.jpg',
+			  @Address='167 Lilac Street, Winnipeg, MB, R3M 2S1 ' ,
+			  @PhoneNumber=' 204.452.7685 ', @LocationId=6, @CategoryId=3 
+
+exec spStores @Crud='c', @StoreName='Uomo Casual Fine Clothing For Men', 
+              @Description='European Style clothing, custom made suits, formal wear rental & sales.',
+              @Path='Uomo Casual Fine Clothing For Men.jpg',
+			  @Address='610 Corydon Avenue, Winnipeg, MB, R3L 0P2 ' ,
+			  @PhoneNumber=' 204.475.7244', @LocationId=6, @CategoryId=3 
+
+exec spStores @Crud='c', @StoreName='Aboriginal Designers Cooperative', 
+              @Description='The Aboriginal Designers Cooperative is located on the main floor of Neechi Commons at 865 Main Street, Winnipeg Mb. 
+			  The cooperative is made up of 6 Aboriginal Designers from Manitoba and Saskatchewan.',
+              @Path='Aboriginal Designers Cooperative.jpg',
+			  @Address='865 Main Street, Winnipeg, MB, R2W 3N9  ' ,
+			  @PhoneNumber='204.949.1338', @LocationId=9, @CategoryId=3 
+
+exec spStores @Crud='c', @StoreName='Paperdoll Clothing', 
+              @Description='Paperdoll Clothing offers an array of glamourous, spohisticated and sexy dresses, 
+			  cute tops, skirts, handbags and jewellery.  They do not repeat any piece of clothing ',
+              @Path='Paperdoll Clothing.jpg',
+			  @Address='1-214 McDermot Avenue, Winnipeg, MB, R3B 0S3 ' ,
+			  @PhoneNumber='204.947.9790', @LocationId=9, @CategoryId=3 
+
+exec spStores @Crud='c', @StoreName='Tara Davis Studio Boutique', 
+              @Description='Located in the heart of the Exchange District, Tara Davis Studio Boutique is a combination studio, boutique, gallery and whimsical treasure hunt filled with unique pieces tara has made herself or selected from more than 50 Canadian makers.
+			  You will find jewellery, handbags, pillows, candles, baby items, men*s accessories, clocks, cards and more.',
+              @Path='Tara Davis Studio Boutique.jpg',
+			  @Address='246 McDermot Avenue, Winnipeg, MB, R3B 0S5 ' ,
+			  @PhoneNumber='204.504.8272 ', @LocationId=9, @CategoryId=3 
+
+exec spStores @Crud='c', @StoreName='The Foxy Shoppe', 
+              @Description='Paperdoll Clothing offers an array of glamourous, spohisticated and sexy dresses, 
+			  cute tops, skirts, handbags and jewellery.  They do not repeat any piece of clothing ',
+              @Path='The Foxy Shoppe.jpg',
+			  @Address='87 King Street, Winnipeg, MB, R3B 1H7 ' ,
+			  @PhoneNumber=' 204.338.3699 ', @LocationId=9, @CategoryId=3 
+
+exec spStores @Crud='c', @StoreName='The Haberdashery', 
+              @Description='The Haberdashery is a men*s and women*s accessory shop that carries 
+			  a variety of quality accessories, including hats, neck ties, bow ties, scarves, gloves,
+			  buckles, and sunglasses.',
+              @Path='The Haberdashery.jpg',
+			  @Address='84 Albert Street, Winnipeg, MB, R3B 1G2  ' ,
+			  @PhoneNumber=' 204.256.3758 ', @LocationId=9, @CategoryId=3 
+
+exec spStores @Crud='c', @StoreName='Callisto Couture Custom Corsets', 
+              @Description='Corsetry is a timeless craft dating back to 1600 B.C. 
+			  At Callisto Couture we enjoy using elements from the past to inspire out contemporary designs.
+			  Fine workmanship and attention to detail go into every Callisto Couture corset.',
+              @Path='Callisto Couture Custom Corsets.jpg',
+			  @Address='506 - 63 Albert Street, Winnipeg, MB, R3B 1G4 ' ,
+			  @PhoneNumber=' 204.480.8613  ', @LocationId=9, @CategoryId=3 
 go
 exec spStores @Crud='r'
 go
