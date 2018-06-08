@@ -54,7 +54,7 @@ if @crud ='r'
 begin
 select attractionID, attractionCategory,
 atName, atDesc, atAddress, atPhone,
-atWebsite, './Pictures/'+ atImage as image, location from tbAttractions
+atWebsite, './Attractions/'+ atImage as image, location from tbAttractions
 where attractionID=isnull(@id, attractionID)
 end
 
@@ -93,7 +93,7 @@ exec spAttractions @crud='c', @category='Museums',
 							  @address='245 Smith Street, Winnipeg', 
 							  @phone='(204) 986-3976',
                               @website='http://winnipeg.ca/police/Museum/', 
-							  @image='Attractions/Winnipeg-Police-Museum.jpg', 
+							  @image='Winnipeg-Police-Museum.jpg', 
 							  @location=9
 
 exec spAttractions @crud='c', @category='Museums',
@@ -102,7 +102,7 @@ exec spAttractions @crud='c', @category='Museums',
 							  @address='85 Israel Asper Way, Winnipeg', 
 							  @phone='(204) 289-2000',
                               @website='https://humanrights.ca/', 
-							  @image='Attractions/Canadian-Museum-for-Human-Rights.jpg', 
+							  @image='Canadian-Museum-for-Human-Rights.jpg', 
 							  @location=9
 
 exec spAttractions @crud='c', @category='Museums',
@@ -111,7 +111,7 @@ exec spAttractions @crud='c', @category='Museums',
 							  @address='123 Main Street, Winnipeg', 
 							  @phone='(204) 942-4632',
                               @website='http://www.wpgrailwaymuseum.com/', 
-							  @image='Attractions/Winnipeg-Railway-Museum.jpg', 
+							  @image='Winnipeg-Railway-Museum.jpg', 
 							  @location=9
 
 exec spAttractions @crud='c', @category='Museums',
@@ -120,7 +120,7 @@ exec spAttractions @crud='c', @category='Museums',
 							  @address='969 St Matthews Avenue, Winnipeg', 
 							  @phone='',
                               @website='https://rwrmuseum.com/', 
-							  @image='Attractions/Royal-Winnipeg-Rifles-Museum-Archives.jpg', 
+							  @image='Royal-Winnipeg-Rifles-Museum-Archives.jpg', 
 							  @location=7
 
 exec spAttractions @crud='c', @category='Museums',
@@ -129,7 +129,7 @@ exec spAttractions @crud='c', @category='Museums',
 							  @address='190 Rupert Avenue, Winnipeg', 
 							  @phone='(204) 956-2830',
                               @website='https://manitobamuseum.ca/main/', 
-							  @image='Attractions/Manitoba-', 
+							  @image='Manitoba-Museum.jpg', 
 							  @location=9
 
 exec spAttractions @crud='c', @category='Museums',
@@ -138,7 +138,7 @@ exec spAttractions @crud='c', @category='Museums',
 							  @address='45 Forks Market Road, Winnipeg', 
 							  @phone='(204) 924-4000',
                               @website='https://childrensmuseum.com/', 
-							  @image='Attractions/childrenmuseum.jpg', 
+							  @image='childrenmuseum.jpg', 
 							  @location=9
 
 exec spAttractions @crud='c', @category='Museums',
@@ -147,7 +147,7 @@ exec spAttractions @crud='c', @category='Museums',
 							  @address='109 Pacific Avenue, Winnipeg', 
 							  @phone='(204) 989-0072',
                               @website='http://www.costumemuseumcanada.com/', 
-							  @image='Attractions/Costume-Museum-of-Canada.jpg', 
+							  @image='Costume-Museum-of-Canada.jpg', 
 							  @location=9
 
 
@@ -157,7 +157,7 @@ exec spAttractions @crud='c', @category='Galleries',
 							  @address='300 Memorial Blvd, Winnipeg', 
 							  @phone='(204) 786-6641',
                               @website='https://www.wag.ca/', 
-							  @image='Attractions/art-gallery.jpg', 
+							  @image='art-gallery.jpg', 
 							  @location=9
 
 exec spAttractions @crud='c', @category='Galleries',
@@ -166,7 +166,7 @@ exec spAttractions @crud='c', @category='Galleries',
 							  @address='25 Forks Market Rd (Johnston Terminal), Winnipeg', 
 							  @phone='(204) 957-7140',
                               @website='http://www.pulsegallery.ca/', 
-							  @image='Attractions/pulse.jpg', 
+							  @image='pulse.jpg', 
 							  @location=9
 
 exec spAttractions @crud='c', @category='Galleries',
@@ -175,7 +175,7 @@ exec spAttractions @crud='c', @category='Galleries',
 							  @address='222 McDermot Ave, Winnipeg', 
 							  @phone='(204) 943-1681',
                               @website='https://www.facebook.com/pages/Warehouse-Artworks/238848533780', 
-							  @image='Attractions/warehouse.jpg', 
+							  @image='warehouse.jpg', 
 							  @location=9
 
 exec spAttractions @crud='c', @category='Galleries',
@@ -184,7 +184,7 @@ exec spAttractions @crud='c', @category='Galleries',
 							  @address='184 Alexander Ave East, Winnipeg', 
 							  @phone='(204) 942-0218',
                               @website='http://oseredok.ca/', 
-							  @image='Attractions/oseredok.jpg', 
+							  @image='oseredok.jpg', 
 							  @location=9
 
 exec spAttractions @crud='c', @category='Galleries',
@@ -193,7 +193,7 @@ exec spAttractions @crud='c', @category='Galleries',
 							  @address='306 St. Mary*s Road, Winnipeg', 
 							  @phone='(204) 791-2239 ',
                               @website='http://www.lochgallery.com/', 
-							  @image='Attractions/loch_winnipeg.jpg', 
+							  @image='loch_winnipeg.jpg', 
 							  @location=3
 
 exec spAttractions @crud='c', @category='Galleries',
@@ -202,7 +202,7 @@ exec spAttractions @crud='c', @category='Galleries',
 							  @address='535 Academy Road, Winnipeg', 
 							  @phone='(204) 947-0700',
                               @website='http://www.woodlandsgallery.com/', 
-							  @image='Attractions/woodland.jpg', 
+							  @image='woodland.jpg', 
 							  @location=9
 
 exec spAttractions @crud='c', @category='Parks',
@@ -211,8 +211,8 @@ exec spAttractions @crud='c', @category='Parks',
 							  @address='55 Pavilion Crescent, Winnipeg', 
 							  @phone='(204) 927-6000  ',
                               @website='https://www.assiniboinepark.ca/', 
-							  @image='Attractions/assiniboine-park-zoo.jpg', 
-							  @location=7
+							  @image='assiniboine-park-zoo.jpg', 
+							  @location=6
 
 exec spAttractions @crud='c', @category='Parks',
                               @name='Red River Exhibition Park',
@@ -220,43 +220,61 @@ exec spAttractions @crud='c', @category='Parks',
 							  @address='3977 Portage Avenue, Winnipeg', 
 							  @phone='(204) 888-6990',
                               @website='http://www.redriverex.com/', 
-							  @image='Attractions/redriverex.jpg', 
+							  @image='redriverex.jpg', 
 							  @location=7
 
 exec spAttractions @crud='c', @category='Parks',
-                              @name='',
-                              @desc='', 
-							  @address='', 
-							  @phone='(204) ',
-                              @website='', 
-							  @image='Attractions/', 
-							  @location=9
+                              @name='Birds Hill Provincial Park',
+                              @desc='This provincial park north of Winnipeg offers a number of activities. Featuring Kingfisher Lake, which can be used for swimming and boating, there is also a network of trails that visitors can walk, cycle or horseback ride in the summer, and snowmobile and cross-country ski in winter. The park, which is home to the Winnipeg Folk Festival, contains a number of picnic areas and campgrounds.', 
+							  @address='Hwy 59, 24 km (15 mi) N of downtown Winnipeg, Winnipeg', 
+							  @phone='(204) 654-6730',
+                              @website='http://www.gov.mb.ca/sd/parks/popular_parks/central/birds_info.html#map', 
+							  @image='birdshill.png', 
+							  @location=1
 
 exec spAttractions @crud='c', @category='Parks',
-                              @name='',
-                              @desc='', 
-							  @address='', 
-							  @phone='(204) ',
-                              @website='', 
-							  @image='Attractions/', 
-							  @location=9
+                              @name='Kildonan Park',
+                              @desc='Established in 1909, the park features the Peguis Pavilion, Rainbow Stage, the Witch*s Hut, an Olympic-sized outdoor swimming pool, duck pond, and soccer field as well as picnic tables and barbecue pits.There are picnic sites and shelters available for rent.In winter the park features a skating pond and two tobogganing slides.', 
+							  @address='2015 Main Street, Winnipeg', 
+							  @phone='311 ',
+                              @website='http://www.winnipeg.ca/publicworks/parksOpenSpace/default.stm', 
+							  @image='kildonanpark.jpg', 
+							  @location=1
 
 exec spAttractions @crud='c', @category='Parks',
-                              @name='',
-                              @desc='', 
-							  @address='', 
-							  @phone='(204) ',
-                              @website='', 
-							  @image='Attractions/', 
-							  @location=9
+                              @name='St. Vital Park',
+                              @desc='Situated on the Red River, this park is the perfect place for family get-togethers and recreational sports. Numerous picnic sites and wedding photo locations can be booked. ', 
+							  @address='190 River Road, Winnipeg', 
+							  @phone='(204) 986-7623',
+                              @website='http://www.winnipeg.ca/publicworks/parksOpenSpace/ParkRentals/BookableParks/StVital.stm', 
+							  @image='stVital.jpg', 
+							  @location=5
 
 exec spAttractions @crud='c', @category='Parks',
-                              @name='',
-                              @desc='', 
-							  @address='', 
-							  @phone='(204) ',
-                              @website='', 
-							  @image='Attractions/', 
+                              @name='King*s Park',
+                              @desc='King’s Park has many pathways (gravel and paved) to enjoy some of which lead to marshland. In the centre of the park you will find the beautiful Pagoda Gardens and the Carol Shield*s Memorial Labyrinth. The Park also has a soccer field, two baseball diamonds and an off-leash dog park area.', 
+							  @address='198 King*s Drive (close to the U of M campus), Winnipeg', 
+							  @phone='311 ',
+                              @website='http://winnipeg.ca/publicworks/parksOpenSpace/ParkRentals/BookableParks/Kings.stm', 
+							  @image='King.jpg', 
+							  @location=5
+
+exec spAttractions @crud='c', @category='Parks',
+                              @name='FortWhyte Alive',
+                              @desc='FortWhyte Alive is Winnipeg*s premier nature oasis. Alive with recreation, historical interpretation and environmental education, FortWhyte offers fun for all ages, 364 days a year.', 
+							  @address='1961 McCreary Road, Winnipeg', 
+							  @phone='(204) 989-8355',
+                              @website='https://www.fortwhyte.org/', 
+							  @image='whytefort.jpg', 
+							  @location=6
+
+exec spAttractions @crud='c', @category='Parks',
+                              @name='The Forks - Historic Port and Riverwalk',
+                              @desc='Discover the beauty of the city along the river as you follow the curves of the Red and Assiniboine Rivers to the grounds of the Legislative Building. Board the River Spirit for a guided river tour, rent a canoe or paddleboat or stroll the winding Riverwalk. In winter, the ice is groomed for skating and cross-country skiing on the popular River Trail.', 
+							  @address='Forks Market Road, Winnipeg', 
+							  @phone='(204) 98FORKS (36757)',
+                              @website='https://www.theforks.com/attractions/the-forks-national-historic-site-of-canada', 
+							  @image='forks.jpg', 
 							  @location=9
 
 
