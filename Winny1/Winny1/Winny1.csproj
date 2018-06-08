@@ -102,7 +102,6 @@
     <Content Include="index.aspx" />
     <Content Include="Margo.sql" />
     <Content Include="Natalia.sql" />
-    <Content Include="Restaurants.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
