@@ -72,8 +72,8 @@ as begin
 	end
 end
 go
---select * from tbFood_Category
---select * from tbLocation
+select * from tbFood_Category
+select * from tbLocation
 go
 exec spRestaurants @crud='c',
 				@RestaurantName='Lovey"s BBQ',
@@ -620,6 +620,115 @@ exec spRestaurants @crud='c',
 				@FoodId=8,
 				@LocationId=9
 
+exec spRestaurants @crud='c',
+				@RestaurantName='Massawa',
+				@Description='Busy and popular spot serving Eritrean and Ethiopian classics like wots (stews) and tibs (sautéed meats) with piles of injera (sour flatbreads).',
+				@Address='200-121 Osborne Street',
+				@PostalCode='R3L 1Y4',
+				@ContactNo='(204) 284-3194',
+				@Path='55.jpg',
+				@FoodId=9,
+				@LocationId=5
+
+exec spRestaurants @crud='c',
+				@RestaurantName='Harmans Café',
+				@Description='Ethiopian favourites like tibs and wats served alongside fresh injera. Order a traditional coffee at meals end. ',
+				@Address='570 Sargent Avenue',
+				@PostalCode='R3B 3L5',
+				@ContactNo='(204) 774-6997',
+				@Path='56.jpg',
+				@FoodId=9,
+				@LocationId=9
+
+exec spRestaurants @crud='c',
+				@RestaurantName='Kokeb',
+				@Description='Friendly and charming service at this Winnipeg favourite. Ethiopian favourites like doro tibs and wots (stews) served with house made injera. Make sure to order a traditional Ethiopian coffee to finish the meal.',
+				@Address='266 Edmonton Street',
+				@PostalCode='R3C 1R9',
+				@ContactNo='(204) 784-9267',
+				@Path='57.jpg',
+				@FoodId=9,
+				@LocationId=9
+
+exec spRestaurants @crud='c',
+				@RestaurantName='Mon Ami Louis',
+				@Description='Located on the iconic Esplanade Riel, "Mon Ami Louis" is the newest addition to the WOW! Family of restaurants!',
+				@Address=' Esplanade Riel',
+				@PostalCode='R2H 2B9',
+				@ContactNo='(204) 942-1090',
+				@Path='58.jpg',
+				@FoodId=12,
+				@LocationId=9
+
+exec spRestaurants @crud='c',
+				@RestaurantName='Peasant Cookery',
+				@Description='A favourite amongst Winnipegs downtown business and creatives crowd, Peasant Cookery is a dance between classic and modern French with a helping of down home sense. House charcuterie is a must try on chef Tristan Foucaults menu. ',
+				@Address='100-283 Bannatyne Avenue',
+				@PostalCode=' R3B 1M3',
+				@ContactNo='(204) 989-7700',
+				@Path='59.jpg',
+				@FoodId=12,
+				@LocationId=9
+
+exec spRestaurants @crud='c',
+				@RestaurantName='Creme deLEssence',
+				@Description='hef RJ Urbano is making gorgeous, inventive food — especially for brunch — in this small café, reworking dishes that combine his Filipino roots with his French training. ',
+				@Address='1833 Inkster Boulevard',
+				@PostalCode='R2X 1R3',
+				@ContactNo='(204) 694-2225',
+				@Path='60.jpg',
+				@FoodId=12,
+				@LocationId=8
+
+exec spRestaurants @crud='c',
+				@RestaurantName='Café Ce Soir',
+				@Description='A proponent of the slow food movement, chef/owner Cam Tran delivers French bistro favourites using local and organic ingredients wherever possible.',
+				@Address=' 937 Portage Avenue',
+				@PostalCode='R3G 0P9',
+				@ContactNo='(204) 414-7647',
+				@Path='61.jpg',
+				@FoodId=12,
+				@LocationId=7
+
+exec spRestaurants @crud='c',
+				@RestaurantName='Infernos on Academy',
+				@Description='French Canadian meets Mediterranean meats global fusion at this Academy location, baby brother to the original St. Boniface spot. Chef/owner Fern Kirouacs imagination runs wild on his plates. ',
+				@Address='414 Academy Road',
+				@PostalCode='R3N 0B9',
+				@ContactNo='(204) 475-7400',
+				@Path='62.jpg',
+				@FoodId=12,
+				@LocationId=6
+
+exec spRestaurants @crud='c',
+				@RestaurantName='Sous Sol',
+				@Description='From the candlelight interior, to the antique chairs and tables, the persian rugs that line the floor, the gypsy jazz that plays on the stereo, and the hilariously old-school server’s station in the dining room',
+				@Address='22-222 Osborne Street',
+				@PostalCode='R3L 1Z3',
+				@ContactNo='(204) 867-5309',
+				@Path='63.jpg',
+				@FoodId=12,
+				@LocationId=5
+
+exec spRestaurants @crud='c',
+				@RestaurantName='Resto Gare',
+				@Description='Dine on contemporary French cuisine with a touch of Manitoba flair inside a 19th century refurbished rail station and attached rail car. Touches of industrial chic mingle with French salon at this St. Boniface haunt',
+				@Address='630 Des Meurons Street',
+				@PostalCode='R2H 2P9',
+				@ContactNo='(204) 837-3624',
+				@Path='64.jpg',
+				@FoodId=12,
+				@LocationId=4
+
+exec spRestaurants @crud='c',
+				@RestaurantName='Beaujenas French Table',
+				@Description='Mediterranean and French dhôte table service. Chef/owner Randy Reynolds delights dinners with his modern interpretations of classic dishes.' ,
+				@Address='302 Hamel Avenue',
+				@PostalCode=' R2H 3E9',
+				@ContactNo='(204) 943-2924',
+				@Path='65.jpg',
+				@FoodId=12,
+				@LocationId=3
 
 exec spRestaurants @crud='r'
 
