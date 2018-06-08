@@ -238,11 +238,24 @@ exec spStores @Crud='c', @StoreName='Indigo',
 			  @PhoneNumber='204.488.6621', @LocationId=4, @CategoryId=2 
 
 
-exec spStores @Crud='c', @StoreName='Indigo', 
-              @Description='Indigo Store',
-              @Path='Indigo.jpg',
-			  @Address='1590 Kenaston Blvd., Winnipeg, MB, R3P 0Y4' ,
-			  @PhoneNumber='204.488.6621', @LocationId=4, @CategoryId=2 
+exec spStores @Crud='c', @StoreName='Burton Lysecki Books', 
+              @Description='Burton Lysecki Books buy and sell quality, used books--out-of-print, rare, 
+			  vintage, antiquarian, recent, fine bindings, paperbacks, huge coffee table books and tiny miniatures. ',
+              @Path='Burton Lysecki Books.jpg',
+			  @Address='527 Osborne Street, Winnipeg, MB, R3L 2B2 ' ,
+			  @PhoneNumber='204.284.4546 ', @LocationId=5, @CategoryId=2 
+
+exec spStores @Crud='c', @StoreName='McNally Robinson', 
+              @Description='McNally Robinson Store',
+              @Path='McNally Robinson.jpg',
+			  @Address='1120 Grant Avenue, Winnipeg, MB, R3M 2A6 ' ,
+			  @PhoneNumber='204.475.0483', @LocationId=5, @CategoryId=2 
+
+exec spStores @Crud='c', @StoreName='McNally Robinson', 
+              @Description='McNally Robinson Store',
+              @Path='McNally Robinson.jpg',
+			  @Address='1120 Grant Avenue, Winnipeg, MB, R3M 2A6 ' ,
+			  @PhoneNumber='204.475.0483', @LocationId=5, @CategoryId=2 
 			  
 go
 exec spStores @Crud='r'

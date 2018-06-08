@@ -71,6 +71,29 @@
     <Content Include="Anjali.sql" />
     <Content Include="Margo.sql" />
     <Content Include="Natalia.sql" />
+    <Content Include="Shopping\Abbey Antiques &amp; Art.jpg" />
+    <Content Include="Shopping\Antiques &amp; Funk.jpg" />
+    <Content Include="Shopping\Burton Lysecki Books.jpg" />
+    <Content Include="Shopping\Coles.jpg" />
+    <Content Include="Shopping\Collectibles Canada.png" />
+    <Content Include="Shopping\Dog Eared Books.jpg" />
+    <Content Include="Shopping\Family Book Exchange.jpg" />
+    <Content Include="Shopping\Frazer Antiques.jpg" />
+    <Content Include="Shopping\Indigo.jpg" />
+    <Content Include="Shopping\Johnston Terminal.jpg" />
+    <Content Include="Shopping\Marway Militaria Inc.jpg" />
+    <Content Include="Shopping\McNally Robinson.jpg" />
+    <Content Include="Shopping\Mike General Store.jpg" />
+    <Content Include="Shopping\Nerman Books &amp; Collectibles.jpg" />
+    <Content Include="Shopping\Sams Place.jpg" />
+    <Content Include="Shopping\Selim Antiques.jpg" />
+    <Content Include="Shopping\Selkirk Book Exchange.jpg" />
+    <Content Include="Shopping\The Old House Revival Company &amp; Antique Mall.jpg" />
+    <Content Include="Shopping\Things.jpg" />
+    <Content Include="Shopping\Thirsty Flea Market &amp; Auction.png" />
+    <Content Include="Shopping\Vintage Glory.jpg" />
+    <Content Include="Shopping\Vintage Veruca Antiques.jpg" />
+    <Content Include="Shopping\Winnipeg Trading Post.jpg" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
