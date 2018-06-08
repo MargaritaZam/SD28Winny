@@ -69,6 +69,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Anjali.sql" />
+    <Content Include="HotelPictures\CanadInnsHSC.png" />
+    <Content Include="HotelPictures\DeltaHotel.png" />
+    <Content Include="HotelPictures\FortGarryHotel.jpg" />
+    <Content Include="HotelPictures\HiltonAirport.jpg" />
+    <Content Include="HotelPictures\InnAtTheForks.jpg" />
+    <Content Include="HotelPictures\RadissonHotel.jpg" />
+    <Content Include="HotelPictures\RoyalAlbertArmsHotel.jpg" />
+    <Content Include="HotelPictures\ViscountGort.png" />
     <Content Include="images\facebook.png" />
     <Content Include="images\flickr.png" />
     <Content Include="images\gallery\image_01.jpg" />
@@ -102,6 +110,7 @@
     <Content Include="index.aspx" />
     <Content Include="Margo.sql" />
     <Content Include="Natalia.sql" />
+    <Content Include="Tracy.sql" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
