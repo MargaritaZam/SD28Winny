@@ -69,7 +69,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Anjali.sql" />
-    <Content Include="images\aboutUs.jpg" />
     <Content Include="images\facebook.png" />
     <Content Include="images\flickr.png" />
     <Content Include="images\gallery\image_01.jpg" />
@@ -134,6 +133,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pictures\Attractions\" />
+    <Folder Include="Pictures\Restaurants\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
