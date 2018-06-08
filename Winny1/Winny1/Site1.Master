@@ -18,10 +18,23 @@
             <div id="site_title"><h1><a href="#">Winnipeg</a></h1></div>
              <div id="menu">
                 <ul class="navigation">
+           
                     <li><a href="#home" class="selected">Home</a></li>
                     <li><a href="#about">About Us</a></li>
                     <li><a href="#services">Hotels</a></li>
-                    <li><a href="#gallery">Restaurants</a></li>
+                    <li class="dropdown"><a href="Restaurants.aspx" class="dropbtn">Restaurants</a>
+                        <div class="dropdown-content">
+                        <a href="Restaurants.aspx">Where to Eat</a>
+                        <a href="#"> Peg City Grub Blog</a>
+                        <a href="#"> Best Eats</a>
+                        <a href="#">Breweries</a>
+                        <a href="#">Food And Truck Guide</a>
+                        <a href="#">Tours</a>
+                        <a href="#">Top Chefs</a>
+                        <a href="#">Resources & Articles</a>
+                            </div>
+                    </li>
+
                     <li><a href="#contact">Contact</a></li>
                 </ul>    	
             </div> <!-- end of tooplate_menu -->
