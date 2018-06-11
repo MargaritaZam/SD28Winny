@@ -18,11 +18,11 @@
             <div id="site_title"><h1><a href="#">Winnipeg</a></h1></div>
              <div id="menu">
                 <ul class="navigation">
+           
                     <li><a href="#home" class="selected">Home</a></li>
                     <li><a href="#about">About Us</a></li>
                     <li><a href="#services">Hotels</a></li>
                     <li><a href="#gallery">Restaurants</a></li>
-                    <li><a href="attraction.aspx">Attractions</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>    	
             </div> <!-- end of tooplate_menu -->

@@ -26,12 +26,15 @@
                   </ul>
                 </div>
               </div>
+                </div>
+              </div>
+
               <!-- end of home -->
 			  
               <div class="panel" id="about">
                 <div class="col_320 float_l">
                   <h1>About Us</h1>
-                  <img src="images/tooplate_image_02.jpg" alt="Image 02" class="image_wrapper" />
+                  <img src="images/aboutUs.jpg"  alt="Image 02" class="image_wrapper" />
                   <p><em>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse in lectus turpis. Vivamus cursus tortor quis leo ullamcorper auctor quis tincidunt metus. In non ipsum leo.</em></p>
                   <p>Vestibulum vitae lectus a leo commodo egestas. Sed et ligula mauris. Donec interdum iaculis eros, sed porttitor justo ornare ac. Suspendisse ultrices arcu auctor sapien <a href="#">malesuada dictum</a>. Maecenas varius blandit risus in varius. Donec eget arcu nisi.</p>
                 </div>

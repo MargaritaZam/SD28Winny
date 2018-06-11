@@ -69,7 +69,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Anjali.sql" />
-    <Content Include="attraction.aspx" />
     <Content Include="Margo.sql" />
     <Content Include="Natalia.sql" />
     <Content Include="Web.config" />
@@ -90,6 +89,13 @@
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Restaurants.aspx.cs">
+      <DependentUpon>Restaurants.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurants.aspx.designer.cs">
+      <DependentUpon>Restaurants.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
