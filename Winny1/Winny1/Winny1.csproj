@@ -102,6 +102,7 @@
     <Content Include="index.aspx" />
     <Content Include="Margo.sql" />
     <Content Include="Natalia.sql" />
+    <Content Include="Restaurants.aspx" />
     <Content Include="Shopping\A Book Fair.jpg" />
     <Content Include="Shopping\Abbey Antiques &amp; Art.jpg" />
     <Content Include="Shopping\Aboriginal Designers Cooperative.jpg" />
@@ -193,6 +194,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pictures\Restaurants\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\Downloads\WebAppWithDAL\WebAppWithDAL\DAL_Project\DAL_Project.csproj">
+      <Project>{e3026510-5b06-4ff2-816b-3f06cbe5f7df}</Project>
+      <Name>DAL_Project</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
