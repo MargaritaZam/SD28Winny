@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Winny1", "Winny1\Winny1.csproj", "{EF31BDC7-D2BA-4AC9-99E3-ED96B55BAA81}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL_Project", "..\..\..\..\Downloads\WebAppWithDAL\WebAppWithDAL\DAL_Project\DAL_Project.csproj", "{E3026510-5B06-4FF2-816B-3F06CBE5F7DF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{EF31BDC7-D2BA-4AC9-99E3-ED96B55BAA81}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF31BDC7-D2BA-4AC9-99E3-ED96B55BAA81}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF31BDC7-D2BA-4AC9-99E3-ED96B55BAA81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3026510-5B06-4FF2-816B-3F06CBE5F7DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3026510-5B06-4FF2-816B-3F06CBE5F7DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3026510-5B06-4FF2-816B-3F06CBE5F7DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3026510-5B06-4FF2-816B-3F06CBE5F7DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

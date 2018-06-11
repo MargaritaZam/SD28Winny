@@ -24,7 +24,7 @@
                     <li><a href="#services">Hotels</a></li>
                     <li class="dropdown"><a href="Restaurants.aspx" class="dropbtn">Restaurants</a>
                         <div class="dropdown-content">
-                        <a href="Restaurants.aspx">Where to Eat</a>
+                        <a href="#">Where to Eat</a>
                         <a href="#"> Peg City Grub Blog</a>
                         <a href="#"> Best Eats</a>
                         <a href="#">Breweries</a>

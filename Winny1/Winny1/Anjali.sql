@@ -59,12 +59,16 @@ create procedure spRestaurants
 @crud varchar(1)=null
 )
 as begin
-	if @crud='r'
+	if @crud='a'
 	begin
-		select RestaurantName,Address,PostalCode,ContactNo,'.\Pictures\Restaurents\' + path as path from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId)
+		select RestaurantName,Description,RestaurantId,'.\Pictures\Restaurants\' + path as path  from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId)
+	end
+	else if @crud='r'
+	begin
+		select RestaurantName,Address,PostalCode,ContactNo,'.\Pictures\Restaurants\' + path as path from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId)
 	end
 	else if @crud='c'
-	begin;
+	begin
 	insert into tbRestaurants(RestaurantName,Description,Address,PostalCode,ContactNo,path,FoodId,LocationId)
 							values
 							(@RestaurantName,@Description,@Address,@PostalCode,@ContactNo,@Path,@FoodId,@LocationId)
@@ -732,7 +736,7 @@ exec spRestaurants @crud='c',
 
 exec spRestaurants @crud='r'
 
-
+exec spRestaurants @crud='a'
 
 
 
