@@ -17,6 +17,9 @@ insert into tbLocation(LocationName) values
 					('South'),('Southwest'),('West'),('Northwest'),
 					('Downtown'),('Airport/West'),('Just Outside Winnipeg')
 go
+
+select * from tbLocation
+go
 create table tbShoppingCategories(
 CategoryId int identity (1,1) primary key,
 CategoryType varchar (50) not null
@@ -32,13 +35,10 @@ go
 exec spAddShoppingCategories  @CategoryType='Antiques'
 exec spAddShoppingCategories  @CategoryType='Book Stores'
 exec spAddShoppingCategories  @CategoryType='Boutique'
-exec spAddShoppingCategories  @CategoryType='Districts'
 exec spAddShoppingCategories  @CategoryType='Outlet'
-exec spAddShoppingCategories  @CategoryType='Farmer*s Markets'
 exec spAddShoppingCategories  @CategoryType='Gourmet Foods'
 exec spAddShoppingCategories  @CategoryType='Shopping Malls'
-exec spAddShoppingCategories  @CategoryType='Specialty&Hobby'
-exec spAddShoppingCategories  @CategoryType='Wine&Spirits'
+
 go
 create procedure spGetShoppingCategories
 as begin
@@ -393,7 +393,8 @@ exec spStores @Crud='c', @StoreName='Uomo Casual Fine Clothing For Men',
 			  @PhoneNumber=' 204.475.7244', @LocationId=6, @CategoryId=3 
 
 exec spStores @Crud='c', @StoreName='Aboriginal Designers Cooperative', 
-              @Description='The Aboriginal Designers Cooperative is located on the main floor of Neechi Commons at 865 Main Street, Winnipeg Mb. 
+              @Description='The Aboriginal Designers Cooperative is located on the main floor of
+			  Neechi Commons at 865 Main Street, Winnipeg Mb. 
 			  The cooperative is made up of 6 Aboriginal Designers from Manitoba and Saskatchewan.',
               @Path='Aboriginal Designers Cooperative.jpg',
 			  @Address='865 Main Street, Winnipeg, MB, R2W 3N9  ' ,
@@ -407,8 +408,11 @@ exec spStores @Crud='c', @StoreName='Paperdoll Clothing',
 			  @PhoneNumber='204.947.9790', @LocationId=9, @CategoryId=3 
 
 exec spStores @Crud='c', @StoreName='Tara Davis Studio Boutique', 
-              @Description='Located in the heart of the Exchange District, Tara Davis Studio Boutique is a combination studio, boutique, gallery and whimsical treasure hunt filled with unique pieces tara has made herself or selected from more than 50 Canadian makers.
-			  You will find jewellery, handbags, pillows, candles, baby items, men*s accessories, clocks, cards and more.',
+              @Description='Located in the heart of the Exchange District, Tara Davis Studio Boutique is a combination studio, 
+			  boutique, gallery and whimsical treasure hunt filled with unique pieces tara has made herself 
+			  or selected from more than 50 Canadian makers.
+			  You will find jewellery, handbags, pillows, candles, baby items, men*s accessories, clocks, cards 
+			  and more.',
               @Path='Tara Davis Studio Boutique.jpg',
 			  @Address='246 McDermot Avenue, Winnipeg, MB, R3B 0S5 ' ,
 			  @PhoneNumber='204.504.8272 ', @LocationId=9, @CategoryId=3 
@@ -441,6 +445,7 @@ exec spStores @Crud='c', @StoreName='Addition-Elle Outlet',
               @Path='Addition-Elle Outlet.jpg',
               @Address='4 - 1585 Kenaston Boulevard, Winnipeg, MB, R3P 2N3 ' ,
               @PhoneNumber=' 204.488.2857  ', @LocationId=6, @CategoryId=4 
+
 exec spStores @Crud='c', @StoreName='Danier Leather Factory Outlet', 
               @Description='Danier began as an independent family owned design house, manufacturer and retailer 
               in 1972. With an expertise and heritage creating leather garments, handbags and accessories we have 
@@ -448,11 +453,117 @@ exec spStores @Crud='c', @StoreName='Danier Leather Factory Outlet',
               @Path='Danier Leather Factory Outlet.jpg',
               @Address='1 - 1585 Kenaston Boulevard, Winnipeg, MB, R3P 2N3 ' ,
               @PhoneNumber='204.489.1110  ', @LocationId=6, @CategoryId=4 
+
 exec spStores @Crud='c', @StoreName='Roots Fashion Outlet', 
               @Description='Roots Fashion Outlet Store',
               @Path='Roots Fashion Outlet.jpg',
               @Address='5 - 1585 Kenaston Boulevard, Winnipeg, MB, R3P 2N3 ' ,
               @PhoneNumber='204.489.9366  ', @LocationId=6, @CategoryId=4 
+
+exec spStores @Crud='c', @StoreName='Le Chateau Outlet', 
+              @Description='Le Chateau Outlet Store',
+              @Path='Le Chateau Outlet.jpg',
+              @Address='1395 Ellice Avenue, Winnipeg, MB ' ,
+              @PhoneNumber='204.788.1388  ', @LocationId=7, @CategoryId=4 
+
+exec spStores @Crud='c', @StoreName='Canada West Boots Factory Outlet', 
+              @Description='A family owned company. Three generations of top quality boot manufacturers.
+			  Proudly made in Winnipeg, Manitoba since 1978.',
+              @Path='Canada West Boots Factory Outlet.png',
+              @Address='17 - 2188 McPhillips Street, Winnipeg, MB, R2X 2N6 ' ,
+              @PhoneNumber='204.633.8132  ', @LocationId=8, @CategoryId=4 
+
+exec spStores @Crud='c', @StoreName='Jay Set Factory Outlet', 
+              @Description='Jay Set Factory Outlet Store',
+              @Path='Jay Set Factory Outlet.jpg',
+              @Address='1139 McPhillips Street, Winnipeg, MB, R2X 1G4 ' ,
+              @PhoneNumber='204.982.5019  ', @LocationId=8, @CategoryId=4 
+
+exec spStores @Crud='c', @StoreName='Winnipeg Outfitters', 
+              @Description='Winnipeg Outfitters Store',
+              @Path='Winnipeg Outfitters.jpg',
+              @Address='1139 McPhillips Street, Winnipeg, MB, R2X 1G4 ' ,
+              @PhoneNumber=' 204-775-6953 ', @LocationId=8, @CategoryId=4 
+
+exec spStores @Crud='c', @StoreName='Area Rug Store', 
+              @Description='Area Rug Store Store',
+              @Path='Area Rug Store.png',
+              @Address='1360 Sargent Avenue, Winnipeg, MB, R3E 0G5 ' ,
+              @PhoneNumber=' 204.772.7767', @LocationId=10, @CategoryId=4 
+
+exec spStores @Crud='c', @StoreName='A LEpi de Blé', 
+              @Description='Authentic French bakery and patisserie serving divine croissants, macarons,
+			  fruit tarts and a small menu of lunch items like quiche and sweet and savoury popovers.',
+              @Path='A LEpi de Blé.jpg',
+              @Address='1757 Main Street, Winnipeg, MB, R2V 1Z8 ' ,
+              @PhoneNumber=' 204.334.2526 ', @LocationId=1, @CategoryId=5
+
+exec spStores @Crud='c', @StoreName='Chocolatier Constance Popp', 
+              @Description='Chocolatier Constance Popp produces fresh premium artisan chocolate using
+			  Manitoba-produced ingredients and exotic single-origin chocolate, in Winnipeg.',
+              @Path='Chocolatier Constance Popp.jpg',
+              @Address='180 Provencher Boulevard, Winnipeg, MB, R2H 0G3 ' ,
+              @PhoneNumber=' 204.897.0689  ', @LocationId=3, @CategoryId=5
+
+exec spStores @Crud='c', @StoreName='Bernard Callebaut', 
+              @Description='At Chocolaterie Bernard Callebaut they are devoted to making exquisite chocolates.',
+              @Path='Bernard Callebaut.jpg',
+              @Address='431 Academy Road, Winnipeg, MB, R3N 0C2 ' ,
+              @PhoneNumber=' 204.488.4376  ', @LocationId=6, @CategoryId=5
+
+exec spStores @Crud='c', @StoreName='Cornelia Bean', 
+              @Description='Cornelia Bean is a gourmet tea and coffee emporium.
+			  A retail store providing an outstanding selection of loose leaf tea, freshly
+			  roasted coffee and Callebaut chocolates along with state of the art accessories.',
+              @Path='Cornelia Bean.jpg',
+              @Address='417 Academy Road, Winnipeg, MB, R3N 0C1  ' ,
+              @PhoneNumber=' 204.489.5460  ', @LocationId=7, @CategoryId=5
+
+exec spStores @Crud='c', @StoreName='Sleepy Owl Bread', 
+              @Description='At Sleepy Owl Bread we focus on producing from-scratch breads and pastries.
+			  All of our products are baked fresh daily. Our menu maybe small but it allows us to ensure
+			  a high quality product which is the core of our bakery.',
+              @Path='Sleepy Owl Bread.jpg',
+              @Address='751 Wall Street, Winnipeg, MB, R3G 2T6' ,
+              @PhoneNumber='  204.805.2530  ', @LocationId=8, @CategoryId=5
+
+exec spStores @Crud='c', @StoreName='Fenton*s Gourmet Foods', 
+              @Description='Fenton*s Gourmet Foods - The Cheese Shop is located in the Forks Market. 
+			  With a selection of over 750 Cheeses, 24 Pâtés, as well as a full line of Olives & Crackers,
+			  we are confident that you will leave the store satisfied that you have found exactly what you
+			  were looking for.',
+              @Path='Fentons Gourmet Foods.jpg',
+              @Address='Forks Market, Winnipeg, MB ' ,
+              @PhoneNumber='  204.942.8984  ', @LocationId=9, @CategoryId=5
+
+exec spStores @Crud='c', @StoreName='Garden City Shopping Centre', 
+              @Description='Proudly serving northwest Winnipeg, Garden City offers over 75 retailers
+			  and services including: Winners, Canadian Tire, and GoodLife Fitness. ',
+              @Path='Garden City Shopping Centre.jpg',
+              @Address='2305 McPhillips Street, Winnipeg, MB, R2V 3E1  ' ,
+              @PhoneNumber='  204.338.7076  ', @LocationId=1, @CategoryId=6
+
+exec spStores @Crud='c', @StoreName='Kildonan Place Shopping Centre', 
+              @Description='Kildonan Place is northeast Winnipeg’s largest shopping centre with more than 110 stores
+			  and services such as Sears, Marshalls/HomeSense, H&M, Urban Planet, and State & Main.',
+              @Path='Kildonan Place Shopping Centre.jpg',
+              @Address='1555 Regent Avenue West, Winnipeg, MB, R2C 4J2 ' ,
+              @PhoneNumber='  204.661.6116  ', @LocationId=2, @CategoryId=6
+			
+exec spStores @Crud='c', @StoreName='St. Vital Centre', 
+              @Description='Kildonan Place is northeast Winnipeg’s largest shopping centre with more than 110 stores
+			  and services such as Sears, Marshalls/HomeSense, H&M, Urban Planet, and State & Main.',
+              @Path='St. Vital Centre.jpg',
+              @Address='Bishop Grandin Boulevard at St. Marys Road, Winnipeg, MB, R2M 5E5 ' ,
+              @PhoneNumber=' 204.257.5646  ', @LocationId=6, @CategoryId=6
+
+exec spStores @Crud='c', @StoreName='St. Vital Centre', 
+              @Description='Kildonan Place is northeast Winnipeg’s largest shopping centre with more than 110 stores
+			  and services such as Sears, Marshalls/HomeSense, H&M, Urban Planet, and State & Main.',
+              @Path='St. Vital Centre.jpg',
+              @Address='Bishop Grandin Boulevard at St. Marys Road, Winnipeg, MB, R2M 5E5 ' ,
+              @PhoneNumber=' 204.257.5646  ', @LocationId=6, @CategoryId=6
+
 go
 exec spStores @Crud='r'
 go
