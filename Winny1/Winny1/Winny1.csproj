@@ -102,28 +102,58 @@
     <Content Include="index.aspx" />
     <Content Include="Margo.sql" />
     <Content Include="Natalia.sql" />
+    <Content Include="Shopping\A Book Fair.jpg" />
     <Content Include="Shopping\Abbey Antiques &amp; Art.jpg" />
+    <Content Include="Shopping\Aboriginal Designers Cooperative.jpg" />
+    <Content Include="Shopping\Addition-Elle Outlet.jpg" />
     <Content Include="Shopping\Antiques &amp; Funk.jpg" />
+    <Content Include="Shopping\Bijou Treasures.jpg" />
     <Content Include="Shopping\Burton Lysecki Books.jpg" />
+    <Content Include="Shopping\Callisto Couture Custom Corsets.jpg" />
+    <Content Include="Shopping\Cha Cha Palace.jpg" />
     <Content Include="Shopping\Coles.jpg" />
     <Content Include="Shopping\Collectibles Canada.png" />
+    <Content Include="Shopping\Danier Leather Factory Outlet.jpg" />
     <Content Include="Shopping\Dog Eared Books.jpg" />
     <Content Include="Shopping\Family Book Exchange.jpg" />
     <Content Include="Shopping\Frazer Antiques.jpg" />
+    <Content Include="Shopping\Hush Clothing.jpg" />
     <Content Include="Shopping\Indigo.jpg" />
     <Content Include="Shopping\Johnston Terminal.jpg" />
+    <Content Include="Shopping\Jose  Markham.png" />
+    <Content Include="Shopping\Kit and Ace.jpg" />
+    <Content Include="Shopping\Luxe  Charm.jpg" />
+    <Content Include="Shopping\Luxe Label.jpg" />
     <Content Include="Shopping\Marway Militaria Inc.jpg" />
     <Content Include="Shopping\McNally Robinson.jpg" />
-    <Content Include="Shopping\Mike General Store.jpg" />
+    <Content Include="Shopping\Mike%27s General Store.jpg" />
     <Content Include="Shopping\Nerman Books &amp; Collectibles.jpg" />
+    <Content Include="Shopping\Out of the Blue.jpg" />
+    <Content Include="Shopping\Paperdoll Clothing.jpg" />
+    <Content Include="Shopping\Prairie Sky Books.jpg" />
+    <Content Include="Shopping\Red River Books.jpg" />
+    <Content Include="Shopping\Rockabetty.jpg" />
+    <Content Include="Shopping\Rooster Shoes.jpg" />
+    <Content Include="Shopping\Roots Fashion Outlet.jpg" />
     <Content Include="Shopping\Sams Place.jpg" />
     <Content Include="Shopping\Selim Antiques.jpg" />
     <Content Include="Shopping\Selkirk Book Exchange.jpg" />
+    <Content Include="Shopping\Shakti.png" />
+    <Content Include="Shopping\Silver Lotus.jpg" />
+    <Content Include="Shopping\Sophias Boutique.jpg" />
+    <Content Include="Shopping\Soul Shoes and Accessories.jpg" />
+    <Content Include="Shopping\Spalifetstyle Boutique.jpg" />
+    <Content Include="Shopping\Tara Davis Studio Boutique.jpg" />
+    <Content Include="Shopping\The Closet on River.jpg" />
+    <Content Include="Shopping\The Foxy Shoppe.jpg" />
+    <Content Include="Shopping\The Haberdashery.jpg" />
     <Content Include="Shopping\The Old House Revival Company &amp; Antique Mall.jpg" />
     <Content Include="Shopping\Things.jpg" />
     <Content Include="Shopping\Thirsty Flea Market &amp; Auction.png" />
+    <Content Include="Shopping\Uomo Casual Fine Clothing For Men.jpg" />
     <Content Include="Shopping\Vintage Glory.jpg" />
     <Content Include="Shopping\Vintage Veruca Antiques.jpg" />
+    <Content Include="Shopping\Whoodonit.jpg" />
     <Content Include="Shopping\Winnipeg Trading Post.jpg" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -162,7 +192,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Pictures\Attractions\" />
     <Folder Include="Pictures\Restaurants\" />
   </ItemGroup>
   <PropertyGroup>

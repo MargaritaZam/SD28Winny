@@ -435,6 +435,24 @@ exec spStores @Crud='c', @StoreName='Callisto Couture Custom Corsets',
               @Path='Callisto Couture Custom Corsets.jpg',
 			  @Address='506 - 63 Albert Street, Winnipeg, MB, R3B 1G4 ' ,
 			  @PhoneNumber=' 204.480.8613  ', @LocationId=9, @CategoryId=3 
+
+exec spStores @Crud='c', @StoreName='Addition-Elle Outlet', 
+              @Description='Addition-Elle Outlet Store',
+              @Path='Addition-Elle Outlet.jpg',
+              @Address='4 - 1585 Kenaston Boulevard, Winnipeg, MB, R3P 2N3 ' ,
+              @PhoneNumber=' 204.488.2857  ', @LocationId=6, @CategoryId=4 
+exec spStores @Crud='c', @StoreName='Danier Leather Factory Outlet', 
+              @Description='Danier began as an independent family owned design house, manufacturer and retailer 
+              in 1972. With an expertise and heritage creating leather garments, handbags and accessories we have 
+              evolved into an essential fashion destination with a modern sensibility and timeless aesthetic.',
+              @Path='Danier Leather Factory Outlet.jpg',
+              @Address='1 - 1585 Kenaston Boulevard, Winnipeg, MB, R3P 2N3 ' ,
+              @PhoneNumber='204.489.1110  ', @LocationId=6, @CategoryId=4 
+exec spStores @Crud='c', @StoreName='Roots Fashion Outlet', 
+              @Description='Roots Fashion Outlet Store',
+              @Path='Roots Fashion Outlet.jpg',
+              @Address='5 - 1585 Kenaston Boulevard, Winnipeg, MB, R3P 2N3 ' ,
+              @PhoneNumber='204.489.9366  ', @LocationId=6, @CategoryId=4 
 go
 exec spStores @Crud='r'
 go
