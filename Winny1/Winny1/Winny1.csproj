@@ -69,37 +69,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Anjali.sql" />
-    <Content Include="images\facebook.png" />
-    <Content Include="images\flickr.png" />
-    <Content Include="images\gallery\image_01.jpg" />
-    <Content Include="images\gallery\image_02.jpg" />
-    <Content Include="images\gallery\image_03.jpg" />
-    <Content Include="images\gallery\image_04.jpg" />
-    <Content Include="images\gallery\image_05.jpg" />
-    <Content Include="images\gallery\image_06.jpg" />
-    <Content Include="images\gallery\image_07.jpg" />
-    <Content Include="images\gallery\image_08.jpg" />
-    <Content Include="images\gallery\image_09.jpg" />
-    <Content Include="images\gallery\image_10.jpg" />
-    <Content Include="images\gallery\image_11.jpg" />
-    <Content Include="images\gallery\image_12.jpg" />
-    <Content Include="images\myspace.png" />
-    <Content Include="images\onebit_08.png" />
-    <Content Include="images\onebit_11.png" />
-    <Content Include="images\onebit_12.png" />
-    <Content Include="images\onebit_17.png" />
-    <Content Include="images\onebit_21.png" />
-    <Content Include="images\tooplate_content_bg.png" />
-    <Content Include="images\tooplate_image_01.jpg" />
-    <Content Include="images\tooplate_image_02.jpg" />
-    <Content Include="images\tooplate_image_03.jpg" />
-    <Content Include="images\tooplate_logo.png" />
-    <Content Include="images\tooplate_menu.png" />
-    <Content Include="images\tooplate_menu_divider.png" />
-    <Content Include="images\twitter.png" />
-    <Content Include="images\winnipeg.jpg" />
-    <Content Include="images\youtube.png" />
-    <Content Include="index.aspx" />
+    <Content Include="HotelPictures\CanadInnsHSC.png" />
+    <Content Include="HotelPictures\DeltaHotel.png" />
+    <Content Include="HotelPictures\FortGarryHotel.jpg" />
+    <Content Include="HotelPictures\HiltonAirport.jpg" />
+    <Content Include="HotelPictures\InnAtTheForks.jpg" />
+    <Content Include="HotelPictures\RadissonHotel.jpg" />
+    <Content Include="HotelPictures\RoyalAlbertArmsHotel.jpg" />
+    <Content Include="HotelPictures\ViscountGort.png" />
     <Content Include="Margo.sql" />
     <Content Include="Natalia.sql" />
     <Content Include="Restaurants.aspx" />
@@ -179,6 +156,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="attraction.aspx.cs">
+      <DependentUpon>attraction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="attraction.aspx.designer.cs">
+      <DependentUpon>attraction.aspx</DependentUpon>
+    </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

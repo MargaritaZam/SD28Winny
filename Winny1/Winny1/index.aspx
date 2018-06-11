@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
- <div class="cleaner"></div>
+    <div class="cleaner"></div>
      
         <div id="content">
           <div class="scroll">
@@ -91,6 +91,11 @@
               </div>
 			  <!-- end of gallery -->
 			  
+                <div class="panel" id="attraction">
+                <h1>Attractions</h1>
+              
+              </div>
+                      <!-- end of attraction -->
               <div class="panel" id="contact">
                 <h1>Contact Us</h1>
                 
