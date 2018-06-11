@@ -67,6 +67,15 @@ atWebsite, atImage, location)values
 @desc, @address, @phone,
 @website, @image, @location)
 end
+else if @crud='a'
+begin
+select attractionID, attractionCategory, atName, atDesc, atAddress, atPhone, atWebsite, './Attractions/'+ atImage as image, location from tbAttractions
+where attractionCategory=isnull (@category, attractionCategory)
+end
+else if @crud='z'
+begin
+select *from tbAttractions where attractionCategory=@category
+end
 else if @crud='d'
 begin
 delete from tbAttractions where attractionID=@id
@@ -277,5 +286,8 @@ exec spAttractions @crud='c', @category='Parks',
 							  @image='forks.jpg', 
 							  @location=9
 
-
+exec spAttractions @crud='a', @category='Museums'
+exec spAttractions @crud='a', @category='Galleries'
+exec spAttractions @crud='a', @category='Parks'
+exec spAttractions @crud='z', @category='Museums'
 exec spAttractions @crud='r'
