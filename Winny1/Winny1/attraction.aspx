@@ -14,7 +14,7 @@ body {
 
 /* Style tab links */
 .tablink {
-    background-color: #555;
+    background-color:cornflowerblue;
     color: white;
     float: left;
     border: none;
