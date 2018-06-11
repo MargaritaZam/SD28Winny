@@ -136,9 +136,9 @@
 			  <!-- end of contact -->
 			  
             </div>
-          </div>
+          
           <!-- end of scroll -->
-		</div>
+		
         
   		<div id="footer">
     
