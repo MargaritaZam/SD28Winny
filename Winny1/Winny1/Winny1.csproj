@@ -71,6 +71,7 @@
     <Content Include="Anjali.sql" />
     <Content Include="Margo.sql" />
     <Content Include="Natalia.sql" />
+    <Content Include="Restaurants.aspx" />
     <Content Include="Shopping\A Book Fair.jpg" />
     <Content Include="Shopping\A LEpi de Blé.jpg" />
     <Content Include="Shopping\Abbey Antiques &amp; Art.jpg" />
@@ -84,8 +85,10 @@
     <Content Include="Shopping\Burton Lysecki Books.jpg" />
     <Content Include="Shopping\Callisto Couture Custom Corsets.jpg" />
     <Content Include="Shopping\Canada West Boots Factory Outlet.png" />
+    <Content Include="Shopping\CF Polo Park.jpg" />
     <Content Include="Shopping\Cha Cha Palace.jpg" />
     <Content Include="Shopping\Chocolatier Constance Popp.jpg" />
+    <Content Include="Shopping\cityplace.jpg" />
     <Content Include="Shopping\Coles.jpg" />
     <Content Include="Shopping\Collectibles Canada.png" />
     <Content Include="Shopping\Cornelia Bean.jpg" />
@@ -95,6 +98,7 @@
     <Content Include="Shopping\Fentons Gourmet Foods.jpg" />
     <Content Include="Shopping\Frazer Antiques.jpg" />
     <Content Include="Shopping\Garden City Shopping Centre.jpg" />
+    <Content Include="Shopping\Grant Park Shopping Centre.jpg" />
     <Content Include="Shopping\Hush Clothing.jpg" />
     <Content Include="Shopping\Indigo.jpg" />
     <Content Include="Shopping\Jay Set Factory Outlet.jpg" />
@@ -111,6 +115,7 @@
     <Content Include="Shopping\Nerman Books &amp; Collectibles.jpg" />
     <Content Include="Shopping\Out of the Blue.jpg" />
     <Content Include="Shopping\Paperdoll Clothing.jpg" />
+    <Content Include="Shopping\Portage Place Shopping Centre.jpg" />
     <Content Include="Shopping\Prairie Sky Books.jpg" />
     <Content Include="Shopping\Red River Books.jpg" />
     <Content Include="Shopping\Rockabetty.jpg" />
@@ -138,6 +143,7 @@
     <Content Include="Shopping\Vintage Veruca Antiques.jpg" />
     <Content Include="Shopping\Whoodonit.jpg" />
     <Content Include="Shopping\Winnipeg Outfitters.jpg" />
+    <Content Include="Shopping\Winnipeg Square.jpg" />
     <Content Include="Shopping\Winnipeg Trading Post.jpg" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -184,6 +190,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pictures\Restaurants\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\Downloads\WebAppWithDAL\WebAppWithDAL\DAL_Project\DAL_Project.csproj">
+      <Project>{e3026510-5b06-4ff2-816b-3f06cbe5f7df}</Project>
+      <Name>DAL_Project</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
