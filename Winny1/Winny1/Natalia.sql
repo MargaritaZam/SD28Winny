@@ -555,14 +555,53 @@ exec spStores @Crud='c', @StoreName='St. Vital Centre',
 			  and services such as Sears, Marshalls/HomeSense, H&M, Urban Planet, and State & Main.',
               @Path='St. Vital Centre.jpg',
               @Address='Bishop Grandin Boulevard at St. Marys Road, Winnipeg, MB, R2M 5E5 ' ,
-              @PhoneNumber=' 204.257.5646  ', @LocationId=6, @CategoryId=6
+              @PhoneNumber=' 204.257.5646  ', @LocationId=4, @CategoryId=6
 
-exec spStores @Crud='c', @StoreName='St. Vital Centre', 
-              @Description='Kildonan Place is northeast Winnipeg’s largest shopping centre with more than 110 stores
-			  and services such as Sears, Marshalls/HomeSense, H&M, Urban Planet, and State & Main.',
-              @Path='St. Vital Centre.jpg',
-              @Address='Bishop Grandin Boulevard at St. Marys Road, Winnipeg, MB, R2M 5E5 ' ,
-              @PhoneNumber=' 204.257.5646  ', @LocationId=6, @CategoryId=6
+exec spStores @Crud='c', @StoreName='Grant Park Shopping Centre', 
+              @Description='Find over 70 shops and services just minutes west of Pembina Highway 
+			  in the heart of River Heights.',
+              @Path='Grant Park Shopping Centre.jpg',
+              @Address='1120 Grant Avenue (just three blocks west of Pembina  ' ,
+              @PhoneNumber=' 204.475.8556   ', @LocationId=6, @CategoryId=6
+
+exec spStores @Crud='c', @StoreName='CF Polo Park', 
+              @Description='CF Polo Park is Winnipeg*s premiere shopping, dining and entertainment destination
+			  with 190 stores, 3 restaurants and a multiplex movie theatre.',
+              @Path='CF Polo Park.jpg',
+              @Address='1485 Portage Avenue, Winnipeg, MB, R3G 0W4 ' ,
+              @PhoneNumber=' 204.784.2500   ', @LocationId=7, @CategoryId=6
+
+
+exec spStores @Crud='c', @StoreName='cityplace', 
+              @Description='cityplace is Downtown Winnipeg*s most convenient shopping destination.
+			   Located in the heart of the Sports, Hospitality & Entertainment District, cityplace
+			   is connected to the indoor walkway system, linking it to an abundance of popular downtown
+			   destinations like The MTS Centre, RBC Convention Centre, Millennium Library and Portage & Main.
+			   With over 30 restaurants, retail shops & services and downtown Winnipeg*s only gaming centre, 
+			   cityplace has something for everyone.',
+              @Path='cityplace.jpg',
+              @Address=' corner of St Mary Avenue and Hargrave, Winnipeg, MB,' ,
+              @PhoneNumber=' 204.989.1800  ', @LocationId=7, @CategoryId=6
+
+exec spStores @Crud='c', @StoreName='Portage Place Shopping Centre', 
+              @Description='Located in the heart of downtown Winnipeg, Portage Place is the hub of downtown 
+			  shopping with more than 100 services, restaurants, and stores as well as the spectacular 
+			  Prairie Theatre Exchange on the 3rd level. It is the place to Meet, Shop and start your Downtown
+			  excursion. Plus, take advantage of free* heated underground weekend parking and skywalk access to
+			  the MTS Centre. ',
+              @Path='Portage Place Shopping Centre.jpg',
+              @Address='393 Portage Avenue, Winnipeg, MB, R3B 3H6 ' ,
+              @PhoneNumber=' 204.925.4636  ', @LocationId=7, @CategoryId=6
+
+exec spStores @Crud='c', @StoreName='Winnipeg Square', 
+              @Description='Located in the heart of downtown Winnipeg, Portage Place is the hub of downtown 
+			  shopping with more than 100 services, restaurants, and stores as well as the spectacular 
+			  Prairie Theatre Exchange on the 3rd level. It is the place to Meet, Shop and start your Downtown
+			  excursion. Plus, take advantage of free* heated underground weekend parking and skywalk access to
+			  the MTS Centre. ',
+              @Path='Winnipeg Square.jpg',
+              @Address='360 Main Street, Winnipeg, MB, R3C 3Z3  ' ,
+              @PhoneNumber=' 204.949.7140  ', @LocationId=7, @CategoryId=6
 
 go
 exec spStores @Crud='r'
