@@ -270,3 +270,53 @@ as begin
 	end
 end
 go
+
+exec spUniversitiesCollegesCrud @crud='c',
+		@schoolName = 'University of Winnipeg',
+		@schoolPhoneNumber = '204-786-7811',
+		@schoolAddress = '515 Portage Avenue',
+		@schoolPostalCode = 'R3B 2E9',
+		@schoolWebsite = 'www.uwinnipeg.ca',
+		@schoolDescription = 'The University of Winnipeg was founded in 1871 and offers high-quality undergraduate and graduate programs. Our graduates value their educational experience, and UWinnipeg consistently ranks highly in national surveys for overall reputation, small class sizes, academic excellence and commitment to the environment.',
+		@school_path = 'UniversityWinnipeg',
+		@schoolLocationId = 9
+
+exec spUniversitiesCollegesCrud @crud = 'c',
+		@schoolName = 'University of Manitoba',
+		@schoolPhoneNumber = '204-474-8880',
+		@schoolAddress = '66 Chancellors Circle',
+		@schoolPostalCode = 'R3T 2N2',
+		@schoolWebsite = 'www.umanitoba.ca',
+		@schoolDescription = 'Since 1877, the University of Manitoba has been driving discovery and inspiring minds through innovative teaching and research excellence. Proudly located in the heart of Canada, the U of M has a strong and engaged community of students, faculty, staff, alumni, donors and community partners. With more than 140,000 alumni living in 137 countries, our impact is global.',
+		@school_path = 'UniversityManitoba.png',
+		@schoolLocationId = 5
+
+exec spUniversitiesCollegesCrud @crud = 'c',
+		@schoolName = 'Robertson College',
+		@schoolPhoneNumber = '204-926-8325',
+		@schoolAddress = '265 Notre Dame Avenue',
+		@schoolPostalCode = 'R3B 1N9',
+		@schoolWebsite = 'www.robertsoncollege.com',
+		@schoolDescription = 'Having been in operation for over 100 years, Robertson College has established itself as a leading private post-secondary institution in Canada.  Meaningful, challenging, industry-reviewed programs taught by qualified, dedicated instructors are at the core of Robertson College''s operation. we ensure our students'' success by providing quality instruction, industry-aligned curriculum, and practical hands-on learning experiences.',
+		@school_path = 'RobertsonCollege.png',
+		@schoolLocationId = 9
+
+exec spUniversitiesCollegesCrud @crud = 'c',
+		@schoolName = 'Canadian Mennonite University',
+		@schoolPhoneNumber = '204-487-3300',
+		@schoolAddress = '500 Shaftesbury Boulevard',
+		@schoolPostalCode = 'R3P 2N2',
+		@schoolWebsite = 'www.cmu.ca/',
+		@schoolDescription = 'CMU offers comprehensive university education within a dynamic and diverse Christian community. Exemplary academic studies across the arts and sciences are distinguished by interdisciplinary interaction, experiential learning, and quality connection between students and faculty.',
+		@school_path = 'CanadianMennoniteUniversity.jpg',
+		@schoolLocationId = 7
+
+exec spUniversitiesCollegesCrud @crud = 'c',
+		@schoolName = 'Red River College',
+	@schoolPhoneNumber = '204-632-2327',
+	@schoolAddress = '2055 Notre Dame Avenue',
+	@schoolPostalCode = 'R3H 0J9',
+	@schoolWebsite = 'www.rrc.mb.ca',
+	@schoolDescription = 'We have 4 campuses scattered throughout Winnipeg, and 5 more outside Winnipeg.  We are Manitoba’s largest institute of applied learning and research, with more than 200 full- and part-time degree, diploma and certificate options.  We have close to 22,000 students each year from more than 60 countries.',
+	@school_path = 'RedRiverCollege.jpg',
+	@schoolLocationId = 10
