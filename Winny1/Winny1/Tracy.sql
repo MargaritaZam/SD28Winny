@@ -143,6 +143,17 @@ exec spHotelsCrud @crud='c',
 			  @hotelDescription='Our hotel is conveniently attached to the Health Sciences Centre, located just a few minutes from downtown Winnipeg, including shopping at Portage Place and The Forks, and just a five minute drive from McPhillips Station Casino.  For your comfort, our hotel offers a number of universally-accessible and wheelchair-friendly rooms.',
 			  @hotel_path='CanadInnsHSC.png',
 			  @hotelLocationId=9
+			  
+
+exec spHotelsCrud @crud='c',
+			  @hotelName='Clarion Hotel & Suites',
+			  @hotelPhoneNumber='204-774-5110',
+			  @hotelAddress='1445 Portage Avenue',
+			  @hotelPostalCode='R3G 3P4',
+			  @hotelWebsite='www.clarionhotelwinnipeg.com',
+			  @hotelDescription='the hotel is nestled in the hub of Winnipeg’s shopping, restaurant and business neighbourhoods. Located just 6 km from the James Richard Armstrong International Airport (YWG), Ikea and the new Seasons Outlet Collection Mall, and within walking distance to Manitoba’s largest Mall CF Polo Park Shopping Centre. The Clarion Hotel is only 15 minutes from downtown Winnipeg.',
+			  @hotel_path='ClarionPoloPark.jpg',
+			  @hotelLocationId=7
 
 exec spHotelsCrud @crud='c',
 			  @hotelName='Delta Hotels by Marriott Winnipeg',
