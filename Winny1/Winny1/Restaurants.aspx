@@ -124,16 +124,16 @@ div.desc {
             <div id="mydiv"  onclick="return ViewProduct(<%#Eval ("RestaurantId")%>)"  style="height:380px;">
                 <table>
                     <tr>
-                         <td rowspan="3"> <asp:Image  ID="Image1" Height="250px" Width="240px" runat="server"
+                         <td rowspan="4"> <asp:Image  ID="Image1" Height="250px" Width="240px" runat="server"
                     ImageUrl='<%#Eval ("path") %>' /></td>
                     </tr>
                     <tr>
-                        <td>
+                        <td colspan="2">
                              <th><%#Eval ("RestaurantName")%></th>
                           </td>
                     </tr>
                     <tr>
-                       <td style="width:200px;">
+                       <td style="width:200px;" colspan="2">
                               <%#Eval ("Description")%>
                        </td>
                     </tr>
