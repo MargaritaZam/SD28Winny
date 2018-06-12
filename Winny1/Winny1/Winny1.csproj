@@ -153,6 +153,10 @@
     <Content Include="Shopping\Winnipeg Outfitters.jpg" />
     <Content Include="Shopping\Winnipeg Square.jpg" />
     <Content Include="Shopping\Winnipeg Trading Post.jpg" />
+    <Content Include="UniversityPictures\CanadianMennoniteUniversity.jpg" />
+    <Content Include="UniversityPictures\RobertsonCollege.png" />
+    <Content Include="UniversityPictures\UniversityManitoba.png" />
+    <Content Include="UniversityPictures\UniversityWinnipeg.jpg" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
