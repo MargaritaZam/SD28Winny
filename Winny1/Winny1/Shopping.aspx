@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:Panel  style="background-color:antiquewhite" ID="pnlStores" runat="server" >
     <asp:DataList ID="dlStores" DataKeyField="StoreId" RepeatColumns="4"
         runat="server">
         <ItemTemplate>
@@ -14,9 +15,22 @@
                 <br />
                 '<%# Eval("StoreName") %>'
                 <br />
+                 <style>
+                    body{
+                        color:darkblue;
+                    }
+                     img {
+                 border: 1px solid #ddd;
+                 border-radius: 4px;
+                 padding: 5px;
+                  width: 150px;
+                  border-color:darkgreen;
+                }
+                </style>
             </div>
         </ItemTemplate>
     </asp:DataList>
+        </asp:Panel>
  <%--   <table>
         <tr>
             <td>
