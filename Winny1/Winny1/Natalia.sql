@@ -75,7 +75,7 @@ as begin
 if @Crud='r'
 begin
 select
-StoreId,StoreName, Description,'.\Pictures\Shopping\'+ Path as Path,Address,PhoneNumber,LocationId,CategoryId
+StoreId,StoreName, Description,'.\Shopping\'+ Path as Path,Address,PhoneNumber,LocationId,CategoryId
 from tbStores where StoreId=isnull(@StoreId,StoreId)
 end
 else if
@@ -106,7 +106,7 @@ end
 go
 go
 exec spStores @Crud='c', @StoreName='Vintage Veruca Antiques', @Description='Vintage Veruca Antiques Store',
-              @Path='Vintage Veruca Antiques.jpg',@Address='1342 Main Street, Winnipeg, MB, R2W 3T6 ',
+              @Path='VintageVerucaAntiques.jpg',@Address='1342 Main Street, Winnipeg, MB, R2W 3T6 ',
 			  @PhoneNumber=' 204.339.5301 ', @LocationId=2, @CategoryId=1 
 
 exec spStores @Crud='c', @StoreName='Mike*s General Store', 
