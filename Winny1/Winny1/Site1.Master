@@ -81,7 +81,6 @@ var year = currentTime.getFullYear()
                         
                     </div>
                     </li>
-                    <li><a href="#contact">Contact</a></li>
                 </ul>    	
             </div> <!-- end of tooplate_menu -->
             </div>

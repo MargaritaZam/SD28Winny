@@ -32,7 +32,25 @@ insert into tbFood_Category(FoodType) values
 							('Italian/Classic'),('Italian/Contemporary'),('Japanese'),('Maxican'),
 							('Pub/Lounge'),('Regional/Canadian'),('South American'),('Steak & SeaFood'),
 							('Tea House'),('TapRooms'),('Thai/Laotian'),('Vietnamese')
-
+go
+Create procedure spFood_Category
+(
+@FoodId int=null,
+@FoodType varchar(30)=null
+)
+as begin
+	select * from tbFood_Category where FoodId=isnull(@FoodId,FoodId)
+end
+go
+create procedure spLocation
+(
+@LocationId int=null ,
+@LocationName varchar(30)=null
+)
+as begin
+	select * from tbLocation where LocationId=isnull(@LocationId,LocationId)
+end
+go
 create table tbRestaurants
 (RestaurantId int identity(1,1) primary key,
 RestaurantName varchar(50),
@@ -66,6 +84,16 @@ as begin
 	else if @crud='r'
 	begin
 		select RestaurantName,Address,PostalCode,ContactNo,'.\Pictures\Restaurants\' + path as path from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId)
+	end
+	else if @crud='s'
+	begin
+		
+			select RestaurantName,Description,RestaurantId,'.\Pictures\Restaurants\' + path as path  from tbRestaurants join tbFood_Category on
+			tbRestaurants.FoodId=tbFood_Category.FoodId join tbLocation on 
+			tbRestaurants.LocationId=tbLocation.LocationId 
+			where tbRestaurants.LocationId=ISNULL(@LocationId,tbRestaurants.LocationId)
+			and
+			 tbRestaurants.FoodId=ISNULL(@FoodId,tbRestaurants.FoodId)
 	end
 	else if @crud='c'
 	begin
@@ -737,6 +765,9 @@ exec spRestaurants @crud='c',
 exec spRestaurants @crud='r'
 
 exec spRestaurants @crud='a'
+exec spFood_Category
+exec spRestaurants @crud='s',@FoodId=1
+
 
 
 
