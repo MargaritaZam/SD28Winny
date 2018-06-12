@@ -153,7 +153,9 @@
     <Content Include="Shopping\Winnipeg Square.jpg" />
     <Content Include="Shopping\Winnipeg Trading Post.jpg" />
     <Content Include="Tracy.sql" />
+    <Content Include="UniversityPictures\BoothUC.png" />
     <Content Include="UniversityPictures\CanadianMennoniteUniversity.jpg" />
+    <Content Include="UniversityPictures\Herzing.png" />
     <Content Include="UniversityPictures\RedRiverCollege.jpg" />
     <Content Include="UniversityPictures\RobertsonCollege.png" />
     <Content Include="UniversityPictures\UniversityManitoba.png" />
