@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-   <style>
+    <style>
 * {box-sizing: border-box}
 
 /* Set height of body and the document to 100% */
@@ -14,8 +14,8 @@ body {
 
 /* Style tab links */
 .tablink {
-    background-color: #555;
-    color: white;
+    background-color:cornflowerblue;
+    color: yellow;
     float: left;
     border: none;
     outline: none;
@@ -85,8 +85,7 @@ function openPage(pageName,elmnt,color) {
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
 </script>
-     
-</body>
+  </body>   
     
 
 

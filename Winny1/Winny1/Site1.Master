@@ -11,6 +11,34 @@
     <link href="tooplate_style.css" rel="stylesheet" />
 </head>
 <body>
+       <div class="float_l">
+    <h6> Current Date:  
+<script type="text/javascript">
+var currentTime = new Date()
+var month = currentTime.getMonth() + 1
+var day = currentTime.getDate()
+var year = currentTime.getFullYear()
+    document.write(month + "/" + day + "/" + year)
+        & nbsp;
+    </script>
+        </h6>
+        <h6> Current Time:
+    <script type="text/javascript">
+    var currentTime = new Date()
+    var hours = currentTime.getHours()
+    var minutes = currentTime.getMinutes()
+    if (minutes < 10) {
+        minutes = "0" + minutes
+    }
+    document.write(hours + ":" + minutes + " ")
+    if (hours > 11) {
+        document.write()
+    } else {
+        document.write()
+    }
+</script>
+</h6>
+        </div>
         <div id="slider">
    	<div id="tooplate_wrapper">
     	
@@ -34,13 +62,22 @@
                         <a href="#">Resources & Articles</a>
                             </div>
                     </li>
-
+                    <li class="dropdown"><a href="Shopping.aspx" class="dropbtn">Shopping</a>
+                    <div class="dropdown-content">
+                        <a href="#">Antiques</a>
+                        <a href="#">Book Stores</a>
+                        <a href="#">Boutique</a>
+                        <a href="#">Outlet</a>
+                        <a href="#">Gourmet Foods</a>
+                        <a href="#">Shopping Malls</a>
+                    </div>
+                    </li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>    	
             </div> <!-- end of tooplate_menu -->
             </div>
            </div>
-  </div>y>
+  </div>
 
 
     <form id="form1" runat="server">
