@@ -310,3 +310,13 @@ exec spUniversitiesCollegesCrud @crud = 'c',
 		@schoolDescription = 'CMU offers comprehensive university education within a dynamic and diverse Christian community. Exemplary academic studies across the arts and sciences are distinguished by interdisciplinary interaction, experiential learning, and quality connection between students and faculty.',
 		@school_path = 'CanadianMennoniteUniversity.jpg',
 		@schoolLocationId = 7
+
+exec spUniversitiesCollegesCrud @crud = 'c',
+		@schoolName = 'Red River College',
+	@schoolPhoneNumber = '204-632-2327',
+	@schoolAddress = '2055 Notre Dame Avenue',
+	@schoolPostalCode = 'R3H 0J9',
+	@schoolWebsite = 'www.rrc.mb.ca',
+	@schoolDescription = 'We have 4 campuses scattered throughout Winnipeg, and 5 more outside Winnipeg.  We are Manitoba’s largest institute of applied learning and research, with more than 200 full- and part-time degree, diploma and certificate options.  We have close to 22,000 students each year from more than 60 countries.',
+	@school_path = 'RedRiverCollege.jpg',
+	@schoolLocationId = 10
