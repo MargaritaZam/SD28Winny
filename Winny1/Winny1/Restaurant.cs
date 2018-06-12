@@ -18,11 +18,13 @@ namespace Winny1
         public string PostalCode { get; set; }
         public string ContactNo { get; set; }
         public string path { get; set; }
+        public int FoodId { get; set; }
 
         public void GetFood_Category()
         {
             DAL myDal = new DAL(conn);
-           DataSet d = myDal.ExecuteProcedure("spFood_Category");
+            myDal.AddParam("FoodId", this.FoodId.ToString());
+            DataSet d = myDal.ExecuteProcedure("spFood_Category");
 
 
         }
