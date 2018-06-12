@@ -61,11 +61,11 @@ create procedure spRestaurants
 as begin
 	if @crud='a'
 	begin
-		select RestaurantName,Description,RestaurantId from tbRestuarants where RestaurantId=isnull(@RestaurantId,RestaurantId)
+		select RestaurantName,Description,RestaurantId,'.\Pictures\Restaurants\' + path as path  from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId)
 	end
 	else if @crud='r'
 	begin
-		select RestaurantName,Address,PostalCode,ContactNo,'.\Pictures\Restaurents\' + path as path from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId)
+		select RestaurantName,Address,PostalCode,ContactNo,'.\Pictures\Restaurants\' + path as path from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId)
 	end
 	else if @crud='c'
 	begin
@@ -736,7 +736,7 @@ exec spRestaurants @crud='c',
 
 exec spRestaurants @crud='r'
 
-
+exec spRestaurants @crud='a'
 
 
 
