@@ -153,6 +153,7 @@
     <Content Include="Shopping\Winnipeg Outfitters.jpg" />
     <Content Include="Shopping\Winnipeg Square.jpg" />
     <Content Include="Shopping\Winnipeg Trading Post.jpg" />
+    <Content Include="Tracy.sql" />
     <Content Include="UniversityPictures\CanadianMennoniteUniversity.jpg" />
     <Content Include="UniversityPictures\RedRiverCollege.jpg" />
     <Content Include="UniversityPictures\RobertsonCollege.png" />
