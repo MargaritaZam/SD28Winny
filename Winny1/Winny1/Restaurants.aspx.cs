@@ -12,7 +12,7 @@ namespace Winny1
 {
     public partial class Restaurants : System.Web.UI.Page
     {
-        Restaurant myRestaurant = new Restaurant();
+     
         PagedDataSource adsource;
         int pos;
         string conn = "Data Source= localhost; Initial Catalog=dbRestaurants; Integrated Security= SSPI";
@@ -21,12 +21,33 @@ namespace Winny1
             if (!IsPostBack)
             {
                 this.ViewState["vs"] = 0;
+                loadFood();
+                loadLocation();
             }
             pos = (int)this.ViewState["vs"];
             loadRestaurants();
 
-            
-            myRestaurant.GetFood_Category();
+             
+        
+        }
+        public void loadFood()
+        {
+            DAL myDal = new DAL(conn);
+           DataSet ds = myDal.ExecuteProcedure("spFood_Category");
+            ddlCulinary.DataSource = ds.Tables[0];
+            ddlCulinary.DataTextField ="FoodType";
+            ddlCulinary.DataValueField ="FoodId";
+            ddlCulinary.DataBind();
+
+        }
+        public void loadLocation()
+        {
+            DAL myDal = new DAL(conn);
+            DataSet ds = myDal.ExecuteProcedure("spLocation");
+            ddlLocation.DataSource = ds.Tables[0];
+            ddlLocation.DataTextField = "LocationName";
+            ddlLocation.DataValueField = "LocationId";
+            ddlLocation.DataBind();
 
         }
         public void loadRestaurants()
@@ -46,8 +67,6 @@ namespace Winny1
             btnnext.Enabled = !adsource.IsLastPage;
             dlRestaurant.DataSource = adsource;
             dlRestaurant.DataBind();
-
-
 
         }
 
@@ -79,10 +98,29 @@ namespace Winny1
             loadRestaurants();
         }
 
-        protected void ddlCulinary_SelectedIndexChanged(object sender, EventArgs e)
+       
+
+        protected void btnSearch_Click(object sender, EventArgs e)
         {
-            Restaurant myRestaurant = new Restaurant();
-            myRestaurant.GetFood_Category();
+            string id = ddlCulinary.SelectedItem.Value;
+            string LocationId = ddlLocation.SelectedItem.Value;
+            DAL myDal = new DAL(conn);
+            adsource = new PagedDataSource();
+            myDal.AddParam("@crud", "s");
+            myDal.AddParam("@FoodId", id);
+            myDal.AddParam("@LocationId",LocationId);
+            DataSet ds = myDal.ExecuteProcedure("spRestaurants");
+            adsource.DataSource = ds.Tables[0].DefaultView;
+            adsource.PageSize = 3;
+            adsource.AllowPaging = true;
+            adsource.CurrentPageIndex = pos;
+            btnfirst.Enabled = !adsource.IsFirstPage;
+            btnprevious.Enabled = !adsource.IsFirstPage;
+            btnlast.Enabled = !adsource.IsLastPage;
+            btnnext.Enabled = !adsource.IsLastPage;
+            dlRestaurant.DataSource = adsource;
+            dlRestaurant.DataBind();
+
         }
     }
 }

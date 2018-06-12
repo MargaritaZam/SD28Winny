@@ -20,14 +20,7 @@ namespace Winny1
         public string path { get; set; }
         public int FoodId { get; set; }
 
-        public void GetFood_Category()
-        {
-            DAL myDal = new DAL(conn);
-            myDal.AddParam("FoodId", this.FoodId.ToString());
-            DataSet d = myDal.ExecuteProcedure("spFood_Category");
-
-
-        }
+       
 
 
     }
