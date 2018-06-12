@@ -79,7 +79,6 @@
     <Content Include="HotelPictures\ViscountGort.png" />
     <Content Include="Margo.sql" />
     <Content Include="Natalia.sql" />
-    <Content Include="Restaurants.aspx" />
     <Content Include="Shopping\A Book Fair.jpg" />
     <Content Include="Shopping\A LEpi de Blé.jpg" />
     <Content Include="Shopping\Abbey Antiques &amp; Art.jpg" />
@@ -153,6 +152,7 @@
     <Content Include="Shopping\Winnipeg Outfitters.jpg" />
     <Content Include="Shopping\Winnipeg Square.jpg" />
     <Content Include="Shopping\Winnipeg Trading Post.jpg" />
+    <Content Include="Tracy.sql" />
     <Content Include="UniversityPictures\CanadianMennoniteUniversity.jpg" />
     <Content Include="UniversityPictures\RedRiverCollege.jpg" />
     <Content Include="UniversityPictures\RobertsonCollege.png" />
@@ -183,6 +183,13 @@
     </Compile>
     <Compile Include="Restaurants.aspx.designer.cs">
       <DependentUpon>Restaurants.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Shopping.aspx.cs">
+      <DependentUpon>Shopping.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Shopping.aspx.designer.cs">
+      <DependentUpon>Shopping.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>

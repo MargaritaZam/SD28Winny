@@ -34,11 +34,15 @@
                         <a href="#">Resources & Articles</a>
                             </div>
                     </li>
-                    <li class="dropdown"><a href="attraction.aspx" class="dropbtn">Attractions</a>
-                        <div class="dropdown-content"
-                      <a href="#">Galleries</a>
-                        <a href="#"> Museums</a>
-                        <a href="#"> Parks/Zoo</a>
+                    <li class="dropdown"><a href="Shopping.aspx" class="dropbtn">Shopping</a>
+                    <div class="dropdown-content">
+                        <a href="#">Antiques</a>
+                        <a href="#">Book Stores</a>
+                        <a href="#">Boutique</a>
+                        <a href="#">Outlet</a>
+                        <a href="#">Gourmet Foods</a>
+                        <a href="#">Shopping Malls</a>
+                    </div>
                     </li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>    	
