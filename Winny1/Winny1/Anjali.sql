@@ -32,7 +32,16 @@ insert into tbFood_Category(FoodType) values
 							('Italian/Classic'),('Italian/Contemporary'),('Japanese'),('Maxican'),
 							('Pub/Lounge'),('Regional/Canadian'),('South American'),('Steak & SeaFood'),
 							('Tea House'),('TapRooms'),('Thai/Laotian'),('Vietnamese')
-
+go
+Create procedure spFood_Category
+(
+@FoodId int=null,
+@FoodType varchar(30)=null
+)
+as begin
+	select FoodType from tbFood_Category where FoodId=isnull(@FoodId,FoodId)
+end
+go
 create table tbRestaurants
 (RestaurantId int identity(1,1) primary key,
 RestaurantName varchar(50),

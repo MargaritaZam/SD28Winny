@@ -12,6 +12,7 @@ namespace Winny1
 {
     public partial class Restaurants : System.Web.UI.Page
     {
+        Restaurant myRestaurant = new Restaurant();
         PagedDataSource adsource;
         int pos;
         string conn = "Data Source= localhost; Initial Catalog=dbRestaurants; Integrated Security= SSPI";
@@ -23,6 +24,9 @@ namespace Winny1
             }
             pos = (int)this.ViewState["vs"];
             loadRestaurants();
+
+            
+            myRestaurant.GetFood_Category();
 
         }
         public void loadRestaurants()
@@ -73,6 +77,12 @@ namespace Winny1
         {
             pos = adsource.PageCount - 1;
             loadRestaurants();
+        }
+
+        protected void ddlCulinary_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Restaurant myRestaurant = new Restaurant();
+            myRestaurant.GetFood_Category();
         }
     }
 }

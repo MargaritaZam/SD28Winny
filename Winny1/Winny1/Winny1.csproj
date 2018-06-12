@@ -177,6 +177,7 @@
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Restaurant.cs" />
     <Compile Include="Restaurants.aspx.cs">
       <DependentUpon>Restaurants.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
