@@ -2,91 +2,94 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <style>
-* {box-sizing: border-box}
+ 
 
-/* Set height of body and the document to 100% */
-body {
-    height: 100%;
-    margin: 0;
-    font-family: Arial;
-}
+    <asp:Panel ID="Attr" runat="server"  Height="2000px" Width="600px" BackColor="White">
+<table>
+    <tr>
+        <td>
+            <asp:Label ID="lblLocation" runat="server" Text="Browse by Location" ForeColor="Black" Font-Bold="true"></asp:Label>
+        </td>
+        <td>
+             <asp:Label ID="lblCategory" runat="server" Text="Browse by Category" ForeColor="Black" Font-Bold="true"></asp:Label>
+        </td>
+    </tr>
+    <tr>
+        <td>
+             <asp:DropDownList ID="ddlLocation" runat="server" Height="23px" Width="263px" BackColor="White"></asp:DropDownList>
+        </td>
+        <td>
+             <asp:DropDownList ID="ddlCategory" runat="server" Height="23px" Width="268px" BackColor="White"></asp:DropDownList>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <asp:Label ID="lblSearch" runat="server" Text="Searh by Name" ForeColor="Black" Font-Bold="true" BackColor="White"></asp:Label>
+        </td>
+    </tr>
+    <tr>
+        <td>
+             <asp:TextBox ID="txtSearch" runat="server" Height="26px" Width="258px"></asp:TextBox>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <asp:Button ID="btnSearch" runat="server" Text="Search" BackColor="#CC0099" Font-Bold="True" ForeColor="White" Height="33px" Width="80px" />
+        </td>
+    </tr>
+</table>
+        <asp:DataList ID="dlAttraction" DataKeyField="attractionCategory" RepeatColumns="1" RepeatDirection="Horizontal" runat="server">
+        <ItemTemplate>
+            <div id="mydiv"  onclick="return ViewProduct(<%#Eval ("attractionCategory")%>)"  style="height:380px;">
+                <table style="width:250px; ">
+                     <tr>
+                    <td style="height:250px"><asp:Image ID="atImage" runat="server" Height="230px" ImageUrl='<%# Bind("atImage") %>' Width="230px" /></td>
+                    </tr>  
+           </table>
+                <table style="margin-left:250px;   float: left;">
+                      <tr>
+                        <td><%#Eval ("attractionCategory")%><br />
+                  
+                       <%#Eval ("atName")%><br />
+                 
+                       <%#Eval ("atDesc")%><br />
+                    
+                      <%#Eval ("atAddress")%><br />
+                 
+                     <%#Eval ("atPhone")%><br />
+               
+                       <%#Eval ("atWebsite")%><br />
+                
+                       <%#Eval ("location")%></td>
+                    </tr>                  
+                   
+                </table>
+                 
+                
+            </div>
+        </ItemTemplate>
+    </asp:DataList>
+        <br />
+                <br />
+                <br />
+        <table>
+  <tr>
+    <td>
+        <asp:Button ID="btnfirst" runat="server" Font-Bold="true" Text="First" Height="31px" 
+                    Width="43px" OnClick="btnfirst_Click"  /></td>
+        <td>
+            <asp:Button ID="btnprevious" runat="server" Font-Bold="true" Text="Previous" Height="31px" 
+                    Width="43px" OnClick="btnprevious_Click"  /></td>
+            <td>
+                <asp:Button ID="btnnext" runat="server" Font-Bold="true" Text="Next" Height="31px" 
+                    Width="43px" OnClick="btnnext_Click"  /></td>
+                <td>
+                    <asp:Button ID="btnlast" runat="server" Font-Bold="true" Text="Last" Height="31px" 
+                    Width="43px" OnClick="btnlast_Click"  /></td>
+    </tr>
+   </table>
 
-/* Style tab links */
-.tablink {
-    background-color:cornflowerblue;
-    color: yellow;
-    float: left;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 14px 16px;
-    font-size: 17px;
-    width: 25%;
-}
-
-.tablink:hover {
-    background-color: #777;
-}
-
-/* Style the tab content (and add height:100% for full page content) */
-.tabcontent {
-    color: white;
-    display: none;
-    padding: 100px 20px;
-    height: 100%;
-}
-
-#Galleries {background-color: red;}
-#Museums {background-color: green;}
-#Parks {background-color: blue;}
-
-</style>
-
-<body>
-
-<button class="tablink" onclick="openPage('Home', this, 'red')">Galleries</button>
-<button class="tablink" onclick="openPage('News', this, 'green')" id="defaultOpen">Museums</button>
-<button class="tablink" onclick="openPage('Contact', this, 'blue')">Parks</button>
-
-
-<div id="Home" class="tabcontent">
-  <h3>Galleries</h3>
-  <p>Home is where the heart is..</p>
-</div>
-
-<div id="News" class="tabcontent">
-  <h3>Museums</h3>
-  <p>Some news this fine day!</p> 
-</div>
-
-<div id="Contact" class="tabcontent">
-  <h3>Parks/Zoo</h3>
-  <p>Get in touch, or swing by for a cup of coffee.</p>
-</div>
-
-
-
-<script>
-function openPage(pageName,elmnt,color) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablink");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].style.backgroundColor = "";
-    }
-    document.getElementById(pageName).style.display = "block";
-    elmnt.style.backgroundColor = color;
-
-}
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
-</script>
-  </body>   
-    
-
-
+          </asp:Panel>
+   
+        
 </asp:Content>
