@@ -78,6 +78,7 @@
     <Content Include="HotelPictures\RadissonHotel.jpg" />
     <Content Include="HotelPictures\RoyalAlbertArmsHotel.jpg" />
     <Content Include="HotelPictures\ViscountGort.png" />
+    <Content Include="index.aspx" />
     <Content Include="Margo.sql" />
     <Content Include="Natalia.sql" />
     <Content Include="Shopping\A Book Fair.jpg" />
