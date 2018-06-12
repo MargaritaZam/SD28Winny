@@ -102,8 +102,16 @@ LocationId=@LocationId,
 CategoryId=@CategoryId
 where StoreId=@StoreId
 end
+else if @Crud='x'
+begin
+select StoreId,StoreName, Description,'.\Shopping\'+ Path as Path,Address,PhoneNumber,LocationId,CategoryId
+from tbStores where CategoryId=@CategoryId
+end
 end
 go
+go
+
+exec spStores @Crud='x', @CategoryId=1
 go
 exec spStores @Crud='c', @StoreName='Vintage Veruca Antiques', @Description='Vintage Veruca Antiques Store',
               @Path='VintageVerucaAntiques.jpg',@Address='1342 Main Street, Winnipeg, MB, R2W 3T6 ',

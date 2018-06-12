@@ -64,12 +64,12 @@ var year = currentTime.getFullYear()
                     </li>
                     <li class="dropdown"><a href="Shopping.aspx" class="dropbtn">Shopping</a>
                     <div class="dropdown-content">
-                        <a href="#">Antiques</a>
-                        <a href="#">Book Stores</a>
-                        <a href="#">Boutique</a>
-                        <a href="#">Outlet</a>
-                        <a href="#">Gourmet Foods</a>
-                        <a href="#">Shopping Malls</a>
+                        <a href="Shopping.aspx?id=1">Antiques</a>
+                        <a href="Shopping.aspx?id=2">Book Stores</a>
+                        <a href="Shopping.aspx?id=3">Boutique</a>
+                        <a href="Shopping.aspx?id=4">Outlet</a>
+                        <a href="Shopping.aspx?id=5">Gourmet Foods</a>
+                        <a href="Shopping.aspx?id=6">Shopping Malls</a>
                     </div>
                     </li>
 

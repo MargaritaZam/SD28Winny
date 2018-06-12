@@ -23,7 +23,8 @@ namespace Winny1
         }
         public void loadStores()
         {
-            dlStores.DataSource = _shop.LoadStores(null, null);
+            string id = Request.QueryString["id"].ToString();
+            dlStores.DataSource = _shop.LoadStores(null, Convert.ToInt32(id));
             dlStores.DataBind();
         }
     }
