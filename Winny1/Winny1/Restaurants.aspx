@@ -100,7 +100,7 @@ div.desc {
              <asp:DropDownList ID="ddlLocation" runat="server" Height="23px" Width="263px" BackColor="White"></asp:DropDownList>
         </td>
         <td>
-             <asp:DropDownList ID="ddlCulinary" runat="server" Height="23px" Width="268px" BackColor="White"></asp:DropDownList>
+             <asp:DropDownList ID="ddlCulinary"  runat="server" Height="23px" Width="268px" BackColor="White"></asp:DropDownList>
         </td>
     </tr>
     <tr>
@@ -115,28 +115,29 @@ div.desc {
     </tr>
     <tr>
         <td>
-            <asp:Button ID="btnSearch" runat="server" Text="Search" BackColor="#CC0099" Font-Bold="True" ForeColor="White" Height="33px" Width="80px" />
+            <asp:Button ID="btnSearch" runat="server" Text="Search" BackColor="#CC0099" Font-Bold="True" ForeColor="White" Height="33px" Width="80px" OnClick="btnSearch_Click" />
         </td>
     </tr>
 </table>
         <asp:DataList ID="dlRestaurant" RepeatColumns="1" RepeatDirection="Horizontal" runat="server">
         <ItemTemplate>
             <div id="mydiv"  onclick="return ViewProduct(<%#Eval ("RestaurantId")%>)"  style="height:380px;">
-                <table style="width:250px; ">
+                <table>
                     <tr>
-                        <th><%#Eval ("RestaurantName")%></th>
-                    </tr>
-                    <tr>
-                        <td style="height:260px;" > <asp:Image  ID="Image1" Height="250px" Width="240px" runat="server"
+                         <td rowspan="3"> <asp:Image  ID="Image1" Height="250px" Width="240px" runat="server"
                     ImageUrl='<%#Eval ("path") %>' /></td>
                     </tr>
                     <tr>
-                        <th><%#Eval ("Description")%></th>
+                        <td>
+                             <th><%#Eval ("RestaurantName")%></th>
+                          </td>
                     </tr>
-                    <tr style="height:45px;" >
-                        <td style="text-align:center; vertical-align:text-top"> <%# Eval ("RestaurantName")%></td>
+                    <tr>
+                       <td style="width:200px;">
+                              <%#Eval ("Description")%>
+                       </td>
                     </tr>
-                   
+                             
                 </table>
                  
                 <br />

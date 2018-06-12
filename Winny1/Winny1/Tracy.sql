@@ -135,34 +135,25 @@ end
 go
 
 exec spHotelsCrud @crud='c',
-			  @hotelName='The Fort Garry Hotel',
-			  @hotelPhoneNumber='204-942-8251',
-			  @hotelAddress='222 Broadway',
-			  @hotelPostalCode='R3C 0R3',
-			  @hotelWebsite='www.fortgarryhotel.com',
-			  @hotelDescription='Located in downtown Winnipeg, the Fort Garry Hotel was built in 1913 as a grand railway hotel.  The century-old Fort Garry Hotel, Spa and Conference Centre ushers in a new era of modern-day style in downtown Winnipeg. Catering to guests who appreciate local history mixed with authentic charm, this iconic 240-room “Grand Dame” is a favorite for weddings, romantic getaways and wellness weekends. Don’t leave without saying hello to one of the hotel’s friendly resident ghosts.',
-			  @hotel_path='FortGarryHotel.jpg',
+			  @hotelName='Canad Inns Destination Centre Health Sciences Centre',
+			  @hotelPhoneNumber='204-594-9472',
+			  @hotelAddress='720 William Avenue',
+			  @hotelPostalCode='R3E 3J7',
+			  @hotelWebsite='www.canadinns.com/stay/health-sciences-centre',
+			  @hotelDescription='Our hotel is conveniently attached to the Health Sciences Centre, located just a few minutes from downtown Winnipeg, including shopping at Portage Place and The Forks, and just a five minute drive from McPhillips Station Casino.  For your comfort, our hotel offers a number of universally-accessible and wheelchair-friendly rooms.',
+			  @hotel_path='CanadInnsHSC.png',
 			  @hotelLocationId=9
+			  
 
 exec spHotelsCrud @crud='c',
-			  @hotelName='Viscount Gort Hotel',
-			  @hotelPhoneNumber='1-800-665-1122',
-			  @hotelAddress='1670 Portage Avenue',
-			  @hotelPostalCode='R3J 0C9',
-			  @hotelWebsite='www.viscount-gort.com',
-			  @hotelDescription='Pronounced vī kount, the Viscount Gort is located minutes from Polo Park Shopping Centre.  We offer free parking for our guests and a free shuttle to and from the airport. City buses stop close by and there are plenty of taxi and limo services always available.',
-			  @hotel_path='ViscountGort.png',
+			  @hotelName='Clarion Hotel & Suites',
+			  @hotelPhoneNumber='204-774-5110',
+			  @hotelAddress='1445 Portage Avenue',
+			  @hotelPostalCode='R3G 3P4',
+			  @hotelWebsite='www.clarionhotelwinnipeg.com',
+			  @hotelDescription='the hotel is nestled in the hub of Winnipeg’s shopping, restaurant and business neighbourhoods. Located just 6 km from the James Richard Armstrong International Airport (YWG), Ikea and the new Seasons Outlet Collection Mall, and within walking distance to Manitoba’s largest Mall CF Polo Park Shopping Centre. The Clarion Hotel is only 15 minutes from downtown Winnipeg.',
+			  @hotel_path='ClarionPoloPark.jpg',
 			  @hotelLocationId=7
-
-exec spHotelsCrud @crud='c',
-			  @hotelName='Inn at the Forks',
-			  @hotelPhoneNumber='1-866-500-4938',
-			  @hotelAddress='75 Forks Market Road',
-			  @hotelPostalCode='R3C 0A2',
-			  @hotelWebsite='www.innforks.com',
-			  @hotelDescription='Located in downtown Winnipeg at The Forks, our top tourism attraction, you''re immersed in a convergence of cultures – Aboriginal, French Canadian and Manitoban – at a 6,000-year-old meeting place. The myriad of shopping, arts, and entertainment options on-site and nearby is unmatched.',
-			  @hotel_path='InnAtTheForks.jpg',
-			  @hotelLocationId=9
 
 exec spHotelsCrud @crud='c',
 			  @hotelName='Delta Hotels by Marriott Winnipeg',
@@ -175,23 +166,13 @@ exec spHotelsCrud @crud='c',
 			  @hotelLocationId=9
 
 exec spHotelsCrud @crud='c',
-			  @hotelName='Radisson Hotel Winnipeg Downtown',
-			  @hotelPhoneNumber='204-956-0410',
-			  @hotelAddress='288 Portage Avenue',
-			  @hotelPostalCode='R3C 0B8',
-			  @hotelWebsite='www.radisson.com/winnipeg-hotel-mb-r3c0b8/mbwinnip',
-			  @hotelDescription='Conveniently located on Portage Avenue, Radisson Hotel Winnipeg Downtown is within sight of the Burton Cummings Theatre and area shopping centres.  Open on weekdays from 7:30 a.m. to 5 p.m., our skywalk connects you to Cityplace, Bell MTS Place and Winnipeg Square. The Radisson is also less than 20 minutes from Winnipeg James Armstrong Richardson International Airport (YWG) and within a 10-minute walk of the Canadian Museum for Human Rights, the Exchange District, the RBC Convention Centre and Chinatown.',
-			  @hotel_path='RadissonHotel.jpg',
-			  @hotelLocationId=9
-
-exec spHotelsCrud @crud='c',
-			  @hotelName='Canad Inns Destination Centre Health Sciences Centre',
-			  @hotelPhoneNumber='204-594-9472',
-			  @hotelAddress='720 William Avenue',
-			  @hotelPostalCode='R3E 3J7',
-			  @hotelWebsite='www.canadinns.com/stay/health-sciences-centre',
-			  @hotelDescription='Our hotel is conveniently attached to the Health Sciences Centre, located just a few minutes from downtown Winnipeg, including shopping at Portage Place and The Forks, and just a five minute drive from McPhillips Station Casino.  For your comfort, our hotel offers a number of universally-accessible and wheelchair-friendly rooms.',
-			  @hotel_path='CanadInnsHSC.png',
+			  @hotelName='The Fort Garry Hotel',
+			  @hotelPhoneNumber='204-942-8251',
+			  @hotelAddress='222 Broadway',
+			  @hotelPostalCode='R3C 0R3',
+			  @hotelWebsite='www.fortgarryhotel.com',
+			  @hotelDescription='Located in downtown Winnipeg, the Fort Garry Hotel was built in 1913 as a grand railway hotel.  The century-old Fort Garry Hotel, Spa and Conference Centre ushers in a new era of modern-day style in downtown Winnipeg. Catering to guests who appreciate local history mixed with authentic charm, this iconic 240-room “Grand Dame” is a favorite for weddings, romantic getaways and wellness weekends. Don’t leave without saying hello to one of the hotel’s friendly resident ghosts.',
+			  @hotel_path='FortGarryHotel.jpg',
 			  @hotelLocationId=9
 
 exec spHotelsCrud @crud='c',
@@ -205,6 +186,26 @@ exec spHotelsCrud @crud='c',
 			  @hotelLocationId=10
 
 exec spHotelsCrud @crud='c',
+			  @hotelName='Inn at the Forks',
+			  @hotelPhoneNumber='1-866-500-4938',
+			  @hotelAddress='75 Forks Market Road',
+			  @hotelPostalCode='R3C 0A2',
+			  @hotelWebsite='www.innforks.com',
+			  @hotelDescription='Located in downtown Winnipeg at The Forks, our top tourism attraction, you''re immersed in a convergence of cultures – Aboriginal, French Canadian and Manitoban – at a 6,000-year-old meeting place. The myriad of shopping, arts, and entertainment options on-site and nearby is unmatched.',
+			  @hotel_path='InnAtTheForks.jpg',
+			  @hotelLocationId=9
+
+exec spHotelsCrud @crud='c',
+			  @hotelName='Radisson Hotel Winnipeg Downtown',
+			  @hotelPhoneNumber='204-956-0410',
+			  @hotelAddress='288 Portage Avenue',
+			  @hotelPostalCode='R3C 0B8',
+			  @hotelWebsite='www.radisson.com/winnipeg-hotel-mb-r3c0b8/mbwinnip',
+			  @hotelDescription='Conveniently located on Portage Avenue, Radisson Hotel Winnipeg Downtown is within sight of the Burton Cummings Theatre and area shopping centres.  Open on weekdays from 7:30 a.m. to 5 p.m., our skywalk connects you to Cityplace, Bell MTS Place and Winnipeg Square. The Radisson is also less than 20 minutes from Winnipeg James Armstrong Richardson International Airport (YWG) and within a 10-minute walk of the Canadian Museum for Human Rights, the Exchange District, the RBC Convention Centre and Chinatown.',
+			  @hotel_path='RadissonHotel.jpg',
+			  @hotelLocationId=9
+
+exec spHotelsCrud @crud='c',
 			  @hotelName='Royal Albert Arms',
 			  @hotelPhoneNumber='204-943-8433',
 			  @hotelAddress='48 Albert Street',
@@ -213,6 +214,16 @@ exec spHotelsCrud @crud='c',
 			  @hotelDescription='The Royal Albert Hotel with its 54 rooms, restaurant, coffee shop and cigar stand opened its doors on November 5, 1913.  The façade of the hotel was designed with a continental flair. A red-tiled roof forms a cornice over a brick front accentuated with ornamental iron fretwork, elaborate iron lights and arched main floor windows and doors which combine to create an Italian effect.',
 			  @hotel_path='RoyalAlbertArmsHotel.jpg',
 			  @hotelLocationId=9
+
+exec spHotelsCrud @crud='c',
+			  @hotelName='Viscount Gort Hotel',
+			  @hotelPhoneNumber='1-800-665-1122',
+			  @hotelAddress='1670 Portage Avenue',
+			  @hotelPostalCode='R3J 0C9',
+			  @hotelWebsite='www.viscount-gort.com',
+			  @hotelDescription='Pronounced vī kount, the Viscount Gort is located minutes from Polo Park Shopping Centre.  We offer free parking for our guests and a free shuttle to and from the airport. City buses stop close by and there are plenty of taxi and limo services always available.',
+			  @hotel_path='ViscountGort.png',
+			  @hotelLocationId=7
 
 --------  ADD Hotel template  ----------------
 
@@ -273,35 +284,15 @@ as begin
 end
 go
 
-exec spUniversitiesCollegesCrud @schoolCrud='c',
-		@schoolName = 'University of Winnipeg',
-		@schoolPhoneNumber = '204-786-7811',
-		@schoolAddress = '515 Portage Avenue',
-		@schoolPostalCode = 'R3B 2E9',
-		@schoolWebsite = 'www.uwinnipeg.ca',
-		@schoolDescription = 'The University of Winnipeg was founded in 1871 and offers high-quality undergraduate and graduate programs. Our graduates value their educational experience, and UWinnipeg consistently ranks highly in national surveys for overall reputation, small class sizes, academic excellence and commitment to the environment.',
-		@school_path = 'UniversityWinnipeg',
-		@schoolLocationId = 9
-
 exec spUniversitiesCollegesCrud @schoolCrud = 'c',
-		@schoolName = 'University of Manitoba',
-		@schoolPhoneNumber = '204-474-8880',
-		@schoolAddress = '66 Chancellors Circle',
-		@schoolPostalCode = 'R3T 2N2',
-		@schoolWebsite = 'www.umanitoba.ca',
-		@schoolDescription = 'Since 1877, the University of Manitoba has been driving discovery and inspiring minds through innovative teaching and research excellence. Proudly located in the heart of Canada, the U of M has a strong and engaged community of students, faculty, staff, alumni, donors and community partners. With more than 140,000 alumni living in 137 countries, our impact is global.',
-		@school_path = 'UniversityManitoba.png',
-		@schoolLocationId = 5
-
-exec spUniversitiesCollegesCrud @schoolCrud = 'c',
-		@schoolName = 'Robertson College',
-		@schoolPhoneNumber = '204-926-8325',
-		@schoolAddress = '265 Notre Dame Avenue',
-		@schoolPostalCode = 'R3B 1N9',
-		@schoolWebsite = 'www.robertsoncollege.com',
-		@schoolDescription = 'Having been in operation for over 100 years, Robertson College has established itself as a leading private post-secondary institution in Canada.  Meaningful, challenging, industry-reviewed programs taught by qualified, dedicated instructors are at the core of Robertson College''s operation. we ensure our students'' success by providing quality instruction, industry-aligned curriculum, and practical hands-on learning experiences.',
-		@school_path = 'RobertsonCollege.png',
-		@schoolLocationId = 9
+		@schoolName = 'Booth University College',
+		@schoolPhoneNumber = '204-942-3856',
+		@schoolAddress = '447 Webb Place',
+		@schoolPostalCode = 'R3B 2P2',
+		@schoolWebsite = 'www.boothuc.ca',
+		@schoolDescription = 'William and Catherine Booth University College, rooted in The Salvation Army’s Wesleyan theological tradition, brings together Christian faith, rigorous scholarship and a passion for service.  A small campus with just 250 students, located in downtown Winnipeg.',
+		@school_path = 'BoothUC.png',
+		@schoolLocationId = 7
 
 exec spUniversitiesCollegesCrud @schoolCrud = 'c',
 		@schoolName = 'Canadian Mennonite University',
@@ -311,6 +302,16 @@ exec spUniversitiesCollegesCrud @schoolCrud = 'c',
 		@schoolWebsite = 'www.cmu.ca/',
 		@schoolDescription = 'CMU offers comprehensive university education within a dynamic and diverse Christian community. Exemplary academic studies across the arts and sciences are distinguished by interdisciplinary interaction, experiential learning, and quality connection between students and faculty.',
 		@school_path = 'CanadianMennoniteUniversity.jpg',
+		@schoolLocationId = 9
+
+exec spUniversitiesCollegesCrud @schoolCrud = 'c',
+		@schoolName = 'Herzing College Winnipeg',
+		@schoolPhoneNumber = '204-775-8175',
+		@schoolAddress = '1700 Portage Avenue',
+		@schoolPostalCode = 'R3J 0E1',
+		@schoolWebsite = 'www.herzing.ca/winnipeg',
+		@schoolDescription = '',
+		@school_path = 'Herzing.png',
 		@schoolLocationId = 7
 
 exec spUniversitiesCollegesCrud @schoolCrud = 'c',
@@ -322,6 +323,36 @@ exec spUniversitiesCollegesCrud @schoolCrud = 'c',
 		@schoolDescription = 'We have 4 campuses scattered throughout Winnipeg, and 5 more outside Winnipeg.  We are Manitoba’s largest institute of applied learning and research, with more than 200 full- and part-time degree, diploma and certificate options.  We have close to 22,000 students each year from more than 60 countries.',
 		@school_path = 'RedRiverCollege.jpg',
 		@schoolLocationId = 10
+
+exec spUniversitiesCollegesCrud @schoolCrud = 'c',
+		@schoolName = 'Robertson College',
+		@schoolPhoneNumber = '204-926-8325',
+		@schoolAddress = '265 Notre Dame Avenue',
+		@schoolPostalCode = 'R3B 1N9',
+		@schoolWebsite = 'www.robertsoncollege.com',
+		@schoolDescription = 'Having been in operation for over 100 years, Robertson College has established itself as a leading private post-secondary institution in Canada.  There are 12 locations in Canada and one in China.',
+		@school_path = 'RobertsonCollege.png',
+		@schoolLocationId = 9
+
+exec spUniversitiesCollegesCrud @schoolCrud = 'c',
+		@schoolName = 'University of Manitoba',
+		@schoolPhoneNumber = '204-474-8880',
+		@schoolAddress = '66 Chancellors Circle',
+		@schoolPostalCode = 'R3T 2N2',
+		@schoolWebsite = 'www.umanitoba.ca',
+		@schoolDescription = 'Since 1877, the University of Manitoba has been driving discovery and inspiring minds through innovative teaching and research excellence. The U of M has 24,000 undergraduate and graduate students studying more than 90 degree programs.',
+		@school_path = 'UniversityManitoba.png',
+		@schoolLocationId = 5
+
+exec spUniversitiesCollegesCrud @schoolCrud='c',
+		@schoolName = 'University of Winnipeg',
+		@schoolPhoneNumber = '204-786-7811',
+		@schoolAddress = '515 Portage Avenue',
+		@schoolPostalCode = 'R3B 2E9',
+		@schoolWebsite = 'www.uwinnipeg.ca',
+		@schoolDescription = 'The University of Winnipeg was founded in 1871 and offers high-quality undergraduate and graduate programs. The U of W consistently ranks highly in national surveys for overall reputation, small class sizes, academic excellence and commitment to the environment.  There are 9,175 undergraduate students and 274 graduate students.',
+		@school_path = 'UniversityWinnipeg',
+		@schoolLocationId = 9
 
 select * from tbUniversitiesColleges
 go

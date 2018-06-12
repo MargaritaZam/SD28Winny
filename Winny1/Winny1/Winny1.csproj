@@ -71,6 +71,7 @@
     <Content Include="Anjali.sql" />
     <Content Include="attraction.aspx" />
     <Content Include="HotelPictures\CanadInnsHSC.png" />
+    <Content Include="HotelPictures\ClarionPoloPark.jpg" />
     <Content Include="HotelPictures\DeltaHotel.png" />
     <Content Include="HotelPictures\FortGarryHotel.jpg" />
     <Content Include="HotelPictures\HiltonAirport.jpg" />
@@ -157,7 +158,9 @@
     <Content Include="Shopping\Winnipeg Square.jpg" />
     <Content Include="Shopping\Winnipeg Trading Post.jpg" />
     <Content Include="Tracy.sql" />
+    <Content Include="UniversityPictures\BoothUC.png" />
     <Content Include="UniversityPictures\CanadianMennoniteUniversity.jpg" />
+    <Content Include="UniversityPictures\Herzing.png" />
     <Content Include="UniversityPictures\RedRiverCollege.jpg" />
     <Content Include="UniversityPictures\RobertsonCollege.png" />
     <Content Include="UniversityPictures\UniversityManitoba.png" />
@@ -181,6 +184,7 @@
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Restaurant.cs" />
     <Compile Include="Restaurants.aspx.cs">
       <DependentUpon>Restaurants.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
