@@ -168,6 +168,7 @@
     <Compile Include="attraction.aspx.designer.cs">
       <DependentUpon>attraction.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Attraction.cs" />
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
