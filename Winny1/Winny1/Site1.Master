@@ -72,6 +72,15 @@ var year = currentTime.getFullYear()
                         <a href="#">Shopping Malls</a>
                     </div>
                     </li>
+
+                     <li class="dropdown"><a href="attraction.aspx" class="dropbtn">Attractions</a>
+                    <div class="dropdown-content">
+                        <a href="#">Museums</a>                     
+                        <a href="#">Galleries</a>
+                        <a href="#">Parks/Zoo</a>
+                        
+                    </div>
+                    </li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>    	
             </div> <!-- end of tooplate_menu -->
