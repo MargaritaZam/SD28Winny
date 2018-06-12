@@ -15,7 +15,7 @@ body {
 /* Style tab links */
 .tablink {
     background-color:cornflowerblue;
-    color: white;
+    color: yellow;
     float: left;
     border: none;
     outline: none;
@@ -85,8 +85,7 @@ function openPage(pageName,elmnt,color) {
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
 </script>
-     
-</body>
+  </body>   
     
 
 
