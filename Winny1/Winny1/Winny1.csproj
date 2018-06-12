@@ -168,6 +168,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About.cs" />
     <Compile Include="attraction.aspx.cs">
       <DependentUpon>attraction.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -176,6 +177,7 @@
       <DependentUpon>attraction.aspx</DependentUpon>
     </Compile>
     <Compile Include="Attraction.cs" />
+    <Compile Include="Hotels.cs" />
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -206,6 +208,7 @@
     <Compile Include="Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
     </Compile>
+    <Compile Include="Universities.cs" />
     <Compile Include="WinnipegShopping.cs" />
   </ItemGroup>
   <ItemGroup>

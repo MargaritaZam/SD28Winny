@@ -25,10 +25,10 @@ go
 create table tbAbout
 (
 	AboutID int identity(1,1) primary key,
-	Title	varchar(30),
-	Description varchar(500)
+	AboutTitle	varchar(30),
+	AboutDescription varchar(500)
 )
-insert into tbAbout (Title, Description) values
+insert into tbAbout (AboutTitle, AboutDescription) values
 	('Origins','The City of Winnipeg lies at the confluence of the Red River and the Assiniboine River, known as The Forks.  It was created on November 8, 1873 near the present day intersection of Portage Avenue and Main Street.'),
 	('Now','Winnipeg is the capital and largest city of the province of Manitoba in Canada. It is near the longitudinal centre of North America and is 110 kilometres from the Canada–United States border.'),
 	('Population','The city has a population of 749,500, while the Province of Manitoba has a total population of 1.33 million.   (Estimated 2017)')
