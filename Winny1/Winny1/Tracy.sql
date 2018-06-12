@@ -85,6 +85,7 @@ create table tbUniversitiesColleges
 	SchoolPostalCode varchar(7),
 	SchoolWebsite varchar(100),
 	SchoolDescription varchar(800),
+	School_path varchar(200),
 	SchoolLocationID int foreign key references tbLocation(LocationID)
 )
 go
@@ -149,7 +150,7 @@ exec spHotelsCrud @crud='c',
 			  @hotelAddress='1670 Portage Avenue',
 			  @hotelPostalCode='R3J 0C9',
 			  @hotelWebsite='www.viscount-gort.com',
-			  @hotelDescription='(Pronounced vī kount), the Viscount Gort is located minutes from Polo Park Shopping Centre.  We offer free parking for our guests and a free shuttle to and from the airport. City buses stop close by and there are plenty of taxi and limo services always available.',
+			  @hotelDescription='Pronounced vī kount, the Viscount Gort is located minutes from Polo Park Shopping Centre.  We offer free parking for our guests and a free shuttle to and from the airport. City buses stop close by and there are plenty of taxi and limo services always available.',
 			  @hotel_path='ViscountGort.png',
 			  @hotelLocationId=7
 
@@ -237,21 +238,22 @@ create procedure spUniversitiesCollegesCrud
 	@schoolPostalCode varchar(7) = null,
 	@schoolWebsite varchar(100) = null,
 	@schoolDescription varchar(800) = null,
+	@school_path varchar(200) = null,
 	@schoolLocationID int = null,
 	@schoolCrud varchar(1)
 )
 as begin
-	if @crud='r'
+	if @schoolCrud='r'
 	begin
-		select SchoolName, SchoolPhoneNumber, SchoolAddress, SchoolPostalCode, SchoolWebsite, SchoolDescription,'.\SchoolPictures\' + School_path as School_path from tbUniversitiesColleges where HotelId=isnull(@SchoolId,SchoolId)
+		select SchoolName, SchoolPhoneNumber, SchoolAddress, SchoolPostalCode, SchoolWebsite, SchoolDescription,'.\SchoolPictures\' + School_path as School_path from tbUniversitiesColleges where SchoolId=isnull(@SchoolId,SchoolId)
 	end
-	else if @crud='c'
+	else if @schoolCrud='c'
 	begin
 		insert into tbUniversitiesColleges(SchoolName,SchoolPhoneNumber,SchoolAddress,SchoolPostalCode,SchoolWebsite,SchoolDescription,School_path,SchoolLocationID)
 								values
 								(@schoolName,@schoolPhoneNumber,@schoolAddress,@schoolPostalCode,@schoolWebsite,@schoolDescription,@school_path,@schoolLocationID)
 	end
-	else if @crud='u'
+	else if @schoolCrud='u'
 	begin
 		update tbUniversitiesColleges set
 			   SchoolName = @schoolName,
@@ -264,9 +266,62 @@ as begin
 			   SchoolLocationID = @schoolLocationID
 		where SchoolID = @schoolID
 	end
-	else if @crud = 'd'
+	else if @schoolCrud = 'd'
 	begin
 		delete from tbUniversitiesColleges where SchoolID = @schoolID
 	end
 end
+go
+
+exec spUniversitiesCollegesCrud @schoolCrud='c',
+		@schoolName = 'University of Winnipeg',
+		@schoolPhoneNumber = '204-786-7811',
+		@schoolAddress = '515 Portage Avenue',
+		@schoolPostalCode = 'R3B 2E9',
+		@schoolWebsite = 'www.uwinnipeg.ca',
+		@schoolDescription = 'The University of Winnipeg was founded in 1871 and offers high-quality undergraduate and graduate programs. Our graduates value their educational experience, and UWinnipeg consistently ranks highly in national surveys for overall reputation, small class sizes, academic excellence and commitment to the environment.',
+		@school_path = 'UniversityWinnipeg',
+		@schoolLocationId = 9
+
+exec spUniversitiesCollegesCrud @schoolCrud = 'c',
+		@schoolName = 'University of Manitoba',
+		@schoolPhoneNumber = '204-474-8880',
+		@schoolAddress = '66 Chancellors Circle',
+		@schoolPostalCode = 'R3T 2N2',
+		@schoolWebsite = 'www.umanitoba.ca',
+		@schoolDescription = 'Since 1877, the University of Manitoba has been driving discovery and inspiring minds through innovative teaching and research excellence. Proudly located in the heart of Canada, the U of M has a strong and engaged community of students, faculty, staff, alumni, donors and community partners. With more than 140,000 alumni living in 137 countries, our impact is global.',
+		@school_path = 'UniversityManitoba.png',
+		@schoolLocationId = 5
+
+exec spUniversitiesCollegesCrud @schoolCrud = 'c',
+		@schoolName = 'Robertson College',
+		@schoolPhoneNumber = '204-926-8325',
+		@schoolAddress = '265 Notre Dame Avenue',
+		@schoolPostalCode = 'R3B 1N9',
+		@schoolWebsite = 'www.robertsoncollege.com',
+		@schoolDescription = 'Having been in operation for over 100 years, Robertson College has established itself as a leading private post-secondary institution in Canada.  Meaningful, challenging, industry-reviewed programs taught by qualified, dedicated instructors are at the core of Robertson College''s operation. we ensure our students'' success by providing quality instruction, industry-aligned curriculum, and practical hands-on learning experiences.',
+		@school_path = 'RobertsonCollege.png',
+		@schoolLocationId = 9
+
+exec spUniversitiesCollegesCrud @schoolCrud = 'c',
+		@schoolName = 'Canadian Mennonite University',
+		@schoolPhoneNumber = '204-487-3300',
+		@schoolAddress = '500 Shaftesbury Boulevard',
+		@schoolPostalCode = 'R3P 2N2',
+		@schoolWebsite = 'www.cmu.ca/',
+		@schoolDescription = 'CMU offers comprehensive university education within a dynamic and diverse Christian community. Exemplary academic studies across the arts and sciences are distinguished by interdisciplinary interaction, experiential learning, and quality connection between students and faculty.',
+		@school_path = 'CanadianMennoniteUniversity.jpg',
+		@schoolLocationId = 7
+
+exec spUniversitiesCollegesCrud @schoolCrud = 'c',
+		@schoolName = 'Red River College',
+		@schoolPhoneNumber = '204-632-2327',
+		@schoolAddress = '2055 Notre Dame Avenue',
+		@schoolPostalCode = 'R3H 0J9',
+		@schoolWebsite = 'www.rrc.mb.ca',
+		@schoolDescription = 'We have 4 campuses scattered throughout Winnipeg, and 5 more outside Winnipeg.  We are Manitoba’s largest institute of applied learning and research, with more than 200 full- and part-time degree, diploma and certificate options.  We have close to 22,000 students each year from more than 60 countries.',
+		@school_path = 'RedRiverCollege.jpg',
+		@schoolLocationId = 10
+
+select * from tbUniversitiesColleges
 go
