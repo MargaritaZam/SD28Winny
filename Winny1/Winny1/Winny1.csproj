@@ -69,6 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Anjali.sql" />
+    <Content Include="attraction.aspx" />
     <Content Include="HotelPictures\CanadInnsHSC.png" />
     <Content Include="HotelPictures\ClarionPoloPark.jpg" />
     <Content Include="HotelPictures\DeltaHotel.png" />
@@ -78,8 +79,11 @@
     <Content Include="HotelPictures\RadissonHotel.jpg" />
     <Content Include="HotelPictures\RoyalAlbertArmsHotel.jpg" />
     <Content Include="HotelPictures\ViscountGort.png" />
+    <Content Include="index.aspx" />
     <Content Include="Margo.sql" />
     <Content Include="Natalia.sql" />
+    <Content Include="Restaurants.aspx" />
+    <Content Include="Shopping.aspx" />
     <Content Include="Shopping\A Book Fair.jpg" />
     <Content Include="Shopping\A LEpi de Blé.jpg" />
     <Content Include="Shopping\Abbey Antiques &amp; Art.jpg" />
@@ -119,7 +123,7 @@
     <Content Include="Shopping\Luxe Label.jpg" />
     <Content Include="Shopping\Marway Militaria Inc.jpg" />
     <Content Include="Shopping\McNally Robinson.jpg" />
-    <Content Include="Shopping\Mike%27s General Store.jpg" />
+    <Content Include="Shopping\Mike General Store.jpg" />
     <Content Include="Shopping\Nerman Books &amp; Collectibles.jpg" />
     <Content Include="Shopping\Out of the Blue.jpg" />
     <Content Include="Shopping\Paperdoll Clothing.jpg" />
@@ -148,7 +152,7 @@
     <Content Include="Shopping\Thirsty Flea Market &amp; Auction.png" />
     <Content Include="Shopping\Uomo Casual Fine Clothing For Men.jpg" />
     <Content Include="Shopping\Vintage Glory.jpg" />
-    <Content Include="Shopping\Vintage Veruca Antiques.jpg" />
+    <Content Include="Shopping\VintageVerucaAntiques.jpg" />
     <Content Include="Shopping\Whoodonit.jpg" />
     <Content Include="Shopping\Winnipeg Outfitters.jpg" />
     <Content Include="Shopping\Winnipeg Square.jpg" />
@@ -164,6 +168,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About.cs" />
     <Compile Include="attraction.aspx.cs">
       <DependentUpon>attraction.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -172,6 +177,7 @@
       <DependentUpon>attraction.aspx</DependentUpon>
     </Compile>
     <Compile Include="Attraction.cs" />
+    <Compile Include="Hotels.cs" />
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -202,6 +208,8 @@
     <Compile Include="Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
     </Compile>
+    <Compile Include="Universities.cs" />
+    <Compile Include="WinnipegShopping.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
