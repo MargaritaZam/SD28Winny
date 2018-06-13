@@ -3,7 +3,13 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
  
-
+    <style>
+        .column {
+            float: left;
+            width: 33.33%;
+            padding: 15px;
+        }
+    </style>
     <asp:Panel ID="Attr" runat="server"  Height="2000px" Width="600px" BackColor="White">
 <table>
     <tr>
@@ -39,35 +45,39 @@
     </tr>
 </table>
         <asp:DataList ID="dlAttraction" DataKeyField="attractionCategory" RepeatColumns="1" RepeatDirection="Horizontal" runat="server">
-        <ItemTemplate>
-            <div id="mydiv"  onclick="return ViewProduct(<%#Eval ("attractionCategory")%>)"  style="height:380px;">
-                <table style="width:250px; ">
-                     <tr>
-                    <td style="height:250px"><asp:Image ID="atImage" runat="server" Height="230px" ImageUrl='<%# Bind("atImage") %>' Width="230px" /></td>
-                    </tr>  
-           </table>
-                <table style="margin-left:250px;   float: left;">
-                      <tr>
-                        <td><%#Eval ("attractionCategory")%><br />
-                  
-                       <%#Eval ("atName")%><br />
-                 
-                       <%#Eval ("atDesc")%><br />
-                    
-                      <%#Eval ("atAddress")%><br />
-                 
-                     <%#Eval ("atPhone")%><br />
-               
-                       <%#Eval ("atWebsite")%><br />
-                
-                       <%#Eval ("location")%></td>
-                    </tr>                  
-                   
-                </table>
+       <ItemTemplate>
+            <div id="mydiv" class="column"  onclick="return ViewProduct(<%#Eval ("attractionCategory")%>)"  style="height:380px; vertical-align:top">         
+
+
+
+ <table style="width:100%">
+<tr>
+<td style="vertical-align:top; float:left; display:inline-block">
+    <table1>
+     <tr>
+     <td style="height:250px"><asp:Image ID="Image1" runat="server" Height="230px" ImageUrl='<%# Bind("atImage") %>' Width="230px" /></td>
+    </tr>
+    </table1>
+</td>
+    <td style="vertical-align:top; float:right; display:inline-block">
+<table2 >
+    <tr>
+        <td> <%#Eval ("atName")%><br />
+             <%#Eval ("atDesc")%><br />
+             <%#Eval ("atAddress")%><br />
+             <%#Eval ("atPhone")%><br />
+             <%#Eval ("atWebsite")%><br />
+             <%#Eval ("location")%>
+        </td>
+    </tr>
+</table2>
+    </td>
+</tr>
+</table>
                  
                 
             </div>
-        </ItemTemplate>
+       </ItemTemplate>
     </asp:DataList>
         <br />
                 <br />
