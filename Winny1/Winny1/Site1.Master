@@ -51,6 +51,7 @@ var year = currentTime.getFullYear()
                     <li class="dropdown"><a href="About.aspx" class="dropbtn">About Us</a>
                         <div class="dropdown-content">
                             <a href="#">Origins</a>
+                            <a href="#">Motto</a>
                             <a href="#">Now</a>
                             <a href="#">Population</a>
                             <a href="#">Weather</a>
