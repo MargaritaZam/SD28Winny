@@ -35,7 +35,7 @@ insert into tbAbout (AboutTitle, AboutDescription) values
 	('Population','The city has a population of 749,500, while the Province of Manitoba has a total population of 1.33 million.  (Estimated 2017)')
 go
 
-select * from tbAbout
+--select * from tbAbout
 go
 
 create table tbWeather
@@ -60,7 +60,7 @@ insert into tbWeather (month, high, low) values
 	('December','-8 C','-17 C')
 go
 
-select * from tbWeather
+--select * from tbWeather
 go
 
 create table tbHotels
@@ -141,6 +141,18 @@ as begin
 end
 go
 
+exec spHotelsCrud @crud = 'c',
+			  @hotelName = 'Alt Hotel Winnipeg',
+			  @hotelPrice = 159,
+			  @hotelStars = '***',
+			  @hotelDescription = 'Located in the new Sports, Hospitality and Entertainment District (SHED), the hotel is just steps away from the Bell MTS Place, home of the Winnipeg Jets hockey team, an array of businesses such as restaurants, bars and boutiques.',
+			  @hotelPhoneNumber = '1-844-946-6258',
+			  @hotelAddress = '310 Donald Street',
+			  @hotelPostalCode = 'R3B 2H3',
+			  @hotelWebsite = 'althotels.com/en/winnipeg/',
+			  @hotel_path = 'AltHotel.jpg',
+			  @hotelLocationId = 9
+
 exec spHotelsCrud @crud='c',
 			  @hotelName='Canad Inns Destination Centre Health Sciences Centre',
 			  @hotelPrice=143,
@@ -178,6 +190,18 @@ exec spHotelsCrud @crud='c',
 			  @hotel_path='DeltaHotel.png',
 			  @hotelLocationId=9
 
+exec spHotelsCrud @crud = 'c',
+			  @hotelName = 'Econo Lodge',
+			  @hotelPrice = 110,
+			  @hotelStars = '**',
+			  @hotelDescription = 'Convenient for accessing the hospital, University of Winnipeg campus and downtown Winnipeg.  Rooms not wheelchair accessible',
+			  @hotelPhoneNumber = '204-255-7100',
+			  @hotelAddress = '690 Notre Dame Avenue',
+			  @hotelPostalCode = 'R3E 0L7',
+			  @hotelWebsite = 'www.econolodge.com',
+			  @hotel_path = 'EconoLodgeND.jpg',
+			  @hotelLocationId = 9
+
 exec spHotelsCrud @crud='c',
 			  @hotelName='The Fort Garry Hotel',
 			  @hotelPrice=149,
@@ -213,6 +237,18 @@ exec spHotelsCrud @crud='c',
 			  @hotel_path='InnAtTheForks.jpg',
 			  @hotelLocationId=9
 
+exec spHotelsCrud @crud = 'c',
+			  @hotelName = 'Queen Bee Hotel',
+			  @hotelPrice = '89',
+			  @hotelStars = '**',
+			  @hotelDescription = 'Located just outside of the main gates of the University of Manitoba, the Queen Bee Hotel is within walking distance to many restaurants, cultural venues and other conveniences.',
+			  @hotelPhoneNumber = '204-269-4666',
+			  @hotelAddress = '2615 Pembina Hwy.',
+			  @hotelPostalCode = 'R3T 2H5',
+			  @hotelWebsite = 'www.queenbeehotel.com',
+			  @hotel_path = 'QueenBee.jpg',
+			  @hotelLocationId = 5
+
 exec spHotelsCrud @crud='c',
 			  @hotelName='Radisson Hotel Winnipeg Downtown',
 			  @hotelPrice=152,
@@ -236,6 +272,18 @@ exec spHotelsCrud @crud='c',
 			  @hotelWebsite='none',
 			  @hotel_path='RoyalAlbertArmsHotel.jpg',
 			  @hotelLocationId=9
+
+exec spHotelsCrud @crud = 'c',
+			  @hotelName = 'Travelodge Winnipeg East',
+			  @hotelPrice = 95,
+			  @hotelStars = '**',
+			  @hotelDescription = '',
+			  @hotelPhoneNumber = '204-255-6000',
+			  @hotelAddress = '20 Alpine Avenue',
+			  @hotelPostalCode = 'R2M 0Y5',
+			  @hotelWebsite = 'www.wyndhamhotels.com',
+			  @hotel_path = 'TravelodgeEast.jpg',
+			  @hotelLocationId = 4
 
 exec spHotelsCrud @crud='c',
 			  @hotelName='Viscount Gort Hotel',
@@ -263,7 +311,7 @@ exec spHotelsCrud @crud='c',
 --			  @hotel_path = '',
 --			  @hotelLocationId = ?
 
-select * from tbHotels
+--select * from tbHotels
 go
 
 create procedure spUniversitiesCollegesCrud
@@ -380,5 +428,5 @@ exec spUniversitiesCollegesCrud @schoolCrud='c',
 		@school_path = 'UniversityWinnipeg',
 		@schoolLocationId = 9
 
-select * from tbUniversitiesColleges
-go
+--select * from tbUniversitiesColleges
+--go

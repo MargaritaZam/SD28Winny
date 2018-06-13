@@ -70,14 +70,18 @@
   <ItemGroup>
     <Content Include="Anjali.sql" />
     <Content Include="attraction.aspx" />
+    <Content Include="HotelPictures\AltHotel.jpg" />
     <Content Include="HotelPictures\CanadInnsHSC.png" />
     <Content Include="HotelPictures\ClarionPoloPark.jpg" />
     <Content Include="HotelPictures\DeltaHotel.png" />
+    <Content Include="HotelPictures\EconoLodgeND.jpg" />
     <Content Include="HotelPictures\FortGarryHotel.jpg" />
     <Content Include="HotelPictures\HiltonAirport.jpg" />
     <Content Include="HotelPictures\InnAtTheForks.jpg" />
+    <Content Include="HotelPictures\QueenBee.jpg" />
     <Content Include="HotelPictures\RadissonHotel.jpg" />
     <Content Include="HotelPictures\RoyalAlbertArmsHotel.jpg" />
+    <Content Include="HotelPictures\TravelodgeEast.jpg" />
     <Content Include="HotelPictures\ViscountGort.png" />
     <Content Include="index.aspx" />
     <Content Include="Margo.sql" />
