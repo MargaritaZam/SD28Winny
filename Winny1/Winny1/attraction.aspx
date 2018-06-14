@@ -36,31 +36,29 @@
     </tr>
     <tr>
         <td>
-            <asp:Button ID="btnSearch" runat="server" Text="Search" BackColor="#CC0099" Font-Bold="True" ForeColor="White" Height="33px" Width="80px" />
+            <asp:Button ID="btnSearch" runat="server" Text="Search" BackColor="#CC0099" Font-Bold="True" ForeColor="White" Height="33px" Width="80px" OnClick="btnSearch_Click" />
         </td>
     </tr>
 </table>
-        <asp:DataList ID="dlAttraction" DataKeyField="attractionCategory" RepeatColumns="1" RepeatDirection="Horizontal" runat="server">
+        <asp:DataList ID="dlAttraction"  runat="server">
        <ItemTemplate>
-            <div id="mydiv" onclick="return ViewProduct(<%#Eval ("attractionCategory")%>)"  style="width:100%; overflow:auto" >         
+            <div id="mydiv" onclick="return ViewProduct(<%#Eval ("attractionCategory")%>)"  style="width:100%" >         
  
     <table >
      <tr>
      <td>
-      <asp:Image ID="Image1" style="vertical-align:top; float:left" runat="server" Height="230px" ImageUrl='<%# Bind("image") %>' Width="230px" />
+      <asp:Image ID="Image1"  runat="server" Height="200px" ImageUrl='<%# Bind("image") %>' Width="200px" />
      </td>
    <td >   
-<table2  >
+<table>
     <tr>
-        <td> <%#Eval ("atName")%> Name  <br />     
-             <%#Eval ("atDesc")%><br />
-             <%#Eval ("atAddress")%><br />
-             <%#Eval ("atPhone")%><br />
-             <%#Eval ("atWebsite")%><br />
-             <%#Eval ("location")%><br />
-        </td>
-    </tr>
-</table2>
+        <th> <%#Eval ("atName")%></th></tr>     
+       <tr><td>Description: <%#Eval ("atDesc")%></td></tr>
+             <tr><td>Address: <%#Eval ("atAddress")%></td></tr>
+             <tr><td>Phone: <%#Eval ("atPhone")%></td></tr>
+             <tr><td>Website: <%#Eval ("atWebsite")%></td></tr>
+             <tr><td>Location: <%#Eval ("location")%></td></tr>     
+</table>
     </td>
 </tr>
 </table>
