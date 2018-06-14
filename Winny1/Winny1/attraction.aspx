@@ -4,11 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
  
     <style>
-        .column {
-            float: left;
-            width: 33.33%;
-            padding: 15px;
-        }
+        
     </style>
     <asp:Panel ID="Attr" runat="server"  Height="2000px" Width="600px" BackColor="White">
 <table>
@@ -46,28 +42,22 @@
 </table>
         <asp:DataList ID="dlAttraction" DataKeyField="attractionCategory" RepeatColumns="1" RepeatDirection="Horizontal" runat="server">
        <ItemTemplate>
-            <div id="mydiv" class="column"  onclick="return ViewProduct(<%#Eval ("attractionCategory")%>)"  style="height:380px; vertical-align:top">         
-
-
-
- <table style="width:100%">
-<tr>
-<td style="vertical-align:top; float:left; display:inline-block">
-    <table1>
+            <div id="mydiv" onclick="return ViewProduct(<%#Eval ("attractionCategory")%>)"  style="width:100%; overflow:auto" >         
+ 
+    <table >
      <tr>
-     <td style="height:250px"><asp:Image ID="Image1" runat="server" Height="230px" ImageUrl='<%# Bind("atImage") %>' Width="230px" /></td>
-    </tr>
-    </table1>
-</td>
-    <td style="vertical-align:top; float:right; display:inline-block">
-<table2 >
+     <td>
+      <asp:Image ID="Image1" style="vertical-align:top; float:left" runat="server" Height="230px" ImageUrl='<%# Bind("image") %>' Width="230px" />
+     </td>
+   <td >   
+<table2  >
     <tr>
-        <td> <%#Eval ("atName")%><br />
+        <td> <%#Eval ("atName")%> Name  <br />     
              <%#Eval ("atDesc")%><br />
              <%#Eval ("atAddress")%><br />
              <%#Eval ("atPhone")%><br />
              <%#Eval ("atWebsite")%><br />
-             <%#Eval ("location")%>
+             <%#Eval ("location")%><br />
         </td>
     </tr>
 </table2>
