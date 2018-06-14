@@ -59,7 +59,7 @@ var year = currentTime.getFullYear()
                     </li>
 
                     <li><a href="#services">Hotels</a></li>
-                    <li class="dropdown"><a href="Restaurants.aspx" class="dropbtn">Restaurants</a>
+                    <li class="dropdown"><a href="Hotels.aspx" class="dropbtn">Hotels</a>
                         <div class="dropdown-content">
                             <a href="#">Location</a>
                             <a href="#">Price</a>
