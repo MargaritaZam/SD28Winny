@@ -314,7 +314,7 @@ exec spHotelsCrud @crud='c',
 --select * from tbHotels
 go
 
-create procedure spUniversitiesCollegesCrud
+create procedure spSchoolsCrud
 (
 	@schoolID int = null,
 	@schoolName varchar(100) = null,
@@ -358,7 +358,7 @@ as begin
 end
 go
 
-exec spUniversitiesCollegesCrud @schoolCrud = 'c',
+exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolName = 'Booth University College',
 		@schoolPhoneNumber = '204-942-3856',
 		@schoolAddress = '447 Webb Place',
@@ -368,7 +368,7 @@ exec spUniversitiesCollegesCrud @schoolCrud = 'c',
 		@school_path = 'BoothUC.png',
 		@schoolLocationId = 7
 
-exec spUniversitiesCollegesCrud @schoolCrud = 'c',
+exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolName = 'Canadian Mennonite University',
 		@schoolPhoneNumber = '204-487-3300',
 		@schoolAddress = '500 Shaftesbury Boulevard',
@@ -378,7 +378,7 @@ exec spUniversitiesCollegesCrud @schoolCrud = 'c',
 		@school_path = 'CanadianMennoniteUniversity.jpg',
 		@schoolLocationId = 9
 
-exec spUniversitiesCollegesCrud @schoolCrud = 'c',
+exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolName = 'Herzing College Winnipeg',
 		@schoolPhoneNumber = '204-775-8175',
 		@schoolAddress = '1700 Portage Avenue',
@@ -388,7 +388,7 @@ exec spUniversitiesCollegesCrud @schoolCrud = 'c',
 		@school_path = 'Herzing.png',
 		@schoolLocationId = 7
 
-exec spUniversitiesCollegesCrud @schoolCrud = 'c',
+exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolName = 'Red River College',
 		@schoolPhoneNumber = '204-632-2327',
 		@schoolAddress = '2055 Notre Dame Avenue',
@@ -398,7 +398,7 @@ exec spUniversitiesCollegesCrud @schoolCrud = 'c',
 		@school_path = 'RedRiverCollege.jpg',
 		@schoolLocationId = 10
 
-exec spUniversitiesCollegesCrud @schoolCrud = 'c',
+exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolName = 'Robertson College',
 		@schoolPhoneNumber = '204-926-8325',
 		@schoolAddress = '265 Notre Dame Avenue',
@@ -408,7 +408,7 @@ exec spUniversitiesCollegesCrud @schoolCrud = 'c',
 		@school_path = 'RobertsonCollege.png',
 		@schoolLocationId = 9
 
-exec spUniversitiesCollegesCrud @schoolCrud = 'c',
+exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolName = 'University of Manitoba',
 		@schoolPhoneNumber = '204-474-8880',
 		@schoolAddress = '66 Chancellors Circle',
@@ -418,7 +418,7 @@ exec spUniversitiesCollegesCrud @schoolCrud = 'c',
 		@school_path = 'UniversityManitoba.png',
 		@schoolLocationId = 5
 
-exec spUniversitiesCollegesCrud @schoolCrud='c',
+exec spSchoolsCrud @schoolCrud='c',
 		@schoolName = 'University of Winnipeg',
 		@schoolPhoneNumber = '204-786-7811',
 		@schoolAddress = '515 Portage Avenue',
