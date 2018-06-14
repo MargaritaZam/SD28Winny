@@ -20,6 +20,16 @@ go
 
 select*from tbLocation
 go
+create procedure spLocation
+(
+@LocationID int=null ,
+@LocationName varchar(30)=null
+)
+as begin
+	select * from tbLocation where LocationID=isnull(@LocationID,LocationID)
+end
+go
+
 create table tbAttractions(
 attractionID int identity(1,1) primary key,
 attractionCategory varchar(150),
