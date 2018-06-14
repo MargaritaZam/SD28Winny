@@ -7,6 +7,8 @@ namespace Winny1
 {
     public class Hotels
     {
+        string conn = "Data Source=localhost;Initial Catalog=dbGroupProject;Integrated Security=SSPI;";
+
         public int HotelID {get;set;}
         public string HotelName { get; set; }
         public string HotelPhoneNumber { get; set; }

@@ -83,6 +83,7 @@ create table tbUniversitiesColleges
 (
 	SchoolID int identity(1,1) primary key,
 	SchoolName varchar(100),
+	SchoolType varchar(10),
 	SchoolPhoneNumber varchar(15),
 	SchoolAddress varchar(100),
 	SchoolPostalCode varchar(7),
@@ -314,10 +315,11 @@ exec spHotelsCrud @crud='c',
 --select * from tbHotels
 go
 
-create procedure spUniversitiesCollegesCrud
+create procedure spSchoolsCrud
 (
 	@schoolID int = null,
 	@schoolName varchar(100) = null,
+	@schoolType varchar(10) = null,
 	@schoolPhoneNumber varchar(15) = null,
 	@schoolAddress varchar(100) = null,
 	@schoolPostalCode varchar(7) = null,
@@ -330,18 +332,19 @@ create procedure spUniversitiesCollegesCrud
 as begin
 	if @schoolCrud='r'
 	begin
-		select SchoolName, SchoolPhoneNumber, SchoolAddress, SchoolPostalCode, SchoolWebsite, SchoolDescription,'.\SchoolPictures\' + School_path as School_path from tbUniversitiesColleges where SchoolId=isnull(@SchoolId,SchoolId)
+		select SchoolName, SchoolType, SchoolPhoneNumber, SchoolAddress, SchoolPostalCode, SchoolWebsite, SchoolDescription,'.\SchoolPictures\' + School_path as School_path from tbUniversitiesColleges where SchoolId=isnull(@SchoolId,SchoolId)
 	end
 	else if @schoolCrud='c'
 	begin
-		insert into tbUniversitiesColleges(SchoolName,SchoolPhoneNumber,SchoolAddress,SchoolPostalCode,SchoolWebsite,SchoolDescription,School_path,SchoolLocationID)
+		insert into tbUniversitiesColleges(SchoolName,SchoolType,SchoolPhoneNumber,SchoolAddress,SchoolPostalCode,SchoolWebsite,SchoolDescription,School_path,SchoolLocationID)
 								values
-								(@schoolName,@schoolPhoneNumber,@schoolAddress,@schoolPostalCode,@schoolWebsite,@schoolDescription,@school_path,@schoolLocationID)
+								(@schoolName,@schoolType,@schoolPhoneNumber,@schoolAddress,@schoolPostalCode,@schoolWebsite,@schoolDescription,@school_path,@schoolLocationID)
 	end
 	else if @schoolCrud='u'
 	begin
 		update tbUniversitiesColleges set
 			   SchoolName = @schoolName,
+			   SchoolType = @schoolType,
 			   SchoolPhoneNumber = @schoolPhoneNumber,
 			   SchoolAddress = @schoolAddress,
 			   SchoolPostalCode = @schoolPostalCode,
@@ -358,8 +361,9 @@ as begin
 end
 go
 
-exec spUniversitiesCollegesCrud @schoolCrud = 'c',
+exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolName = 'Booth University College',
+		@schoolType = 'c',
 		@schoolPhoneNumber = '204-942-3856',
 		@schoolAddress = '447 Webb Place',
 		@schoolPostalCode = 'R3B 2P2',
@@ -368,8 +372,9 @@ exec spUniversitiesCollegesCrud @schoolCrud = 'c',
 		@school_path = 'BoothUC.png',
 		@schoolLocationId = 7
 
-exec spUniversitiesCollegesCrud @schoolCrud = 'c',
+exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolName = 'Canadian Mennonite University',
+		@schoolType = 'u',
 		@schoolPhoneNumber = '204-487-3300',
 		@schoolAddress = '500 Shaftesbury Boulevard',
 		@schoolPostalCode = 'R3P 2N2',
@@ -378,8 +383,9 @@ exec spUniversitiesCollegesCrud @schoolCrud = 'c',
 		@school_path = 'CanadianMennoniteUniversity.jpg',
 		@schoolLocationId = 9
 
-exec spUniversitiesCollegesCrud @schoolCrud = 'c',
+exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolName = 'Herzing College Winnipeg',
+		@schoolType = 'c',
 		@schoolPhoneNumber = '204-775-8175',
 		@schoolAddress = '1700 Portage Avenue',
 		@schoolPostalCode = 'R3J 0E1',
@@ -388,8 +394,9 @@ exec spUniversitiesCollegesCrud @schoolCrud = 'c',
 		@school_path = 'Herzing.png',
 		@schoolLocationId = 7
 
-exec spUniversitiesCollegesCrud @schoolCrud = 'c',
+exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolName = 'Red River College',
+		@schoolType = 'c',
 		@schoolPhoneNumber = '204-632-2327',
 		@schoolAddress = '2055 Notre Dame Avenue',
 		@schoolPostalCode = 'R3H 0J9',
@@ -398,8 +405,9 @@ exec spUniversitiesCollegesCrud @schoolCrud = 'c',
 		@school_path = 'RedRiverCollege.jpg',
 		@schoolLocationId = 10
 
-exec spUniversitiesCollegesCrud @schoolCrud = 'c',
+exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolName = 'Robertson College',
+		@schoolType = 'c',
 		@schoolPhoneNumber = '204-926-8325',
 		@schoolAddress = '265 Notre Dame Avenue',
 		@schoolPostalCode = 'R3B 1N9',
@@ -408,8 +416,9 @@ exec spUniversitiesCollegesCrud @schoolCrud = 'c',
 		@school_path = 'RobertsonCollege.png',
 		@schoolLocationId = 9
 
-exec spUniversitiesCollegesCrud @schoolCrud = 'c',
+exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolName = 'University of Manitoba',
+		@schoolType = 'u, g',
 		@schoolPhoneNumber = '204-474-8880',
 		@schoolAddress = '66 Chancellors Circle',
 		@schoolPostalCode = 'R3T 2N2',
@@ -418,8 +427,9 @@ exec spUniversitiesCollegesCrud @schoolCrud = 'c',
 		@school_path = 'UniversityManitoba.png',
 		@schoolLocationId = 5
 
-exec spUniversitiesCollegesCrud @schoolCrud='c',
+exec spSchoolsCrud @schoolCrud='c',
 		@schoolName = 'University of Winnipeg',
+		@schoolType = 'u, g',
 		@schoolPhoneNumber = '204-786-7811',
 		@schoolAddress = '515 Portage Avenue',
 		@schoolPostalCode = 'R3B 2E9',
