@@ -79,7 +79,7 @@ create procedure spRestaurants
 as begin
 	if @crud='a'
 	begin
-		select RestaurantName,Description,RestaurantId,'.\Pictures\Restaurants\' + path as path  from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId)
+		select RestaurantName,Description,RestaurantId,'./Pictures/Restaurants/' + path as path  from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId)
 	end
 	else if @crud='r'
 	begin
@@ -108,7 +108,7 @@ select * from tbFood_Category
 select * from tbLocation
 go
 exec spRestaurants @crud='c',
-				@RestaurantName='Lovey"s BBQ',
+				@RestaurantName='Loveys BBQ',
 				@Description='Bring a bib and dig into slow-and-low-smoked meats. House-made sauces add extra pizzazz to this BBQ-lovers haunt. Brisket, pork shoulder and ribs are stars on the menu.',
 				@Address='2, 208 Marion St',
 				@PostalCode='R2H 0T6',
@@ -684,7 +684,7 @@ exec spRestaurants @crud='c',
 
 exec spRestaurants @crud='c',
 				@RestaurantName='Mon Ami Louis',
-				@Description='Located on the iconic Esplanade Riel, "Mon Ami Louis" is the newest addition to the WOW! Family of restaurants!',
+				@Description='Located on the iconic Esplanade Riel, Mon Ami Louis is the newest addition to the WOW! Family of restaurants!',
 				@Address=' Esplanade Riel',
 				@PostalCode='R2H 2B9',
 				@ContactNo='(204) 942-1090',
