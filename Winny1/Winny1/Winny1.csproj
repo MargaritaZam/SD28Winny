@@ -70,15 +70,17 @@
   <ItemGroup>
     <Content Include="Anjali.sql" />
     <Content Include="attraction.aspx" />
-    <Content Include="Home.aspx" />
     <Content Include="HotelPictures\CanadInnsHSC.png" />
     <Content Include="HotelPictures\ClarionPoloPark.jpg" />
     <Content Include="HotelPictures\DeltaHotel.png" />
+    <Content Include="HotelPictures\EconoLodgeND.jpg" />
     <Content Include="HotelPictures\FortGarryHotel.jpg" />
     <Content Include="HotelPictures\HiltonAirport.jpg" />
     <Content Include="HotelPictures\InnAtTheForks.jpg" />
+    <Content Include="HotelPictures\QueenBee.jpg" />
     <Content Include="HotelPictures\RadissonHotel.jpg" />
     <Content Include="HotelPictures\RoyalAlbertArmsHotel.jpg" />
+    <Content Include="HotelPictures\TravelodgeEast.jpg" />
     <Content Include="HotelPictures\ViscountGort.png" />
     <Content Include="images\a1.jpg" />
     <Content Include="images\a1.png" />
@@ -207,6 +209,7 @@
     <Content Include="Shopping\Winnipeg Square.jpg" />
     <Content Include="Shopping\Winnipeg Trading Post.jpg" />
     <Content Include="Tracy.sql" />
+    <Content Include="Universities.aspx" />
     <Content Include="UniversityPictures\BoothUC.png" />
     <Content Include="UniversityPictures\CanadianMennoniteUniversity.jpg" />
     <Content Include="UniversityPictures\Herzing.png" />
@@ -266,6 +269,13 @@
     </Compile>
     <Compile Include="Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Universities.aspx.cs">
+      <DependentUpon>Universities.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Universities.aspx.designer.cs">
+      <DependentUpon>Universities.aspx</DependentUpon>
     </Compile>
     <Compile Include="Universities.cs" />
     <Compile Include="WinnipegShopping.cs" />

@@ -48,7 +48,16 @@ var year = currentTime.getFullYear()
                 <ul class="navigation">
            
                     <li><a href="#home" class="selected">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
+                    <li class="dropdown"><a href="About.aspx" class="dropbtn">About Us</a>
+                        <div class="dropdown-content">
+                            <a href="#">Origins</a>
+                            <a href="#">Motto</a>
+                            <a href="#">Now</a>
+                            <a href="#">Population</a>
+                            <a href="#">Weather</a>
+                        </div>
+                    </li>
+
                     <li><a href="#services">Hotels</a></li>
                     <li class="dropdown"><a href="Restaurants.aspx" class="dropbtn">Restaurants</a>
                         <div class="dropdown-content">
@@ -62,6 +71,7 @@ var year = currentTime.getFullYear()
                         <a href="#">Resources & Articles</a>
                             </div>
                     </li>
+
                     <li class="dropdown"><a href="Shopping.aspx" class="dropbtn">Shopping</a>
                     <div class="dropdown-content">
                         <a href="Shopping.aspx?id=1">Antiques</a>
@@ -81,6 +91,7 @@ var year = currentTime.getFullYear()
                         
                     </div>
                     </li>
+
                 </ul>    	
             </div> <!-- end of tooplate_menu -->
             </div>

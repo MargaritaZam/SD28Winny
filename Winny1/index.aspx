@@ -13,7 +13,7 @@
                   <h2>Welcome to Winnipeg</h2>
                   <img src="images/tooplate_image_01.jpg" alt="Image 01" class="image_wrapper" />
                   <p><em>Nullam at erat ipsum, quis tincidunt mauris. Nunc sit amet sapien eget eros iaculis hendrerit quis a enim. Vestibulum at leo ante, vel auctor velit.</em></p>
-                  <p><a href="http://www.tooplate.com/view/2021-galaxy">Galaxy</a> is <a rel="nofollow" href="http://www.tooplate.com">free website template</a> for everyone. You may edit and apply this template for any purpose. Credits go to <a rel="nofollow" href="http://www.photovaco.com">Free Photos</a> for photos and <a rel="nofollow" href="http://jwloh.deviantart.com/art/Aquaticus-Social-91014249" target="_blank">jwloh</a> for Aquaticus.Social social icons and <a rel="nofollow" href="http://www.icojoy.com">icojoy.com</a> for icons. Nunc posuere tristique tempor.</p>
+                  <p><a href="http://www.tooplate.com/view/2021-galaxy2">Winnipeg</a> is <a rel="nofollow" href="http://www.tooplate.com">free website template</a> for everyone. You may edit and apply this template for any purpose. Credits go to <a rel="nofollow" href="http://www.photovaco.com">Free Photos</a> for photos and <a rel="nofollow" href="http://jwloh.deviantart.com/art/Aquaticus-Social-91014249" target="_blank">jwloh</a> for Aquaticus.Social social icons and <a rel="nofollow" href="http://www.icojoy.com">icojoy.com</a> for icons. Nunc posuere tristique tempor.</p>
                 </div>
                 <div class="col_270 float_r">
                   <h2>Our Services</h2>
@@ -153,7 +153,7 @@
             <div id="footer_left">
 				
             	Copyright © 2048 <a href="#">Company Name</a><br />
-            	<!-- Galaxy by <a rel="nofollow" href="http://www.tooplate.com">Templates</a><br /> -->
+            	<!-- Galaxy1 by <a rel="nofollow" href="http://www.tooplate.com">Templates</a><br /> -->
                 
             </div>
 			
