@@ -142,7 +142,14 @@ insert into tbTypeOfSchool (TypeOfSchool) values
 	('Undergraduate'), ('Graduate / Undergraduate'), ('College')
 go
 
-select * from tbTypeOfSchool
+create procedure spGetSchoolTypes
+as begin
+select* from tbTypeOfSchool
+end
+go
+
+--exec spGetSchoolTypes
+--go
 
 create table tbUniversitiesColleges
 (

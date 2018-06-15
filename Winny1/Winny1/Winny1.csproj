@@ -257,6 +257,8 @@
     <Compile Include="ViewRestaurant.aspx.designer.cs">
       <DependentUpon>ViewRestaurant.aspx</DependentUpon>
     </Compile>
+    <Compile Include="WinnipegAbout.cs" />
+    <Compile Include="WinnipegSchools.cs" />
     <Compile Include="WinnipegShopping.cs" />
   </ItemGroup>
   <ItemGroup>
