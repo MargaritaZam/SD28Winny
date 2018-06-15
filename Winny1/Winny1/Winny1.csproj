@@ -84,7 +84,6 @@
     <Content Include="HotelPictures\ViscountGort.png" />
     <Content Include="index.aspx" />
     <Content Include="info.aspx" />
-    <Content Include="Information.html" />
     <Content Include="Margo.sql" />
     <Content Include="Natalia.sql" />
     <Content Include="Restaurants.aspx" />
