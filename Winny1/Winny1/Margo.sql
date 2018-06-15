@@ -106,6 +106,26 @@ end
 end
 go
 
+create procedure spGetAttraction(
+
+@id int =null
+)
+as begin
+select*from tbAttractions
+where @id=isnull(@id, attractionID)
+end
+go
+
+create procedure spGetCategory
+as begin
+select distinct attractionCategory as Category from tbAttractions
+
+end
+go
+
+
+
+
 exec spAttractions @crud='c', @category='Museums',
                               @name='Winnipeg Police Museum',
                               @desc='The Museum is displays artifacts related to the history of the Winnipeg Police Force, dating from its beginning in 1874.', 
@@ -300,4 +320,6 @@ exec spAttractions @crud='a', @category='Museums'
 exec spAttractions @crud='a', @category='Galleries'
 exec spAttractions @crud='a', @category='Parks'
 exec spAttractions @crud='z', @category='Museums'
+
 exec spAttractions @crud='r'
+exec spGetCategory

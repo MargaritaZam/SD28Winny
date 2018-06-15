@@ -10,7 +10,7 @@
 
        } 
     </style>
-    <asp:Panel ID="Attr" runat="server"  Height="2000px" Width="600px" BackColor="White">
+    <asp:Panel ID="Attr" runat="server"  Height="2000px" Width="1000px" BackColor="White">
 <table>
     <tr>
         <td>
@@ -98,7 +98,7 @@
     <script>
             function ViewProduct(id)
             {
-                window.location = "attraction.aspx?id="+id;
+                window.location = "info.aspx?id="+id;
             }
         </script>
    

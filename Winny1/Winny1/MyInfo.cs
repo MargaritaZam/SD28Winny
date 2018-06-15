@@ -23,9 +23,9 @@ namespace Winny1
             
             SqlConnection conn = new SqlConnection("Data Source = localhost; Initial Catalog = dbGroupProject; Integrated Security = SSPI");
             DataSet ds = new DataSet();
-            SqlDataAdapter da = new SqlDataAdapter("spAttractions", conn);
+            SqlDataAdapter da = new SqlDataAdapter("spGetAttraction", conn);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
-            da.SelectCommand.Parameters.AddWithValue("AttractionID", id);
+            da.SelectCommand.Parameters.AddWithValue("@id", id);
             conn.Open();
             da.Fill(ds);
             conn.Close();
