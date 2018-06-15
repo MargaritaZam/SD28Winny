@@ -85,12 +85,12 @@ as begin
 	end
 	else if @crud='r'
 	begin
-		select RestaurantName,Address,PostalCode,ContactNo,Description,'.\Pictures\Restaurants\' + path as path,Website from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId)
+		select RestaurantId,RestaurantName,Address,ContactNo,Description,'./Pictures/Restaurants/' + path as path,Website from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId)
 	end
 	else if @crud='s'
 	begin
 		
-			select RestaurantName,Description,RestaurantId,'.\Pictures\Restaurants\' + path as path  from tbRestaurants join tbFood_Category on
+			select RestaurantName,Description,RestaurantId,'./Pictures/Restaurants/' + path as path  from tbRestaurants join tbFood_Category on
 			tbRestaurants.FoodId=tbFood_Category.FoodId join tbLocation on 
 			tbRestaurants.LocationId=tbLocation.LocationId 
 			where tbRestaurants.LocationId=ISNULL(@LocationId,tbRestaurants.LocationId)

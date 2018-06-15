@@ -4,142 +4,113 @@
     <meta charset="utf-8" />
     <title></title>
     <script src="Scripts/jquery-3.3.1.js"></script>
-    <style>
-
-
-    </style>
-
+    
 </head>
 <body>
-    <form id="form">
-        <table class="Gal" id="Info"></table>
-        <script>
+    <div id="mypictures">
+    </div>
+    <script>
 
-
-            $(document).ready(function () {
-                loadInformation();
-            });
-
-            function loadInformation() {
-                //alert("ok");
-                $.get("Handler1.ashx", function (data, status) {
-
-                    var JsonImg = JSON.parse(data);
-                    // alert("ok11");
-                    var tbInfo = document.getElementById("Info");
-                    while (tbInfo.firstChild) {
-                        tbInfo.removeChild(tbGalaxy.firstChild);
-                    }
-                    //alert(JsonImg.Galaxy.length);
-                    for (var i = 0; i < JsonImg.Info.length; i++) {
-
-                        var tr = document.createElement("tr");
-                        var tdid = document.createElement("td");
-                        var tdname = document.createElement("td");
-                        var tdimage = document.createElement("td");
-
-                        var img = document.createElement("image");
-
-
-                        img.setAttribute("src", JsonImg.Info[i].image);
-
-                        img.setAttribute("height", "100px");
-                        img.setAttribute("width", "100px");
-                        tdid.innerHTML = JsonImg.Info[i].id
-                        tdname.innerHTML = JsonImg.Info[i].name;
-
-                        tdimage.appendChild(img);
-
-                        tr.appendChild(tdid);
-                        tr.appendChild(tdname);
-                        tr.appendChild(tdimage);
-
-
-                        tbInfo.appendChild(tr);
-                    }
-                });
-            }
-
-            function UpdateImg(name, id) {
-                // alert("ii");
-                document.getElementById("id").value = id;
-                //document.getElementById("txtname").value = name;
-            }
-
-
-
-
-
-            function SaveImg() {
-                id = document.getElementById("id");
-                if (id.value == "new") {
-
-
-                    var jsonObject = {
-
-                        "name": $("#txtname").val(),
-                        "image": $("#flimage").val()
-
-                    };
-
-                    $.post("AddImage.ashx",
-                        jsonObject,
-                        function (data, status) {
-                            //alert(data);
-                            UploadGalaxies();
-
-
-                        });
-                }
-                else {
-                    var jsonObject = {
-                        "id": $("#Galid").val(),
-                        "name": $("#txtname").val(),
-                        "image": $("#flimage").val()
-
-                    };
-
-                    $.post("Update.ashx",
-                        jsonObject,
-                        function (data, status) {
-                            //alert(data);
-                            UploadGalaxies();
-                            Galid = document.getElementById("Galid");
-                            Galid.value = "new";
-
-                        });
-
-                }
-                loadGalaxies();
-                return false;
-
-            }
-            function UploadGalaxy() {
-                var fileUpload = $("#flimage").get(0);
-                var files = fileUpload.files;
-                var test = new FormData();
-
-                test.append(files[0].name, files[0]);
-
-                $.ajax({
-                    url: "Upload.ashx",
+        var getQueryString = function (field, url) {
+            var href = url ? url : window.location.href;
+            var reg = new RegExp('[?&]' + field + '=([^&#]*)', 'i');
+            var string = reg.exec(href);
+            return string ? string[1] : null;
+        };
+        var id = getQueryString('id');
+        var choice = getQueryString('choice');
+        //alert(id);
+        //alert(choice);
+        $(document).ready(function () {
+            
+            $.ajax(
+                {
                     type: "POST",
-                    contentType: false,
-                    proccessData: false,
-                    data: test,
-                    success: function (result) {
-                        alert(result);
-                        newImage = document.getElementById("image");
-                        newImage.src = rsult;
+                    url: "LoadInformation.ashx",
+                    cache: false,
+                    data: {
+                        "choice": choice,
+                        "Id": id
                     },
-                    error: function (err) {
-                        alert(err.statusText);
+                    success: function (data, status) {
+                        loadInformation(data);
+                        
+                    },
+                    err: function (error) {
+                        alert("Bad stuff on Ajax call");
                     }
-                });
+                }
+            )
 
+
+        });
+
+        function loadInformation(data) {
+
+            var div = document.getElementById('mypictures');
+            var post = JSON.parse(data);
+          
+            for (var i = 0; i <= post.Table.length; i++) {
+                var ndiv = document.createElement('div');
+              
+                //var Id = document.createElement('p');
+                var Name = document.createElement('p');
+                var Description = document.createElement('p');
+                var Address = document.createElement('p');
+                var PostalCode = document.createElement('p');
+                var ContactNo = document.createElement('p');
+                var Website = document.createElement('a');
+                var br = document.createElement('br');
+               
+                var path = document.createElement('input');
+                var br1 = document.createElement('br');               
+                //Id.innerHTML = post.Table[i].Id;
+                Name.innerHTML = post.Table[i].Name;
+                Description.innerHTML = post.Table[i].Description;
+                Address.innerHTML = post.Table[i].Address;
+               // PostalCode.innerHTML = post.Table[i].PostalCode;
+                ContactNo.innerHTML = post.Table[i].ContactNo;
+                Website.innerHTML = post.Table[i].Website;
+                Website.setAttribute("href", post.Table[i].Website);
+                //var Delete = document.createElement('input');
+                //var Update = document.createElement('input');
+                //Delete.setAttribute("value", "Delete");
+                //Delete.setAttribute("type", "button");
+                //Delete.setAttribute("onclick", "return Delete(" + post.Table[i].PicId + ")");
+
+                //Update.setAttribute("value", "Update");
+                //Update.setAttribute("id", post.Table[i].PicId);
+                //Update.setAttribute("type", "button");
+                //Update.setAttribute("onclick", "return Update(" + post.Table[i].PicId + ")");
+
+
+
+
+
+                path.type = "image";
+                path.setAttribute('src', post.Table[i].path);
+                path.setAttribute('width', '200');
+                path.setAttribute('height', '200');
+               
+
+
+                //ndiv.appendChild(Id);
+                ndiv.appendChild(Name);
+                ndiv.appendChild(Description);
+                ndiv.appendChild(Address);
+                //ndiv.appendChild(PostalCode);
+                ndiv.appendChild(Website);
+                ndiv.appendChild(path);
+              
+               
+                div.appendChild(ndiv);
+            
             }
 
-        </script>
-    </form>
-</body>
-</html>
+        }
+        
+       
+    </script>
+
+</body >
+</html >

@@ -171,9 +171,8 @@ div.desc {
         <script>
             function ViewProduct(id)
             {
-            
-         window.location = "ViewRestaurant.aspx?id=" + id;
-         }
+                    window.location = "Information.html?id=" + id+"&choice="+"Rest";
+            }
         </script>
   
 </asp:Content>

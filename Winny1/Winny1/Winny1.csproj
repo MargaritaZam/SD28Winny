@@ -88,6 +88,7 @@
     <Content Include="Margo.sql" />
     <Content Include="Natalia.sql" />
     <Content Include="Restaurants.aspx" />
+    <Content Include="LoadInformation.ashx" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -212,6 +213,9 @@
     </Compile>
     <Compile Include="info.aspx.designer.cs">
       <DependentUpon>info.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoadInformation.ashx.cs">
+      <DependentUpon>LoadInformation.ashx</DependentUpon>
     </Compile>
     <Compile Include="MyInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
