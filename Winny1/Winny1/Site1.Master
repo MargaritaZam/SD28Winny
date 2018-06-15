@@ -61,7 +61,7 @@ var year = currentTime.getFullYear()
                     <li><a href="#services">Hotels</a></li>
                     <li class="dropdown"><a href="Restaurants.aspx" class="dropbtn">Restaurants</a>
                         <div class="dropdown-content">
-                        <a href="Restaurants.aspx?id=1">Where to Eat</a>
+                        <a href="#">Where to Eat</a>
                         <a href="#"> Peg City Grub Blog</a>
                         <a href="#"> Best Eats</a>
                         <a href="#">Breweries</a>
@@ -70,6 +70,10 @@ var year = currentTime.getFullYear()
                         <a href="#">Top Chefs</a>
                         <a href="#">Resources & Articles</a>
                             </div>
+                    </li>
+
+                    <li class="dropdown"><a href="Restaurants.aspx" class="dropbtn">Restaurants</a>
+                        
                     </li>
 
                     <li class="dropdown"><a href="Shopping.aspx" class="dropbtn">Shopping</a>
@@ -83,13 +87,11 @@ var year = currentTime.getFullYear()
                     </div>
                     </li>
 
-                     <li class="dropdown"><a href="attraction.aspx" class="dropbtn">Attractions</a>
-                    <div class="dropdown-content">
-                        <a href="attraction.aspx?id=1">Museums</a>                     
-                        <a href="attraction.aspx?id=2">Galleries</a>
-                        <a href="attraction.aspx?id=2">Parks/Zoo</a>
-                        
-                    </div>
+                    <li class="dropdown"><a href="Universities.aspx">Universities & Colleges</a>
+                        <div class="dropdown-content">
+                            <a href="Universities.aspx?id=1">Location</a>
+                            <a href="Universities.aspx?id=2">Type of Studies</a>
+                        </div>
                     </li>
 
                 </ul>    	
