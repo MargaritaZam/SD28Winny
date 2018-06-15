@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DAL_Project;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace Winny1
 {
@@ -41,10 +42,12 @@ namespace Winny1
 
         public void loadCategory()
         {
-            DAL myDal = new DAL(conn);          
-            DataSet ds = myDal.ExecuteProcedure("spGetCategory");
-            ddlCategory.DataSource = ds.Tables[0];                 
-            ddlCategory.DataBind();
+            //string conn = "Data Source= localhost; Initial Catalog=dbGroupProject; Integrated Security= SSPI";
+            //DAL myDal = new DAL(conn);          
+            //DataSet ds = myDal.ExecuteProcedure("spGetCategory");
+            //ddlCategory.DataSource = ds.Tables[0];
+            //ddlCategory.DataTextField = "attractionCategory";
+            //ddlCategory.DataBind();
         }
         public void loadAttraction()
         {
