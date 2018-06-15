@@ -25,21 +25,15 @@ namespace Winny1
         {
             string id = Request.QueryString["id"].ToString();
             MyInfo inf = new MyInfo(Convert.ToInt32(id));
-            Image.ImageUrl = inf.image;
-            txtName.Text = inf.name;
-            txtDesc.Text = inf.description;
-            txtPhone.Text = inf.phone;
-            txtAddress.Text = inf.address;
-            hlWeb.Text = inf.website;
+            ImageInfo.ImageUrl = inf.image;
+            lbName.Text = inf.name;
+            lbDesc.Text = inf.description;
+            lbPhone.Text = inf.phone;
+            lbAddress.Text = inf.address;
 
 
-            //DataSet ds = new DataSet();
-            //SqlDataAdapter da = new SqlDataAdapter("spAttractions", conn);
-            //da.SelectCommand.CommandType = CommandType.StoredProcedure;
-            //da.SelectCommand.Parameters.AddWithValue("@crud", "r");
-            //conn.Open();
-            //da.Fill(ds);
-            //conn.Close();
+
+
         }
     }
 }
