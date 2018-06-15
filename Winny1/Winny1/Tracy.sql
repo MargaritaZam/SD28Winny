@@ -79,11 +79,22 @@ create table tbHotels
 )
 go
 
+create table tbTypeOfSchool
+(
+	TypeOfSchoolID int identity(1,1) primary key,
+	TypeOfSchool varchar(40)
+)
+insert into tbTypeOfSchool (TypeOfSchool) values
+	('Undergraduate'), ('Graduate / Undergraduate'), ('College')
+go
+
+select * from tbTypeOfSchool
+
 create table tbUniversitiesColleges
 (
 	SchoolID int identity(1,1) primary key,
-	SchoolName varchar(100),
-	SchoolType varchar(10),
+	SchoolName varchar(50),
+	SchoolType int foreign key references tbTypeOfSchool(TypeOfSchoolID),
 	SchoolPhoneNumber varchar(15),
 	SchoolAddress varchar(100),
 	SchoolPostalCode varchar(7),
@@ -318,8 +329,8 @@ go
 create procedure spSchoolsCrud
 (
 	@schoolID int = null,
-	@schoolName varchar(100) = null,
-	@schoolType varchar(10) = null,
+	@schoolName varchar(50) = null,
+	@schoolType int = null,
 	@schoolPhoneNumber varchar(15) = null,
 	@schoolAddress varchar(100) = null,
 	@schoolPostalCode varchar(7) = null,
@@ -363,7 +374,7 @@ go
 
 exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolName = 'Booth University College',
-		@schoolType = 'c',
+		@schoolType = 3,
 		@schoolPhoneNumber = '204-942-3856',
 		@schoolAddress = '447 Webb Place',
 		@schoolPostalCode = 'R3B 2P2',
@@ -374,7 +385,7 @@ exec spSchoolsCrud @schoolCrud = 'c',
 
 exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolName = 'Canadian Mennonite University',
-		@schoolType = 'u',
+		@schoolType = 1,
 		@schoolPhoneNumber = '204-487-3300',
 		@schoolAddress = '500 Shaftesbury Boulevard',
 		@schoolPostalCode = 'R3P 2N2',
@@ -385,7 +396,7 @@ exec spSchoolsCrud @schoolCrud = 'c',
 
 exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolName = 'Herzing College Winnipeg',
-		@schoolType = 'c',
+		@schoolType = 3,
 		@schoolPhoneNumber = '204-775-8175',
 		@schoolAddress = '1700 Portage Avenue',
 		@schoolPostalCode = 'R3J 0E1',
@@ -396,7 +407,7 @@ exec spSchoolsCrud @schoolCrud = 'c',
 
 exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolName = 'Red River College',
-		@schoolType = 'c',
+		@schoolType = 3,
 		@schoolPhoneNumber = '204-632-2327',
 		@schoolAddress = '2055 Notre Dame Avenue',
 		@schoolPostalCode = 'R3H 0J9',
@@ -407,7 +418,7 @@ exec spSchoolsCrud @schoolCrud = 'c',
 
 exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolName = 'Robertson College',
-		@schoolType = 'c',
+		@schoolType = 3,
 		@schoolPhoneNumber = '204-926-8325',
 		@schoolAddress = '265 Notre Dame Avenue',
 		@schoolPostalCode = 'R3B 1N9',
@@ -418,7 +429,7 @@ exec spSchoolsCrud @schoolCrud = 'c',
 
 exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolName = 'University of Manitoba',
-		@schoolType = 'u, g',
+		@schoolType = 2,
 		@schoolPhoneNumber = '204-474-8880',
 		@schoolAddress = '66 Chancellors Circle',
 		@schoolPostalCode = 'R3T 2N2',
@@ -429,7 +440,7 @@ exec spSchoolsCrud @schoolCrud = 'c',
 
 exec spSchoolsCrud @schoolCrud='c',
 		@schoolName = 'University of Winnipeg',
-		@schoolType = 'u, g',
+		@schoolType = 2,
 		@schoolPhoneNumber = '204-786-7811',
 		@schoolAddress = '515 Portage Avenue',
 		@schoolPostalCode = 'R3B 2E9',
