@@ -4,7 +4,8 @@
     <meta charset="utf-8" />
     <title></title>
     <script src="Scripts/jquery-3.3.1.js"></script>
-    
+
+   
 </head>
 <body>
     <div id="mypictures">
@@ -46,10 +47,10 @@
         });
 
         function loadInformation(data) {
-
+            //alert(data);
             var div = document.getElementById('mypictures');
             var post = JSON.parse(data);
-           // alert(post);
+            
             for (var i = 0; i <= post.Table.length; i++) {
                 var ndiv = document.createElement('div');
               
