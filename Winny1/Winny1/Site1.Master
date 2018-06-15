@@ -43,7 +43,7 @@ var year = currentTime.getFullYear()
    	<div id="tooplate_wrapper">
     	
         <div id="tooplate_header">
-            <div id="site_title"><h1><a href="#">Winnipeg</a></h1></div>
+            <div id="site_title"><h1>Winnipeg</h1></div>
              <div id="menu">
                 <ul class="navigation">
            
@@ -62,7 +62,7 @@ var year = currentTime.getFullYear()
                     <div class="dropdown-content">
                         <a href="attraction.aspx?id=1">Museums</a>                     
                         <a href="attraction.aspx?id=2">Galleries</a>
-                        <a href="attraction.aspx?id=3">Parks/Zoo</a>
+                        <a href="attraction.aspx?id=2">Parks/Zoo</a>
                         
                     </div>
                     </li>
