@@ -58,18 +58,20 @@ var year = currentTime.getFullYear()
                         </div>
                     </li>
 
-                    <li><a href="#services">Hotels</a></li>
-                    <li class="dropdown"><a href="Restaurants.aspx" class="dropbtn">Restaurants</a>
+                     <li class="dropdown"><a href="attraction.aspx" class="dropbtn">Attractions</a>
+                    <div class="dropdown-content">
+                        <a href="attraction.aspx?id=1">Museums</a>                     
+                        <a href="attraction.aspx?id=2">Galleries</a>
+                        <a href="attraction.aspx?id=2">Parks/Zoo</a>
+                        
+                    </div>
+                    </li>
+
+                    <li><a href="#services">Hotels</a>
                         <div class="dropdown-content">
-                        <a href="#">Where to Eat</a>
-                        <a href="#"> Peg City Grub Blog</a>
-                        <a href="#"> Best Eats</a>
-                        <a href="#">Breweries</a>
-                        <a href="#">Food And Truck Guide</a>
-                        <a href="#">Tours</a>
-                        <a href="#">Top Chefs</a>
-                        <a href="#">Resources & Articles</a>
-                            </div>
+                            <a href="Hotels.aspx?id=1">Location</a>
+                            <a href="Hotels.aspx?id=2">Price</a>
+                        </div>
                     </li>
 
                     <li class="dropdown"><a href="Restaurants.aspx" class="dropbtn">Restaurants</a>
