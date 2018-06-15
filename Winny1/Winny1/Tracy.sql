@@ -1,10 +1,10 @@
 ﻿use master;
 go
-drop database dbGroupProject;
+drop database dbOmegaProject;
 go
-create database dbGroupProject;
+create database dbOmegaProject;
 go
-use dbGroupProject;
+use dbOmegaProject;
 go
 
 create table tbLocation
