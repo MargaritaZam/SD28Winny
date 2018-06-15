@@ -2,9 +2,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
- 
+ <script src="Scripts/jquery-3.3.1.js"></script>
     <style>
-        
+        #div
+       {
+           cursor:pointer;
+
+       } 
     </style>
     <asp:Panel ID="Attr" runat="server"  Height="2000px" Width="600px" BackColor="White">
 <table>
@@ -42,7 +46,7 @@
 </table>
         <asp:DataList ID="dlAttraction"  runat="server">
        <ItemTemplate>
-            <div id="mydiv" onclick="return ViewProduct(<%#Eval ("attractionCategory")%>)"  style="width:100%" >         
+            <div id="div" onclick="return ViewProduct(<%#Eval ("attractionID")%>)"  style="width:100%" >         
  
     <table >
      <tr>
@@ -52,18 +56,21 @@
    <td >   
 <table>
     <tr>
-        <th> <%#Eval ("atName")%></th></tr>     
-       <tr><td>Description: <%#Eval ("atDesc")%></td></tr>
+        <th style="text-decoration:underline; color:cornflowerblue"> <%#Eval ("atName")%></th></tr>     
+       <tr><td style="width:50%">Description: <%#Eval ("atDesc")%></td></tr>
              <tr><td>Address: <%#Eval ("atAddress")%></td></tr>
              <tr><td>Phone: <%#Eval ("atPhone")%></td></tr>
-             <tr><td>Website: <%#Eval ("atWebsite")%></td></tr>
-             <tr><td>Location: <%#Eval ("location")%></td></tr>     
+             <tr><td>Website: <asp:HyperLink ID="hlWeb" runat="server" NavigateUrl='<%# Eval ("atWebsite") %>' Text='<%# Eval ("atWebsite") %>'></asp:HyperLink></td></tr>
+             <tr><td>Location: <%#Eval ("location")%></td></tr> 
+   
 </table>
     </td>
+       
 </tr>
+
 </table>
                  
-                
+             
             </div>
        </ItemTemplate>
     </asp:DataList>
@@ -88,6 +95,12 @@
    </table>
 
           </asp:Panel>
+    <script>
+            function ViewProduct(id)
+            {
+                window.location = "attraction.aspx?id="+id;
+            }
+        </script>
    
         
 </asp:Content>

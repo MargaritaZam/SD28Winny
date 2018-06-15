@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="Scripts/jquery-3.3.1.js"></script>
+    <style>
+
+
+    </style>
+
+</head>
+<body>
+    <form id="form">
+        <table class="Gal" id="Info"></table>
+        <script>
+
+
+            $(document).ready(function () {
+                loadInformation();
+            });
+
+            function loadInformation() {
+                //alert("ok");
+                $.get("Handler1.ashx", function (data, status) {
+
+                    var JsonImg = JSON.parse(data);
+                    // alert("ok11");
+                    var tbInfo = document.getElementById("Info");
+                    while (tbInfo.firstChild) {
+                        tbInfo.removeChild(tbGalaxy.firstChild);
+                    }
+                    //alert(JsonImg.Galaxy.length);
+                    for (var i = 0; i < JsonImg.Info.length; i++) {
+
+                        var tr = document.createElement("tr");
+                        var tdid = document.createElement("td");
+                        var tdname = document.createElement("td");
+                        var tdimage = document.createElement("td");
+
+                        var img = document.createElement("image");
+
+
+                        img.setAttribute("src", JsonImg.Info[i].image);
+
+                        img.setAttribute("height", "100px");
+                        img.setAttribute("width", "100px");
+                        tdid.innerHTML = JsonImg.Info[i].id
+                        tdname.innerHTML = JsonImg.Info[i].name;
+
+                        tdimage.appendChild(img);
+
+                        tr.appendChild(tdid);
+                        tr.appendChild(tdname);
+                        tr.appendChild(tdimage);
+
+
+                        tbInfo.appendChild(tr);
+                    }
+                });
+            }
+
+            function UpdateImg(name, id) {
+                // alert("ii");
+                document.getElementById("id").value = id;
+                //document.getElementById("txtname").value = name;
+            }
+
+
+
+
+
+            function SaveImg() {
+                id = document.getElementById("id");
+                if (id.value == "new") {
+
+
+                    var jsonObject = {
+
+                        "name": $("#txtname").val(),
+                        "image": $("#flimage").val()
+
+                    };
+
+                    $.post("AddImage.ashx",
+                        jsonObject,
+                        function (data, status) {
+                            //alert(data);
+                            UploadGalaxies();
+
+
+                        });
+                }
+                else {
+                    var jsonObject = {
+                        "id": $("#Galid").val(),
+                        "name": $("#txtname").val(),
+                        "image": $("#flimage").val()
+
+                    };
+
+                    $.post("Update.ashx",
+                        jsonObject,
+                        function (data, status) {
+                            //alert(data);
+                            UploadGalaxies();
+                            Galid = document.getElementById("Galid");
+                            Galid.value = "new";
+
+                        });
+
+                }
+                loadGalaxies();
+                return false;
+
+            }
+            function UploadGalaxy() {
+                var fileUpload = $("#flimage").get(0);
+                var files = fileUpload.files;
+                var test = new FormData();
+
+                test.append(files[0].name, files[0]);
+
+                $.ajax({
+                    url: "Upload.ashx",
+                    type: "POST",
+                    contentType: false,
+                    proccessData: false,
+                    data: test,
+                    success: function (result) {
+                        alert(result);
+                        newImage = document.getElementById("image");
+                        newImage.src = rsult;
+                    },
+                    error: function (err) {
+                        alert(err.statusText);
+                    }
+                });
+
+            }
+
+        </script>
+    </form>
+</body>
+</html>
