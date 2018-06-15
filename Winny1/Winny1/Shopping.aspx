@@ -2,19 +2,44 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Panel  style="background-color:antiquewhite" ID="pnlStores" runat="server" >
-    <asp:DataList ID="dlStores" DataKeyField="StoreId" RepeatColumns="4"
+    <asp:Panel  style="background-color:antiquewhite; width:800px " ID="pnlStores" runat="server">
+    <asp:DataList ID="dlStores" DataKeyField="StoreId" RepeatColumns="1"
         runat="server">
         <ItemTemplate>
-            <div class="review">
-                <asp:Image ID="ImgStore" runat="server"
-                    ImageUrl='<%# Eval("Path") %>'
-                    ToolTip='<%# Eval("Description") %>'
-                    Height="200px" Width="200px"
-                    />
-                <br />
-                '<%# Eval("StoreName") %>'
-                <br />
+            <div id="mydiv"  onclick="return ViewProduct(<%#Eval ("StoreId")%>)"  style="width:100%;">
+                <table>
+                    <tr>
+                        <td>
+                <asp:Image ID="ImgStore"  Height="200px" Width="200px" runat="server"
+                    ImageUrl='<%# Eval("Path") %>'/>
+                    </td>
+                        <td>
+                            <table>
+      <tr>
+                <th>Store Name:  <%# Eval("StoreName") %>'</th>  
+                        </tr>
+                <tr><td style="width:50%">
+                  Description:   <%# Eval("Description") %>
+                    </td></tr>
+                                <tr>
+                                    <td>
+                                        Address: <%# Eval ("Address") %>
+                                    </td>
+                                </tr>
+                                   <tr>
+                                    <td>
+                                        Phone: <%# Eval ("PhoneNumber") %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                   Website: <asp:HyperLink ID="hplWeb" runat="server" NavigateUrl='<%# Eval ("Web") %>' Text='<%# Eval ("Web") %>'></asp:HyperLink>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+              </tr>            
+               </table>
                  <style>
                     body{
                         color:darkblue;
@@ -31,37 +56,5 @@
         </ItemTemplate>
     </asp:DataList>
         </asp:Panel>
- <%--   <table>
-        <tr>
-            <td>
-                <asp:Button ID="btnAntiques" runat="server" Text="Antiques" BorderColor="#FF6600" BorderStyle="Double" BackColor="#99FF66" />
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <asp:Button ID="btnBookStores" runat="server" Text="Book Stores" BorderColor="#FF6600" BorderStyle="Double" BackColor="#99FF66" />
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <asp:Button ID="btnBoutiques" runat="server" Text="Boutiques" BorderColor="#FF6600" BorderStyle="Double" BackColor="#99FF66" />
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <asp:Button ID="btnOutlets" runat="server" Text="Outlets" BorderColor="#FF6600" BorderStyle="Double" BackColor="#99FF66" />
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <asp:Button ID="btnGourmetFoods" runat="server" Text="Gourmet Foods" BorderColor="#FF6600" BorderStyle="Double" BackColor="#99FF66" />
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <asp:Button ID="btnShoppingMalls" runat="server" Text="Shopping Malls" BorderColor="#FF6600" BorderStyle="Double" BackColor="#99FF66" />
-            </td>
-        </tr>
-    </table>--%>
 </asp:Content>
 

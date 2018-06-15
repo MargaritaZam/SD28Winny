@@ -21,6 +21,7 @@ namespace Winny1
                 this.ViewState["vs"] = 0;
                
                 loadLocation();
+                loadCategory();
             }
             ps = (int)this.ViewState["vs"];
             loadAttraction();
@@ -35,6 +36,15 @@ namespace Winny1
             ddlLocation.DataTextField = "LocationName";
             ddlLocation.DataValueField = "LocationID";
             ddlLocation.DataBind();
+        }
+
+
+        public void loadCategory()
+        {
+            DAL myDal = new DAL(conn);          
+            DataSet ds = myDal.ExecuteProcedure("spGetCategory");
+            ddlCategory.DataSource = ds.Tables[0];                 
+            ddlCategory.DataBind();
         }
         public void loadAttraction()
         {
@@ -83,24 +93,24 @@ namespace Winny1
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            //string id = ddlAttraction.SelectedItem.Value;
-            //string LocationID = ddlLocation.SelectedItem.Value;
-            //DAL myDal = new DAL(conn);
-            //adsource = new PagedDataSource();
-            //myDal.AddParam("@crud", "s");
-            //myDal.AddParam("@FoodId", id);
-            //myDal.AddParam("@LocationId", LocationId);
-            //DataSet ds = myDal.ExecuteProcedure("spRestaurants");
-            //adsource.DataSource = ds.Tables[0].DefaultView;
-            //adsource.PageSize = 3;
-            //adsource.AllowPaging = true;
-            //adsource.CurrentPageIndex = pos;
-            //btnfirst.Enabled = !adsource.IsFirstPage;
-            //btnprevious.Enabled = !adsource.IsFirstPage;
-            //btnlast.Enabled = !adsource.IsLastPage;
-            //btnnext.Enabled = !adsource.IsLastPage;
-            //dlRestaurant.DataSource = adsource;
-            //dlRestaurant.DataBind();
+            string id = ddlCategory.SelectedItem.Value;
+            string LocationID = ddlLocation.SelectedItem.Value;
+            DAL myDal = new DAL(conn);
+            adsource = new PagedDataSource();
+            myDal.AddParam("@crud", "a");
+            myDal.AddParam("@id", id);
+            myDal.AddParam("@Location", LocationID);
+            DataSet ds = myDal.ExecuteProcedure("spAttractions");
+            adsource.DataSource = ds.Tables[0].DefaultView;
+            adsource.PageSize = 3;
+            adsource.AllowPaging = true;
+            adsource.CurrentPageIndex = ps;
+            btnfirst.Enabled = !adsource.IsFirstPage;
+            btnprevious.Enabled = !adsource.IsFirstPage;
+            btnlast.Enabled = !adsource.IsLastPage;
+            btnnext.Enabled = !adsource.IsLastPage;
+            dlAttraction.DataSource = adsource;
+            dlAttraction.DataBind();
         }
     }
 }
