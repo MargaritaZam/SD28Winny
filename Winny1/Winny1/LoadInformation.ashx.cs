@@ -164,7 +164,6 @@ namespace Winny1
             else if (choice == "Weather")
             {
                 DAL myDal = new DAL(conn3);
-                myDal.AddParam("@crud", "r");
                 myDal.AddParam("@id", id);
                 DataSet ds = myDal.ExecuteProcedure("spReadWeather");
 

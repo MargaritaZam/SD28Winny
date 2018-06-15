@@ -50,11 +50,11 @@ var year = currentTime.getFullYear()
                     <li><a href="#home" class="selected">Home</a></li>
                     <li class="dropdown"><a href="About.aspx" class="dropbtn">About Us</a>
                         <div class="dropdown-content">
-                            <a href="#">Origins</a>
-                            <a href="#">Motto</a>
-                            <a href="#">Now</a>
-                            <a href="#">Population</a>
-                            <a href="#">Weather</a>
+                            <a href="about.aspx?id=1">Origins</a>
+                            <a href="about.aspx?id=2">Motto</a>
+                            <a href="about.aspx?id=3">Now</a>
+                            <a href="about.aspx?id=4">Population</a>
+                            <a href="about.aspx?id=5">Weather</a>
                         </div>
                     </li>
 
@@ -67,7 +67,7 @@ var year = currentTime.getFullYear()
                     </div>
                     </li>
 
-                    <li><a href="#services">Hotels</a>
+                    <li class="dropdown"><a href="Hotels.aspx" class="dropbtn">Hotels</a>
                         <div class="dropdown-content">
                             <a href="Hotels.aspx?id=1">Location</a>
                             <a href="Hotels.aspx?id=2">Price</a>
