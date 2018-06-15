@@ -23,7 +23,7 @@ namespace Winny1
             
             SqlConnection conn = new SqlConnection("Data Source = localhost; Initial Catalog = dbGroupProject; Integrated Security = SSPI");
             DataSet ds = new DataSet();
-            SqlDataAdapter da = new SqlDataAdapter("spAttraction", conn);
+            SqlDataAdapter da = new SqlDataAdapter("spAttractions", conn);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
             da.SelectCommand.Parameters.AddWithValue("AttractionID", id);
             conn.Open();
@@ -31,12 +31,12 @@ namespace Winny1
             conn.Close();
 
             
-            name = ds.Tables[0].Rows[0]["name"].ToString();
-            description = ds.Tables[0].Rows[0]["description"].ToString();
-            phone= ds.Tables[0].Rows[0]["phone"].ToString();
-            address = ds.Tables[0].Rows[0]["address"].ToString();
-            website = ds.Tables[0].Rows[0]["website"].ToString();
-            image = "./Attractions/" + ds.Tables[0].Rows[0]["image"].ToString();
+            name = ds.Tables[0].Rows[0]["atName"].ToString();
+            description = ds.Tables[0].Rows[0]["atDesc"].ToString();
+            phone= ds.Tables[0].Rows[0]["atPhone"].ToString();
+            address = ds.Tables[0].Rows[0]["atAddress"].ToString();
+            website = ds.Tables[0].Rows[0]["atWebsite"].ToString();
+            image = "./Attractions/" + ds.Tables[0].Rows[0]["atImage"].ToString();
         }
     }
 }

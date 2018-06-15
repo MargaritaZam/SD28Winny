@@ -23,23 +23,23 @@ namespace Winny1
         }
         private void GetInfo()
         {
-            //string id = Request.QueryString["id"].ToString();
-            //MyInfo inf = new MyInfo(Convert.ToInt32(id));
-            //Image.ImageUrl = inf.image;
-            //txtName.Text = inf.name;
-            //txtDesc.Text = inf.description;
-            //txtPhone.Text = inf.phone;
-            //txtAddress.Text = inf.address;
-            //hlWeb.Text = inf.website;
+            string id = Request.QueryString["id"].ToString();
+            MyInfo inf = new MyInfo(Convert.ToInt32(id));
+            Image.ImageUrl = inf.image;
+            txtName.Text = inf.name;
+            txtDesc.Text = inf.description;
+            txtPhone.Text = inf.phone;
+            txtAddress.Text = inf.address;
+            hlWeb.Text = inf.website;
 
 
-            DataSet ds = new DataSet();
-            SqlDataAdapter da = new SqlDataAdapter("spAttractions", conn);
-            da.SelectCommand.CommandType = CommandType.StoredProcedure;
-            da.SelectCommand.Parameters.AddWithValue("@crud", "r");
-            conn.Open();
-            da.Fill(ds);
-            conn.Close();
+            //DataSet ds = new DataSet();
+            //SqlDataAdapter da = new SqlDataAdapter("spAttractions", conn);
+            //da.SelectCommand.CommandType = CommandType.StoredProcedure;
+            //da.SelectCommand.Parameters.AddWithValue("@crud", "r");
+            //conn.Open();
+            //da.Fill(ds);
+            //conn.Close();
         }
     }
 }

@@ -60,7 +60,7 @@
        <tr><td style="width:50%">Description: <%#Eval ("atDesc")%></td></tr>
              <tr><td>Address: <%#Eval ("atAddress")%></td></tr>
              <tr><td>Phone: <%#Eval ("atPhone")%></td></tr>
-             <tr><td>Website: <asp:HyperLink ID="hlWeb" runat="server" NavigateUrl='<%# Eval ("Website") %>' Text='<%# Eval ("Website") %>'></asp:HyperLink></td></tr>
+             <tr><td>Website: <asp:HyperLink ID="hlWeb" runat="server" NavigateUrl='<%# Eval ("atWebsite") %>' Text='<%# Eval ("atWebsite") %>'></asp:HyperLink></td></tr>
              <tr><td>Location: <%#Eval ("location")%></td></tr> 
    
 </table>
