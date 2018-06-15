@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data;
+using System.Data.SqlClient;
+using DAL_Project;
 
 namespace Winny1
 {
     public class Universities
     {
+        string conn = "Data Source=localhost;Initial Catalog=dbGroupProject;Integrated Security=SSPI;";
+
         public string SchoolID { get; set; }
         public string SchoolName { get; set; }
         public string SchoolPhoneNumber { get; set; }
