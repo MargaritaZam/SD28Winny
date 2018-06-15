@@ -1,10 +1,10 @@
 ﻿use master;
 go
-drop database dbGroupProject;
+drop database dbOmegaProject;
 go
-create database dbGroupProject;
+create database dbOmegaProject;
 go
-use dbGroupProject;
+use dbOmegaProject;
 go
 
 create table tbLocation
@@ -25,26 +25,69 @@ go
 create table tbAbout
 (
 	AboutID int identity(1,1) primary key,
-	AboutTitle	varchar(30),
-	AboutDescription varchar(500)
+	AboutTitle	varchar(50),
+	AboutDescription varchar(800)
 )
-insert into tbAbout (AboutTitle, AboutDescription) values
-	('Origins','The confluence of the Red and the Assiniboine Rivers, known as The Forks, has been a meeting place for 6,000 years.  The city was created on November 8, 1873 near the present day intersection of Portage Avenue and Main Street and is named after the Western Cree words for ''Muddy Water''.'),
-	('Motto','"UNUM CUM VIRTUTE MULTORUM" is Latin for "One with the strength of many"'),
-	('Now','Winnipeg is the capital and largest city of the province of Manitoba in Canada. It is near the longitudinal centre of North America and is 110 kilometres from the Canada–United States border.'),
-	('Population','The city has a population of 749,500, while the Province of Manitoba has a total population of 1.33 million.  (Estimated 2017)')
 go
+
+create procedure spAboutCrud
+(
+	@aboutID int = null,
+	@aboutTitle varchar(50) = null,
+	@aboutDescription varchar(800) = null,
+	@crud varchar(1)
+)
+as begin
+	if @crud='r'
+	begin
+		select AboutTitle, AboutDescription from tbAbout where AboutId=isnull(@aboutId,AboutId)
+	end
+	else if @crud='c'
+	begin
+		insert into tbAbout(AboutTitle,AboutDescription) values
+						(@aboutTitle,@aboutDescription)
+	end
+	else if @crud='u'
+	begin
+		update tbAbout set
+			   AboutTitle = @aboutTitle,
+			   AboutDescription = @aboutDescription
+		where AboutID = @aboutID
+	end
+	else if @crud = 'd'
+	begin
+		delete from tbAbout where AboutID = @aboutID
+	end
+end
+go
+
+exec spAboutCrud @crud = 'c',
+			     @aboutTitle = 'Origins',
+			     @aboutDescription = 'The confluence of the Red and the Assiniboine Rivers, known as The Forks, has been a meeting place for 6,000 years.  The city was created on November 8, 1873 near the present day intersection of Portage Avenue and Main Street and is named after the Western Cree words for ''Muddy Water''.'
+
+exec spAboutCrud @crud = 'c',
+			     @aboutTitle = 'Now',
+			     @aboutDescription = 'Winnipeg is the capital and largest city of the province of Manitoba in Canada. It is near the longitudinal centre of North America and is 110 kilometres from the Canada–United States border.'
+
+exec spAboutCrud @crud = 'c',
+			     @aboutTitle = 'Motto',
+			     @aboutDescription = '"UNUM CUM VIRTUTE MULTORUM" is Latin for "One with the strength of many"'
+
+exec spAboutCrud @crud = 'c',
+			     @aboutTitle = 'Population',
+			     @aboutDescription = 'The city has a population of 749,500, while the Province of Manitoba has a total population of 1.33 million.  (Estimated 2017)'
 
 --select * from tbAbout
 go
 
 create table tbWeather
 (
-	month varchar(15),
-	high varchar(10),
-	low varchar(10)
+	WeatherID int identity(1,1) primary key,
+	Month varchar(15),
+	High varchar(10),
+	Low varchar(10)
 )
-insert into tbWeather (month, high, low) values
+insert into tbWeather (Month, High, Low) values
 	('Month','Avg High','Avg Low'),
 	('January','-10 C','-20 C'),
 	('February','-8 C','-18 C'),
@@ -60,7 +103,18 @@ insert into tbWeather (month, high, low) values
 	('December','-8 C','-17 C')
 go
 
---select * from tbWeather
+create procedure spReadWeather
+(
+	@weatherID int = null,
+	@month varchar(15),
+	@high varchar(10),
+	@low varchar(10)
+)
+as begin
+	select Month, High, Low from tbWeather where WeatherId=isnull(@weatherId,WeatherId)
+end
+
+select * from tbWeather
 go
 
 create table tbHotels
@@ -123,7 +177,7 @@ create procedure spHotelsCrud
 as begin
 	if @crud='r'
 	begin
-		select HotelName, HotelPrice, HotelStars, HotelDescription, HotelPhoneNumber, HotelAddress, HotelPostalCode, HotelWebsite,'.\HotelPictures\' + Hotel_path as Hotel_path from tbHotels where HotelId=isnull(@HotelId,HotelId)
+		select HotelName, HotelPrice, HotelStars, HotelDescription, HotelPhoneNumber, HotelAddress, HotelPostalCode, HotelWebsite,'.\HotelPictures\' + Hotel_path as Hotel_path from tbHotels where HotelId=isnull(@hotelId,HotelId)
 	end
 	else if @crud='c'
 	begin

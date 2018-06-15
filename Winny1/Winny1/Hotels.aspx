@@ -3,11 +3,13 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <table>
-        <tr>
-            <th>Image</th>
-            <th rowspan="6"></th>
-        </tr>
-    </table>
+    <asp:Panel ID="PnlHotels" style="background-color:antiquewhite; width:800px "
+        runat="server">
+        <asp:DataList ID="DlHotels" DataKeyField="HotelID" RepeatColumns="1" runat="server">
+            <ItemTemplate>
+                <div id="TracysDiv" onclick="return ViewHotel(<%#Eval ("HotelID") %>)"
+            </ItemTemplate>
+        </asp:DataList>
+    </asp:Panel>
 
 </asp:Content>

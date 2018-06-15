@@ -114,7 +114,8 @@ end
 go
 go
 
---exec spStores @Crud='x', @CategoryId=1
+--exec spStores @Crud='r', @StoreId=55
+--go
 
 exec spStores @Crud='c', @StoreName='Vintage Veruca Antiques', @Description='Vintage Veruca Antiques Store',
               @Path='VintageVerucaAntiques.jpg',@Address='1342 Main Street, Winnipeg, MB, R2W 3T6 ',
