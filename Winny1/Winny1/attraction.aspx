@@ -98,7 +98,7 @@
     <script>
             function ViewProduct(id)
             {
-                window.location = "info.aspx?id="+id;
+                window.location = "Information.html?id=" + id+"&choice="+"Attract";
             }
         </script>
    

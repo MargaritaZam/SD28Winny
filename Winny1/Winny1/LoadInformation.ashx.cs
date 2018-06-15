@@ -14,6 +14,7 @@ namespace Winny1
     {
         string conn = "Data Source= localhost; Initial Catalog=dbRestaurants; Integrated Security= SSPI";
         string conn1 = "Data Source=localhost; Initial Catalog=dbShopping; Integrated Security=SSPI";
+        string conn2 = "Data Source= localhost; Initial Catalog=dbGroupProject; Integrated Security= SSPI";
         public void ProcessRequest(HttpContext context)
         {
             string id = context.Request.Form["Id"];
@@ -72,6 +73,33 @@ namespace Winny1
                 
 
             }
+
+            else if (choice == "Attract")
+            {
+                DAL myDal = new DAL(conn2);
+                myDal.AddParam("@crud", "r");
+                myDal.AddParam("@id", id);
+                DataSet ds = myDal.ExecuteProcedure("spAttractions");
+
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+                    result = result +/* "{\"Id\": \"" + ds.Tables[0].Rows[i]["RestaurantId"].ToString() +*/
+                                     /* "\",*/ "{\"Name\":\"" + ds.Tables[0].Rows[i]["atName"].ToString() +
+                                         "\", \"Description\":\"" + ds.Tables[0].Rows[i]["atDesc"].ToString() +
+                                            "\", \"Address\":\"" + ds.Tables[0].Rows[i]["atAddress"].ToString() +
+                                                  //"\", \"PostalCode\":\"" + ds.Tables[0].Rows[i]["PostalCode"].ToString() +
+                                                  "\", \"ContactNo\":\"" + ds.Tables[0].Rows[i]["atPhone"].ToString() +
+                                                     "\", \"Website\":\"" + ds.Tables[0].Rows[i]["atWebsite"].ToString() +
+                                            "\", \"path\":\"" + ds.Tables[0].Rows[i]["Image"].ToString() +
+                                      "\"}, ";
+                }
+
+
+            }
+
+
+
+
             result = result.Substring(0, result.Length - 2) + " ]}";
             return result;
         }
