@@ -77,7 +77,7 @@ as begin
 if @Crud='r'
 begin
 select
-StoreId,StoreName, Description,'.\Shopping\'+ Path as Path,Address,PhoneNumber,Web,LocationId,CategoryId
+StoreId,StoreName, Description,'./Shopping/'+ Path as Path,Address,PhoneNumber,Web,LocationId,CategoryId
 from tbStores where StoreId=isnull(@StoreId,StoreId)
 end
 else if

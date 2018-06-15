@@ -56,5 +56,11 @@
         </ItemTemplate>
     </asp:DataList>
         </asp:Panel>
+     <script>
+            function ViewProduct(id)
+            {
+                    window.location = "Information.html?id=" + id+"&choice="+"Shop";
+            }
+        </script>
 </asp:Content>
 
