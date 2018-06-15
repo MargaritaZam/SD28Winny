@@ -20,20 +20,23 @@
     width: 190px;
     height: 35px;
     margin-top: 72px;
+   
 }
 
     #site_title h1 {
         margin: 0;
         padding: 0;
+      
     }
 
-        #site_title h1 a {
+        #site_title h1  {
             display: block;
             width: 190px;
-            height: 35px;
-            color: #fff;
+            height: 50px;
+            color: white;
+            text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px #FF0000;
             text-indent: -10000px;
-            background: url(../images/tooplate_logo.png) no-repeat;
+           
         }
 
 /*#menu {

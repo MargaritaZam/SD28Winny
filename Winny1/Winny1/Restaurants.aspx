@@ -119,31 +119,36 @@ div.desc {
         </td>
     </tr>
 </table>
+
+
         <asp:DataList ID="dlRestaurant" RepeatColumns="1" RepeatDirection="Horizontal" runat="server">
         <ItemTemplate>
             <div id="mydiv"  onclick="return ViewProduct(<%#Eval ("RestaurantId")%>)"  style="height:380px;">
-                <table  style="border-bottom-style: solid">
-                    <tr>
-                         <td rowspan="4"> <asp:Image  ID="Image1" Height="250px" Width="240px" runat="server"
-                    ImageUrl='<%#Eval ("path") %>' /></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="float:left">
-                            <th> <%#Eval ("RestaurantName")%></th>
-                          </td>
-                    </tr>
-                    <tr>
-                       <td style="width:200px;" colspan="2">
-                              <%#Eval ("Description")%>
-                       </td>
-                    </tr>
-                             
-                </table>
                
+         <table style="border-bottom-style: solid">
+             <tr>
+             <td>
+            <asp:Image  ID="Image1" Height="250px" Width="240px" runat="server"
+                    ImageUrl='<%#Eval ("path") %>' />
+             </td>
+           <td >   
+        <table>
+
+             <tr>
+        <th>  <%#Eval ("RestaurantName")%></th></tr>     
+       <tr><td>Description: <%#Eval ("Description")%></td></tr>
+               
+</table>
+    </td>
+</tr>
+</table>             
+                      
             </div>
         </ItemTemplate>
     </asp:DataList>
       
+
+
         <table>
   <tr>
     <td>
@@ -164,9 +169,10 @@ div.desc {
           </asp:Panel>
   
         <script>
-         function ViewProduct(id) {
+            function ViewProduct(id)
+            {
             
-         window.location = "Home.aspx?id=" + id;
+         window.location = "ViewRestaurant.aspx?id=" + id;
          }
         </script>
   
