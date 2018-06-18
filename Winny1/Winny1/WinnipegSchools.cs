@@ -31,7 +31,7 @@ namespace Winny1
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
             da.SelectCommand.Parameters.AddWithValue("@Crud", 'r');
 
-            //if (AboutId != null)
+            //if (SchoolId != null)
             da.SelectCommand.Parameters.AddWithValue("@schoolID", SchoolID);
             //if(SchoolTypeId != null)         
             da.SelectCommand.Parameters.AddWithValue("@schoolType", SchoolType);
