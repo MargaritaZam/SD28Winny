@@ -22,12 +22,12 @@ namespace Winny1 {
         protected global::System.Web.UI.WebControls.Panel PnlAbout;
         
         /// <summary>
-        /// DlAbout control.
+        /// DdlAbout control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList DlAbout;
+        protected global::System.Web.UI.WebControls.DropDownList DdlAbout;
     }
 }
