@@ -113,7 +113,7 @@
     <div Class="View" style="display:inline-table">
         <table style="border: 2px solid blue; width:200px; height:200px"">
             <tr>
-                <td></td>
+               <td></td>
             </tr>
         </table>
         <br />
@@ -127,7 +127,7 @@
         <br />
         <table style="border: 2px solid blue; width:200px; height:200px">
             <tr>
-                <td></td>
+                <td><object data="http://impress.wag.ca/"></object>/</td>
             </tr>
         </table>
     </div>
