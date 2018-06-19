@@ -152,20 +152,20 @@ div.desc {
     <table>
       <tr>
         <td>
-            <asp:Button ID="btnfirst" runat="server" Font-Bold="true" Text="First" 
-                Height="31px" Width="43px" OnClick="btnfirst_Click" />
+            <asp:Button ID="btnFirst" runat="server" Font-Bold="true" Text="First" 
+                Height="31px" Width="43px" OnClick="btnFirst_Click" />
         </td>
         <td>
-            <asp:Button ID="btnprevious" runat="server" Font-Bold="true" Text="Previous" Height="31px" 
-                    Width="43px" OnClick="btnprevious_Click" />
+            <asp:Button ID="btnPrevious" runat="server" Font-Bold="true" Text="Previous" Height="31px" 
+                    Width="43px" OnClick="btnPrevious_Click" />
         </td>
         <td>
-            <asp:Button ID="btnnext" runat="server" Font-Bold="true" Text="Next" Height="31px" 
-                Width="43px" OnClick="btnnext_Click"  />
+            <asp:Button ID="btnNext" runat="server" Font-Bold="true" Text="Next" Height="31px" 
+                Width="43px" OnClick="btnNext_Click"  />
         </td>
         <td>
-            <asp:Button ID="btnlast" runat="server" Font-Bold="true" Text="Last" Height="31px" 
-            Width="43px" OnClick="btnlast_Click"  />
+            <asp:Button ID="btnLast" runat="server" Font-Bold="true" Text="Last" Height="31px" 
+            Width="43px" OnClick="btnLast_Click"  />
         </td>
       </tr>
     </table> 

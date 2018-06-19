@@ -20,15 +20,52 @@ namespace Winny1
             if (!IsPostBack)
             {
                 this.ViewState["vs"] = 0;
-                loadSchools();
+                loadLocation();
+                loadTypeOfSchool();
             }
             pos = (int)this.ViewState["vs"];
             loadSchools();
         }
 
+        public void loadTypeOfSchool()
+        {
+            DAL myDal = new DAL(conn);
+
+            DataSet ds = myDal.ExecuteProcedure("spGetSchoolType");
+            ddlTypeOfSchool.DataSource = ds.Tables[0];
+            ddlTypeOfSchool.DataTextField = "TypeOfSchool";
+            ddlTypeOfSchool.DataValueField = "TypeOfSchoolID";
+            ddlTypeOfSchool.DataBind();
+        }
+
+        public void loadLocation()
+        {
+            DAL myDal = new DAL(conn);
+            
+            DataSet ds = myDal.ExecuteProcedure("spLocations");
+            ddlLocation.DataSource = ds.Tables[0];
+            ddlLocation.DataTextField = "LocationName";
+            ddlLocation.DataValueField = "LocationID";
+            ddlLocation.DataBind();
+        }
+
         public void loadSchools()
         {
+            DAL myDal = new DAL(conn);
 
+            adsource = new PagedDataSource();
+            myDal.AddParam("@crud", "a");
+            DataSet ds = myDal.ExecuteProcedure("spSchoolsCrud");
+            adsource.DataSource = ds.Tables[0].DefaultView;
+            adsource.PageSize = 3;
+            adsource.AllowPaging = true;
+            adsource.CurrentPageIndex = pos;
+            btnFirst.Enabled = !adsource.IsFirstPage;
+            btnPrevious.Enabled = !adsource.IsFirstPage;
+            btnLast.Enabled = !adsource.IsLastPage;
+            btnNext.Enabled = !adsource.IsLastPage;
+            dlSchools.DataSource = adsource;
+            dlSchools.DataBind();
         }
     }
 }
