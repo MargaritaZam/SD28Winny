@@ -18,7 +18,8 @@
                 <div class="col_270 float_r">
                   <h2>Our Services</h2>
                   <ul class="service_list">
-                    <li><a href="#" class="service_one">Morbi luctus vitae cursus</a></li>
+                    <li><a href="http://www.winnipegpass.com/city/" class="service_one"><strong>Winnipeg City Pass</strong></a></li>
+
                     <li><a href="#" class="service_two">Pellentesq tris senectus</a></li>
                     <li><a href="#" class="service_three">Duis at commodo molestie</a></li>
                     <li><a href="#" class="service_four">In aliquet in libero</a></li>

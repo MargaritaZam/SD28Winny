@@ -74,6 +74,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="About.aspx" />
+    <Content Include="admin.aspx" />
     <Content Include="Anjali.sql" />
     <Content Include="attraction.aspx" />
     <Content Include="HotelPictures\CanadInnsHSC.png" />
@@ -189,7 +191,21 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
     <Compile Include="About.cs" />
+    <Compile Include="admin.aspx.cs">
+      <DependentUpon>admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin.aspx.designer.cs">
+      <DependentUpon>admin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="attraction.aspx.cs">
       <DependentUpon>attraction.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -255,6 +271,8 @@
     <Compile Include="ViewRestaurant.aspx.designer.cs">
       <DependentUpon>ViewRestaurant.aspx</DependentUpon>
     </Compile>
+    <Compile Include="WinnipegAbout.cs" />
+    <Compile Include="WinnipegSchools.cs" />
     <Compile Include="WinnipegShopping.cs" />
   </ItemGroup>
   <ItemGroup>

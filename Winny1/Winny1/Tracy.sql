@@ -9,18 +9,28 @@ go
 
 create table tbLocation
 (
-	locationID int identity(1,1) primary key,
-	locationName varchar(60)
+	LocationID int identity(1,1) primary key,
+	LocationName varchar(25)
 )
 go
-insert into tbLocation(locationName)values
+insert into tbLocation(LocationName)values
 	('North'),('Northeast'),('East'),('Southeast'),
 	('South'),('Southwest'),('West'),('Northwest'),
 	('Downtown'),('Airport/West'),('Just Outside Winnipeg')
 go
 
-select * from tbLocation
+create procedure spLocation
+(
+	@locationID int = null ,
+	@locationName varchar(25) = null
+)
+as begin
+	select * from tbLocation where LocationID = isnull(@locationID, LocationId)
+end
 go
+
+--exec spLocation
+--go
 
 create table tbAbout
 (
@@ -142,7 +152,14 @@ insert into tbTypeOfSchool (TypeOfSchool) values
 	('Undergraduate'), ('Graduate / Undergraduate'), ('College')
 go
 
-select * from tbTypeOfSchool
+create procedure spGetSchoolTypes
+as begin
+select* from tbTypeOfSchool
+end
+go
+
+--exec spGetSchoolTypes
+--go
 
 create table tbUniversitiesColleges
 (
