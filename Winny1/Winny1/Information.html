@@ -7,8 +7,10 @@
     <style>
         body {
            
-           
-            background: linear-gradient(to right, white, aquamarine, blue)
+            background: linear-gradient(to right, white, lightyellow, yellow)
+        }
+        div{
+            width:1000px;
         }
         p{
             color:darkblue;
@@ -116,18 +118,19 @@
                 path.type = "image";
                 path.setAttribute('src', post.Table[i].path);
                 path.setAttribute('width', '350');
-                path.setAttribute('height', '300');
+                path.setAttribute('height', '250');
                
 
 
                 //ndiv.appendChild(Id);
                 ndiv.appendChild(Name);
+                ndiv.appendChild(path);
                 ndiv.appendChild(Description);
                 ndiv.appendChild(Address);
                 ndiv.appendChild(ContactNo);
                 //ndiv.appendChild(PostalCode);
                 ndiv.appendChild(Website);
-                ndiv.appendChild(path);
+                
               
                
                 div.appendChild(ndiv);
