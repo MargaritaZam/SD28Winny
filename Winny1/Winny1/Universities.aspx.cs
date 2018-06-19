@@ -34,7 +34,7 @@ namespace Winny1
             DataSet ds = myDal.ExecuteProcedure("spGetSchoolType");
             ddlTypeOfSchool.DataSource = ds.Tables[0];
             ddlTypeOfSchool.DataTextField = "TypeOfSchool";
-            ddlTypeOfSchool.DataValueField = "TypeOfSchoolID";
+            ddlTypeOfSchool.DataValueField = "TypeID";
             ddlTypeOfSchool.DataBind();
         }
 
@@ -66,6 +66,56 @@ namespace Winny1
             btnNext.Enabled = !adsource.IsLastPage;
             dlSchools.DataSource = adsource;
             dlSchools.DataBind();
+        }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            string TypeId = ddlTypeOfSchool.SelectedItem.Value;
+            string LocationId = ddlLocation.SelectedItem.Value;
+            DAL myDal = new DAL(conn);
+            adsource = new PagedDataSource();
+            myDal.AddParam("@crud", "s");
+            myDal.AddParam("@typeId", TypeId);
+            myDal.AddParam("@locationId", LocationId);
+            DataSet ds = myDal.ExecuteProcedure("spSchoolsCrud");
+            adsource.DataSource = ds.Tables[0].DefaultView;
+            adsource.PageSize = 3;
+            adsource.AllowPaging = true;
+            adsource.CurrentPageIndex = pos;
+            btnFirst.Enabled = !adsource.IsFirstPage;
+            btnPrevious.Enabled = !adsource.IsFirstPage;
+            btnLast.Enabled = !adsource.IsLastPage;
+            btnNext.Enabled = !adsource.IsLastPage;
+            dlSchools.DataSource = adsource;
+            dlSchools.DataBind();
+        }
+
+        protected void btnFirst_Click(object sender, EventArgs e)
+        {
+            pos = 0;
+            loadSchools();
+        }
+
+        protected void btnPrevious_Click(object sender, EventArgs e)
+        {
+            pos = (int)this.ViewState["vs"];
+            pos -= 1;
+            this.ViewState["vs"] = pos;
+            loadSchools();
+        }
+
+        protected void btnNext_Click(object sender, EventArgs e)
+        {
+            pos = (int)this.ViewState["vs"];
+            pos += 1;
+            this.ViewState["vs"] = pos;
+            loadSchools();
+        }
+
+        protected void btnLast_Click(object sender, EventArgs e)
+        {
+            pos = adsource.PageCount - 1;
+            loadSchools();
         }
     }
 }

@@ -127,12 +127,21 @@ end
 select * from tbWeather
 go
 
+create table tbHotelStars
+(
+	StarsID int identity(0,1) primary key,
+	NumberOfStars varchar(6)
+)
+insert into tbHotelStars (NumberOfStars) values
+	('0'),   ('*'),    ('**'),
+	('***'), ('****'), ('*****')
+
 create table tbHotels
 (
 	HotelID int identity(1,1) primary key,
 	HotelName	varchar(30),
 	HotelPrice int,
-	HotelStars varchar(6),
+	HotelStars int foreign key references tbHotelStars(StarsID),
 	HotelDescription varchar(800),
 	HotelPhoneNumber varchar(15),
 	HotelAddress varchar(100),
@@ -143,45 +152,12 @@ create table tbHotels
 )
 go
 
-create table tbTypeOfSchool
-(
-	TypeOfSchoolID int identity(1,1) primary key,
-	TypeOfSchool varchar(40)
-)
-insert into tbTypeOfSchool (TypeOfSchool) values
-	('Undergraduate'), ('Graduate / Undergraduate'), ('College')
-go
-
-create procedure spGetSchoolTypes
-as begin
-select* from tbTypeOfSchool
-end
-go
-
---exec spGetSchoolTypes
---go
-
-create table tbUniversitiesColleges
-(
-	SchoolID int identity(1,1) primary key,
-	SchoolName varchar(50),
-	SchoolType int foreign key references tbTypeOfSchool(TypeOfSchoolID),
-	SchoolPhoneNumber varchar(15),
-	SchoolAddress varchar(100),
-	SchoolPostalCode varchar(7),
-	SchoolWebsite varchar(100),
-	SchoolDescription varchar(800),
-	School_path varchar(200),
-	SchoolLocationID int foreign key references tbLocation(LocationID)
-)
-go
-
 create procedure spHotelsCrud
 (
 	@hotelID int = null,
 	@hotelName	varchar(30) = null,
-	@hotelPrice int,
-	@hotelStars varchar(6),
+	@hotelPrice int = null,
+	@hotelStars int = null,
 	@hotelDescription varchar(800) = null,
 	@hotelPhoneNumber varchar(15) = null,
 	@hotelAddress varchar(100) = null,
@@ -227,139 +203,139 @@ go
 exec spHotelsCrud @crud = 'c',
 			  @hotelName = 'Alt Hotel Winnipeg',
 			  @hotelPrice = 159,
-			  @hotelStars = '***',
+			  @hotelStars = 3,
 			  @hotelDescription = 'Located in the new Sports, Hospitality and Entertainment District (SHED), the hotel is just steps away from the Bell MTS Place, home of the Winnipeg Jets hockey team, an array of businesses such as restaurants, bars and boutiques.',
 			  @hotelPhoneNumber = '1-844-946-6258',
 			  @hotelAddress = '310 Donald Street',
 			  @hotelPostalCode = 'R3B 2H3',
 			  @hotelWebsite = 'althotels.com/en/winnipeg/',
 			  @hotel_path = 'AltHotel.jpg',
-			  @hotelLocationId = 9
+			  @hotelLocationID = 9
 
-exec spHotelsCrud @crud='c',
-			  @hotelName='Canad Inns Destination Centre Health Sciences Centre',
-			  @hotelPrice=143,
-			  @hotelStars='***',
-			  @hotelDescription='Our hotel is conveniently attached to the Health Sciences Centre, located just a few minutes from downtown Winnipeg, including shopping at Portage Place and The Forks, and just a five minute drive from McPhillips Station Casino.  For your comfort, our hotel offers a number of universally-accessible and wheelchair-friendly rooms.',
-			  @hotelPhoneNumber='204-594-9472',
-			  @hotelAddress='720 William Avenue',
-			  @hotelPostalCode='R3E 3J7',
-			  @hotelWebsite='www.canadinns.com/stay/health-sciences-centre',
-			  @hotel_path='CanadInnsHSC.png',
-			  @hotelLocationId=9
+exec spHotelsCrud @crud = 'c',
+			  @hotelName = 'Canad Inns Destination Centre Health Sciences Centre',
+			  @hotelPrice = 143,
+			  @hotelStars = 3,
+			  @hotelDescription = 'Our hotel is conveniently attached to the Health Sciences Centre, located just a few minutes from downtown Winnipeg, including shopping at Portage Place and The Forks, and just a five minute drive from McPhillips Station Casino.  For your comfort, our hotel offers a number of universally-accessible and wheelchair-friendly rooms.',
+			  @hotelPhoneNumber = '204-594-9472',
+			  @hotelAddress = '720 William Avenue',
+			  @hotelPostalCode = 'R3E 3J7',
+			  @hotelWebsite = 'www.canadinns.com/stay/health-sciences-centre',
+			  @hotel_path = 'CanadInnsHSC.png',
+			  @hotelLocationID = 9
 			  
 
-exec spHotelsCrud @crud='c',
-			  @hotelName='Clarion Hotel & Suites',
-			  @hotelPrice=149,
-			  @hotelStars='**',
-			  @hotelDescription='the hotel is nestled in the hub of Winnipeg’s shopping, restaurant and business neighbourhoods. Located just 6 km from the James Richard Armstrong International Airport (YWG), Ikea and the new Seasons Outlet Collection Mall, and within walking distance to Manitoba’s largest Mall CF Polo Park Shopping Centre. The Clarion Hotel is only 15 minutes from downtown Winnipeg.',
-			  @hotelPhoneNumber='204-774-5110',
-			  @hotelAddress='1445 Portage Avenue',
-			  @hotelPostalCode='R3G 3P4',
-			  @hotelWebsite='www.clarionhotelwinnipeg.com',
-			  @hotel_path='ClarionPoloPark.jpg',
-			  @hotelLocationId=7
+exec spHotelsCrud @crud = 'c',
+			  @hotelName = 'Clarion Hotel & Suites',
+			  @hotelPrice = 149,
+			  @hotelStars = 2,
+			  @hotelDescription = 'the hotel is nestled in the hub of Winnipeg’s shopping, restaurant and business neighbourhoods. Located just 6 km from the James Richard Armstrong International Airport (YWG), Ikea and the new Seasons Outlet Collection Mall, and within walking distance to Manitoba’s largest Mall CF Polo Park Shopping Centre. The Clarion Hotel is only 15 minutes from downtown Winnipeg.',
+			  @hotelPhoneNumber = '204-774-5110',
+			  @hotelAddress = '1445 Portage Avenue',
+			  @hotelPostalCode = 'R3G 3P4',
+			  @hotelWebsite = 'www.clarionhotelwinnipeg.com',
+			  @hotel_path = 'ClarionPoloPark.jpg',
+			  @hotelLocationID = 7
 
-exec spHotelsCrud @crud='c',
-			  @hotelName='Delta Hotels by Marriott Winnipeg',
-			  @hotelPrice=175,
-			  @hotelStars='****',
-			  @hotelDescription='The Delta Hotels Winnipeg has established itself as a premier destination for business travelers and vacationing families here in the heart of the city.  Take a dip in the heated indoor pool, or relax on the rooftop at our seasonal outdoor pool when the weather here in Winnipeg is warm.  Those visiting here in the city will love our hotel''s downtown location and our versatile event venues. And we offer direct Skywalk access to the RBC Convention Centre, BellMTS Place and much more, making exploration easy.',
-			  @hotelPhoneNumber='204-942-0551',
-			  @hotelAddress='350 St Mary Avenue',
-			  @hotelPostalCode='R3C 3J2',
-			  @hotelWebsite='www.marriott.com/hotels/travel/ywgdw-delta-hotels-winnipeg',
-			  @hotel_path='DeltaHotel.png',
-			  @hotelLocationId=9
+exec spHotelsCrud @crud = 'c',
+			  @hotelName = 'Delta Hotels by Marriott Winnipeg',
+			  @hotelPrice = 175,
+			  @hotelStars = 4,
+			  @hotelDescription = 'The Delta Hotels Winnipeg has established itself as a premier destination for business travelers and vacationing families here in the heart of the city.  Take a dip in the heated indoor pool, or relax on the rooftop at our seasonal outdoor pool when the weather here in Winnipeg is warm.  Those visiting here in the city will love our hotel''s downtown location and our versatile event venues. And we offer direct Skywalk access to the RBC Convention Centre, BellMTS Place and much more, making exploration easy.',
+			  @hotelPhoneNumber = '204-942-0551',
+			  @hotelAddress = '350 St Mary Avenue',
+			  @hotelPostalCode = 'R3C 3J2',
+			  @hotelWebsite = 'www.marriott.com/hotels/travel/ywgdw-delta-hotels-winnipeg',
+			  @hotel_path = 'DeltaHotel.png',
+			  @hotelLocationID = 9
 
 exec spHotelsCrud @crud = 'c',
 			  @hotelName = 'Econo Lodge',
 			  @hotelPrice = 110,
-			  @hotelStars = '**',
+			  @hotelStars = 2,
 			  @hotelDescription = 'Convenient for accessing the hospital, University of Winnipeg campus and downtown Winnipeg.  Rooms not wheelchair accessible',
 			  @hotelPhoneNumber = '204-255-7100',
 			  @hotelAddress = '690 Notre Dame Avenue',
 			  @hotelPostalCode = 'R3E 0L7',
 			  @hotelWebsite = 'www.econolodge.com',
 			  @hotel_path = 'EconoLodgeND.jpg',
-			  @hotelLocationId = 9
+			  @hotelLocationID = 9
 
-exec spHotelsCrud @crud='c',
-			  @hotelName='The Fort Garry Hotel',
-			  @hotelPrice=149,
-			  @hotelStars='***',
-			  @hotelDescription='Located in downtown Winnipeg, the Fort Garry Hotel was built in 1913 as a grand railway hotel.  The century-old Fort Garry Hotel, Spa and Conference Centre ushers in a new era of modern-day style in downtown Winnipeg. Catering to guests who appreciate local history mixed with authentic charm, this iconic 240-room “Grand Dame” is a favorite for weddings, romantic getaways and wellness weekends. Don’t leave without saying hello to one of the hotel’s friendly resident ghosts.',
-			  @hotelPhoneNumber='204-942-8251',
-			  @hotelAddress='222 Broadway',
-			  @hotelPostalCode='R3C 0R3',
-			  @hotel_path='FortGarryHotel.jpg',
-			  @hotelLocationId=9
+exec spHotelsCrud @crud = 'c',
+			  @hotelName = 'The Fort Garry Hotel',
+			  @hotelPrice = 149,
+			  @hotelStars = 3,
+			  @hotelDescription = 'Located in downtown Winnipeg, the Fort Garry Hotel was built in 1913 as a grand railway hotel.  The century-old Fort Garry Hotel, Spa and Conference Centre ushers in a new era of modern-day style in downtown Winnipeg. Catering to guests who appreciate local history mixed with authentic charm, this iconic 240-room “Grand Dame” is a favorite for weddings, romantic getaways and wellness weekends. Don’t leave without saying hello to one of the hotel’s friendly resident ghosts.',
+			  @hotelPhoneNumber = '204-942-8251',
+			  @hotelAddress = '222 Broadway',
+			  @hotelPostalCode = 'R3C 0R3',
+			  @hotel_path = 'FortGarryHotel.jpg',
+			  @hotelLocationID = 9
 
-exec spHotelsCrud @crud='c',
-			  @hotelName='Hilton Winnipeg Airport Suites',
-			  @hotelPrice=123,
-			  @hotelStars='***',
-			  @hotelDescription='Located in Winnipeg Airport Industrial Park, we provide easy access to downtown Winnipeg. Use the complimentary airport shuttle service to/from the hotel. Polo Park Mall, the largest shopping center in Manitoba with over 200 stores, is less than 2 miles away. We’re also a short drive to the newest Outlet Collection Winnipeg.',
-			  @hotelPhoneNumber='204-783-1700',
-			  @hotelAddress='1800 Wellington Avenue',
-			  @hotelPostalCode='R3H 1B2',
-			  @hotelWebsite='www3.hilton.com/en/hotels/manitoba/hilton-winnipeg-airport-suites-YWGWIHF/index.html',
-			  @hotel_path='HiltonAirport.jpg',
-			  @hotelLocationId=10
+exec spHotelsCrud @crud = 'c',
+			  @hotelName = 'Hilton Winnipeg Airport Suites',
+			  @hotelPrice = 123,
+			  @hotelStars = 3,
+			  @hotelDescription = 'Located in Winnipeg Airport Industrial Park, we provide easy access to downtown Winnipeg. Use the complimentary airport shuttle service to/from the hotel. Polo Park Mall, the largest shopping center in Manitoba with over 200 stores, is less than 2 miles away. We’re also a short drive to the newest Outlet Collection Winnipeg.',
+			  @hotelPhoneNumber = '204-783-1700',
+			  @hotelAddress = '1800 Wellington Avenue',
+			  @hotelPostalCode = 'R3H 1B2',
+			  @hotelWebsite = 'www3.hilton.com/en/hotels/manitoba/hilton-winnipeg-airport-suites-YWGWIHF/index.html',
+			  @hotel_path = 'HiltonAirport.jpg',
+			  @hotelLocationID = 10
 
-exec spHotelsCrud @crud='c',
-			  @hotelName='Inn at the Forks',
-			  @hotelPrice=186,
-			  @hotelStars='***',
-			  @hotelDescription='Located in downtown Winnipeg at The Forks, our top tourism attraction, you''re immersed in a convergence of cultures – Aboriginal, French Canadian and Manitoban – at a 6,000-year-old meeting place. The myriad of shopping, arts, and entertainment options on-site and nearby is unmatched.',
-			  @hotelPhoneNumber='1-866-500-4938',
-			  @hotelAddress='75 Forks Market Road',
-			  @hotelPostalCode='R3C 0A2',
-			  @hotelWebsite='www.innforks.com',
-			  @hotel_path='InnAtTheForks.jpg',
-			  @hotelLocationId=9
+exec spHotelsCrud @crud = 'c',
+			  @hotelName = 'Inn at the Forks',
+			  @hotelPrice = 186,
+			  @hotelStars = 3,
+			  @hotelDescription = 'Located in downtown Winnipeg at The Forks, our top tourism attraction, you''re immersed in a convergence of cultures – Aboriginal, French Canadian and Manitoban – at a 6,000-year-old meeting place. The myriad of shopping, arts, and entertainment options on-site and nearby is unmatched.',
+			  @hotelPhoneNumber = '1-866-500-4938',
+			  @hotelAddress = '75 Forks Market Road',
+			  @hotelPostalCode = 'R3C 0A2',
+			  @hotelWebsite = 'www.innforks.com',
+			  @hotel_path = 'InnAtTheForks.jpg',
+			  @hotelLocationID = 9
 
 exec spHotelsCrud @crud = 'c',
 			  @hotelName = 'Queen Bee Hotel',
 			  @hotelPrice = '89',
-			  @hotelStars = '**',
+			  @hotelStars = 2,
 			  @hotelDescription = 'Located just outside of the main gates of the University of Manitoba, the Queen Bee Hotel is within walking distance to many restaurants, cultural venues and other conveniences.',
 			  @hotelPhoneNumber = '204-269-4666',
 			  @hotelAddress = '2615 Pembina Hwy.',
 			  @hotelPostalCode = 'R3T 2H5',
 			  @hotelWebsite = 'www.queenbeehotel.com',
 			  @hotel_path = 'QueenBee.jpg',
-			  @hotelLocationId = 5
+			  @hotelLocationID = 5
 
-exec spHotelsCrud @crud='c',
-			  @hotelName='Radisson Hotel Winnipeg Downtown',
-			  @hotelPrice=152,
-			  @hotelStars='***',
-			  @hotelDescription='Conveniently located on Portage Avenue, Radisson Hotel Winnipeg Downtown is within sight of the Burton Cummings Theatre and area shopping centres.  Open on weekdays from 7:30 a.m. to 5 p.m., our skywalk connects you to Cityplace, Bell MTS Place and Winnipeg Square. The Radisson is also less than 20 minutes from Winnipeg James Armstrong Richardson International Airport (YWG) and within a 10-minute walk of the Canadian Museum for Human Rights, the Exchange District, the RBC Convention Centre and Chinatown.',
-			  @hotelPhoneNumber='204-956-0410',
-			  @hotelAddress='288 Portage Avenue',
-			  @hotelPostalCode='R3C 0B8',
-			  @hotelWebsite='www.radisson.com/winnipeg-hotel-mb-r3c0b8/mbwinnip',
-			  @hotel_path='RadissonHotel.jpg',
-			  @hotelLocationId=9
+exec spHotelsCrud @crud = 'c',
+			  @hotelName = 'Radisson Hotel Winnipeg Downtown',
+			  @hotelPrice = 152,
+			  @hotelStars = 3,
+			  @hotelDescription = 'Conveniently located on Portage Avenue, Radisson Hotel Winnipeg Downtown is within sight of the Burton Cummings Theatre and area shopping centres.  Open on weekdays from 7:30 a.m. to 5 p.m., our skywalk connects you to Cityplace, Bell MTS Place and Winnipeg Square. The Radisson is also less than 20 minutes from Winnipeg James Armstrong Richardson International Airport (YWG) and within a 10-minute walk of the Canadian Museum for Human Rights, the Exchange District, the RBC Convention Centre and Chinatown.',
+			  @hotelPhoneNumber = '204-956-0410',
+			  @hotelAddress = '288 Portage Avenue',
+			  @hotelPostalCode = 'R3C 0B8',
+			  @hotelWebsite = 'www.radisson.com/winnipeg-hotel-mb-r3c0b8/mbwinnip',
+			  @hotel_path = 'RadissonHotel.jpg',
+			  @hotelLocationID = 9
 
-exec spHotelsCrud @crud='c',
-			  @hotelName='Royal Albert Arms',
-			  @hotelPrice=0,
-			  @hotelStars='0',
-			  @hotelDescription='The Royal Albert Hotel with its 54 rooms, restaurant, coffee shop and cigar stand opened its doors on November 5, 1913.  The façade of the hotel was designed with a continental flair. A red-tiled roof forms a cornice over a brick front accentuated with ornamental iron fretwork, elaborate iron lights and arched main floor windows and doors which combine to create an Italian effect.',
-			  @hotelPhoneNumber='204-943-8433',
-			  @hotelAddress='48 Albert Street',
-			  @hotelPostalCode='R3B 1E7',
-			  @hotelWebsite='none',
-			  @hotel_path='RoyalAlbertArmsHotel.jpg',
-			  @hotelLocationId=9
+exec spHotelsCrud @crud = 'c',
+			  @hotelName = 'Royal Albert Arms',
+			  @hotelPrice = 20,
+			  @hotelStars = 0,
+			  @hotelDescription = 'The Royal Albert Hotel with its 54 rooms, restaurant, coffee shop and cigar stand opened its doors on November 5, 1913.  The façade of the hotel was designed with a continental flair. A red-tiled roof forms a cornice over a brick front accentuated with ornamental iron fretwork, elaborate iron lights and arched main floor windows and doors which combine to create an Italian effect.',
+			  @hotelPhoneNumber = '204-943-8433',
+			  @hotelAddress = '48 Albert Street',
+			  @hotelPostalCode = 'R3B 1E7',
+			  @hotelWebsite = 'Not available',
+			  @hotel_path = 'RoyalAlbertArmsHotel.jpg',
+			  @hotelLocationID = 9
 
 exec spHotelsCrud @crud = 'c',
 			  @hotelName = 'Travelodge Winnipeg East',
 			  @hotelPrice = 95,
-			  @hotelStars = '**',
+			  @hotelStars = 2,
 			  @hotelDescription = '',
 			  @hotelPhoneNumber = '204-255-6000',
 			  @hotelAddress = '20 Alpine Avenue',
@@ -368,24 +344,24 @@ exec spHotelsCrud @crud = 'c',
 			  @hotel_path = 'TravelodgeEast.jpg',
 			  @hotelLocationId = 4
 
-exec spHotelsCrud @crud='c',
-			  @hotelName='Viscount Gort Hotel',
-			  @hotelPrice=115,
-			  @hotelStars='***',
-			  @hotelDescription='Pronounced vī kount, the Viscount Gort is located minutes from Polo Park Shopping Centre.  We offer free parking for our guests and a free shuttle to and from the airport. City buses stop close by and there are plenty of taxi and limo services always available.',
-			  @hotelPhoneNumber='1-800-665-1122',
-			  @hotelAddress='1670 Portage Avenue',
-			  @hotelPostalCode='R3J 0C9',
-			  @hotelWebsite='www.viscount-gort.com',
-			  @hotel_path='ViscountGort.png',
-			  @hotelLocationId=7
+exec spHotelsCrud @crud = 'c',
+			  @hotelName = 'Viscount Gort Hotel',
+			  @hotelPrice = 115,
+			  @hotelStars = 3,
+			  @hotelDescription = 'Pronounced vī kount, the Viscount Gort is located minutes from Polo Park Shopping Centre.  We offer free parking for our guests and a free shuttle to and from the airport. City buses stop close by and there are plenty of taxi and limo services always available.',
+			  @hotelPhoneNumber = '1-800-665-1122',
+			  @hotelAddress = '1670 Portage Avenue',
+			  @hotelPostalCode = 'R3J 0C9',
+			  @hotelWebsite = 'www.viscount-gort.com',
+			  @hotel_path = 'ViscountGort.png',
+			  @hotelLocationID = 7
 
 --------  ADD Hotel template  ----------------
 
 --exec spHotelsCrud @crud = 'c',
 --			  @hotelName = '',
 --			  @hotelPrice = '',
---			  @hotelStars = '',
+--			  @hotelStars = ?,
 --			  @hotelDescription = '',
 --			  @hotelPhoneNumber = '',
 --			  @hotelAddress = '',
@@ -396,6 +372,39 @@ exec spHotelsCrud @crud='c',
 
 --select * from tbHotels
 go
+
+create table tbUniversitiesColleges
+(
+	SchoolID int identity(1,1) primary key,
+	SchoolName varchar(50),
+	SchoolType int foreign key references tbTypeOfSchool(TypeID),
+	SchoolPhoneNumber varchar(15),
+	SchoolAddress varchar(100),
+	SchoolPostalCode varchar(7),
+	SchoolWebsite varchar(100),
+	SchoolDescription varchar(800),
+	School_path varchar(200),
+	SchoolLocationID int foreign key references tbLocation(LocationID)
+)
+go
+
+create table tbTypeOfSchool
+(
+	TypeID int identity(1,1) primary key,
+	TypeOfSchool varchar(40)
+)
+insert into tbTypeOfSchool (TypeOfSchool) values
+	('Undergraduate'), ('Graduate / Undergraduate'), ('College')
+go
+
+create procedure spGetSchoolTypes
+as begin
+select* from tbTypeOfSchool
+end
+go
+
+--exec spGetSchoolTypes
+--go
 
 create procedure spSchoolsCrud
 (
@@ -439,6 +448,15 @@ as begin
 	else if @schoolCrud = 'd'
 	begin
 		delete from tbUniversitiesColleges where SchoolID = @schoolID
+	end
+	else if @schoolCrud = 's'
+	begin
+		select SchoolName, SchoolDescription, SchoolId,'./UniversityPictures/' + School_path as School_path  from tbSchools join tbTypeOfSchool on
+			tbSchools.SchoolId = tbTypeOfSchool.TypeId join tbLocation on 
+			tbRestaurants.LocationId=tbLocation.LocationId 
+			where tbRestaurants.LocationId=ISNULL(@LocationId,tbRestaurants.LocationId)
+			and
+			 tbRestaurants.FoodId=ISNULL(@FoodId,tbRestaurants.FoodId)
 	end
 end
 go
