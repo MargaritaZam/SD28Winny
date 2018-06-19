@@ -68,6 +68,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="About.aspx" />
     <Content Include="Anjali.sql" />
     <Content Include="attraction.aspx" />
     <Content Include="HotelPictures\CanadInnsHSC.png" />
@@ -82,6 +83,7 @@
     <Content Include="HotelPictures\RoyalAlbertArmsHotel.jpg" />
     <Content Include="HotelPictures\TravelodgeEast.jpg" />
     <Content Include="HotelPictures\ViscountGort.png" />
+    <Content Include="Hotels.aspx" />
     <Content Include="index.aspx" />
     <Content Include="info.aspx" />
     <Content Include="Margo.sql" />
@@ -182,6 +184,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
     <Compile Include="About.cs" />
     <Compile Include="attraction.aspx.cs">
       <DependentUpon>attraction.aspx</DependentUpon>
@@ -191,13 +200,6 @@
       <DependentUpon>attraction.aspx</DependentUpon>
     </Compile>
     <Compile Include="Attraction.cs" />
-    <Compile Include="Hotels.aspx.cs">
-      <DependentUpon>Hotels.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Hotels.aspx.designer.cs">
-      <DependentUpon>Hotels.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Hotels.cs" />
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
@@ -255,6 +257,8 @@
     <Compile Include="ViewRestaurant.aspx.designer.cs">
       <DependentUpon>ViewRestaurant.aspx</DependentUpon>
     </Compile>
+    <Compile Include="WinnipegAbout.cs" />
+    <Compile Include="WinnipegSchools.cs" />
     <Compile Include="WinnipegShopping.cs" />
   </ItemGroup>
   <ItemGroup>
