@@ -4,10 +4,34 @@
     <meta charset="utf-8" />
     <title></title>
     <script src="Scripts/jquery-3.3.1.js"></script>
-    
+    <style>
+        body {
+           
+           
+            background: linear-gradient(to right, white, aquamarine, blue)
+        }
+        p{
+            color:darkblue;
+          
+        }
+        a{
+            color:gold;
+        }
+        h1 {
+            color: gold;
+            text-shadow: 2px 2px 4px #000000;
+        }
+        input{
+            float:left;
+        }
+        strong{
+            color:black;
+        }
+      
+    </style>
 </head>
 <body>
-    <div id="mypictures">
+    <div id="mypictures" >
     </div>
     <script>
 
@@ -52,9 +76,9 @@
            // alert(post);
             for (var i = 0; i <= post.Table.length; i++) {
                 var ndiv = document.createElement('div');
-              
+                var path = document.createElement('input');
                 //var Id = document.createElement('p');
-                var Name = document.createElement('p');
+                var Name = document.createElement('h1');
                 var Description = document.createElement('p');
                 var Address = document.createElement('p');
                // var PostalCode = document.createElement('p');
@@ -64,15 +88,15 @@
 
                // alert("Welcome");
 
-                var path = document.createElement('input');
+               
                 var br1 = document.createElement('br');               
                 //Id.innerHTML = post.Table[i].Id;
                 Name.innerHTML = post.Table[i].Name;
-                Description.innerHTML = post.Table[i].Description;
-                Address.innerHTML = post.Table[i].Address;
+                Description.innerHTML = "<strong>Description: </strong>" + post.Table[i].Description;
+                Address.innerHTML = "<strong>Address: </strong>" + post.Table[i].Address;
                // PostalCode.innerHTML = post.Table[i].PostalCode;
-                ContactNo.innerHTML = post.Table[i].ContactNo;
-                Website.innerHTML = post.Table[i].Website;
+                ContactNo.innerHTML = "<strong>Phone: </strong>" + post.Table[i].ContactNo;
+                Website.innerHTML = "<strong>Website: </strong>" + post.Table[i].Website;
                 Website.setAttribute("href", post.Table[i].Website);
                 //var Delete = document.createElement('input');
                 //var Update = document.createElement('input');
@@ -91,8 +115,8 @@
 
                 path.type = "image";
                 path.setAttribute('src', post.Table[i].path);
-                path.setAttribute('width', '200');
-                path.setAttribute('height', '200');
+                path.setAttribute('width', '350');
+                path.setAttribute('height', '300');
                
 
 
@@ -100,6 +124,7 @@
                 ndiv.appendChild(Name);
                 ndiv.appendChild(Description);
                 ndiv.appendChild(Address);
+                ndiv.appendChild(ContactNo);
                 //ndiv.appendChild(PostalCode);
                 ndiv.appendChild(Website);
                 ndiv.appendChild(path);

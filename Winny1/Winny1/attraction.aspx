@@ -9,6 +9,17 @@
            cursor:pointer;
 
        } 
+        .Attr{
+           background: linear-gradient(to right, white, aquamarine, blue)
+        }
+        .View{
+            height:2000px;
+            width:200px;
+           
+            vertical-align:top;
+            background-color:cornflowerblue;
+            float:right;
+        }
     </style>
     <asp:Panel ID="Attr" runat="server"  Height="2000px" Width="1000px" BackColor="White">
 <table>
@@ -64,6 +75,7 @@
              <tr><td>Location: <%#Eval ("location")%></td></tr> 
    
 </table>
+       
     </td>
        
 </tr>
@@ -93,8 +105,11 @@
                     Width="43px" OnClick="btnlast_Click"  /></td>
     </tr>
    </table>
-
+        
           </asp:Panel>
+    <div Class="View" style="display:inline-table">
+
+    </div>
     <script>
             function ViewProduct(id)
             {
