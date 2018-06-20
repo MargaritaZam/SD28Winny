@@ -4,13 +4,27 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
  <script src="Scripts/jquery-3.3.1.js"></script>
     <style>
-        #div
+        div
        {
            cursor:pointer;
-
+           float:left;
+             vertical-align:top;
        } 
+        .Attr{
+           background: linear-gradient(to right, white, aquamarine, blue)
+        }
+        .View{
+            height:2000px;
+            width:200px;
+           
+            vertical-align:top;
+            background-color:cornflowerblue;
+            float:right;
+        }
+       
+       
     </style>
-    <asp:Panel ID="Attr" runat="server"  Height="2000px" Width="1000px" BackColor="White">
+    <asp:Panel ID="Attr" runat="server"  Height="2000px" Width="1000px" BackColor="White" >
 <table>
     <tr>
         <td>
@@ -44,7 +58,7 @@
         </td>
     </tr>
 </table>
-        <asp:DataList ID="dlAttraction"  runat="server">
+        <asp:DataList ID="dlAttraction" runat="server" CssClass="11">
        <ItemTemplate>
             <div id="div" onclick="return ViewProduct(<%#Eval ("attractionID")%>)"  style="width:100%" >         
  
@@ -64,6 +78,7 @@
              <tr><td>Location: <%#Eval ("location")%></td></tr> 
    
 </table>
+       
     </td>
        
 </tr>
@@ -93,8 +108,29 @@
                     Width="43px" OnClick="btnlast_Click"  /></td>
     </tr>
    </table>
-
+        
           </asp:Panel>
+    <div Class="View" style="display:inline-table">
+        <table style="border: 2px solid blue; width:200px; height:200px"">
+            <tr>
+               <td></td>
+            </tr>
+        </table>
+        <br />
+        <br />
+        <table style="border: 2px solid blue; width:200px; height:200px">
+            <tr>
+                <td><img src="Attractions/art-gallery.jpg" height="200" width="200" /></td>
+            </tr>
+        </table>
+        <br />
+        <br />
+        <table style="border: 2px solid blue; width:200px; height:200px">
+            <tr>
+                <td><object data="http://impress.wag.ca/"></object>/</td>
+            </tr>
+        </table>
+    </div>
     <script>
             function ViewProduct(id)
             {

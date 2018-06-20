@@ -10,123 +10,123 @@
 namespace Winny1 {
     
     
-    public partial class Shopping {
+    public partial class hotel {
         
         /// <summary>
-        /// pnlStores control.
+        /// PnlHotels control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlStores;
+        protected global::System.Web.UI.WebControls.Panel PnlHotels;
         
         /// <summary>
-        /// lblLocation control.
+        /// LblLocation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLocation;
+        protected global::System.Web.UI.WebControls.Label LblLocation;
         
         /// <summary>
-        /// lblCategory control.
+        /// LblHotelStars control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCategory;
+        protected global::System.Web.UI.WebControls.Label LblHotelStars;
         
         /// <summary>
-        /// ddlLocation control.
+        /// DdlLocation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlLocation;
+        protected global::System.Web.UI.WebControls.DropDownList DdlLocation;
         
         /// <summary>
-        /// ddlCategory control.
+        /// DdlHotelStars control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCategory;
+        protected global::System.Web.UI.WebControls.DropDownList DdlHotelStars;
         
         /// <summary>
-        /// lblSearch control.
+        /// LblSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSearch;
+        protected global::System.Web.UI.WebControls.Label LblSearch;
         
         /// <summary>
-        /// txtSearch control.
+        /// TxtSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSearch;
+        protected global::System.Web.UI.WebControls.TextBox TxtSearch;
         
         /// <summary>
-        /// btnSearch control.
+        /// BtnSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSearch;
+        protected global::System.Web.UI.WebControls.Button BtnSearch;
         
         /// <summary>
-        /// dlStores control.
+        /// DlHotels control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList dlStores;
+        protected global::System.Web.UI.WebControls.DataList DlHotels;
         
         /// <summary>
-        /// btnfirst control.
+        /// btnFirst control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnfirst;
+        protected global::System.Web.UI.WebControls.Button btnFirst;
         
         /// <summary>
-        /// btnprevious control.
+        /// btnPrevious control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnprevious;
+        protected global::System.Web.UI.WebControls.Button btnPrevious;
         
         /// <summary>
-        /// btnnext control.
+        /// btnNext control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnnext;
+        protected global::System.Web.UI.WebControls.Button btnNext;
         
         /// <summary>
-        /// btnlast control.
+        /// btnLast control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnlast;
+        protected global::System.Web.UI.WebControls.Button btnLast;
     }
 }

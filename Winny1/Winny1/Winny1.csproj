@@ -45,6 +45,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Syn.Bot, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syn.Bot.1.1.1\lib\portable-net45+sl5+wp8+win8\Syn.Bot.dll</HintPath>
+    </Reference>
+    <Reference Include="Syn.Chat, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syn.Chat.1.0.3\lib\net45\Syn.Chat.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -68,8 +74,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="About.aspx" />
+    <Content Include="admin.aspx" />
     <Content Include="Anjali.sql" />
     <Content Include="attraction.aspx" />
+    <Content Include="hotel.aspx" />
     <Content Include="HotelPictures\CanadInnsHSC.png" />
     <Content Include="HotelPictures\ClarionPoloPark.jpg" />
     <Content Include="HotelPictures\DeltaHotel.png" />
@@ -82,7 +91,6 @@
     <Content Include="HotelPictures\RoyalAlbertArmsHotel.jpg" />
     <Content Include="HotelPictures\TravelodgeEast.jpg" />
     <Content Include="HotelPictures\ViscountGort.png" />
-    <Content Include="Hotels.aspx" />
     <Content Include="index.aspx" />
     <Content Include="info.aspx" />
     <Content Include="Information.html" />
@@ -185,6 +193,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
     <Compile Include="About.cs" />
     <Compile Include="attraction.aspx.cs">
       <DependentUpon>attraction.aspx</DependentUpon>
@@ -194,6 +209,13 @@
       <DependentUpon>attraction.aspx</DependentUpon>
     </Compile>
     <Compile Include="Attraction.cs" />
+    <Compile Include="hotel.aspx.cs">
+      <DependentUpon>hotel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="hotel.aspx.designer.cs">
+      <DependentUpon>hotel.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Hotels.cs" />
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
@@ -243,7 +265,7 @@
     <Compile Include="Universities.aspx.designer.cs">
       <DependentUpon>Universities.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Universities.cs" />
+    <Compile Include="Schools.cs" />
     <Compile Include="ViewRestaurant.aspx.cs">
       <DependentUpon>ViewRestaurant.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -251,6 +273,8 @@
     <Compile Include="ViewRestaurant.aspx.designer.cs">
       <DependentUpon>ViewRestaurant.aspx</DependentUpon>
     </Compile>
+    <Compile Include="WinnipegAbout.cs" />
+    <Compile Include="WinnipegSchools.cs" />
     <Compile Include="WinnipegShopping.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -273,6 +297,9 @@
       <Project>{e3026510-5b06-4ff2-816b-3f06cbe5f7df}</Project>
       <Name>DAL_Project</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
