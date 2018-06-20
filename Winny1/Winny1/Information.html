@@ -4,33 +4,7 @@
     <meta charset="utf-8" />
     <title></title>
     <script src="Scripts/jquery-3.3.1.js"></script>
-    <style>
-        body {
-           
-            background: linear-gradient(to right, white, lightyellow, yellow)
-        }
-        div{
-            width:1000px;
-        }
-        p{
-            color:darkblue;
-          
-        }
-        a{
-            color:gold;
-        }
-        h1 {
-            color: gold;
-            text-shadow: 2px 2px 4px #000000;
-        }
-        input{
-            float:left;
-        }
-        strong{
-            color:black;
-        }
-      
-    </style>
+    
 </head>
 <body>
     <div id="mypictures" >
@@ -72,15 +46,15 @@
         });
 
         function loadInformation(data) {
-
+            //alert(data);
             var div = document.getElementById('mypictures');
             var post = JSON.parse(data);
-           // alert(post);
+            
             for (var i = 0; i <= post.Table.length; i++) {
                 var ndiv = document.createElement('div');
                 var path = document.createElement('input');
                 //var Id = document.createElement('p');
-                var Name = document.createElement('h1');
+                var Name = document.createElement('p');
                 var Description = document.createElement('p');
                 var Address = document.createElement('p');
                // var PostalCode = document.createElement('p');

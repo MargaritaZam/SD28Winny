@@ -107,7 +107,7 @@ where StoreId=@StoreId
 end
 else if @Crud='x'
 begin
-select StoreId,StoreName, Description,'.\Shopping\'+ Path as Path,Address,PhoneNumber,Web,LocationId,CategoryId
+select StoreId,StoreName, Description,'./Shopping/'+ Path as Path,Address,PhoneNumber,Web,LocationId,CategoryId
 from tbStores where CategoryId=@CategoryId
 end
 end
@@ -310,7 +310,7 @@ exec spStores @Crud='c', @StoreName='Bijou Treasures',
 			  @PhoneNumber=' 204.233.9744 ',@Web='http://www.bijoutreasures.com/', @LocationId=5, @CategoryId=3 
 
 exec spStores @Crud='c', @StoreName='Hush Clothing', 
-              @Description='Located in the hustle & bustle of Winnipeg’s Osborne Village,
+              @Description='Located in the hustle & bustle of Winnipegs Osborne Village,
 			  Hush Clothing provides affordable & fashionable clothing & accessories in a relaxed place.',
               @Path='Hush Clothing.jpg',
 			  @Address=' 203-99 Osborne Street, Winnipeg, MB, R3L 2R4 ' ,
@@ -336,7 +336,7 @@ exec spStores @Crud='c', @StoreName='Out of the Blue',
 			  @PhoneNumber=' 204.475.9771 ',@Web='http://www.outoftheblue.ca/', @LocationId=5, @CategoryId=3 
 
 exec spStores @Crud='c', @StoreName='Rockabetty', 
-              @Description='Rockabetty is a 1950*s inspired boutique with clothing for men, 
+              @Description='Rockabetty is a 1950s inspired boutique with clothing for men, 
 			  women and children. Along with carrying international brands, 
 			  they design and manufacture the Rockabetty & Vintage Betty Brands right in Manitoba. ',
               @Path='Rockabetty.jpg',
@@ -351,7 +351,7 @@ exec spStores @Crud='c', @StoreName='Rooster Shoes',
 			  @PhoneNumber='204.219.7008 ',@Web='http://www.roostershoes.net/', @LocationId=5, @CategoryId=3 
 
 exec spStores @Crud='c', @StoreName='Shakti', 
-              @Description='Located in Winnipeg*s Osborne Village, Shakti is a boutique store offering beads,
+              @Description='Located in Winnipegs Osborne Village, Shakti is a boutique store offering beads,
 			  clothing, housewares, jewelry and jewelry making supplies.',
               @Path='Shakti.png',
 			  @Address='194 B Osborne Street, Winnipeg, MB, R3L 1Y8 ' ,
@@ -363,14 +363,14 @@ exec spStores @Crud='c', @StoreName='Silver Lotus',
 			  @Address='103 Osborne Street, Winnipeg, MB, R3L 1Y4 ' ,
 			  @PhoneNumber='204.452.3648',@Web='http://www.silverlotus.biz/', @LocationId=5, @CategoryId=3 
 
-exec spStores @Crud='c', @StoreName='Sophia*s Boutique', 
+exec spStores @Crud='c', @StoreName='Sophias Boutique', 
               @Description='Silver jewellery and accessories',
               @Path='Sophias Boutique.jpg',
 			  @Address=' 836 St. Mary Road, Winnipeg, MB, R2M 3P4 ' ,
 			  @PhoneNumber='204.254.2595', @Web='http://www.sofias-boutique.com/',@LocationId=5, @CategoryId=3 
 
 exec spStores @Crud='c', @StoreName='The Closet on River', 
-              @Description='Guys and gal*s trendy fashion bar selling new, vintage and consignment 
+              @Description='Guys and gals trendy fashion bar selling new, vintage and consignment 
 			  clothing and accessories priced at least 50-90% off retail value.',
               @Path='The Closet on River.jpg',
 			  @Address='470 River Avenue, Winnipeg, MB, R3L 0C8' ,
@@ -437,11 +437,11 @@ exec spStores @Crud='c', @StoreName='The Foxy Shoppe',
 			  @PhoneNumber=' 204.338.3699 ',@Web='http://www.thefoxyshoppe.com/', @LocationId=9, @CategoryId=3 
 
 exec spStores @Crud='c', @StoreName='The Haberdashery', 
-              @Description='The Haberdashery is a men*s and women*s accessory shop that carries 
+              @Description='The Haberdashery is a mens and womens accessory shop that carries 
 			  a variety of quality accessories, including hats, neck ties, bow ties, scarves, gloves,
 			  buckles, and sunglasses.',
               @Path='The Haberdashery.jpg',
-			  @Address='84 Albert Street, Winnipeg, MB, R3B 1G2  ' ,
+			  @Address='84 Albert Street, Winnipeg, MB, R3B 1G2' ,
 			  @PhoneNumber=' 204.256.3758 ',@Web='http://www.haberdashery.ca/', @LocationId=9, @CategoryId=3 
 
 exec spStores @Crud='c', @StoreName='Callisto Couture Custom Corsets', 
@@ -592,7 +592,7 @@ exec spStores @Crud='c', @StoreName='CF Polo Park',
 
 
 exec spStores @Crud='c', @StoreName='Cityplace', 
-              @Description='cityplace is Downtown Winnipeg*s most convenient shopping destination.
+              @Description='cityplace is Downtown Winnipeg most convenient shopping destination.
 			   Located in the heart of the Sports, Hospitality & Entertainment District, cityplace
 			   is connected to the indoor walkway system, linking it to an abundance of popular downtown
 			   destinations like The MTS Centre, RBC Convention Centre, Millennium Library and Portage & Main.
@@ -624,4 +624,5 @@ exec spStores @Crud='c', @StoreName='Winnipeg Square',
 
 
 exec spStores @Crud='r'
+select * from tbStores where CategoryId=3
 go
