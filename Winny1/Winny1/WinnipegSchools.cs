@@ -33,7 +33,7 @@ namespace Winny1
 
             //if (SchoolId != null)
             da.SelectCommand.Parameters.AddWithValue("@schoolID", SchoolID);
-            //if(SchoolTypeId != null)         
+            //if(TypeId != null)         
             da.SelectCommand.Parameters.AddWithValue("@schoolType", SchoolType);
 
             conn.Open();

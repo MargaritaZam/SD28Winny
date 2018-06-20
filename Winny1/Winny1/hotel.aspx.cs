@@ -56,7 +56,12 @@ namespace Winny1
             DdlLocation.DataBind();
         }
 
+        public void loadHotelStars()
+        {
+            DAL myDal = new DAL(conn);
 
+            DataSet ds = myDal.ExecuteProcedure("spHotelStars");
+        }
 
         protected void BtnSearch_Click(object sender, EventArgs e)
         {

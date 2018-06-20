@@ -25,7 +25,7 @@ create procedure spLocation
 	@locationName varchar(25) = null
 )
 as begin
-	select * from tbLocation where LocationID = isnull(@locationID, LocationId)
+	select * from tbLocation where LocationID = isnull(@locationID, LocationID)
 end
 go
 
@@ -50,7 +50,7 @@ create procedure spAboutCrud
 as begin
 	if @crud='r'
 	begin
-		select AboutTitle, AboutDescription from tbAbout where AboutId=isnull(@aboutId,AboutId)
+		select AboutTitle, AboutDescription from tbAbout where AboutID = isnull(@aboutID,AboutID)
 	end
 	else if @crud='c'
 	begin
@@ -87,8 +87,8 @@ exec spAboutCrud @crud = 'c',
 			     @aboutTitle = 'Population',
 			     @aboutDescription = 'The city has a population of 749,500, while the Province of Manitoba has a total population of 1.33 million.  (Estimated 2017)'
 
---select * from tbAbout
-go
+--exec spAboutCrud @crud = 'r'
+--go
 
 create table tbWeather
 (
@@ -116,25 +116,40 @@ go
 create procedure spReadWeather
 (
 	@weatherID int = null,
-	@month varchar(15),
-	@high varchar(10),
-	@low varchar(10)
+	@month varchar(15) = null,
+	@high varchar(10) = null,
+	@low varchar(10) = null
 )
 as begin
-	select Month, High, Low from tbWeather where WeatherId=isnull(@weatherId,WeatherId)
+	select Month, High, Low from tbWeather where WeatherID = isnull(@weatherID,WeatherID)
 end
-
-select * from tbWeather
 go
+
+--exec spReadWeather
+--go
 
 create table tbHotelStars
 (
 	StarsID int identity(0,1) primary key,
-	NumberOfStars varchar(6)
+	NumberOfStars varchar(12)
 )
 insert into tbHotelStars (NumberOfStars) values
-	('0'),   ('*'),    ('**'),
-	('***'), ('****'), ('*****')
+	('0'),   ('*'),    ('* *'),
+	('* * *'), ('* * * *'), ('* * * * *')
+go
+
+create procedure spHotelStars
+(
+	@starsID int = null ,
+	@numberStars varchar(12) = null
+)
+as begin
+	select * from tbHotelStars where StarsID = isnull(@starsID, StarsID)
+end
+go
+
+--exec spHotelStars
+--go
 
 create table tbHotels
 (
@@ -164,19 +179,23 @@ create procedure spHotelsCrud
 	@hotelPostalCode varchar(7) = null,
 	@hotelWebsite varchar(100) = null,
 	@hotel_path varchar(200) = null,
-	@hotelLocationID int,
+	@hotelLocationID int = null,
 	@crud varchar(1)
 )
 as begin
 	if @crud='r'
 	begin
-		select HotelName, HotelPrice, HotelStars, HotelDescription, HotelPhoneNumber, HotelAddress, HotelPostalCode, HotelWebsite,'.\HotelPictures\' + Hotel_path as Hotel_path from tbHotels where HotelId=isnull(@hotelId,HotelId)
+		select HotelName, HotelDescription, '.\HotelPictures\' + Hotel_path 
+			as Hotel_path from tbHotels where HotelID = isnull(@hotelID,HotelID)
 	end
 	else if @crud='c'
 	begin
-		insert into tbHotels(HotelName,HotelPrice,HotelStars,HotelDescription,HotelPhoneNumber,HotelAddress,HotelPostalCode,HotelWebsite,Hotel_path,HotelLocationID)
-								values
-								(@hotelName,@hotelPrice,@hotelStars,@hotelDescription,@hotelPhoneNumber,@hotelAddress,@hotelPostalCode,@hotelWebsite,@hotel_path,@hotelLocationID)
+		insert into tbHotels(HotelName,HotelPrice,HotelStars,HotelDescription,
+			HotelPhoneNumber,HotelAddress,HotelPostalCode,HotelWebsite,Hotel_path,
+			HotelLocationID) values
+			(@hotelName,@hotelPrice,@hotelStars,@hotelDescription,
+			@hotelPhoneNumber,@hotelAddress,@hotelPostalCode,@hotelWebsite,@hotel_path,
+			@hotelLocationID)
 	end
 	else if @crud='u'
 	begin
@@ -196,6 +215,15 @@ as begin
 	else if @crud = 'd'
 	begin
 		delete from tbHotels where HotelID = @hotelID
+	end
+	else if @crud = 's'
+	begin
+		select HotelID, HotelName, HotelDescription,  tbHotelStars.NumberOfStars,
+			tbLocation.LocationName  from tbHotels join tbHotelStars on
+			tbHotels.HotelStars = tbHotelStars.StarsID join tbLocation on 
+			tbHotels.HotelLocationID = tbLocation.LocationID 
+			where tbHotels.HotelLocationID = ISNULL(@hotelLocationID, tbHotels.HotelLocationID)
+			and tbHotels.HotelStars = ISNULL(@hotelID,tbHotels.hotelID)
 	end
 end
 go
@@ -336,13 +364,13 @@ exec spHotelsCrud @crud = 'c',
 			  @hotelName = 'Travelodge Winnipeg East',
 			  @hotelPrice = 95,
 			  @hotelStars = 2,
-			  @hotelDescription = '',
+			  @hotelDescription = 'The Travelodge Winnipeg East is located close to downtown Winnipeg and major attractions, such as the Children’s Museum, Club Regent Casino, Fun Mountain Waterpark and the Royal Canadian Mint.',
 			  @hotelPhoneNumber = '204-255-6000',
 			  @hotelAddress = '20 Alpine Avenue',
 			  @hotelPostalCode = 'R2M 0Y5',
 			  @hotelWebsite = 'www.wyndhamhotels.com',
 			  @hotel_path = 'TravelodgeEast.jpg',
-			  @hotelLocationId = 4
+			  @hotelLocationID = 4
 
 exec spHotelsCrud @crud = 'c',
 			  @hotelName = 'Viscount Gort Hotel',
@@ -368,24 +396,10 @@ exec spHotelsCrud @crud = 'c',
 --			  @hotelPostalCode = '',
 --			  @hotelWebsite = '',
 --			  @hotel_path = '',
---			  @hotelLocationId = ?
+--			  @hotelLocationID = ?
 
---select * from tbHotels
-go
-
-create table tbUniversitiesColleges
-(
-	SchoolID int identity(1,1) primary key,
-	SchoolName varchar(50),
-	SchoolType int foreign key references tbTypeOfSchool(TypeID),
-	SchoolPhoneNumber varchar(15),
-	SchoolAddress varchar(100),
-	SchoolPostalCode varchar(7),
-	SchoolWebsite varchar(100),
-	SchoolDescription varchar(800),
-	School_path varchar(200),
-	SchoolLocationID int foreign key references tbLocation(LocationID)
-)
+exec spHotelsCrud @crud = 'r'
+exec spHotelsCrud @crud = 's'
 go
 
 create table tbTypeOfSchool
@@ -399,18 +413,33 @@ go
 
 create procedure spGetSchoolTypes
 as begin
-select* from tbTypeOfSchool
+	select* from tbTypeOfSchool
 end
 go
 
 --exec spGetSchoolTypes
 --go
 
-create procedure spSchoolsCrud
+create table tbUniversitiesColleges
+(
+	SchoolID int identity(1,1) primary key,
+	SchoolName varchar(50),
+	TypeID int foreign key references tbTypeOfSchool(TypeID),
+	SchoolPhoneNumber varchar(15),
+	SchoolAddress varchar(100),
+	SchoolPostalCode varchar(7),
+	SchoolWebsite varchar(100),
+	SchoolDescription varchar(800),
+	School_path varchar(200),
+	SchoolLocationID int foreign key references tbLocation(LocationID)
+)
+go
+
+create procedure spSchoolCrud
 (
 	@schoolID int = null,
 	@schoolName varchar(50) = null,
-	@schoolType int = null,
+	@typeID int = null,
 	@schoolPhoneNumber varchar(15) = null,
 	@schoolAddress varchar(100) = null,
 	@schoolPostalCode varchar(7) = null,
@@ -423,19 +452,21 @@ create procedure spSchoolsCrud
 as begin
 	if @schoolCrud='r'
 	begin
-		select SchoolName, SchoolType, SchoolPhoneNumber, SchoolAddress, SchoolPostalCode, SchoolWebsite, SchoolDescription,'.\SchoolPictures\' + School_path as School_path from tbUniversitiesColleges where SchoolId=isnull(@SchoolId,SchoolId)
+		select SchoolName, TypeID, SchoolPhoneNumber, SchoolAddress, SchoolPostalCode,
+			SchoolWebsite, SchoolDescription,'.\SchoolPictures\' + School_path as
+			School_path from tbUniversitiesColleges where SchoolID = isnull(@schoolID,SchoolID)
 	end
 	else if @schoolCrud='c'
 	begin
-		insert into tbUniversitiesColleges(SchoolName,SchoolType,SchoolPhoneNumber,SchoolAddress,SchoolPostalCode,SchoolWebsite,SchoolDescription,School_path,SchoolLocationID)
+		insert into tbUniversitiesColleges(SchoolName,TypeID,SchoolPhoneNumber,SchoolAddress,SchoolPostalCode,SchoolWebsite,SchoolDescription,School_path,SchoolLocationID)
 								values
-								(@schoolName,@schoolType,@schoolPhoneNumber,@schoolAddress,@schoolPostalCode,@schoolWebsite,@schoolDescription,@school_path,@schoolLocationID)
+								(@schoolName,@typeID,@schoolPhoneNumber,@schoolAddress,@schoolPostalCode,@schoolWebsite,@schoolDescription,@school_path,@schoolLocationID)
 	end
 	else if @schoolCrud='u'
 	begin
 		update tbUniversitiesColleges set
 			   SchoolName = @schoolName,
-			   SchoolType = @schoolType,
+			   TypeID = @typeID,
 			   SchoolPhoneNumber = @schoolPhoneNumber,
 			   SchoolAddress = @schoolAddress,
 			   SchoolPostalCode = @schoolPostalCode,
@@ -451,92 +482,93 @@ as begin
 	end
 	else if @schoolCrud = 's'
 	begin
-		select SchoolName, SchoolDescription, SchoolId,'./UniversityPictures/' + School_path as School_path  from tbSchools join tbTypeOfSchool on
-			tbSchools.SchoolId = tbTypeOfSchool.TypeId join tbLocation on 
-			tbRestaurants.LocationId=tbLocation.LocationId 
-			where tbRestaurants.LocationId=ISNULL(@LocationId,tbRestaurants.LocationId)
-			and
-			 tbRestaurants.FoodId=ISNULL(@FoodId,tbRestaurants.FoodId)
+		select SchoolID, SchoolName, SchoolDescription,  tbTypeOfSchool.TypeOfSchool,
+			tbLocation.LocationName  from tbUniversitiesColleges join tbTypeOfSchool on
+			tbUniversitiesColleges.TypeID = tbTypeOfSchool.TypeID join tbLocation on 
+			tbUniversitiesColleges.SchoolLocationID = tbLocation.LocationID 
+			where tbUniversitiesColleges.SchoolLocationID = ISNULL(@schoolLocationID, tbUniversitiesColleges.SchoolLocationID)
+			and tbUniversitiesColleges.TypeID = ISNULL(@schoolID,tbUniversitiesColleges.SchoolID)
 	end
 end
 go
 
-exec spSchoolsCrud @schoolCrud = 'c',
+exec spSchoolCrud @schoolCrud = 'c',
 		@schoolName = 'Booth University College',
-		@schoolType = 3,
+		@typeID = 3,
 		@schoolPhoneNumber = '204-942-3856',
 		@schoolAddress = '447 Webb Place',
 		@schoolPostalCode = 'R3B 2P2',
 		@schoolWebsite = 'www.boothuc.ca',
 		@schoolDescription = 'William and Catherine Booth University College, rooted in The Salvation Army’s Wesleyan theological tradition, brings together Christian faith, rigorous scholarship and a passion for service.  A small campus with just 250 students, located in downtown Winnipeg.',
 		@school_path = 'BoothUC.png',
-		@schoolLocationId = 7
+		@schoolLocationID = 7
 
-exec spSchoolsCrud @schoolCrud = 'c',
+exec spSchoolCrud @schoolCrud = 'c',
 		@schoolName = 'Canadian Mennonite University',
-		@schoolType = 1,
+		@typeID = 1,
 		@schoolPhoneNumber = '204-487-3300',
 		@schoolAddress = '500 Shaftesbury Boulevard',
 		@schoolPostalCode = 'R3P 2N2',
 		@schoolWebsite = 'www.cmu.ca/',
 		@schoolDescription = 'CMU offers comprehensive university education within a dynamic and diverse Christian community. Exemplary academic studies across the arts and sciences are distinguished by interdisciplinary interaction, experiential learning, and quality connection between students and faculty.',
 		@school_path = 'CanadianMennoniteUniversity.jpg',
-		@schoolLocationId = 9
+		@schoolLocationID = 9
 
-exec spSchoolsCrud @schoolCrud = 'c',
+exec spSchoolCrud @schoolCrud = 'c',
 		@schoolName = 'Herzing College Winnipeg',
-		@schoolType = 3,
+		@typeID = 3,
 		@schoolPhoneNumber = '204-775-8175',
 		@schoolAddress = '1700 Portage Avenue',
 		@schoolPostalCode = 'R3J 0E1',
 		@schoolWebsite = 'www.herzing.ca/winnipeg',
-		@schoolDescription = '',
+		@schoolDescription = 'We provide a career-focused education that provides students with marketable skills that employers are seeking.  Each campus works closely with local and regional employers to ensure that Herzing programs encompass the skills and knowledge needed for our students to succeed.',
 		@school_path = 'Herzing.png',
-		@schoolLocationId = 7
+		@schoolLocationID = 7
 
-exec spSchoolsCrud @schoolCrud = 'c',
+exec spSchoolCrud @schoolCrud = 'c',
 		@schoolName = 'Red River College',
-		@schoolType = 3,
+		@typeID = 3,
 		@schoolPhoneNumber = '204-632-2327',
 		@schoolAddress = '2055 Notre Dame Avenue',
 		@schoolPostalCode = 'R3H 0J9',
 		@schoolWebsite = 'www.rrc.mb.ca',
 		@schoolDescription = 'We have 4 campuses scattered throughout Winnipeg, and 5 more outside Winnipeg.  We are Manitoba’s largest institute of applied learning and research, with more than 200 full- and part-time degree, diploma and certificate options.  We have close to 22,000 students each year from more than 60 countries.',
 		@school_path = 'RedRiverCollege.jpg',
-		@schoolLocationId = 10
+		@schoolLocationID = 10
 
-exec spSchoolsCrud @schoolCrud = 'c',
+exec spSchoolCrud @schoolCrud = 'c',
 		@schoolName = 'Robertson College',
-		@schoolType = 3,
+		@typeID = 3,
 		@schoolPhoneNumber = '204-926-8325',
 		@schoolAddress = '265 Notre Dame Avenue',
 		@schoolPostalCode = 'R3B 1N9',
 		@schoolWebsite = 'www.robertsoncollege.com',
 		@schoolDescription = 'Having been in operation for over 100 years, Robertson College has established itself as a leading private post-secondary institution in Canada.  There are 12 locations in Canada and one in China.',
 		@school_path = 'RobertsonCollege.png',
-		@schoolLocationId = 9
+		@schoolLocationID = 9
 
-exec spSchoolsCrud @schoolCrud = 'c',
+exec spSchoolCrud @schoolCrud = 'c',
 		@schoolName = 'University of Manitoba',
-		@schoolType = 2,
+		@typeID = 2,
 		@schoolPhoneNumber = '204-474-8880',
 		@schoolAddress = '66 Chancellors Circle',
 		@schoolPostalCode = 'R3T 2N2',
 		@schoolWebsite = 'www.umanitoba.ca',
 		@schoolDescription = 'Since 1877, the University of Manitoba has been driving discovery and inspiring minds through innovative teaching and research excellence. The U of M has 24,000 undergraduate and graduate students studying more than 90 degree programs.',
 		@school_path = 'UniversityManitoba.png',
-		@schoolLocationId = 5
+		@schoolLocationID = 5
 
-exec spSchoolsCrud @schoolCrud='c',
+exec spSchoolCrud @schoolCrud='c',
 		@schoolName = 'University of Winnipeg',
-		@schoolType = 2,
+		@typeID = 2,
 		@schoolPhoneNumber = '204-786-7811',
 		@schoolAddress = '515 Portage Avenue',
 		@schoolPostalCode = 'R3B 2E9',
 		@schoolWebsite = 'www.uwinnipeg.ca',
 		@schoolDescription = 'The University of Winnipeg was founded in 1871 and offers high-quality undergraduate and graduate programs. The U of W consistently ranks highly in national surveys for overall reputation, small class sizes, academic excellence and commitment to the environment.  There are 9,175 undergraduate students and 274 graduate students.',
 		@school_path = 'UniversityWinnipeg',
-		@schoolLocationId = 9
+		@schoolLocationID = 9
 
---select * from tbUniversitiesColleges
+--exec spSchoolCrud @schoolCrud = 'r'
+--exec spSchoolCrud @schoolCrud = 's'
 --go
