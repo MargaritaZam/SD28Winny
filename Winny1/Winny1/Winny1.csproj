@@ -85,10 +85,12 @@
     <Content Include="Hotels.aspx" />
     <Content Include="index.aspx" />
     <Content Include="info.aspx" />
+    <Content Include="Information.html" />
     <Content Include="Margo.sql" />
     <Content Include="Natalia.sql" />
     <Content Include="Restaurants.aspx" />
     <Content Include="LoadInformation.ashx" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
