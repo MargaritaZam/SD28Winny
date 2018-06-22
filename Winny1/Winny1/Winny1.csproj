@@ -75,7 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
-    <Content Include="admin.aspx" />
+    <Content Include="Adminpage.aspx" />
     <Content Include="Anjali.sql" />
     <Content Include="attraction.aspx" />
     <Content Include="HotelPictures\CanadInnsHSC.png" />
@@ -198,6 +198,13 @@
     </Compile>
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Adminpage.aspx.cs">
+      <DependentUpon>Adminpage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Adminpage.aspx.designer.cs">
+      <DependentUpon>Adminpage.aspx</DependentUpon>
     </Compile>
     <Compile Include="attraction.aspx.cs">
       <DependentUpon>attraction.aspx</DependentUpon>
