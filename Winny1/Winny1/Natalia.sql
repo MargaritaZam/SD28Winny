@@ -8,11 +8,11 @@ use dbShopping
 go
 create table tbLocation
 (
-LocationId int identity(1,1) Primary key,
-LocationName varchar(30)
+locationID int identity(1,1) Primary key,
+locationName varchar(30)
 )
 go
-insert into tbLocation(LocationName) values
+insert into tbLocation(locationName) values
 					('North'),('Northeast'),('East'),('Southeast'),
 					('South'),('Southwest'),('West'),('Northwest'),
 					('Downtown'),('Airport/West'),('Just Outside Winnipeg')
