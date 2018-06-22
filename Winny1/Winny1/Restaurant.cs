@@ -8,20 +8,27 @@ using System.Data;
 namespace Winny1
 {
 
-    public class Restaurant
+    public class Restaurant:Winnipeg
     {
-        string conn = "Data Source= localhost; Initial Catalog=dbRestaurants; Integrated Security= SSPI";
-        public int RestaurantId { get; set; }
-        public string RestaurantName { get; set; }
-        public string Description { get; set; }
-        public string Address { get; set; }
+        public string FoodType { get; set; }
         public string PostalCode { get; set; }
-        public string ContactNo { get; set; }
-        public string path { get; set; }
-        public int FoodId { get; set; }
 
-       
+        public Restaurant(string rname, string rdesc, string rphone,
+           string raddress, string rwebsite,
+           string rimage, string rlocation, string foodtype, string rpostal)
+        {
+            base.Name = rname;
+            base.Description = rdesc;
+            base.Address = raddress;
+            base.Phone = rphone;
+            base.Website = rwebsite;
+            base.Image = rimage;
+            base.Location = rlocation;
+            this.PostalCode = rpostal;
+            this.FoodType = foodtype;
 
 
-    }
+
+
+        }
 }

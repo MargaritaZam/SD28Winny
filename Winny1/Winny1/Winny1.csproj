@@ -97,6 +97,7 @@
     <Content Include="Natalia.sql" />
     <Content Include="Restaurants.aspx" />
     <Content Include="LoadInformation.ashx" />
+    <Content Include="Winnipeg.aspx" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -221,7 +222,7 @@
     <Compile Include="hotel.aspx.designer.cs">
       <DependentUpon>hotel.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Hotels.cs" />
+    <Compile Include="Hotel.cs" />
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -263,6 +264,7 @@
     <Compile Include="Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
     </Compile>
+    <Compile Include="Store.cs" />
     <Compile Include="Universities.aspx.cs">
       <DependentUpon>Universities.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -270,7 +272,7 @@
     <Compile Include="Universities.aspx.designer.cs">
       <DependentUpon>Universities.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Schools.cs" />
+    <Compile Include="School.cs" />
     <Compile Include="ViewRestaurant.aspx.cs">
       <DependentUpon>ViewRestaurant.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -278,7 +280,16 @@
     <Compile Include="ViewRestaurant.aspx.designer.cs">
       <DependentUpon>ViewRestaurant.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Winnipeg.aspx.cs">
+      <DependentUpon>Winnipeg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Winnipeg.aspx.designer.cs">
+      <DependentUpon>Winnipeg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Winnipeg.cs" />
     <Compile Include="WinnipegAbout.cs" />
+    <Compile Include="WinnipegMain.cs" />
     <Compile Include="WinnipegSchools.cs" />
     <Compile Include="WinnipegShopping.cs" />
   </ItemGroup>

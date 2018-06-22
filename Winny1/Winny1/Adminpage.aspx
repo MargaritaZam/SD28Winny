@@ -54,7 +54,50 @@
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbGroupProjectConnectionString %>" SelectCommand="SELECT [RestaurantId], [RestaurantName], [Description], [Address], [PostalCode], [ContactNo], [path], [Website], [FoodId], [LocationId] FROM [tbRestaurants]"></asp:SqlDataSource>
         <br />
         <asp:Button ID="btnInsertRestaurant" runat="server" Text="Insert" OnClick="btnInsertRestaurant_Click" />
-
+        <asp:Panel ID="plUpdRest" runat="server">
+<table>
+    <tr>
+        <td>RestNAme</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>RestDescription</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>RestAddress</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>PostalCode</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>RestPhone</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>RestImage</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Re</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+        </asp:Panel>
 
 
 
