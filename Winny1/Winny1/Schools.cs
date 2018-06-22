@@ -8,7 +8,7 @@ using DAL_Project;
 
 namespace Winny1
 {
-    public class Universities
+    public class Schools
     {
         string conn = "Data Source=localhost;Initial Catalog=dbGroupProject;Integrated Security=SSPI;";
 

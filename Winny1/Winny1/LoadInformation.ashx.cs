@@ -57,7 +57,7 @@ namespace Winny1
             {
                 DAL myDal = new DAL(conn1);
                 myDal.AddParam("@Crud", "r");
-                myDal.AddParam("@StoreId", id);
+                myDal.AddParam("@StoreId",id);
                 DataSet ds = myDal.ExecuteProcedure("spStores");
 
                 for (int i = 0; i < ds.Tables[0].Rows.Count; i++)

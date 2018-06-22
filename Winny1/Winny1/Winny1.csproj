@@ -78,7 +78,6 @@
     <Content Include="admin.aspx" />
     <Content Include="Anjali.sql" />
     <Content Include="attraction.aspx" />
-    <Content Include="GroupProject.sql" />
     <Content Include="HotelPictures\CanadInnsHSC.png" />
     <Content Include="HotelPictures\ClarionPoloPark.jpg" />
     <Content Include="HotelPictures\DeltaHotel.png" />
@@ -91,13 +90,14 @@
     <Content Include="HotelPictures\RoyalAlbertArmsHotel.jpg" />
     <Content Include="HotelPictures\TravelodgeEast.jpg" />
     <Content Include="HotelPictures\ViscountGort.png" />
-    <Content Include="Hotels.aspx" />
     <Content Include="index.aspx" />
     <Content Include="info.aspx" />
+    <Content Include="Information.html" />
     <Content Include="Margo.sql" />
     <Content Include="Natalia.sql" />
     <Content Include="Restaurants.aspx" />
     <Content Include="LoadInformation.ashx" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -199,14 +199,6 @@
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
-    <Compile Include="About.cs" />
-    <Compile Include="admin.aspx.cs">
-      <DependentUpon>admin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin.aspx.designer.cs">
-      <DependentUpon>admin.aspx</DependentUpon>
-    </Compile>
     <Compile Include="attraction.aspx.cs">
       <DependentUpon>attraction.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -215,6 +207,13 @@
       <DependentUpon>attraction.aspx</DependentUpon>
     </Compile>
     <Compile Include="Attraction.cs" />
+    <Compile Include="hotel.aspx.cs">
+      <DependentUpon>hotel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="hotel.aspx.designer.cs">
+      <DependentUpon>hotel.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Hotels.cs" />
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
@@ -264,7 +263,7 @@
     <Compile Include="Universities.aspx.designer.cs">
       <DependentUpon>Universities.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Universities.cs" />
+    <Compile Include="Schools.cs" />
     <Compile Include="ViewRestaurant.aspx.cs">
       <DependentUpon>ViewRestaurant.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
