@@ -13,7 +13,7 @@
                   <h2>Welcome to Winnipeg</h2>
                   <img src="images/tooplate_image_01.jpg" alt="Image 01" class="image_wrapper" />
                   <p><em>Winnipeg is located at the confluence of the Red and Assiniboine Rivers.  Known as the "Gateway to the West", Winnipeg is a railway and transportation hub with a diversified economy.</em></p>
-                  <p><a href="http://www.tooplate.com/view/2021-winnipeg">Winnipeg</a> is <a rel="nofollow" href="http://www.tooplate.com">free website template</a> for everyone. You may edit and apply this template for any purpose. Credits go to <a rel="nofollow" href="http://www.photovaco.com">Free Photos</a> for photos and <a rel="nofollow" href="http://jwloh.deviantart.com/art/Aquaticus-Social-91014249" target="_blank">jwloh</a> for Aquaticus.Social social icons and <a rel="nofollow" href="http://www.icojoy.com">icojoy.com</a> for icons. Nunc posuere tristique tempor.</p>
+                  <p><em>The city was founded in 1873 and the word 'Winnipeg' comes from the Western Cree words that mean 'muddy water'.</em></p>
                 </div>
                 <div class="col_270 float_r">
                   <h2>Our Services</h2>
