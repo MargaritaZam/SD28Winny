@@ -20,8 +20,14 @@ namespace Winny1
         public string path { get; set; }
         public int FoodId { get; set; }
 
-       
 
-
+        public DataTable LoadRestaurant()
+        {
+            
+            DAL myDal = new DAL(conn);
+             myDal.AddParam("@crud", "a");
+            DataSet ds = myDal.ExecuteProcedure("spRestaurants"); 
+            return ds.Tables[0];
+        }
     }
 }
