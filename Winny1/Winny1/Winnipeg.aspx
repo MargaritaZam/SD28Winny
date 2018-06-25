@@ -2,6 +2,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <style>
+        .back{
+            background-color:azure;
+        }
+    </style>
+    <asp:Panel ID="panel" runat="server" CssClass="back">
 
     <asp:DropDownList ID="ddlAdditional" runat="server">
         <asp:ListItem>Attraction</asp:ListItem>
@@ -94,6 +100,13 @@
         </asp:Panel>
     </table>
     <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" />
-    <asp:GridView ID="gvWinnipeg" runat="server"></asp:GridView>
+    <asp:GridView ID="gvWinnipeg" runat="server" AutoGenerateColumns="true">
 
+        <Columns>
+            <asp:ButtonField ButtonType="Button" CommandName="Delete" HeaderText="del" ShowHeader="True" Text="del" />
+            <asp:ButtonField ButtonType="Button" CommandName="Edit" HeaderText="edit" ShowHeader="True" Text="edit" />
+        </Columns>
+
+    </asp:GridView>
+</asp:Panel>
 </asp:Content>

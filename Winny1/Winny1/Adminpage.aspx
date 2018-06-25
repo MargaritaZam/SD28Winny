@@ -7,15 +7,20 @@
             background-color: aliceblue;
             height: 2000px;
         }
-
-        h1 {
-            color: darkcyan;
+        .l{
+           font-size:40px;
+           font-family:'Times New Roman', Times, serif;
         }
+       
     </style>
     <asp:Panel ID="plAdmin" runat="server" CssClass="adm">
-        <h1>Restaurants</h1>
+       
+        <asp:LinkButton ID="LinkButton1" CssClass="l" runat="server" OnClick="LinkButton1_Click">#Restaurants</asp:LinkButton>
+
+         <br />
+         <br />
         <br />
-        <asp:GridView ID="gvRestaurants" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="RestaurantId" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None"
+        <asp:GridView ID="gvRestaurants" runat="server" Visible="false" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="RestaurantId" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None"
             PageSize="5" AllowPaging="True" AllowSorting="True" OnPageIndexChanging="gvRestaurants_PageIndexChanging" OnRowCommand="gvRestaurants_RowCommand" OnSelectedIndexChanging="gvRestaurants_SelectedIndexChanging" OnSorting="gvRestaurants_Sorting" OnSelectedIndexChanged="gvRestaurants_SelectedIndexChanged">
 
 
@@ -54,49 +59,57 @@
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbGroupProjectConnectionString %>" SelectCommand="SELECT [RestaurantId], [RestaurantName], [Description], [Address], [PostalCode], [ContactNo], [path], [Website], [FoodId], [LocationId] FROM [tbRestaurants]"></asp:SqlDataSource>
         <br />
         <asp:Button ID="btnInsertRestaurant" runat="server" Text="Insert" OnClick="btnInsertRestaurant_Click" />
+        <asp:Label ID="lblRest" runat="server" Text=""></asp:Label>
         <asp:Panel ID="plUpdRest" runat="server">
 <table>
     <tr>
         <td>RestNAme</td>
-        <td></td>
+        <td>
+            <asp:TextBox ID="txtRname" runat="server"></asp:TextBox></td>
     </tr>
     <tr>
         <td>RestDescription</td>
-        <td></td>
+        <td>
+            <asp:TextBox ID="txtRDesc" runat="server"></asp:TextBox></td>
     </tr>
     <tr>
         <td>RestAddress</td>
-        <td></td>
+        <td>
+            <asp:TextBox ID="txtRAddress" runat="server"></asp:TextBox></td>
     </tr>
     <tr>
         <td>PostalCode</td>
-        <td></td>
+        <td>
+            <asp:TextBox ID="txtRPostal" runat="server"></asp:TextBox></td>
     </tr>
     <tr>
         <td>RestPhone</td>
-        <td></td>
+        <td>
+            <asp:TextBox ID="txtRPhone" runat="server"></asp:TextBox></td>
     </tr>
     <tr>
         <td>RestImage</td>
-        <td></td>
+        <td>
+            <asp:FileUpload ID="flRestImage" runat="server" /></td>
     </tr>
     <tr>
-        <td>Re</td>
-        <td></td>
+        <td>RestWebsite</td>
+        <td>
+            <asp:HyperLink ID="hlRest" runat="server">HyperLink</asp:HyperLink></td>
     </tr>
     <tr>
-        <td></td>
-        <td></td>
+        <td>FoodCategory</td>
+        <td>
+            <asp:DropDownList ID="dlFood" runat="server" OnSelectedIndexChanged="dlFood_SelectedIndexChanged"></asp:DropDownList></td>
     </tr>
     <tr>
-        <td></td>
-        <td></td>
+        <td>Location</td>
+        <td>
+            <asp:DropDownList ID="dlLoc" runat="server" OnSelectedIndexChanged="dlLoc_SelectedIndexChanged"></asp:DropDownList></td>
     </tr>
-    <tr>
-        <td></td>
-        <td></td>
-    </tr>
+   
 </table>
+            <asp:Button ID="btbRestSave" runat="server" Text="Save" OnClick="btbRestSave_Click" />
         </asp:Panel>
 
 
@@ -109,9 +122,10 @@
         <br />
         <br />
 
-        <h1>Shoping</h1>
+        <asp:LinkButton ID="LinkButton4" CssClass="l" runat="server">#Stores</asp:LinkButton>
         <br />
-
+         <br />
+         <br />
         <asp:GridView ID="gvShoping" runat="server" AutoGenerateColumns="False" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" DataKeyNames="StoreId" DataSourceID="SqlDataSource2" ForeColor="Black">
 
             <Columns>
@@ -138,7 +152,13 @@
         </asp:GridView>
         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:dbGroupProjectConnectionString %>" SelectCommand="SELECT [StoreId], [StoreName], [Description], [Path], [Address], [PhoneNumber], [Web], [LocationId], [CategoryId] FROM [tbStores]"></asp:SqlDataSource>
         <br />
-        <h1>Attractions</h1>
+
+
+
+
+         <asp:LinkButton ID="LinkButton2" CssClass="l" runat="server">#Attractions</asp:LinkButton>
+        <br />
+         <br />
         <br />
 
         <asp:GridView ID="gvAttractions" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="attractionID" DataSourceID="SqlDataSource3" ForeColor="Black" GridLines="Vertical">
@@ -169,8 +189,13 @@
         <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:dbGroupProjectConnectionString %>" SelectCommand="SELECT [attractionID], [attractionCategory], [atName], [atDesc], [atAddress], [atPhone], [atWebsite], [atImage], [location] FROM [tbAttractions]"></asp:SqlDataSource>
         <br />
         <br />
-        <h1>Hotels</h1>
+
+
+
+        <asp:LinkButton ID="LinkButton5" CssClass="l" runat="server">#Hotels</asp:LinkButton>
         <br />
+         <br />
+         <br />
         <asp:GridView ID="gvHotels" runat="server" AutoGenerateColumns="False" DataKeyNames="HotelID" DataSourceID="SqlDataSource4" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" GridLines="Horizontal">
 
             <Columns>
@@ -203,7 +228,10 @@
         <br />
         <br />
 
-        <h1>Universities</h1>
+
+         <asp:LinkButton ID="LinkButton3" CssClass="l" runat="server">#Universities/Schools</asp:LinkButton>
+        <br />
+         <br />
         <br />
         <asp:GridView ID="gvUniversity" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="SchoolID" DataSourceID="SqlDataSource5" ForeColor="#333333" GridLines="None">
 

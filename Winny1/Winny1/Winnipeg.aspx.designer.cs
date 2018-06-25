@@ -13,6 +13,15 @@ namespace Winny1 {
     public partial class Winnipeg1 {
         
         /// <summary>
+        /// panel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panel;
+        
+        /// <summary>
         /// ddlAdditional control.
         /// </summary>
         /// <remarks>
