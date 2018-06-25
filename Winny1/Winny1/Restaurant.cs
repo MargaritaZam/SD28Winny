@@ -28,7 +28,7 @@ namespace Winny1
             this.FoodType = foodtype;
 
 
-
+        }
 
         }
 }
