@@ -22,12 +22,48 @@ namespace Winny1 {
         protected global::System.Web.UI.WebControls.Panel PnlAbout;
         
         /// <summary>
-        /// DdlAbout control.
+        /// lblAboutTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DdlAbout;
+        protected global::System.Web.UI.WebControls.Label lblAboutTitle;
+        
+        /// <summary>
+        /// lblAboutDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAboutDescription;
+        
+        /// <summary>
+        /// ddlAboutTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlAboutTitle;
+        
+        /// <summary>
+        /// ddlAboutDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlAboutDescription;
+        
+        /// <summary>
+        /// DlAbout control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList DlAbout;
     }
 }
