@@ -49,7 +49,7 @@ namespace Winny1
         {
             DAL myDal = new DAL(conn);
 
-            DataSet ds = myDal.ExecuteProcedure("spLocations");
+            DataSet ds = myDal.ExecuteProcedure("spLocation");
             DdlLocation.DataSource = ds.Tables[0];
             DdlLocation.DataTextField = "LocationName";
             DdlLocation.DataValueField = "LocationID";
