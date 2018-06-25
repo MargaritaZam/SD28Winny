@@ -90,14 +90,14 @@ exec spAboutCrud @crud = 'c',
 --exec spAboutCrud @crud = 'r'
 --go
 
-create table tbWeather
+create table tbWeatherAverages
 (
-	WeatherID int identity(1,1) primary key,
+	WeatherAvgID int identity(1,1) primary key,
 	Month varchar(15),
 	High varchar(10),
 	Low varchar(10)
 )
-insert into tbWeather (Month, High, Low) values
+insert into tbWeatherAverages (Month, High, Low) values
 	('Month','Avg High','Avg Low'),
 	('January','-10 C','-20 C'),
 	('February','-8 C','-18 C'),

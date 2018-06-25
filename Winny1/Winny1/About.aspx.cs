@@ -28,10 +28,10 @@ namespace Winny1
         public void loadAbout()
         {
             DAL myDal = new DAL(conn);
-
-            DataSet ds = myDal.ExecuteProcedure("spAboutCrud");
+            
             adsource = new PagedDataSource();
-            myDal.AddParam("@crud", "a");
+            myDal.AddParam("@crud", "r");
+            DataSet ds = myDal.ExecuteProcedure("spAboutCrud");
             adsource.DataSource = ds.Tables[0].DefaultView;
             //adsource.PageSize = 3;
             //adsource.AllowPaging = true;
