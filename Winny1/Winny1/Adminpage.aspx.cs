@@ -19,10 +19,10 @@ namespace Winny1
             if (!IsPostBack)
             {
                 loadRestaurants();
-                loadAttractions();
-                loadStores();
-                loadHotels();
-                loadSchools();
+                //loadAttractions();
+                //loadStores();
+                //loadHotels();
+                //loadSchools();
             }
 
         }

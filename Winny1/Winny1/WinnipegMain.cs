@@ -26,7 +26,7 @@ namespace Winny1
             HttpContext.Current.Session["Winnipeg"] = _WinnipegMain;
 
         }
-        public void Add(Restaurant restaurant)
+        public void Add(Restclass restaurant)
         {
             _WinnipegMain.Add(restaurant);
             Save();
@@ -80,7 +80,7 @@ namespace Winny1
                         break;
 
                     case "Restaurant":
-                        Restaurant rt = (Restaurant)(w);
+                        Restclass rt = (Restclass)(w);
                         dr["Additional"] = rt.FoodType + ", " + rt.PostalCode;
                         break;
 
