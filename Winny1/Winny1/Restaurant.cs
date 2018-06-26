@@ -14,7 +14,5 @@ namespace Winny1
         public string PostalCode { get; set; }
 
        
-
-
     }
 }
