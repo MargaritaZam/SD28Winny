@@ -36,7 +36,7 @@ namespace Winny1
        private void loadDataBase()
         {
             DataSet ds = new DataSet();
-            SqlDataAdapter da=new SqlDataAdapter()
+            SqlDataAdapter da = new SqlDataAdapter();
         }
     }
 }

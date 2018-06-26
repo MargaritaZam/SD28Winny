@@ -12,7 +12,7 @@ locationID int identity(1,1) primary key,
 locationName varchar(60)
 )
 go
-insert into tbLocation(locationNAme)values
+insert into tbLocation(locationName)values
 ('North'),('Northeast'),('East'),('Southeast'),
 ('South'),('Southwest'),('West'),('Northwest'),
 ('Downtown'),('Airport/West'),('Just Outside Winnipeg')
@@ -20,6 +20,7 @@ go
 
 select*from tbLocation
 go
+
 create procedure spLocation
 (
 @LocationID int=null ,
