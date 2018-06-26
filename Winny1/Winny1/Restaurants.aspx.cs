@@ -16,6 +16,7 @@ namespace Winny1
         PagedDataSource adsource;
         int pos;
         string conn = "Data Source= localhost; Initial Catalog=dbRestaurants; Integrated Security= SSPI";
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
