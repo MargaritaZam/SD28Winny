@@ -324,14 +324,11 @@ as begin
 end
 end
 go
-select * from tbFood_Category
-select * from tbLocation
+
+--select * from tbFood_Category
+--select * from tbLocation
+
 go
-
-
-
-
-
 
 create table tbAbout
 (
@@ -388,7 +385,7 @@ exec spAboutCrud @crud = 'c',
 			     @aboutTitle = 'Population',
 			     @aboutDescription = 'The city has a population of 749,500, while the Province of Manitoba has a total population of 1.33 million.  (Estimated 2017)'
 
---select * from tbAbout
+exec spAboutCrud @crud='r', @aboutID=1
 go
 
 create table tbWeather
