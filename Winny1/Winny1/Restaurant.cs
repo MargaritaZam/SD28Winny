@@ -29,5 +29,7 @@ namespace Winny1
             DataSet ds = myDal.ExecuteProcedure("spRestaurants"); 
             return ds.Tables[0];
         }
+
+        
     }
 }

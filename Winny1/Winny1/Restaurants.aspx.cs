@@ -24,7 +24,7 @@ namespace Winny1
                 this.ViewState["vs"] = 0;
                 loadFood();
                 loadLocation();
-                loadRestaurants();
+               
             }
             pos = (int)this.ViewState["vs"];
             loadRestaurants();
@@ -55,24 +55,24 @@ namespace Winny1
         }
         public void loadRestaurants()
         {
-            adsource = new PagedDataSource();
-            adsource.DataSource = rs.LoadRestaurant();
+            // adsource = new PagedDataSource();
+            // adsource.DataSource =Convert.ToString(rs.LoadRestaurant());
 
-            adsource.PageSize = 3;
-            adsource.AllowPaging = true;
-            adsource.CurrentPageIndex = pos;
-            btnfirst.Enabled = !adsource.IsFirstPage;
-            btnprevious.Enabled = !adsource.IsFirstPage;
-            btnlast.Enabled = !adsource.IsLastPage;
-            btnnext.Enabled = !adsource.IsLastPage;
-            dlRestaurant.DataSource = adsource;
+            // adsource.PageSize = 3;
+            // adsource.AllowPaging = true;
+            // adsource.CurrentPageIndex = pos;
+            // btnfirst.Enabled = !adsource.IsFirstPage;
+            // btnprevious.Enabled = !adsource.IsFirstPage;
+            // //btnlast.Enabled = !adsource.IsLastPage;
+            ////btnnext.Enabled = !adsource.IsLastPage;
+            // dlRestaurant.DataSource = adsource;
+            // dlRestaurant.DataBind();
+
+            dlRestaurant.DataSource = rs.LoadRestaurant();
             dlRestaurant.DataBind();
 
-            //dlRestaurant.DataSource = rs.LoadRestaurant();
-            //dlRestaurant.DataBind();
 
 
-           
 
         }
 
