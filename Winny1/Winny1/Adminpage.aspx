@@ -20,8 +20,14 @@
          <br />
          <br />
         <br />
-        <asp:GridView ID="gvRestaurants" runat="server" Visible="false" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="RestaurantId" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None"
-            PageSize="5" AllowPaging="True" AllowSorting="True" OnPageIndexChanging="gvRestaurants_PageIndexChanging" OnRowCommand="gvRestaurants_RowCommand" OnSelectedIndexChanging="gvRestaurants_SelectedIndexChanging" OnSorting="gvRestaurants_Sorting" OnSelectedIndexChanged="gvRestaurants_SelectedIndexChanged">
+        <asp:GridView ID="gvRestaurants" runat="server" Visible="false" AutoGenerateColumns="False"
+            CellPadding="4" DataKeyNames="RestaurantId" DataSourceID="SqlDataSource1"
+            ForeColor="#333333" GridLines="None"
+            PageSize="5" AllowPaging="True" AllowSorting="True"
+            OnPageIndexChanging="gvRestaurants_PageIndexChanging"
+            OnRowCommand="gvRestaurants_RowCommand"
+            OnSelectedIndexChanging="gvRestaurants_SelectedIndexChanging" 
+            OnSorting="gvRestaurants_Sorting" OnSelectedIndexChanged="gvRestaurants_SelectedIndexChanged">
 
 
             <AlternatingRowStyle BackColor="White" />
@@ -60,7 +66,7 @@
         <br />
         <asp:Button ID="btnInsertRestaurant" runat="server" Text="Insert" OnClick="btnInsertRestaurant_Click" />
         <asp:Label ID="lblRest" runat="server" Text=""></asp:Label>
-        <asp:Panel ID="plUpdRest" runat="server">
+        <asp:Panel ID="plUpdRest" runat="server" Visible="false">
 <table>
     <tr>
         <td>RestNAme</td>
