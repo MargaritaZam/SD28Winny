@@ -307,11 +307,29 @@ as begin
 							(@RestaurantName,@Description,@Address,@PostalCode,@ContactNo,@Path,@Website,@FoodId,@LocationId)
 
 	end
+	else if @crud='u'
+	begin
+	update tbRestaurants
+	set RestaurantName=@RestaurantName,
+	    Description=@Description,
+		Address=@Address,
+       PostalCode=@PostalCode,
+       ContactNo=@ContactNo,
+       path=@Path,
+      Website=@website,
+      FoodId=@FoodId,
+      LocationId=@LocationId
+	  where RestaurantId=@RestaurantId
+end
 end
 go
 select * from tbFood_Category
 select * from tbLocation
 go
+
+
+
+
 
 
 create table tbAbout

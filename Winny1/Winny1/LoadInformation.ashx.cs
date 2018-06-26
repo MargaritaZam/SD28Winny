@@ -12,10 +12,10 @@ namespace Winny1
     /// </summary>
     public class LoadInformation : IHttpHandler
     {
-        string conn = "Data Source= localhost; Initial Catalog=dbRestaurants; Integrated Security= SSPI";
-        string conn1 = "Data Source=localhost; Initial Catalog=dbShopping; Integrated Security=SSPI";
-        string conn2 = "Data Source= localhost; Initial Catalog=dbGroupProject; Integrated Security= SSPI";
-        string conn3 = "Data Source=localhost;Initial Catalog=dbOmegaProject;Integrated Security=SSPI";
+        //string conn = "Data Source= localhost; Initial Catalog=dbRestaurants; Integrated Security= SSPI";
+        //string conn1 = "Data Source=localhost; Initial Catalog=dbShopping; Integrated Security=SSPI";
+        string conn = "Data Source= localhost; Initial Catalog=dbGroupProject; Integrated Security= SSPI";
+        //string conn3 = "Data Source=localhost;Initial Catalog=dbOmegaProject;Integrated Security=SSPI";
 
         public void ProcessRequest(HttpContext context)
         {
@@ -55,7 +55,7 @@ namespace Winny1
             }
             else if (choice == "Shop")
             {
-                DAL myDal = new DAL(conn1);
+                DAL myDal = new DAL(conn);
                 myDal.AddParam("@Crud", "r");
                 myDal.AddParam("@StoreId",id);
                 DataSet ds = myDal.ExecuteProcedure("spStores");
@@ -78,7 +78,7 @@ namespace Winny1
 
             else if (choice == "Attract")
             {
-                DAL myDal = new DAL(conn2);
+                DAL myDal = new DAL(conn);
                 myDal.AddParam("@crud", "r");
                 myDal.AddParam("@id", id);
                 DataSet ds = myDal.ExecuteProcedure("spAttractions");
@@ -100,7 +100,7 @@ namespace Winny1
             }
             else if (choice == "Hotel")
             {
-                DAL myDal = new DAL(conn3);
+                DAL myDal = new DAL(conn);
                 myDal.AddParam("@crud", "r");
                 myDal.AddParam("@id", id);
                 DataSet ds = myDal.ExecuteProcedure("spHotelsCrud");
@@ -124,7 +124,7 @@ namespace Winny1
 
             else if (choice == "Universities/Colleges")
             {
-                DAL myDal = new DAL(conn3);
+                DAL myDal = new DAL(conn);
                 myDal.AddParam("@crud", "r");
                 myDal.AddParam("@id", id);
                 DataSet ds = myDal.ExecuteProcedure("spSchoolsCrud");
@@ -147,7 +147,7 @@ namespace Winny1
 
             else if (choice == "About")
             {
-                DAL myDal = new DAL(conn3);
+                DAL myDal = new DAL(conn);
                 myDal.AddParam("@crud", "r");
                 myDal.AddParam("@id", id);
                 DataSet ds = myDal.ExecuteProcedure("spAboutCrud");
@@ -163,7 +163,7 @@ namespace Winny1
 
             else if (choice == "Weather")
             {
-                DAL myDal = new DAL(conn3);
+                DAL myDal = new DAL(conn);
                 myDal.AddParam("@id", id);
                 DataSet ds = myDal.ExecuteProcedure("spReadWeather");
 

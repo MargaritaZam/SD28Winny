@@ -49,7 +49,7 @@ namespace Winny1
         {
             DAL myDal = new DAL(conn);
 
-            DataSet ds = myDal.ExecuteProcedure("spLocations");
+            DataSet ds = myDal.ExecuteProcedure("spLocation");
             DdlLocation.DataSource = ds.Tables[0];
             DdlLocation.DataTextField = "LocationName";
             DdlLocation.DataValueField = "LocationID";
@@ -65,27 +65,52 @@ namespace Winny1
 
         protected void BtnSearch_Click(object sender, EventArgs e)
         {
-
+            string id = DdlHotelStars.SelectedItem.Value;
+            string LocationId = DdlLocation.SelectedItem.Value;
+            DAL myDal = new DAL(conn);
+            adsource = new PagedDataSource();
+            myDal.AddParam("@crud", "s");
+            myDal.AddParam("@StarsID", id);
+            myDal.AddParam("@LocationID", LocationId);
+            DataSet ds = myDal.ExecuteProcedure("spHotelCrud");
+            adsource.DataSource = ds.Tables[0].DefaultView;
+            adsource.PageSize = 3;
+            adsource.AllowPaging = true;
+            adsource.CurrentPageIndex = pos;
+            btnFirst.Enabled = !adsource.IsFirstPage;
+            btnPrevious.Enabled = !adsource.IsFirstPage;
+            btnLast.Enabled = !adsource.IsLastPage;
+            btnNext.Enabled = !adsource.IsLastPage;
+            DlHotels.DataSource = adsource;
+            DlHotels.DataBind();
         }
 
         protected void btnFirst_Click(object sender, EventArgs e)
         {
-
+            pos = 0;
+            loadHotels();
         }
 
         protected void btnPrevious_Click(object sender, EventArgs e)
         {
-
+            pos = (int)this.ViewState["vs"];
+            pos -= 1;
+            this.ViewState["vs"] = pos;
+            loadHotels();
         }
 
         protected void btnNext_Click(object sender, EventArgs e)
         {
-
+            pos = (int)this.ViewState["vs"];
+            pos += 1;
+            this.ViewState["vs"] = pos;
+            loadHotels();
         }
 
         protected void btnLast_Click(object sender, EventArgs e)
         {
-
+            pos = adsource.PageCount - 1;
+            loadHotels();
         }
     }
 }
