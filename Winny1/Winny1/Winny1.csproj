@@ -78,6 +78,7 @@
     <Content Include="Adminpage.aspx" />
     <Content Include="Anjali.sql" />
     <Content Include="attraction.aspx" />
+    <Content Include="ChatBot.html" />
     <Content Include="GroupProject.sql" />
     <Content Include="hotel.aspx" />
     <Content Include="HotelPictures\CanadInnsHSC.png" />
@@ -99,6 +100,7 @@
     <Content Include="Natalia.sql" />
     <Content Include="Restaurants.aspx" />
     <Content Include="LoadInformation.ashx" />
+    <Content Include="Team.JPG" />
     <Content Include="Winnipeg.aspx" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
