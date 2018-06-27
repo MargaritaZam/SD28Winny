@@ -78,6 +78,7 @@
     <Content Include="Adminpage.aspx" />
     <Content Include="Anjali.sql" />
     <Content Include="attraction.aspx" />
+    <Content Include="GroupProject.sql" />
     <Content Include="hotel.aspx" />
     <Content Include="HotelPictures\CanadInnsHSC.png" />
     <Content Include="HotelPictures\ClarionPoloPark.jpg" />
@@ -325,6 +326,7 @@
     </Compile>
     <Compile Include="MyInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Restaurant.cs" />
     <Compile Include="Restclass.cs" />
     <Compile Include="Restaurants.aspx.cs">
       <DependentUpon>Restaurants.aspx</DependentUpon>
