@@ -254,7 +254,6 @@ go
 --end
 --go
 
-
 create table tbRestaurants
 (RestaurantId int identity(1,1) primary key,
 RestaurantName varchar(50),
