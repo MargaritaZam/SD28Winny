@@ -13,7 +13,7 @@ namespace Winny1
     {
         PagedDataSource adsource;
         int pos;
-        string conn = "Data Source=localhost;Initial Catalog=dbOmegaProject;Integrated Security=SSPI";
+        string conn = "Data Source=localhost;Initial Catalog=dbGroupProject;Integrated Security=SSPI";
 
         protected void Page_Load(object sender, EventArgs e)
         {
