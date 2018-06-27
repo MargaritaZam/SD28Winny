@@ -64,7 +64,6 @@ div.desc {
     
     <asp:DataList ID="DlAbout" RepeatColumns="1" RepeatDirection="Horizontal" runat="server" >
         <ItemTemplate>
-            <div id="AboutDiv"  onclick="return ViewProduct(<%#Eval ("AboutID")%>)"  style="height:380px;">
                
                 <table style="border-bottom-style: solid">
                     <tr>
@@ -81,9 +80,7 @@ div.desc {
                             </table>
                         </td>
                     </tr>
-                </table>             
-                      
-            </div>
+                </table>  
         </ItemTemplate>
     </asp:DataList>
 
