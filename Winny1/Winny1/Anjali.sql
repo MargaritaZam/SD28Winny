@@ -81,11 +81,11 @@ create procedure spRestaurants
 as begin
 	if @crud='a'
 	begin
-		select RestaurantName,Description,RestaurantId,'./Pictures/Restaurants/' + path as path  from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId)
+		select RestaurantName,Description,RestaurantId,'./Restaurant/' + path as path  from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId)
 	end
 	else if @crud='r'
 	begin
-		select RestaurantId,RestaurantName,Address,ContactNo,Description,'./Pictures/Restaurants/' + path as path,Website from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId)
+		select RestaurantId,RestaurantName,Address,ContactNo,Description,'./Restaurant/' + path as path,Website from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId)
 	end
 	else if @crud='s'
 	begin
@@ -706,7 +706,7 @@ exec spRestaurants @crud='c',
 				@PostalCode='R3L 1Y4',
 				@ContactNo='(204) 284-3194',
 				@Website='https://www.google.com/search?ei=xNQiW4DLI8HBjwTKxZuADQ&q=massawa+winnipeg&oq=Massawa&gs_l=psy-ab.1.1.0l10.2459.2459.0.4609.1.1.0.0.0.0.122.122.0j1.1.0....0...1c.1.64.psy-ab..0.1.122....0.eWvl8s05QiE',
-				@Path='55.jpg',
+				@Path='55.png',
 				@FoodId=9,
 				@LocationId=5
 
@@ -717,7 +717,7 @@ exec spRestaurants @crud='c',
 				@PostalCode='R3B 3L5',
 				@ContactNo='(204) 774-6997',
 				@Website='https://www.zomato.com/winnipeg-mb/harmans-cafe-winnipeg',
-				@Path='56.jpg',
+				@Path='56.png',
 				@FoodId=9,
 				@LocationId=9
 
@@ -728,7 +728,7 @@ exec spRestaurants @crud='c',
 				@PostalCode='R3C 1R9',
 				@ContactNo='(204) 784-9267',
 				@Website='https://www.facebook.com/Kokeb-Restaurant-264617883578690',
-				@Path='57.jpg',
+				@Path='57.png',
 				@FoodId=9,
 				@LocationId=9
 
@@ -739,7 +739,7 @@ exec spRestaurants @crud='c',
 				@PostalCode='R2H 2B9',
 				@ContactNo='(204) 942-1090',
 				@Website='http://monamilouis.ca/',
-				@Path='58.jpg',
+				@Path='58.png',
 				@FoodId=12,
 				@LocationId=9
 
@@ -750,7 +750,7 @@ exec spRestaurants @crud='c',
 				@PostalCode=' R3B 1M3',
 				@ContactNo='(204) 989-7700',
 				@Website='http://peasantcookery.ca/',
-				@Path='59.jpg',
+				@Path='59.png',
 				@FoodId=12,
 				@LocationId=9
 
@@ -761,7 +761,7 @@ exec spRestaurants @crud='c',
 				@PostalCode='R2X 1R3',
 				@ContactNo='(204) 694-2225',
 				@Website='https://www.cremedelessence.net/',
-				@Path='60.jpg',
+				@Path='60.png',
 				@FoodId=12,
 				@LocationId=8
 
@@ -772,7 +772,7 @@ exec spRestaurants @crud='c',
 				@PostalCode='R3G 0P9',
 				@ContactNo='(204) 414-7647',
 				@Website='https://www.cafecesoir.ca/',
-				@Path='61.jpg',
+				@Path='61.png',
 				@FoodId=12,
 				@LocationId=7
 
@@ -783,7 +783,7 @@ exec spRestaurants @crud='c',
 				@PostalCode='R3N 0B9',
 				@ContactNo='(204) 475-7400',
 				@Website='http://www.infernosbistro.com/',
-				@Path='62.jpg',
+				@Path='62.png',
 				@FoodId=12,
 				@LocationId=6
 
@@ -794,7 +794,7 @@ exec spRestaurants @crud='c',
 				@PostalCode='R3L 1Z3',
 				@ContactNo='(204) 867-5309',
 				@Website='http://www.soussolosborne.com/',
-				@Path='63.jpg',
+				@Path='63.png',
 				@FoodId=12,
 				@LocationId=5
 
@@ -805,7 +805,7 @@ exec spRestaurants @crud='c',
 				@PostalCode='R2H 2P9',
 				@ContactNo='(204) 837-3624',
 				@Website='http://restogare.com/',
-				@Path='64.jpg',
+				@Path='64.png',
 				@FoodId=12,
 				@LocationId=4
 
@@ -816,7 +816,7 @@ exec spRestaurants @crud='c',
 				@PostalCode=' R2H 3E9',
 				@ContactNo='(204) 943-2924',
 				@Website='http://beaujenas.com/',
-				@Path='65.jpg',
+				@Path='65.png',
 				@FoodId=12,
 				@LocationId=3
 
