@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>ChatBot</title>
+</head>
+<style>
+    .image {
+        float: left;
+    }
+
+    body {
+        color: #421;
+        font-weight: bold;
+        font-size: 18px;
+        background: #EE4;
+        background-repeat: repeat-y;
+    }
+
+    span {
+        color: #711
+    }
+    /*#main{
+        top:40%;right:60px;
+        width:400px;border:0px solid #421; padding:40px;
+    }
+    #main div{
+        margin:10px;
+    }*/
+    #input {
+        border: 0;
+        background: #EBE547;
+        padding: 5px;
+        border: 1px solid #421;
+    }
+</style>
+<body>
+    <div class="image">
+        <img src="Team.JPG" width="350" height="300" />
+    </div>
+    <div id="main">
+        <div>You:<span id="user"></span></div>
+        <br />
+        <br />
+        <div>Winnipeg Team:<span id="chatbot"></span></div>
+        <br />
+        <br />
+        <div>
+            <input id="input" type="text" placeholder="say anything..."
+                   autocomplete="off" />
+        </div>
+    </div>
+    <script type="text/javascript">
+        var trigger = [
+            ["Hi", "Hey", "Hello"],
+            ["I am looking for a good restaurant"],
+            ["I am looking for a good hotel/ motel"],
+            [" I am looking for shopping"],
+            [" I am looking for attractions"]
+        ];
+        var reply = [
+            ["Hello and welcome to Winnipeg! How may I help you?"],
+            ["We recommend clicking on the Restaurants link on the main page"],
+            ["We recommend clicking on the Hotels link on the main page"],
+            ["We recommend clicking on the Shopping link on the main page"],
+            ["We recommend clicking on the Attractions link on the main page"]
+        ];
+        var alternative = [
+            ["Hello and Welcome to Winnipeg!How may I help you?"],
+            ["We recommend clicking on the Restaurants link on the main page"],
+            ["We recommend clicking on the Hotels link on the main page"],
+            ["We recommend clicking on the Shopping link on the main page"],
+            ["We recommend clicking on the Attractions link on the main page"]
+        ];
+        document.querySelector("#input").addEventListener("keypress", function (e) {
+            var key = e.which || e.keyCode;
+            if (key === 13) {
+                var input = document.getElementById("input").value;
+                document.getElementById("user").innerHTML = input;
+                output(input);
+            }
+        });
+        function output(input) {
+            try {
+                var product = input + "=" + eval(input);
+            } catch (e) {
+                var text = (input.toLowerCase()).replace(/[^\w\s\d]/gi, "");
+                text = text.replace(/a/g, "");
+                //.replace(/restaurant/g, "").replace(/hotel/g, "").replace(/shopping/g, "").replace(/attraction/g, "");
+                if (compare(trigger, reply, text)) {
+                    var product = compare(trigger, reply, text);
+                } else {
+                    var product = alternative[Math.floor(Math.random() * alternative.length)];
+                }
+            }
+            document.getElementById("chatbot").innerHTML = product;
+            document.getElementById("input").value = "";
+        }
+        function compare(arr, array, string) {
+            var item;
+            for (var x = 0; y < arr.length; x++) {
+                for (var y = 0; y < array.length; y++) {
+                    if (arr[x][y] == string) {
+                        items = array[x];
+                        item = items[Math.floor(Math.random() * items.length)];
+                    }
+                }
+            }
+            return item;
+        }
+    </script>
+</body>
+</html>
