@@ -40,15 +40,6 @@ namespace Winny1 {
         protected global::System.Web.UI.WebControls.GridView gvRestaurants;
         
         /// <summary>
-        /// SqlDataSource1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
-        
-        /// <summary>
         /// btnInsertRestaurant control.
         /// </summary>
         /// <remarks>
@@ -130,13 +121,13 @@ namespace Winny1 {
         protected global::System.Web.UI.WebControls.FileUpload flRestImage;
         
         /// <summary>
-        /// hlRest control.
+        /// txtRWebsite control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlRest;
+        protected global::System.Web.UI.WebControls.TextBox txtRWebsite;
         
         /// <summary>
         /// dlFood control.

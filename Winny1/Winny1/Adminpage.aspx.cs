@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using DAL_Project;
 using System.Data;
 using System.Data.SqlClient;
 using System.Globalization;
@@ -19,12 +20,34 @@ namespace Winny1
             if (!IsPostBack)
             {
                 loadRestaurants();
+                loadFoodCategory();
+                loadLocation();
                 //loadAttractions();
                 //loadStores();
                 //loadHotels();
                 //loadSchools();
             }
 
+        }
+        private void loadLocation()
+        {
+            string conn = "Data Source= localhost; Initial Catalog=dbGroupProject; Integrated Security= SSPI";
+            DAL myDAL = new DAL(conn);
+            DataSet ds = myDAL.ExecuteProcedure("spLocation");
+            dlLoc.DataSource = ds.Tables[0];
+            dlLoc.DataTextField = "LocationName";
+            dlLoc.DataValueField = "LocationId";
+            dlLoc.DataBind();
+        }
+        private void loadFoodCategory()
+        {
+            string conn = "Data Source= localhost; Initial Catalog=dbGroupProject; Integrated Security= SSPI";
+            DAL myDal = new DAL(conn);
+
+            DataSet ds = myDal.ExecuteProcedure("spGetFoodType");
+            dlFood.DataSource = ds.Tables[0];
+            dlFood.DataTextField = "FoodType";         
+            dlFood.DataBind();
         }
         private void loadRestaurants()
         {
@@ -48,9 +71,9 @@ namespace Winny1
             txtRAddress.Text = "";
             txtRPostal.Text = "";
             txtRPhone.Text = "";
-            hlRest.Text = "";
-            dlFood.SelectedValue = "";
-            dlLoc.SelectedValue = "";
+            txtRWebsite.Text = "";
+            dlFood.SelectedItem.Text = "";
+            dlLoc.SelectedItem.Text = "";
 
         }
         protected void gvRestaurants_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -103,6 +126,9 @@ namespace Winny1
             txtRAddress.Text = ds.Tables[0].Rows[0]["Address"].ToString();
             txtRPostal.Text = ds.Tables[0].Rows[0]["PostalCode"].ToString();              
             txtRPhone.Text = ds.Tables[0].Rows[0]["ContactNo"].ToString();
+            txtRWebsite.Text = ds.Tables[0].Rows[0]["Website"].ToString();
+            dlFood.SelectedValue = ds.Tables[0].Rows[0]["FoodId"].ToString();
+            dlLoc.SelectedValue = ds.Tables[0].Rows[0]["LocationId"].ToString();
             plUpdRest.Visible = true;
             
             
@@ -119,7 +145,7 @@ namespace Winny1
 
         protected void dlFood_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void dlLoc_SelectedIndexChanged(object sender, EventArgs e)
@@ -134,7 +160,7 @@ namespace Winny1
 
         protected void btbRestSave_Click(object sender, EventArgs e)
         {
-            string path = Server.MapPath(@".\Pictures\Restaurants");
+            string path = Server.MapPath(@".\Pictires\Restaurants");
             string name = flRestImage.FileName;
             flRestImage.PostedFile.SaveAs(path + name);
             SqlCommand cmd = new SqlCommand("spRestaurants", conn);
@@ -149,7 +175,7 @@ namespace Winny1
                 cmd.Parameters.AddWithValue("@PostalCode", txtRPostal.Text);
                 cmd.Parameters.AddWithValue("@ContactNo", txtRPhone.Text);
                 cmd.Parameters.AddWithValue("@Path", name);
-                cmd.Parameters.AddWithValue("@website", hlRest.Text);
+                cmd.Parameters.AddWithValue("@website", txtRWebsite.Text);
                 cmd.Parameters.AddWithValue("@FoodId", dlFood.SelectedValue);
                 cmd.Parameters.AddWithValue("@LocationId", dlLoc.SelectedValue);
 
@@ -168,7 +194,7 @@ namespace Winny1
                 cmd.Parameters.AddWithValue("@PostalCode", txtRPostal.Text);
                 cmd.Parameters.AddWithValue("@ContactNo", txtRPhone.Text);
                 cmd.Parameters.AddWithValue("@Path", name);
-                cmd.Parameters.AddWithValue("@website", hlRest.Text);
+                cmd.Parameters.AddWithValue("@website", txtRWebsite.Text);
                 cmd.Parameters.AddWithValue("@FoodId", dlFood.SelectedValue);
                 cmd.Parameters.AddWithValue("@LocationId", dlLoc.SelectedValue);
 
@@ -179,6 +205,14 @@ namespace Winny1
             loadRestaurants();
         }
 
-       
+        protected void gvRestaurants_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        {
+
+        }
+
+        protected void gvRestaurants_Sorting(object sender, GridViewSortEventArgs e)
+        {
+
+        }
     }
 }

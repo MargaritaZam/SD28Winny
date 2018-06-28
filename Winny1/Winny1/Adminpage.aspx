@@ -18,19 +18,16 @@
         <asp:LinkButton ID="LinkButton1" CssClass="l" runat="server" OnClick="LinkButton1_Click">#Restaurants</asp:LinkButton>
 
          <br />
-         <br />
+        
         <br />
-        <asp:GridView ID="gvRestaurants" runat="server" Visible="false" AutoGenerateColumns="False"
-            CellPadding="4" DataKeyNames="RestaurantId" DataSourceID="SqlDataSource1"
-            ForeColor="#333333" GridLines="None"
-            PageSize="5" AllowPaging="True" AllowSorting="True"
+        <asp:GridView ID="gvRestaurants" runat="server" Visible="False" 
+            CellPadding="4" DataKeyNames="RestaurantId" AllowPaging="True" AllowSorting="True"
             OnPageIndexChanging="gvRestaurants_PageIndexChanging"
             OnRowCommand="gvRestaurants_RowCommand"
             OnSelectedIndexChanging="gvRestaurants_SelectedIndexChanging" 
-            OnSorting="gvRestaurants_Sorting" OnSelectedIndexChanged="gvRestaurants_SelectedIndexChanged">
+            OnSorting="gvRestaurants_Sorting" OnSelectedIndexChanged="gvRestaurants_SelectedIndexChanged" BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px">
 
 
-            <AlternatingRowStyle BackColor="White" />
             <Columns>
                 <asp:BoundField DataField="RestaurantId" HeaderText="RestaurantId" InsertVisible="False" ReadOnly="True" SortExpression="RestaurantId" />
                 <asp:BoundField DataField="RestaurantName" HeaderText="RestaurantName" SortExpression="RestaurantName" />
@@ -49,20 +46,19 @@
 
 
             </Columns>
-            <EditRowStyle BackColor="#7C6F57" />
-            <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
-            <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
-            <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
-            <RowStyle BackColor="#E3EAEB" />
-            <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
-            <SortedAscendingCellStyle BackColor="#F8FAFA" />
-            <SortedAscendingHeaderStyle BackColor="#246B61" />
-            <SortedDescendingCellStyle BackColor="#D4DFE1" />
-            <SortedDescendingHeaderStyle BackColor="#15524A" />
+            <FooterStyle BackColor="#FFFFCC" ForeColor="#330099" />
+            <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="#FFFFCC" />
+            <PagerStyle BackColor="#FFFFCC" ForeColor="#330099" HorizontalAlign="Center" />
+            <RowStyle BackColor="White" ForeColor="#330099" />
+            <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="#663399" />
+            <SortedAscendingCellStyle BackColor="#FEFCEB" />
+            <SortedAscendingHeaderStyle BackColor="#AF0101" />
+            <SortedDescendingCellStyle BackColor="#F6F0C0" />
+            <SortedDescendingHeaderStyle BackColor="#7E0000" />
 
 
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbGroupProjectConnectionString %>" SelectCommand="SELECT [RestaurantId], [RestaurantName], [Description], [Address], [PostalCode], [ContactNo], [path], [Website], [FoodId], [LocationId] FROM [tbRestaurants]"></asp:SqlDataSource>
+        <asp:SqlDataSource  runat="server" ConnectionString="<%$ ConnectionStrings:dbGroupProjectConnectionString %>" SelectCommand="SELECT [RestaurantId], [RestaurantName], [Description], [Address], [PostalCode], [ContactNo], [path], [Website], [FoodId], [LocationId] FROM [tbRestaurants]"></asp:SqlDataSource>
         <br />
         <asp:Button ID="btnInsertRestaurant" runat="server" Text="Insert" OnClick="btnInsertRestaurant_Click" />
         <asp:Label ID="lblRest" runat="server" Text=""></asp:Label>
@@ -101,17 +97,18 @@
     <tr>
         <td>RestWebsite</td>
         <td>
-            <asp:HyperLink ID="hlRest" runat="server">HyperLink</asp:HyperLink></td>
+            <asp:TextBox ID="txtRWebsite" runat="server"></asp:TextBox>
+            </td>
     </tr>
     <tr>
         <td>FoodCategory</td>
         <td>
-            <asp:DropDownList ID="dlFood" runat="server" OnSelectedIndexChanged="dlFood_SelectedIndexChanged"></asp:DropDownList></td>
+            <asp:DropDownList ID="dlFood" runat="server" AutoPostBack="true" OnSelectedIndexChanged="dlFood_SelectedIndexChanged"></asp:DropDownList></td>
     </tr>
     <tr>
         <td>Location</td>
         <td>
-            <asp:DropDownList ID="dlLoc" runat="server" OnSelectedIndexChanged="dlLoc_SelectedIndexChanged"></asp:DropDownList></td>
+            <asp:DropDownList ID="dlLoc" runat="server" AutoPostBack="true" OnSelectedIndexChanged="dlLoc_SelectedIndexChanged"></asp:DropDownList></td>
     </tr>
    
 </table>

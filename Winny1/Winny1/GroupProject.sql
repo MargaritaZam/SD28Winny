@@ -243,6 +243,16 @@ as begin
 	select * from tbFood_Category where FoodId=isnull(@FoodId,FoodId)
 end
 go
+
+create procedure spGetFoodType
+(
+@foodtype varchar(30)=null
+)
+as begin
+select*from tbFood_Category where FoodType=isnull(@foodtype, FoodType)
+end
+go
+
 --create procedure spLocation
 --(
 --@LocationId int=null ,
@@ -267,6 +277,8 @@ FoodId int foreign key references tbFood_Category(FoodId),
 LocationId int foreign key references tbLocation(LocationId)
 )
 go
+select*from tbRestaurants
+go
 create procedure spRestaurants
 (
 @RestaurantId int=null,
@@ -284,16 +296,17 @@ create procedure spRestaurants
 as begin
 	if @crud='a'
 	begin
-		select RestaurantName,Description,RestaurantId,'./Pictures/Restaurants/' + path as path  from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId)
+		select RestaurantName,Description,RestaurantId,'./Restaurants/' + path as path  from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId)
 	end
 	else if @crud='r'
 	begin
-		select RestaurantId,RestaurantName,Address,ContactNo,Description,'./Pictures/Restaurants/' + path as path,Website from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId)
+		select RestaurantId,RestaurantName,Address, PostalCode, ContactNo,Description, FoodId, LocationId, './Restaurants/' + path as path,Website from tbRestaurants
+		where RestaurantId=isnull(@RestaurantId, RestaurantId)
 	end
 	else if @crud='s'
 	begin
 		
-			select RestaurantName,Description,RestaurantId,'./Pictures/Restaurants/' + path as path  from tbRestaurants join tbFood_Category on
+			select RestaurantName,Description, Address, PostalCode, ContactNo, Website,  RestaurantId,'./Restaurants/' + path as path,FoodType, locationName  from tbRestaurants join tbFood_Category on
 			tbRestaurants.FoodId=tbFood_Category.FoodId join tbLocation on 
 			tbRestaurants.LocationId=tbLocation.LocationId 
 			where tbRestaurants.LocationId=ISNULL(@LocationId,tbRestaurants.LocationId)
@@ -1532,6 +1545,7 @@ exec spRestaurants @crud='c',
 				@LocationId=3
 
 exec spRestaurants @crud='r'
+exec spRestaurants @crud='s'
 
 
 --exec spStores @Crud='r', @StoreId=55
