@@ -41,7 +41,7 @@ div.desc {
       }
 </style>
 
-    <asp:Panel ID="Panel1" runat="server"  Height="2000px" Width="600px" BackColor="White" Visible="true">
+    <asp:Panel ID="Panel1" runat="server" style="background-color:antiquewhite; width:800px " Visible="true">
 <div class="gallery">
   <a target="_blank" href="images/a6.jpg">
     <img src="images/a6.jpg"  width="300"  class="auto-style2">
@@ -168,5 +168,5 @@ div.desc {
                     window.location = "Information.html?id=" + id+"&choice="+"Rest";
             }
         </script>
-  
+   
 </asp:Content>

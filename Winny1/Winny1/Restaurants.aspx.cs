@@ -12,10 +12,11 @@ namespace Winny1
 {
     public partial class Restaurants : System.Web.UI.Page
     {
-     
+
+        Restaurant rs = new Restaurant();
         PagedDataSource adsource;
         int pos;
-        string conn = "Data Source= localhost; Initial Catalog=dbRestaurants; Integrated Security= SSPI";
+        string conn = "Data Source= localhost; Initial Catalog=dbGroupProject; Integrated Security= SSPI";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,12 +25,13 @@ namespace Winny1
                 this.ViewState["vs"] = 0;
                 loadFood();
                 loadLocation();
+               
             }
             pos = (int)this.ViewState["vs"];
             loadRestaurants();
 
-             
-        
+
+
         }
         public void loadFood()
         {
@@ -54,14 +56,11 @@ namespace Winny1
         }
         public void loadRestaurants()
         {
-            
-            DAL myDal = new DAL(conn);
             adsource = new PagedDataSource();
-            myDal.AddParam("@crud","a");
-            DataSet ds = myDal.ExecuteProcedure("spRestaurants");
-            adsource.DataSource = ds.Tables[0].DefaultView;
-            adsource.PageSize = 3;
+            adsource.DataSource =rs.LoadRestaurant();
             adsource.AllowPaging = true;
+            adsource.PageSize = 3;
+            
             adsource.CurrentPageIndex = pos;
             btnfirst.Enabled = !adsource.IsFirstPage;
             btnprevious.Enabled = !adsource.IsFirstPage;
@@ -69,6 +68,12 @@ namespace Winny1
             btnnext.Enabled = !adsource.IsLastPage;
             dlRestaurant.DataSource = adsource;
             dlRestaurant.DataBind();
+
+            //dlRestaurant.DataSource = rs.LoadRestaurant();
+            //dlRestaurant.DataBind();
+
+
+
 
         }
 
