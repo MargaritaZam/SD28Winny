@@ -13,7 +13,7 @@ namespace Winny1
         public string FoodType { get; set; }
         public string PostalCode { get; set; }
 
-        public Restclass(string rname, string rdesc, string rphone,
+        public void Restaurant(string rname, string rdesc, string rphone,
            string raddress, string rwebsite,
            string rimage, string rlocation, string foodtype, string rpostal)
         {
