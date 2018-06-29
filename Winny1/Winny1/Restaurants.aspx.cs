@@ -57,10 +57,10 @@ namespace Winny1
         public void loadRestaurants()
         {
             adsource = new PagedDataSource();
-            adsource.DataSource =rs.LoadRestaurant();
+            adsource.DataSource = rs.LoadRestaurant();
             adsource.AllowPaging = true;
             adsource.PageSize = 3;
-            
+
             adsource.CurrentPageIndex = pos;
             btnfirst.Enabled = !adsource.IsFirstPage;
             btnprevious.Enabled = !adsource.IsFirstPage;
