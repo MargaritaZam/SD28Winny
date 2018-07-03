@@ -2126,3 +2126,4 @@ exec spSchoolsCrud @schoolCrud = 'c',
 
 --exec spAttractions @crud='r'
 --exec spGetCategory
+--go
