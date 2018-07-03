@@ -58,23 +58,23 @@
         var trigger = [
             ["Hello"],
             ["restaurant"],
-            ["hotel/ motel"]
-            //[" I am looking for shopping"],
-            //[" I am looking for attractions"]
+            ["hotel/ motel"],
+            ["shopping"],
+            ["attractions"]
         ];
         var reply = [
             ["Hello and welcome to Winnipeg! How may I help you?"],
             ["We recommend clicking on the Restaurants link on the main page"],
-            ["We recommend clicking on the Hotels link on the main page"]
-            //["We recommend clicking on the Shopping link on the main page"],
-            //["We recommend clicking on the Attractions link on the main page"]
+            ["We recommend clicking on the Hotels link on the main page"],
+            ["We recommend clicking on the Shopping link on the main page"],
+            ["We recommend clicking on the Attractions link on the main page"]
         ];
         var alternative = [
             ["Hello and Welcome to Winnipeg!How may I help you?"],
             ["We recommend clicking on the Restaurants link on the main page"],
-            ["We recommend clicking on the Hotels link on the main page"]
-            //["We recommend clicking on the Shopping link on the main page"],
-            //["We recommend clicking on the Attractions link on the main page"]
+            ["We recommend clicking on the Hotels link on the main page"],
+            ["We recommend clicking on the Shopping link on the main page"],
+            ["We recommend clicking on the Attractions link on the main page"]
         ];
         document.querySelector("#input").addEventListener("keypress", function(e){
             var key = e.which || e.keyCode;
@@ -88,14 +88,13 @@
             try {
                 var product = input + "=" + eval(input);
             } catch(e) {
-                var text = (input.toLowerCase()).replace(/[^\w\s\d]/gi, " ");
-                text = text.replace(/a/g, " ").replace(/restaurant/g, " ").replace(/hotel/g, "");
-                //.replace(/restaurant/g, "").replace(/hotel/g, "").replace(/shopping/g, "").replace(/attraction/g, "");
+                var text = (input.toLowerCase()).replace(/[^\w\s\d]/gi, "");
+                text = text.replace(/a/g, "").replace(/restaurant/g, "").replace(/hotel/g, "").replace(/shopping/g, "").replace(/attraction/g, "");
                 if (compare(trigger, reply, text)) {
                     var product = compare(trigger, reply, text);
                 } else {
                     var product =
-                        alternative[Math.floor(Math.random() * alternative.length)];
+                        alternative[Math.floor(Math.random()*alternative.length)];
                 }
             }
             document.getElementById("chatbot").innerHTML = product;
@@ -107,7 +106,7 @@
                 for (var y = 0; y < array.length; y++) {
                     if (arr[x][y] == string) {
                         items = array[x];
-                        item = items[Math.floor(Math.random() * items.length)];
+                        item = items[Math.floor(Math.random()*items.length)];
                     }
                 }
             }

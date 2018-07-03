@@ -95,10 +95,11 @@ var year = currentTime.getFullYear()
                             <a href="Universities.aspx?id=2">Type of Studies</a>
                         </div>
                     </li>
-                      <li class="dropdown"><a href="ChatBot.html">Have a question?</a>
-                     
+                      <li class="dropdown"><a href="ChatBot.html">Have a question?</a>                    
                     </li>
-
+                       
+                      <li class="dropdown"><a href="LoginPage.aspx">Login</a>                    
+                    </li>
                 </ul>    	
             </div> <!-- end of tooplate_menu -->
             </div>

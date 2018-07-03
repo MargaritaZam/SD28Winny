@@ -2124,13 +2124,5 @@ exec spSchoolsCrud @schoolCrud = 'c',
 		@school_path = 'UniversityManitoba.png',
 		@schoolLocationId = 5
 
-exec spSchoolsCrud @schoolCrud='c',
-		@schoolName = 'University of Winnipeg',
-		@schoolType = 2,
-		@schoolPhoneNumber = '204-786-7811',
-		@schoolAddress = '515 Portage Avenue',
-		@schoolPostalCode = 'R3B 2E9',
-		@schoolWebsite = 'www.uwinnipeg.ca',
-		@schoolDescription = 'The University of Winnipeg was founded in 1871 and offers high-quality undergraduate and graduate programs. The U of W consistently ranks highly in national surveys for overall reputation, small class sizes, academic excellence and commitment to the environment.  There are 9,175 undergraduate students and 274 graduate students.',
-		@school_path = 'UniversityWinnipeg',
-		@schoolLocationId = 9
+--exec spAttractions @crud='r'
+--exec spGetCategory

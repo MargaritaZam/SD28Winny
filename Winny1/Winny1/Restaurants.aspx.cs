@@ -56,20 +56,17 @@ namespace Winny1
         }
         public void loadRestaurants()
         {
-            //adsource = new PagedDataSource();
-            //adsource.DataSource = rs.LoadRestaurant().ToString();
-            //adsource.AllowPaging = true;
-            //adsource.PageSize = 3;
+            adsource = new PagedDataSource();
+            adsource.DataSource = rs.LoadRestaurant();
+            adsource.AllowPaging = true;
+            adsource.PageSize = 3;
 
-            //adsource.CurrentPageIndex = pos;
-            //btnfirst.Enabled = !adsource.IsFirstPage;
-            //btnprevious.Enabled = !adsource.IsFirstPage;
-            //btnlast.Enabled = !adsource.IsLastPage;
-            //btnnext.Enabled = !adsource.IsLastPage;
-            //dlRestaurant.DataSource = adsource;
-            //dlRestaurant.DataBind();
-
-            dlRestaurant.DataSource = rs.LoadRestaurant();
+            adsource.CurrentPageIndex = pos;
+            btnfirst.Enabled = !adsource.IsFirstPage;
+            btnprevious.Enabled = !adsource.IsFirstPage;
+            btnlast.Enabled = !adsource.IsLastPage;
+            btnnext.Enabled = !adsource.IsLastPage;
+            dlRestaurant.DataSource = adsource;
             dlRestaurant.DataBind();
 
 
