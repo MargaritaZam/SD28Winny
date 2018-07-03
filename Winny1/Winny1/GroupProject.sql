@@ -2294,3 +2294,98 @@ exec spAttractions @crud='c', @category='Parks',
 
 --exec spAttractions @crud='r'
 --exec spGetCategory
+
+create table tbUsers(
+id int identity (1,1) primary key,
+firstName varchar (50) not null,
+lastName varchar (50) not null,
+phoneNumber varchar (20) not null,
+address varchar (120) not null,
+email varchar (60) not null,
+password varchar (30) not null,
+accessLevel varchar(1) -- a=admin, c=client
+)
+go
+
+create procedure spUser(
+@id int =null,
+@firstName varchar (50)=null ,
+@lastName varchar (50)=null ,
+@phoneNumber varchar (20)=null,
+@address varchar (120)=null,
+@email varchar (60) =null,
+@password varchar(30)=null,
+@accessLevel varchar(1)=null,
+@crud varchar(10)
+)
+as begin
+if @crud='r'
+begin
+select
+id,firstName,lastName,phoneNumber,address,email,password,accessLevel
+from tbUsers where id=isnull(@id,id)
+end
+else if
+@crud='c'
+begin
+insert into tbUsers(firstName,lastName,phoneNumber,address,email,password,accessLevel) values
+                       (@firstName,@lastName,@phoneNumber,@address,@email,@password,@accessLevel)  
+end
+else if
+@crud='d'
+begin
+delete from tbUsers where id=@id
+end
+else if
+@crud='u'
+begin
+update tbUsers set
+firstName=@firstName,
+lastName=@lastName,
+phoneNumber=@phoneNumber,
+address=@address,
+accessLevel=@accessLevel
+where id=@id
+end
+end
+go
+
+exec spUser @crud='c', @firstName='Anjali', @lastName='Patel',@phoneNumber='555-852-4874',@address='22 Ellison Blvd., Winnipeg, MB',
+                 @email='admin@winnipeg.com',@password='admin',@accessLevel='a'--a=admin
+exec spUser   @crud='c', @firstName='Natalia', @lastName='Shmer',@phoneNumber='555-666-7788',@address='123 Happy Rd., Winnipeg, MB',
+                 @email='natalia@winnipeg.com',@password='pass1',@accessLevel='c'--c=admin
+exec spUser  @crud='c', @firstName='Margarita', @lastName='Zamoshch',@phoneNumber='555-777-1234',@address='68 Doncaster Str., Winnipeg, MB',
+                 @email='margarita@winnipeg.com',@password='pass2',@accessLevel='c'
+exec spUser  @crud='c', @firstName='Tracy', @lastName='McCormack',@phoneNumber='555-897-0987',@address='98 Dale Blvd., Winnipeg, MB',
+                 @email='tracy@winnipeg.com',@password='pass3',@AccessLevel='c'
+
+exec spUser @crud='r'
+go
+
+create table tbWrongLogins(
+id int identity(1,1) primary key,
+email varchar (60)  null,
+password varchar (60)  null,
+date date 
+)
+go
+create procedure spLogin(
+	@email varchar(60)=null,
+	@password varchar (30)=null
+	)
+as begin
+if exists (select * from tbUsers
+where password = @password and  email = @email)
+begin
+select id,firstName,lastName,phoneNumber,address,email,password,accessLevel
+from tbUsers
+where password = @password and  email = @email
+end
+else
+begin
+insert into tbWrongLogins(email,password,date) values(@email,@password,getdate())
+end
+end
+go
+select * from tbWrongLogins
+go
