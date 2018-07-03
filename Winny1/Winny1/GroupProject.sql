@@ -2123,6 +2123,17 @@ exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolDescription = 'Since 1877, the University of Manitoba has been driving discovery and inspiring minds through innovative teaching and research excellence. The U of M has 24,000 undergraduate and graduate students studying more than 90 degree programs.',
 		@school_path = 'UniversityManitoba.png',
 		@schoolLocationId = 5
+go
 
---exec spAttractions @crud='r'
---exec spGetCategory
+create table tbClients(
+id int identity (1,1) primary key,
+firstName varchar (50) not null,
+lastName varchar (50) not null,
+phoneNumber varchar (20) not null,
+Address varchar (120) not null,
+Email varchar (60) not null,
+Password varchar (30) not null,
+AccessLevel varchar(1),   
+path varchar(50)
+)
+go
