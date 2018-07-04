@@ -2206,3 +2206,30 @@ where id=@id
 end
 end
 go
+create procedure spLogin(
+@email varchar(60),
+@password varchar(30)
+)
+as begin
+declare @accessLevel varchar(1);
+if exists( select* from tbUsers where email=@email and
+          password=@password)
+begin
+select @accessLevel= accessLevel from tbUsers where email=@email and
+          password=@password
+select @accessLevel as access;
+if @accessLevel='c'or @accessLevel='a'
+begin
+select id, firstName +' ' +lastName as fullName from tbUsers 
+where email=@email
+end
+end
+else
+begin
+select 'x' as access, 'Invalid' as Id
+insert into tbWrongLogins(email,password,date) values(@email,@password,getdate())
+end
+end
+go
+select * from tbUsers
+go
