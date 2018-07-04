@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Adminpage.aspx.cs" Inherits="Winny1.Adminpage" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -7,30 +8,31 @@
             background-color: aliceblue;
             height: 2000px;
         }
-        .l{
-           font-size:40px;
-           font-family:'Times New Roman', Times, serif;
+
+        .l {
+            font-size: 20px;
+            font-family: 'Times New Roman', Times, serif;
         }
-       
     </style>
     <asp:Panel ID="plAdmin" runat="server" CssClass="adm">
-       
-        <asp:LinkButton ID="LinkButton1" CssClass="l" runat="server" OnClick="LinkButton1_Click">#Restaurants</asp:LinkButton>
+
+        <%--  <asp:LinkButton ID="lbResteurants" CssClass="l" runat="server" OnClick="LinkButton1_Click">#Restaurants</asp:LinkButton><br />
+      <%--  <asp:LinkButton ID="lbStores" runat="server" CssClass="l" OnClick="lbStores_Click" >#Stores</asp:LinkButton><br />--%>
+        <%--  <asp:LinkButton ID="lbAttractions" CssClass="l" runat="server" OnClick="lbAttractions_Click">#Attractions</asp:LinkButton><br />
+        <asp:LinkButton ID="lbHotels" CssClass="l" runat="server" OnClick="lbHotels_Click">#Hotels</asp:LinkButton><br />
+        <asp:LinkButton ID="lbSchools" CssClass="l" runat="server" OnClick="lbSchools_Click">#Universities/Schools</asp:LinkButton>--%>--%>
 
          <br />
-         <br />
+
         <br />
-        <asp:GridView ID="gvRestaurants" runat="server" Visible="false" AutoGenerateColumns="False"
-            CellPadding="4" DataKeyNames="RestaurantId" DataSourceID="SqlDataSource1"
-            ForeColor="#333333" GridLines="None"
-            PageSize="5" AllowPaging="True" AllowSorting="True"
+        <asp:GridView ID="gvRestaurants" runat="server" Visible="False"
+            CellPadding="4" DataKeyNames="RestaurantId" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="false"
             OnPageIndexChanging="gvRestaurants_PageIndexChanging"
             OnRowCommand="gvRestaurants_RowCommand"
-            OnSelectedIndexChanging="gvRestaurants_SelectedIndexChanging" 
-            OnSorting="gvRestaurants_Sorting" OnSelectedIndexChanged="gvRestaurants_SelectedIndexChanged">
+            OnSelectedIndexChanging="gvRestaurants_SelectedIndexChanging"
+            OnSorting="gvRestaurants_Sorting" OnSelectedIndexChanged="gvRestaurants_SelectedIndexChanged" BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px">
 
 
-            <AlternatingRowStyle BackColor="White" />
             <Columns>
                 <asp:BoundField DataField="RestaurantId" HeaderText="RestaurantId" InsertVisible="False" ReadOnly="True" SortExpression="RestaurantId" />
                 <asp:BoundField DataField="RestaurantName" HeaderText="RestaurantName" SortExpression="RestaurantName" />
@@ -49,72 +51,72 @@
 
 
             </Columns>
-            <EditRowStyle BackColor="#7C6F57" />
-            <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
-            <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
-            <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
-            <RowStyle BackColor="#E3EAEB" />
-            <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
-            <SortedAscendingCellStyle BackColor="#F8FAFA" />
-            <SortedAscendingHeaderStyle BackColor="#246B61" />
-            <SortedDescendingCellStyle BackColor="#D4DFE1" />
-            <SortedDescendingHeaderStyle BackColor="#15524A" />
+            <FooterStyle BackColor="#FFFFCC" ForeColor="#330099" />
+            <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="#FFFFCC" />
+            <PagerStyle BackColor="#FFFFCC" ForeColor="#330099" HorizontalAlign="Center" />
+            <RowStyle BackColor="White" ForeColor="#330099" />
+            <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="#663399" />
+            <SortedAscendingCellStyle BackColor="#FEFCEB" />
+            <SortedAscendingHeaderStyle BackColor="#AF0101" />
+            <SortedDescendingCellStyle BackColor="#F6F0C0" />
+            <SortedDescendingHeaderStyle BackColor="#7E0000" />
 
 
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbGroupProjectConnectionString %>" SelectCommand="SELECT [RestaurantId], [RestaurantName], [Description], [Address], [PostalCode], [ContactNo], [path], [Website], [FoodId], [LocationId] FROM [tbRestaurants]"></asp:SqlDataSource>
+        <asp:SqlDataSource runat="server" ConnectionString="<%$ ConnectionStrings:dbGroupProjectConnectionString %>" SelectCommand="SELECT [RestaurantId], [RestaurantName], [Description], [Address], [PostalCode], [ContactNo], [path], [Website], [FoodId], [LocationId] FROM [tbRestaurants]"></asp:SqlDataSource>
         <br />
         <asp:Button ID="btnInsertRestaurant" runat="server" Text="Insert" OnClick="btnInsertRestaurant_Click" />
         <asp:Label ID="lblRest" runat="server" Text=""></asp:Label>
         <asp:Panel ID="plUpdRest" runat="server" Visible="false">
-<table>
-    <tr>
-        <td>RestNAme</td>
-        <td>
-            <asp:TextBox ID="txtRname" runat="server"></asp:TextBox></td>
-    </tr>
-    <tr>
-        <td>RestDescription</td>
-        <td>
-            <asp:TextBox ID="txtRDesc" runat="server"></asp:TextBox></td>
-    </tr>
-    <tr>
-        <td>RestAddress</td>
-        <td>
-            <asp:TextBox ID="txtRAddress" runat="server"></asp:TextBox></td>
-    </tr>
-    <tr>
-        <td>PostalCode</td>
-        <td>
-            <asp:TextBox ID="txtRPostal" runat="server"></asp:TextBox></td>
-    </tr>
-    <tr>
-        <td>RestPhone</td>
-        <td>
-            <asp:TextBox ID="txtRPhone" runat="server"></asp:TextBox></td>
-    </tr>
-    <tr>
-        <td>RestImage</td>
-        <td>
-            <asp:FileUpload ID="flRestImage" runat="server" /></td>
-    </tr>
-    <tr>
-        <td>RestWebsite</td>
-        <td>
-            <asp:HyperLink ID="hlRest" runat="server">HyperLink</asp:HyperLink></td>
-    </tr>
-    <tr>
-        <td>FoodCategory</td>
-        <td>
-            <asp:DropDownList ID="dlFood" runat="server" OnSelectedIndexChanged="dlFood_SelectedIndexChanged"></asp:DropDownList></td>
-    </tr>
-    <tr>
-        <td>Location</td>
-        <td>
-            <asp:DropDownList ID="dlLoc" runat="server" OnSelectedIndexChanged="dlLoc_SelectedIndexChanged"></asp:DropDownList></td>
-    </tr>
-   
-</table>
+            <table>
+                <tr>
+                    <td>RestNAme</td>
+                    <td>
+                        <asp:TextBox ID="txtRname" runat="server"></asp:TextBox></td>
+                </tr>
+                <tr>
+                    <td>RestDescription</td>
+                    <td>
+                        <asp:TextBox ID="txtRDesc" runat="server"></asp:TextBox></td>
+                </tr>
+                <tr>
+                    <td>RestAddress</td>
+                    <td>
+                        <asp:TextBox ID="txtRAddress" runat="server"></asp:TextBox></td>
+                </tr>
+                <tr>
+                    <td>PostalCode</td>
+                    <td>
+                        <asp:TextBox ID="txtRPostal" runat="server"></asp:TextBox></td>
+                </tr>
+                <tr>
+                    <td>RestPhone</td>
+                    <td>
+                        <asp:TextBox ID="txtRPhone" runat="server"></asp:TextBox></td>
+                </tr>
+                <tr>
+                    <td>RestImage</td>
+                    <td>
+                        <asp:FileUpload ID="flRestImage" runat="server" /></td>
+                </tr>
+                <tr>
+                    <td>RestWebsite</td>
+                    <td>
+                        <asp:TextBox ID="txtRWebsite" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>FoodCategory</td>
+                    <td>
+                        <asp:DropDownList ID="dlFood" runat="server" AutoPostBack="true" OnSelectedIndexChanged="dlFood_SelectedIndexChanged"></asp:DropDownList></td>
+                </tr>
+                <tr>
+                    <td>Location</td>
+                    <td>
+                        <asp:DropDownList ID="dlLoc" runat="server" AutoPostBack="true" OnSelectedIndexChanged="dlLoc_SelectedIndexChanged"></asp:DropDownList></td>
+                </tr>
+
+            </table>
             <asp:Button ID="btbRestSave" runat="server" Text="Save" OnClick="btbRestSave_Click" />
         </asp:Panel>
 
@@ -128,11 +130,15 @@
         <br />
         <br />
 
-        <asp:LinkButton ID="LinkButton4" CssClass="l" runat="server">#Stores</asp:LinkButton>
+        <h2>Stores</h2>
         <br />
-         <br />
-         <br />
-        <asp:GridView ID="gvShoping" runat="server" AutoGenerateColumns="False" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" DataKeyNames="StoreId" DataSourceID="SqlDataSource2" ForeColor="Black">
+        <br />
+        <br />
+        <asp:GridView ID="gvShoping" runat="server" PageSize="5" AutoGenerateColumns="False" AllowPaging="true" BackColor="#CCCCCC"
+            BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2"
+            DataKeyNames="StoreId" ForeColor="Black" OnPageIndexChanging="gvShoping_PageIndexChanging"
+            OnRowCommand="gvShoping_RowCommand" OnSelectedIndexChanging="gvShoping_SelectedIndexChanging"
+            OnSorting="gvShoping_Sorting" >
 
             <Columns>
                 <asp:BoundField DataField="StoreId" HeaderText="StoreId" InsertVisible="False" ReadOnly="True" SortExpression="StoreId" />
@@ -144,6 +150,8 @@
                 <asp:BoundField DataField="Web" HeaderText="Web" SortExpression="Web" />
                 <asp:BoundField DataField="LocationId" HeaderText="LocationId" SortExpression="LocationId" />
                 <asp:BoundField DataField="CategoryId" HeaderText="CategoryId" SortExpression="CategoryId" />
+                <asp:ButtonField ButtonType="Button" CommandName="Del" HeaderText="Delete" ShowHeader="True" Text="Del" />
+                <asp:ButtonField ButtonType="Button" CommandName="Upd" HeaderText="Update" ShowHeader="True" Text="Upd" />
             </Columns>
             <FooterStyle BackColor="#CCCCCC" />
             <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
@@ -158,16 +166,74 @@
         </asp:GridView>
         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:dbGroupProjectConnectionString %>" SelectCommand="SELECT [StoreId], [StoreName], [Description], [Path], [Address], [PhoneNumber], [Web], [LocationId], [CategoryId] FROM [tbStores]"></asp:SqlDataSource>
         <br />
+        br />
+        <asp:Button ID="btnStoreInsert" runat="server" Text="Insert" OnClick="btnStoreInsert_Click" />
+        <asp:Label ID="lblStore" runat="server" Text=""></asp:Label>
+        <asp:Panel ID="plUpdateStore" runat="server" Visible="false">
+            <table>
+                <tr>
+                    <td>StoreNAme</td>
+                    <td>
+                        <asp:TextBox ID="txtStoreName" runat="server"></asp:TextBox></td>
+                </tr>
+                <tr>
+                    <td>StoreDescription</td>
+                    <td>
+                        <asp:TextBox ID="txtStoreDesc" runat="server"></asp:TextBox></td>
+                </tr>
+                <tr>
+                    <td>StoreAddress</td>
+                    <td>
+                        <asp:TextBox ID="txtStoreAddress" runat="server"></asp:TextBox></td>
+                </tr>
+
+                <tr>
+                    <td>StorePhone</td>
+                    <td>
+                        <asp:TextBox ID="txtStorePhone" runat="server"></asp:TextBox></td>
+                </tr>
+                <tr>
+                    <td>StoreImage</td>
+                    <td>
+                        <asp:FileUpload ID="flStoreImage" runat="server" /></td>
+                </tr>
+                <tr>
+                    <td>StoreWebsite</td>
+                    <td>
+                        <asp:TextBox ID="txtStoreWeb" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>StoreCategory</td>
+                    <td>
+                        <asp:DropDownList ID="ddlStoreCategory" runat="server" AutoPostBack="true"></asp:DropDownList></td>
+                </tr>
+                <tr>
+                    <td>Location</td>
+                    <td>
+                        <asp:DropDownList ID="ddlLoc" runat="server" AutoPostBack="true"></asp:DropDownList></td>
+                </tr>
+
+            </table>
+            <asp:Button ID="btnSavestore" runat="server" Text="Save" OnClick="btnSavestore_Click" />
+        </asp:Panel>
 
 
 
 
-         <asp:LinkButton ID="LinkButton2" CssClass="l" runat="server">#Attractions</asp:LinkButton>
+
+
+
+        <h2>Attractions</h2>
         <br />
-         <br />
+        <br />
         <br />
 
-        <asp:GridView ID="gvAttractions" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="attractionID" DataSourceID="SqlDataSource3" ForeColor="Black" GridLines="Vertical">
+        <asp:GridView ID="gvAttractions" runat="server" AutoGenerateColumns="False"
+            BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" 
+            BorderWidth="1px" CellPadding="4" DataKeyNames="attractionID" 
+            ForeColor="Black" GridLines="Vertical" OnRowCommand="gvAttractions_RowCommand" 
+           >
 
             <AlternatingRowStyle BackColor="White" />
             <Columns>
@@ -180,6 +246,8 @@
                 <asp:BoundField DataField="atWebsite" HeaderText="atWebsite" SortExpression="atWebsite" />
                 <asp:BoundField DataField="atImage" HeaderText="atImage" SortExpression="atImage" />
                 <asp:BoundField DataField="location" HeaderText="location" SortExpression="location" />
+                <asp:ButtonField ButtonType="Button" CommandName="Delete" HeaderText="del" ShowHeader="True" Text="Del" />
+                <asp:ButtonField ButtonType="Button" CommandName="Update" HeaderText="upd" ShowHeader="True" Text="Upd" />
             </Columns>
             <FooterStyle BackColor="#CCCC99" />
             <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
@@ -195,14 +263,67 @@
         <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:dbGroupProjectConnectionString %>" SelectCommand="SELECT [attractionID], [attractionCategory], [atName], [atDesc], [atAddress], [atPhone], [atWebsite], [atImage], [location] FROM [tbAttractions]"></asp:SqlDataSource>
         <br />
         <br />
+        <asp:Button ID="btnAttrInsert" runat="server" Text="Insert" OnClick="btnAttrInsert_Click" />
+        <asp:Label ID="lblAttr" runat="server" Text=""></asp:Label>
+        <asp:Panel ID="pnlUpdateAttr" runat="server" Visible="false">
+            <table>
+                <tr>
+                    <td>AttrNAme</td>
+                    <td>
+                        <asp:TextBox ID="txtAttrName" runat="server"></asp:TextBox></td>
+                </tr>
+                <tr>
+                    <td>AttrDescription</td>
+                    <td>
+                        <asp:TextBox ID="txtAttrDesc" runat="server"></asp:TextBox></td>
+                </tr>
+                <tr>
+                    <td>AttrAddress</td>
+                    <td>
+                        <asp:TextBox ID="txtAttrAddress" runat="server"></asp:TextBox></td>
+                </tr>
 
+                <tr>
+                    <td>AttrPhone</td>
+                    <td>
+                        <asp:TextBox ID="txtAttrPhone" runat="server"></asp:TextBox></td>
+                </tr>
+                <tr>
+                    <td>AttrImage</td>
+                    <td>
+                        <asp:FileUpload ID="flAttrImage" runat="server" /></td>
+                </tr>
+                <tr>
+                    <td>AttrWebsite</td>
+                    <td>
+                        <asp:TextBox ID="txtAttrWeb" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>AttrCategory</td>
+                    <td>
+                        <asp:DropDownList ID="ddlAttrCategory" runat="server" AutoPostBack="true"></asp:DropDownList></td>
+                </tr>
+                <tr>
+                    <td>Location</td>
+                    <td>
+                        <asp:DropDownList ID="ddllocat" runat="server" AutoPostBack="true"></asp:DropDownList></td>
+                </tr>
 
+            </table>
+            <asp:Button ID="btnSaveAttr" runat="server" Text="Save" OnClick="btnSaveAttr_Click" />
+        </asp:Panel>
 
-        <asp:LinkButton ID="LinkButton5" CssClass="l" runat="server">#Hotels</asp:LinkButton>
         <br />
-         <br />
-         <br />
-        <asp:GridView ID="gvHotels" runat="server" AutoGenerateColumns="False" DataKeyNames="HotelID" DataSourceID="SqlDataSource4" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" GridLines="Horizontal">
+        <br />
+
+
+
+        <h2>Hotels</h2>
+        <br />
+        <br />
+        <br />
+        <asp:GridView ID="gvHotels" runat="server" AutoGenerateColumns="False" DataKeyNames="HotelID" DataSourceID="SqlDataSource4" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellPadding="3" GridLines="None" CellSpacing="1">
 
             <Columns>
                 <asp:BoundField DataField="HotelID" HeaderText="HotelID" InsertVisible="False" ReadOnly="True" SortExpression="HotelID" />
@@ -216,17 +337,19 @@
                 <asp:BoundField DataField="HotelLocationID" HeaderText="HotelLocationID" SortExpression="HotelLocationID" />
                 <asp:BoundField DataField="Hotel_path" HeaderText="Hotel_path" SortExpression="Hotel_path" />
                 <asp:BoundField DataField="HotelWebsite" HeaderText="HotelWebsite" SortExpression="HotelWebsite" />
+                <asp:ButtonField ButtonType="Button" CommandName="DEL" HeaderText="Delete" ShowHeader="True" Text="Del" />
+                <asp:ButtonField ButtonType="Button" CommandName="UPD" HeaderText="Update" ShowHeader="True" Text="Upd" />
             </Columns>
 
-            <FooterStyle BackColor="White" ForeColor="#333333" />
-            <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
-            <PagerStyle BackColor="#336666" ForeColor="White" HorizontalAlign="Center" />
-            <RowStyle BackColor="White" ForeColor="#333333" />
-            <SelectedRowStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
-            <SortedAscendingCellStyle BackColor="#F7F7F7" />
-            <SortedAscendingHeaderStyle BackColor="#487575" />
-            <SortedDescendingCellStyle BackColor="#E5E5E5" />
-            <SortedDescendingHeaderStyle BackColor="#275353" />
+            <FooterStyle BackColor="#C6C3C6" ForeColor="Black" />
+            <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#E7E7FF" />
+            <PagerStyle BackColor="#C6C3C6" ForeColor="Black" HorizontalAlign="Right" />
+            <RowStyle BackColor="#DEDFDE" ForeColor="Black" />
+            <SelectedRowStyle BackColor="#9471DE" Font-Bold="True" ForeColor="White" />
+            <SortedAscendingCellStyle BackColor="#F1F1F1" />
+            <SortedAscendingHeaderStyle BackColor="#594B9C" />
+            <SortedDescendingCellStyle BackColor="#CAC9C9" />
+            <SortedDescendingHeaderStyle BackColor="#33276A" />
 
         </asp:GridView>
         <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:dbGroupProjectConnectionString %>" SelectCommand="SELECT [HotelID], [HotelName], [HotelPrice], [HotelStars], [HotelDescription], [HotelPhoneNumber], [HotelAddress], [HotelPostalCode], [HotelLocationID], [Hotel_path], [HotelWebsite] FROM [tbHotels]"></asp:SqlDataSource>
@@ -235,13 +358,13 @@
         <br />
 
 
-         <asp:LinkButton ID="LinkButton3" CssClass="l" runat="server">#Universities/Schools</asp:LinkButton>
+        <h2>Universities/Schools</h2>
         <br />
-         <br />
         <br />
-        <asp:GridView ID="gvUniversity" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="SchoolID" DataSourceID="SqlDataSource5" ForeColor="#333333" GridLines="None">
+        <br />
+        <asp:GridView ID="gvUniversity" runat="server" AutoGenerateColumns="False" CellPadding="3" DataKeyNames="SchoolID" DataSourceID="SqlDataSource5" ForeColor="Black" GridLines="Vertical" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px">
 
-            <AlternatingRowStyle BackColor="White" />
+            <AlternatingRowStyle BackColor="#CCCCCC" />
             <Columns>
                 <asp:BoundField DataField="SchoolID" HeaderText="SchoolID" InsertVisible="False" ReadOnly="True" SortExpression="SchoolID" />
                 <asp:BoundField DataField="SchoolName" HeaderText="SchoolName" SortExpression="SchoolName" />
@@ -253,16 +376,17 @@
                 <asp:BoundField DataField="SchoolDescription" HeaderText="SchoolDescription" SortExpression="SchoolDescription" />
                 <asp:BoundField DataField="School_path" HeaderText="School_path" SortExpression="School_path" />
                 <asp:BoundField DataField="SchoolLocationID" HeaderText="SchoolLocationID" SortExpression="SchoolLocationID" />
+                <asp:ButtonField ButtonType="Button" CommandName="delete" HeaderText="Delete" ShowHeader="True" Text="Del" />
+                <asp:ButtonField ButtonType="Button" CommandName="update" HeaderText="Update" ShowHeader="True" Text="Upd" />
             </Columns>
-            <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-            <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-            <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
-            <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
-            <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
-            <SortedAscendingCellStyle BackColor="#FDF5AC" />
-            <SortedAscendingHeaderStyle BackColor="#4D0000" />
-            <SortedDescendingCellStyle BackColor="#FCF6C0" />
-            <SortedDescendingHeaderStyle BackColor="#820000" />
+            <FooterStyle BackColor="#CCCCCC" />
+            <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+            <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+            <SortedAscendingCellStyle BackColor="#F1F1F1" />
+            <SortedAscendingHeaderStyle BackColor="#808080" />
+            <SortedDescendingCellStyle BackColor="#CAC9C9" />
+            <SortedDescendingHeaderStyle BackColor="#383838" />
 
         </asp:GridView>
 

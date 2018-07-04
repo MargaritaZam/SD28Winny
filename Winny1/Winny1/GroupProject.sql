@@ -360,6 +360,19 @@ as begin
 end
 go
 
+create procedure spGetStoreCategory(
+@storetype varchar(50)=null
+)
+as begin
+select CategoryType from tbShoppingCategories
+where CategoryType=isnull(@storetype, CategoryType)
+end
+go
+
+exec spGetStoreCategory
+go
+
+
 --exec spGetShoppingCategories
 --go
 
@@ -857,6 +870,15 @@ as begin
 	select * from tbFood_Category where FoodId=isnull(@FoodId,FoodId)
 end
 go
+--create procedure spLocation
+--(
+--@LocationId int=null ,
+--@LocationName varchar(30)=null
+--)
+--as begin
+--	select * from tbLocation where locationID=isnull(@LocationId,locationID)
+--end
+--go
 
 --  Restaurant Table and Procedures  --
 
@@ -874,7 +896,6 @@ create table tbRestaurants
 	LocationId int foreign key references tbLocation(LocationId)
 )
 go
-
 create procedure spRestaurants
 (
 	@RestaurantId int=null,
@@ -892,16 +913,16 @@ create procedure spRestaurants
 as begin
 	if @crud='a'
 	begin
-		select RestaurantName,Description,RestaurantId,'./Restaurant/' + path as path  from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId)
+		select RestaurantName,Description,RestaurantId,'./Pictures/Restaurants/' + path as path  from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId)
 	end
 	else if @crud='r'
 	begin
-		select RestaurantId,RestaurantName,Address,ContactNo,Description,'./Restaurant/' + path as path,Website from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId)
+		select RestaurantId,RestaurantName,Address,ContactNo,Description,'./Pictures/Restaurants/' + path as path,Website from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId)
 	end
 	else if @crud='s'  --  Select Restaurants, join with Location and Food Category
 	begin
 		
-			select RestaurantName,Description,RestaurantId,'./Restaurant/' + path as path  from tbRestaurants join tbFood_Category on
+			select RestaurantName,Description,RestaurantId,'./Pictures/Restaurants/' + path as path  from tbRestaurants join tbFood_Category on
 			tbRestaurants.FoodId=tbFood_Category.FoodId join tbLocation on 
 			tbRestaurants.LocationId=tbLocation.LocationId 
 		where tbRestaurants.LocationId=ISNULL(@LocationId,tbRestaurants.LocationId)
@@ -1640,7 +1661,8 @@ exec spRestaurants @crud='c',
 		@FoodId=12,
 		@LocationId=3
 
---exec spRestaurants @crud='r'
+exec spRestaurants @crud='r'
+
 
 --  'About Winnipeg' Table and Procedures  --
 
