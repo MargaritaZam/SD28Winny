@@ -21,11 +21,10 @@
             /*#main{
             top:40%;right:60px;
             width:400px;border:0px solid #421; padding:40px;
-            }
-            #main div{
-                margin:10px;
-            }*/
-
+        }
+        #main div{
+            margin:10px;
+        }*/
             #input {
                 border: 0;
                 background-color:honeydew;
@@ -57,25 +56,26 @@
 
     <script type="text/javascript">
         var trigger = [
-            ["Hello*"],
-            ["* restaurant*"],
-            ["hotel/ motel"],
-            ["shopping"],
-            ["attractions"]
+            ["Hello"],
+            ["restaurant", "hotel", "shopping", "attractions"],
+            ["Who are you?"]
+         
         ];
         var reply = [
-            ["Hello and welcome to Winnipeg! How may I help you?"],
-            ["We recommend clicking on the Restaurants link on the main page"],
-            ["We recommend clicking on the Hotels link on the main page"],
-            ["We recommend clicking on the Shopping link on the main page"],
-            ["We recommend clicking on the Attractions link on the main page"]
+            ["Hi"],
+            ["We recommend clicking on the relevant link on the main page"],
+            ["Robot"]
+            //["We recommend clicking on the Hotels link on the main page"],
+            //["We recommend clicking on the Shopping link on the main page"],
+            //["We recommend clicking on the Attractions link on the main page"]
         ];
-        //var alternative = [
-        //    ["Hello and Welcome to Winnipeg!How may I help you?"],
-        //    ["We recommend clicking on the Restaurants link on the main page"],
-        //    ["We recommend clicking on the Hotels link on the main page"],
-        //    ["We recommend clicking on the Shopping link on the main page"],
-        //    ["We recommend clicking on the Attractions link on the main page"]
+        var alternative = [
+            ["Hello and Welcome to Winnipeg!How may I help you?"],
+            ["Pick one"],
+            ["I am just a bot"]
+            //["We recommend clicking on the Hotels link on the main page"],
+            //["We recommend clicking on the Shopping link on the main page"],
+            //["We recommend clicking on the Attractions link on the main page"]
         ];
         document.querySelector("#input").addEventListener("keypress", function(e){
             var key = e.which || e.keyCode;
@@ -90,12 +90,12 @@
                 var product = input + "=" + eval(input);
             } catch(e) {
                 var text = (input.toLowerCase()).replace(/[^\w\s\d]/gi, "");
-                text = text.replace(/a/g, "").replace(/restaurant/g, "").replace(/hotel/g, "").replace(/shopping/g, "").replace(/attraction/g, "");
+                text = text.replace(/a/g, "").replace(/I am looking/g, "");
+                //.replace(/hotel/g, "").replace(/shopping/g, "").replace(/attraction/g, "");
                 if (compare(trigger, reply, text)) {
                     var product = compare(trigger, reply, text);
                 } else {
-                    var product =
-                        alternative[Math.floor(Math.random()*alternative.length)];
+                    var product =alternative[Math.floor(Math.random()*alternative.length)];
                 }
             }
             document.getElementById("chatbot").innerHTML = product;
