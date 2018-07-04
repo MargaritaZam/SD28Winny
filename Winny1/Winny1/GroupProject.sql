@@ -156,6 +156,19 @@ as begin
 end
 go
 
+create procedure spGetStoreCategory(
+@storetype varchar(50)=null
+)
+as begin
+select CategoryType from tbShoppingCategories
+where CategoryType=isnull(@storetype, CategoryType)
+end
+go
+
+exec spGetStoreCategory
+go
+
+
 --exec spGetShoppingCategories
 --go
 
