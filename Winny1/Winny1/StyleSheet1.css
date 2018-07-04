@@ -210,3 +210,13 @@ li.dropdown {
     display: block;
   
 }
+
+.Hotels {
+    border: solid;
+    margin: 5px;
+}
+
+.Hotels img {
+    width: 250px;
+    height: 250px;
+}

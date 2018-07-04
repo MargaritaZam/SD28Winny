@@ -21,10 +21,11 @@
             /*#main{
             top:40%;right:60px;
             width:400px;border:0px solid #421; padding:40px;
-        }
-        #main div{
-            margin:10px;
-        }*/
+            }
+            #main div{
+                margin:10px;
+            }*/
+
             #input {
                 border: 0;
                 background-color:honeydew;
@@ -56,8 +57,8 @@
 
     <script type="text/javascript">
         var trigger = [
-            ["Hello"],
-            ["restaurant"],
+            ["Hello*"],
+            ["* restaurant*"],
             ["hotel/ motel"],
             ["shopping"],
             ["attractions"]
@@ -69,12 +70,12 @@
             ["We recommend clicking on the Shopping link on the main page"],
             ["We recommend clicking on the Attractions link on the main page"]
         ];
-        var alternative = [
-            ["Hello and Welcome to Winnipeg!How may I help you?"],
-            ["We recommend clicking on the Restaurants link on the main page"],
-            ["We recommend clicking on the Hotels link on the main page"],
-            ["We recommend clicking on the Shopping link on the main page"],
-            ["We recommend clicking on the Attractions link on the main page"]
+        //var alternative = [
+        //    ["Hello and Welcome to Winnipeg!How may I help you?"],
+        //    ["We recommend clicking on the Restaurants link on the main page"],
+        //    ["We recommend clicking on the Hotels link on the main page"],
+        //    ["We recommend clicking on the Shopping link on the main page"],
+        //    ["We recommend clicking on the Attractions link on the main page"]
         ];
         document.querySelector("#input").addEventListener("keypress", function(e){
             var key = e.which || e.keyCode;
