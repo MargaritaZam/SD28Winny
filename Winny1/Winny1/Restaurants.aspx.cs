@@ -61,13 +61,13 @@ namespace Winny1
             //adsource.AllowPaging = true;
             //adsource.PageSize = 3;
 
-            //adsource.CurrentPageIndex = pos;
-            //btnfirst.Enabled = !adsource.IsFirstPage;
-            //btnprevious.Enabled = !adsource.IsFirstPage;
-            //btnlast.Enabled = !adsource.IsLastPage;
-            //btnnext.Enabled = !adsource.IsLastPage;
-            //dlRestaurant.DataSource = adsource;
-            //dlRestaurant.DataBind();
+            adsource.CurrentPageIndex = pos;
+            btnfirst.Enabled = !adsource.IsFirstPage;
+            btnprevious.Enabled = !adsource.IsFirstPage;
+            btnlast.Enabled = !adsource.IsLastPage;
+            btnnext.Enabled = !adsource.IsLastPage;
+            dlRestaurant.DataSource = adsource;
+            dlRestaurant.DataBind();
 
 
 

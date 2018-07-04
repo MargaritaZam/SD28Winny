@@ -78,6 +78,7 @@
     <Content Include="Adminpage.aspx" />
     <Content Include="Anjali.sql" />
     <Content Include="attraction.aspx" />
+    <Content Include="ChatBot.html" />
     <Content Include="GroupProject.sql" />
     <Content Include="hotel.aspx" />
     <Content Include="HotelPictures\CanadInnsHSC.png" />
