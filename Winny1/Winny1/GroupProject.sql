@@ -2233,15 +2233,11 @@ end
 go
 select * from tbUsers
 go
--- exec spClient @Crud='c', @FirstName='Anjali', @LastName='Patel', @AddressStreet='555 Main Str.', @PostalCode='r4b7m2',
---              @AddressCity='Winnipeg', @AddressProvince='MB', @PhoneNumber='777-55-55', @Email='user1@shop',
---			  @Password='pass1', @AccessLevel='a' --a=admin
--- exec spClient @Crud='c', @FirstName='John', @LastName='Smith', @AddressStreet='555 Corydon Ave.', @PostalCode='r7u9b6',
---              @AddressCity='Winnipeg', @AddressProvince='MB', @PhoneNumber='888-32-55', @Email='user2@shop',
---			  @Password='pass2', @AccessLevel='c' --c=client
---exec spClient @Crud='c', @FirstName='John', @LastName='Smith', @AddressStreet='555 Corydon Ave.', @PostalCode='r7u9b6',
---              @AddressCity='Winnipeg', @AddressProvince='MB', @PhoneNumber='888-32-55', @Email='user2@shop',
---			  @Password='pass2', @AccessLevel='c'
--- exec spClient @Crud='c', @FirstName='Gregory', @LastName='Jackson', @AddressStreet='555 Grant Ave.', @PostalCode='r1e2d3',
---              @AddressCity='Winnipeg', @AddressProvince='MB', @PhoneNumber='333-44-55', @Email='user3@shop',
---			  @Password='pass3', @AccessLevel='c'
+ exec spUser @crud='c', @firstName='Anjali', @lastName='Patel', @phoneNumber='777-55-55', @address='555 Main Str., Winnipeg, MB ',
+              @email='admin@winny', @password='pass1', @accessLevel='a' --a=admin
+ exec spUser @crud='c', @firstName='Margarita', @lastName='Zamoshch', @phoneNumber='222-55-55', @address='111 Main Str., Winnipeg, MB ',
+              @email='margo@winny', @password='pass2', @accessLevel='c' --c=client
+ exec spUser @crud='c', @firstName='Tracy', @lastName='McCormack', @phoneNumber='333-55-55', @address='444 Main Str., Winnipeg, MB ',
+              @email='tracy@winny', @password='pass3', @accessLevel='c' 
+ exec spUser @crud='c', @firstName='Natalia', @lastName='Shmer', @phoneNumber='555-55-55', @address='777 Main Str., Winnipeg, MB ',
+              @email='natalia@winny', @password='pass4', @accessLevel='c' 
