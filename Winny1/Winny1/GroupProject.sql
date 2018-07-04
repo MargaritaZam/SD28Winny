@@ -2125,15 +2125,62 @@ exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolLocationId = 5
 go
 
-create table tbClients(
+create table tbUsers(
 id int identity (1,1) primary key,
 firstName varchar (50) not null,
 lastName varchar (50) not null,
 phoneNumber varchar (20) not null,
-Address varchar (120) not null,
-Email varchar (60) not null,
-Password varchar (30) not null,
-AccessLevel varchar(1),   
-path varchar(50)
+address varchar (max) not null,
+email varchar (60) not null,
+password varchar (30) not null,
+accessLevel varchar(1)
 )
+go
+create table tbWrongLogins(
+id int identity(1,1) primary key,
+email varchar (60)  null,
+password varchar (30)  null,
+date date 
+)
+go
+create procedure spUser(
+@id int=null,
+@firstName varchar (50)=null,
+@lastName varchar (50)=null,
+@phoneNumber varchar(20)= null,
+@address varchar (max)= null,
+@email varchar(60)=null,
+@password varchar(30)=null,
+@accessLevel varchar(1)=null,
+@crud varchar(10))
+as begin
+if @crud='r'
+begin
+select
+id,firstName,lastName,phoneNumber,address,email,password,accessLevel
+from tbUsers where id=isnull(@id,id)
+end
+else if
+@crud='c'
+begin
+insert into tbUsers(firstName,lastName,phoneNumber,address,email,password,accessLevel) values
+                    (@firstName,@lastName, @phoneNumber,@address,@email,@password,@accessLevel)  
+end
+else if
+@Crud='d'
+begin
+delete from tbUsers where id=@id
+end
+else if
+@Crud='u'
+begin
+update tbUsers set
+firstName=@firstName,
+lastName=@lastName,
+phoneNumber=@phoneNumber,
+address=@address,
+accessLevel=@accessLevel
+where id=@id
+end
+end
 go
