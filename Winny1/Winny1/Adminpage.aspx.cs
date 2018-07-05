@@ -25,7 +25,7 @@ namespace Winny1
                 loadStoreCategory();
                 loadStores();
                 loadAttractions();
-                //loadHotels();
+                loadHotels();
                 //loadSchools();
             }
 
@@ -60,6 +60,11 @@ namespace Winny1
             ddllocat.DataTextField = "LocationName";
             ddllocat.DataValueField = "LocationId";
             ddllocat.DataBind();
+
+            ddlHotelLoc.DataSource = ds.Tables[0];
+            ddlHotelLoc.DataTextField = "LocationName";
+            ddlHotelLoc.DataValueField = "LocationId";
+            ddlHotelLoc.DataBind();
 
 
         }
@@ -384,13 +389,15 @@ namespace Winny1
             loadStores();
         }
 
-
-       
-
         protected void lbStores_Click(object sender, EventArgs e)
         {
             gvShoping.Visible = true;
         }
+
+
+
+
+
         private void loadAttractions()
         {
             DataSet ds = new DataSet();
@@ -540,9 +547,96 @@ namespace Winny1
             loadAttractions();
         }
 
-        
 
-        
+        private void loadHotels()
+        {
+            DataSet ds = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter("spHotelsCrud", conn);
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
+            da.SelectCommand.Parameters.AddWithValue("@crud", "r");
+            conn.Open();
+            da.Fill(ds);
+            conn.Close();
+
+            gvHotels.DataSource = ds.Tables[0];
+            gvHotels.DataBind();
+        }
+        protected void gvHotels_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnInsertHotel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnSaveHotel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void gvHotels_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "Page" || e.CommandName == "Sorting")
+            {
+                return;
+            }
+            string comd = e.CommandName;
+            gvHotels.SelectedIndex = Convert.ToInt32(e.CommandName);
+            string hid = gvHotels.SelectedDataKey["HotelID"].ToString();
+
+            switch (e.CommandName)
+            {
+                case "DEL":
+                    DeleteHotel(hid);
+                    break;
+
+                case "UPD":
+                    pnlUpdateHotel.Visible = true;
+                    UpdateHotel(hid);
+                    break;
+            }
+        }
+        public void DeleteHotel(string hid)
+        {
+            SqlCommand comd = new SqlCommand("spHotelsCrud", conn);
+            comd.CommandType = CommandType.StoredProcedure;
+            comd.Parameters.AddWithValue("@crud", "d");
+            comd.Parameters.AddWithValue("@hotelID", hid);
+            conn.Open();
+            comd.ExecuteNonQuery();
+            conn.Close();
+
+            loadHotels();
+        }
+        public void UpdateHotel(string hid)
+        {
+            DataSet dataset = new DataSet();
+            SqlDataAdapter sda = new SqlDataAdapter("spHotelsCrud", conn);
+            sda.SelectCommand.CommandType = CommandType.StoredProcedure;
+            sda.SelectCommand.Parameters.AddWithValue("@crud", "r");
+            sda.SelectCommand.Parameters.AddWithValue("@hotelID", hid);
+            conn.Open();
+            sda.Fill(dataset);
+            conn.Close();
+            lblHotel.Text = hid;
+
+            txtHotelName.Text = dataset.Tables[0].Rows[0]["HotelName"].ToString();
+            txtHotelPrice.Text = dataset.Tables[0].Rows[0]["HotelPrice"].ToString();
+            txtHotelStars.Text = dataset.Tables[0].Rows[0]["HotelStars"].ToString();
+            txtHotelDesc.Text = dataset.Tables[0].Rows[0]["HotelDescription"].ToString();
+
+        }
+        protected void gvHotels_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        {
+
+        }
+
+        protected void gvHotels_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+
+        }
     }
 
     

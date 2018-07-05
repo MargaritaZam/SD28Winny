@@ -323,7 +323,10 @@
         <br />
         <br />
         <br />
-        <asp:GridView ID="gvHotels" runat="server" AutoGenerateColumns="False" DataKeyNames="HotelID" DataSourceID="SqlDataSource4" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellPadding="3" GridLines="None" CellSpacing="1">
+        <asp:GridView ID="gvHotels" runat="server" AutoGenerateColumns="False"
+            DataKeyNames="HotelID" DataSourceID="SqlDataSource4" BackColor="White"  AllowPaging="true" AllowSorting="true"
+            BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellPadding="3" 
+            GridLines="None" CellSpacing="1" OnSelectedIndexChanged="gvHotels_SelectedIndexChanged" OnPageIndexChanging="gvHotels_PageIndexChanging" OnRowCommand="gvHotels_RowCommand" OnSelectedIndexChanging="gvHotels_SelectedIndexChanging">
 
             <Columns>
                 <asp:BoundField DataField="HotelID" HeaderText="HotelID" InsertVisible="False" ReadOnly="True" SortExpression="HotelID" />
@@ -356,6 +359,68 @@
 
         <br />
         <br />
+                <asp:Button ID="btnInsertHotel" runat="server" Text="Insert" OnClick="btnInsertHotel_Click"  />
+        <asp:Label ID="lblHotel" runat="server" Text=""></asp:Label>
+        <asp:Panel ID="pnlUpdateHotel" runat="server" Visible="false">
+            <table>
+                <tr>
+                    <td>HotelNAme</td>
+                    <td>
+                        <asp:TextBox ID="txtHotelName" runat="server"></asp:TextBox></td>
+                </tr>
+                <tr>
+                    <td>HotelPrice</td>
+                    <td>
+                        <asp:TextBox ID="txtHotelPrice" runat="server"></asp:TextBox></td>
+                </tr>
+                <tr>
+                    <td>HotelStars</td>
+                    <td>
+                        <asp:TextBox ID="txtHotelStars" runat="server"></asp:TextBox></td>
+                </tr>
+                 <tr>
+                    <td>HotelDesc</td>
+                    <td>
+                        <asp:TextBox ID="txtHotelDesc" runat="server"></asp:TextBox></td>
+                </tr>
+                 <tr>
+                    <td>HotelAddress</td>
+                    <td>
+                        <asp:TextBox ID="txtHotelAddress" runat="server"></asp:TextBox></td>
+                </tr>
+
+                <tr>
+                    <td>HotelPhone</td>
+                    <td>
+                        <asp:TextBox ID="txtHotelPhone" runat="server"></asp:TextBox></td>
+                </tr>
+                <tr>
+                    <td>HotelPostalCode</td>
+                   <td> <asp:TextBox ID="txtHotelPostal" runat="server"></asp:TextBox></td>
+                </tr>
+                <tr>
+                    <td>HotelImage</td>
+                    <td>
+                        <asp:FileUpload ID="flHotelImage" runat="server" /></td>
+                </tr>
+                <tr>
+                    <td>HotelWebsite</td>
+                    <td>
+                        <asp:TextBox ID="txtHotelWeb" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>Location</td>
+                    <td>
+                        <asp:DropDownList ID="ddlHotelLoc" runat="server" AutoPostBack="true"></asp:DropDownList></td>
+                        </tr>
+
+            </table>
+            <asp:Button ID="btnSaveHotel" runat="server" Text="Save" OnClick="btnSaveHotel_Click"  />
+        </asp:Panel>
+
+
 
 
         <h2>Universities/Schools</h2>
