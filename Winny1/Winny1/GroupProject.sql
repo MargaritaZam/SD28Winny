@@ -870,6 +870,7 @@ as begin
 	select * from tbFood_Category where FoodId=isnull(@FoodId,FoodId)
 end
 go
+
 --create procedure spLocation
 --(
 --@LocationId int=null ,
@@ -1818,27 +1819,27 @@ create procedure spHotelsCrud
 (
 	@hotelID int = null,
 	@hotelName	varchar(30) = null,
-	@hotelPrice int,
-	@hotelStars varchar(6),
+	@hotelPrice int = null,
+	@hotelStars varchar(6) = null,
 	@hotelDescription varchar(800) = null,
 	@hotelPhoneNumber varchar(15) = null,
 	@hotelAddress varchar(100) = null,
 	@hotelPostalCode varchar(7) = null,
 	@hotelWebsite varchar(100) = null,
 	@hotel_path varchar(200) = null,
-	@hotelLocationID int,
+	@hotelLocationID int = null,
 	@crud varchar(1)
 )
 as begin
 	if @crud='r'
 	begin
-		select HotelName, HotelPrice, HotelStars, HotelDescription, HotelPhoneNumber, HotelAddress, HotelPostalCode, HotelWebsite,'.\HotelPictures\' + Hotel_path as Hotel_path from tbHotels where HotelId=isnull(@hotelId,HotelId)
+		select HotelName, HotelPrice, HotelStars, HotelDescription, HotelPhoneNumber, HotelAddress, HotelPostalCode, HotelWebsite,'.\HotelPictures\' + Hotel_path as Hotel_path from tbHotels where HotelId = isnull(@hotelId,HotelId)
 	end
 	else if @crud='c'
 	begin
-		insert into tbHotels(HotelName,HotelPrice,HotelStars,HotelDescription,HotelPhoneNumber,HotelAddress,HotelPostalCode,HotelWebsite,Hotel_path,HotelLocationID)
+		insert into tbHotels(HotelName, HotelPrice, HotelStars, HotelDescription, HotelPhoneNumber, HotelAddress, HotelPostalCode, HotelWebsite, Hotel_path, HotelLocationID)
 								values
-								(@hotelName,@hotelPrice,@hotelStars,@hotelDescription,@hotelPhoneNumber,@hotelAddress,@hotelPostalCode,@hotelWebsite,@hotel_path,@hotelLocationID)
+							(@hotelName,@hotelPrice,@hotelStars,@hotelDescription,@hotelPhoneNumber,@hotelAddress,@hotelPostalCode,@hotelWebsite,@hotel_path,@hotelLocationID)
 	end
 	else if @crud='u'
 	begin
@@ -1860,6 +1861,7 @@ as begin
 		delete from tbHotels where HotelID = @hotelID
 	end
 end
+go
 
 exec spHotelsCrud @crud = 'c',
 		@hotelName = 'Alt Hotel Winnipeg',
@@ -1885,7 +1887,6 @@ exec spHotelsCrud @crud='c',
 		@hotel_path='CanadInnsHSC.png',
 		@hotelLocationId=9
 			  
-
 exec spHotelsCrud @crud='c',
 		@hotelName='Clarion Hotel & Suites',
 		@hotelPrice=149,
@@ -1936,7 +1937,7 @@ exec spHotelsCrud @crud='c',
 
 exec spHotelsCrud @crud='c',
 		@hotelName='Hilton Winnipeg Airport Suites',
-		@hotelPrice=123,
+		@hotelPrice = 123,
 		@hotelStars='***',
 		@hotelDescription='Located in Winnipeg Airport Industrial Park, we provide easy access to downtown Winnipeg. Use the complimentary airport shuttle service to/from the hotel. Polo Park Mall, the largest shopping center in Manitoba with over 200 stores, is less than 2 miles away. We’re also a short drive to the newest Outlet Collection Winnipeg.',
 		@hotelPhoneNumber='204-783-1700',
@@ -1948,7 +1949,7 @@ exec spHotelsCrud @crud='c',
 
 exec spHotelsCrud @crud='c',
 		@hotelName='Inn at the Forks',
-		@hotelPrice=186,
+		@hotelPrice = 186,
 		@hotelStars='***',
 		@hotelDescription='Located in downtown Winnipeg at The Forks, our top tourism attraction, you''re immersed in a convergence of cultures – Aboriginal, French Canadian and Manitoban – at a 6,000-year-old meeting place. The myriad of shopping, arts, and entertainment options on-site and nearby is unmatched.',
 		@hotelPhoneNumber='1-866-500-4938',
@@ -1984,7 +1985,7 @@ exec spHotelsCrud @crud='c',
 
 exec spHotelsCrud @crud='c',
 		@hotelName='Royal Albert Arms',
-		@hotelPrice=20,
+		@hotelPrice = 0,
 		@hotelStars='0',
 		@hotelDescription='The Royal Albert Hotel with its 54 rooms, restaurant, coffee shop and cigar stand opened its doors on November 5, 1913.  The façade of the hotel was designed with a continental flair. A red-tiled roof forms a cornice over a brick front accentuated with ornamental iron fretwork, elaborate iron lights and arched main floor windows and doors which combine to create an Italian effect.',
 		@hotelPhoneNumber='204-943-8433',
@@ -2008,7 +2009,7 @@ exec spHotelsCrud @crud = 'c',
 
 exec spHotelsCrud @crud='c',
 		@hotelName='Viscount Gort Hotel',
-		@hotelPrice=115,
+		@hotelPrice = 115,
 		@hotelStars='***',
 		@hotelDescription='Pronounced vī kount, the Viscount Gort is located minutes from Polo Park Shopping Centre.  We offer free parking for our guests and a free shuttle to and from the airport. City buses stop close by and there are plenty of taxi and limo services always available.',
 		@hotelPhoneNumber='1-800-665-1122',
@@ -2040,8 +2041,8 @@ as begin
 end
 go
 
-exec spGetSchoolTypes
-go
+--exec spGetSchoolTypes
+--go
 
 --  School Table and Procedures  --
 
