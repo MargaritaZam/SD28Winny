@@ -1775,6 +1775,29 @@ exec spAboutCrud @crud = 'c',
 
 --  Hotel Table and Procedures  --
 
+create table tbHotelStars
+(
+	StarsID int identity(0,1) primary key,
+	NumberOfStars varchar(12)
+)
+insert into tbHotelStars (NumberOfStars) values
+	('0'),   ('*'),    ('* *'),
+	('* * *'), ('* * * *'), ('* * * * *')
+go
+
+create procedure spHotelStars
+(
+	@starsID int = null ,
+	@numberStars varchar(12) = null
+)
+as begin
+	select * from tbHotelStars where StarsID = isnull(@starsID, StarsID)
+end
+go
+
+--exec spHotelStars
+--go
+
 create table tbHotels
 (
 	HotelID int identity(1,1) primary key,
@@ -1837,7 +1860,6 @@ as begin
 		delete from tbHotels where HotelID = @hotelID
 	end
 end
-go
 
 exec spHotelsCrud @crud = 'c',
 		@hotelName = 'Alt Hotel Winnipeg',
@@ -1847,7 +1869,7 @@ exec spHotelsCrud @crud = 'c',
 		@hotelPhoneNumber = '1-844-946-6258',
 		@hotelAddress = '310 Donald Street',
 		@hotelPostalCode = 'R3B 2H3',
-		@hotelWebsite = 'althotels.com/en/winnipeg/',
+		@hotelWebsite = 'http://www.althotels.com/en/winnipeg/',
 		@hotel_path = 'AltHotel.jpg',
 		@hotelLocationId = 9
 
@@ -1859,7 +1881,7 @@ exec spHotelsCrud @crud='c',
 		@hotelPhoneNumber='204-594-9472',
 		@hotelAddress='720 William Avenue',
 		@hotelPostalCode='R3E 3J7',
-		@hotelWebsite='www.canadinns.com/stay/health-sciences-centre',
+		@hotelWebsite='http://www.canadinns.com/stay/health-sciences-centre/',
 		@hotel_path='CanadInnsHSC.png',
 		@hotelLocationId=9
 			  
@@ -1872,7 +1894,7 @@ exec spHotelsCrud @crud='c',
 		@hotelPhoneNumber='204-774-5110',
 		@hotelAddress='1445 Portage Avenue',
 		@hotelPostalCode='R3G 3P4',
-		@hotelWebsite='www.clarionhotelwinnipeg.com',
+		@hotelWebsite='http://www.clarionhotelwinnipeg.com/',
 		@hotel_path='ClarionPoloPark.jpg',
 		@hotelLocationId=7
 
@@ -1884,7 +1906,7 @@ exec spHotelsCrud @crud='c',
 		@hotelPhoneNumber='204-942-0551',
 		@hotelAddress='350 St Mary Avenue',
 		@hotelPostalCode='R3C 3J2',
-		@hotelWebsite='www.marriott.com/hotels/travel/ywgdw-delta-hotels-winnipeg',
+		@hotelWebsite='http://www.marriott.com/hotels/travel/ywgdw-delta-hotels-winnipeg/',
 		@hotel_path='DeltaHotel.png',
 		@hotelLocationId=9
 
@@ -1896,7 +1918,7 @@ exec spHotelsCrud @crud = 'c',
 		@hotelPhoneNumber = '204-255-7100',
 		@hotelAddress = '690 Notre Dame Avenue',
 		@hotelPostalCode = 'R3E 0L7',
-		@hotelWebsite = 'www.econolodge.com',
+		@hotelWebsite = 'http://www.econolodge.com/',
 		@hotel_path = 'EconoLodgeND.jpg',
 		@hotelLocationId = 9
 
@@ -1908,6 +1930,7 @@ exec spHotelsCrud @crud='c',
 		@hotelPhoneNumber='204-942-8251',
 		@hotelAddress='222 Broadway',
 		@hotelPostalCode='R3C 0R3',
+		@hotelWebsite = 'https://www.fortgarryhotel.com/',
 		@hotel_path='FortGarryHotel.jpg',
 		@hotelLocationId=9
 
@@ -1919,7 +1942,7 @@ exec spHotelsCrud @crud='c',
 		@hotelPhoneNumber='204-783-1700',
 		@hotelAddress='1800 Wellington Avenue',
 		@hotelPostalCode='R3H 1B2',
-		@hotelWebsite='www3.hilton.com/en/hotels/manitoba/hilton-winnipeg-airport-suites-YWGWIHF/index.html',
+		@hotelWebsite='http://www3.hilton.com/en/hotels/manitoba/hilton-winnipeg-airport-suites-YWGWIHF/index.html/',
 		@hotel_path='HiltonAirport.jpg',
 		@hotelLocationId=10
 
@@ -1931,19 +1954,19 @@ exec spHotelsCrud @crud='c',
 		@hotelPhoneNumber='1-866-500-4938',
 		@hotelAddress='75 Forks Market Road',
 		@hotelPostalCode='R3C 0A2',
-		@hotelWebsite='www.innforks.com',
+		@hotelWebsite='http://www.innforks.com/',
 		@hotel_path='InnAtTheForks.jpg',
 		@hotelLocationId=9
 
 exec spHotelsCrud @crud = 'c',
 		@hotelName = 'Queen Bee Hotel',
-		@hotelPrice = '89',
+		@hotelPrice = 89,
 		@hotelStars = '**',
 		@hotelDescription = 'Located just outside of the main gates of the University of Manitoba, the Queen Bee Hotel is within walking distance to many restaurants, cultural venues and other conveniences.',
 		@hotelPhoneNumber = '204-269-4666',
 		@hotelAddress = '2615 Pembina Hwy.',
 		@hotelPostalCode = 'R3T 2H5',
-		@hotelWebsite = 'www.queenbeehotel.com',
+		@hotelWebsite = 'http://www.queenbeehotel.com/',
 		@hotel_path = 'QueenBee.jpg',
 		@hotelLocationId = 5
 
@@ -1955,13 +1978,13 @@ exec spHotelsCrud @crud='c',
 		@hotelPhoneNumber='204-956-0410',
 		@hotelAddress='288 Portage Avenue',
 		@hotelPostalCode='R3C 0B8',
-		@hotelWebsite='www.radisson.com/winnipeg-hotel-mb-r3c0b8/mbwinnip',
+		@hotelWebsite='http://www.radisson.com/winnipeg-hotel-mb-r3c0b8/mbwinnip/',
 		@hotel_path='RadissonHotel.jpg',
 		@hotelLocationId=9
 
 exec spHotelsCrud @crud='c',
 		@hotelName='Royal Albert Arms',
-		@hotelPrice=0,
+		@hotelPrice=20,
 		@hotelStars='0',
 		@hotelDescription='The Royal Albert Hotel with its 54 rooms, restaurant, coffee shop and cigar stand opened its doors on November 5, 1913.  The façade of the hotel was designed with a continental flair. A red-tiled roof forms a cornice over a brick front accentuated with ornamental iron fretwork, elaborate iron lights and arched main floor windows and doors which combine to create an Italian effect.',
 		@hotelPhoneNumber='204-943-8433',
@@ -1979,7 +2002,7 @@ exec spHotelsCrud @crud = 'c',
 		@hotelPhoneNumber = '204-255-6000',
 		@hotelAddress = '20 Alpine Avenue',
 		@hotelPostalCode = 'R2M 0Y5',
-		@hotelWebsite = 'www.wyndhamhotels.com',
+		@hotelWebsite = 'http://www.wyndhamhotels.com/',
 		@hotel_path = 'TravelodgeEast.jpg',
 		@hotelLocationId = 4
 
@@ -1991,10 +2014,11 @@ exec spHotelsCrud @crud='c',
 		@hotelPhoneNumber='1-800-665-1122',
 		@hotelAddress='1670 Portage Avenue',
 		@hotelPostalCode='R3J 0C9',
-		@hotelWebsite='www.viscount-gort.com',
+		@hotelWebsite='http://www.viscount-gort.com/',
 		@hotel_path='ViscountGort.png',
 		@hotelLocationId=7
-go
+
+exec spHotelsCrud @crud = 'r'
 
 --  Universities and Colleges  --
 --  School Types Table and Procedures  --
@@ -2005,12 +2029,12 @@ create table tbTypeOfSchool
 	TypeOfSchool varchar(40)
 )
 insert into tbTypeOfSchool (TypeOfSchool) values
-	('Undergraduate'), ('Graduate / Undergraduate'), ('College')
+	('Undergraduate'), ('Graduate & Undergraduate'), ('College')
 go
 
 create procedure spGetSchoolTypes
 as begin
-select* from tbTypeOfSchool
+	select* from tbTypeOfSchool
 end
 go
 
@@ -2086,7 +2110,7 @@ exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolPhoneNumber = '204-942-3856',
 		@schoolAddress = '447 Webb Place',
 		@schoolPostalCode = 'R3B 2P2',
-		@schoolWebsite = 'www.boothuc.ca',
+		@schoolWebsite = 'http://www.boothuc.ca/',
 		@schoolDescription = 'William and Catherine Booth University College, rooted in The Salvation Army’s Wesleyan theological tradition, brings together Christian faith, rigorous scholarship and a passion for service.  A small campus with just 250 students, located in downtown Winnipeg.',
 		@school_path = 'BoothUC.png',
 		@schoolLocationId = 7
@@ -2097,7 +2121,7 @@ exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolPhoneNumber = '204-487-3300',
 		@schoolAddress = '500 Shaftesbury Boulevard',
 		@schoolPostalCode = 'R3P 2N2',
-		@schoolWebsite = 'www.cmu.ca/',
+		@schoolWebsite = 'http://www.cmu.ca/',
 		@schoolDescription = 'CMU offers comprehensive university education within a dynamic and diverse Christian community. Exemplary academic studies across the arts and sciences are distinguished by interdisciplinary interaction, experiential learning, and quality connection between students and faculty.',
 		@school_path = 'CanadianMennoniteUniversity.jpg',
 		@schoolLocationId = 9
@@ -2108,7 +2132,7 @@ exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolPhoneNumber = '204-775-8175',
 		@schoolAddress = '1700 Portage Avenue',
 		@schoolPostalCode = 'R3J 0E1',
-		@schoolWebsite = 'www.herzing.ca/winnipeg',
+		@schoolWebsite = 'http://www.herzing.ca/winnipeg/',
 		@schoolDescription = '',
 		@school_path = 'Herzing.png',
 		@schoolLocationId = 7
@@ -2119,7 +2143,7 @@ exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolPhoneNumber = '204-632-2327',
 		@schoolAddress = '2055 Notre Dame Avenue',
 		@schoolPostalCode = 'R3H 0J9',
-		@schoolWebsite = 'www.rrc.mb.ca',
+		@schoolWebsite = 'http://www.rrc.mb.ca/',
 		@schoolDescription = 'We have 4 campuses scattered throughout Winnipeg, and 5 more outside Winnipeg.  We are Manitoba’s largest institute of applied learning and research, with more than 200 full- and part-time degree, diploma and certificate options.  We have close to 22,000 students each year from more than 60 countries.',
 		@school_path = 'RedRiverCollege.jpg',
 		@schoolLocationId = 10
@@ -2130,7 +2154,7 @@ exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolPhoneNumber = '204-926-8325',
 		@schoolAddress = '265 Notre Dame Avenue',
 		@schoolPostalCode = 'R3B 1N9',
-		@schoolWebsite = 'www.robertsoncollege.com',
+		@schoolWebsite = 'http://www.robertsoncollege.com/',
 		@schoolDescription = 'Having been in operation for over 100 years, Robertson College has established itself as a leading private post-secondary institution in Canada.  There are 12 locations in Canada and one in China.',
 		@school_path = 'RobertsonCollege.png',
 		@schoolLocationId = 9
@@ -2141,7 +2165,7 @@ exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolPhoneNumber = '204-474-8880',
 		@schoolAddress = '66 Chancellors Circle',
 		@schoolPostalCode = 'R3T 2N2',
-		@schoolWebsite = 'www.umanitoba.ca',
+		@schoolWebsite = 'http://www.umanitoba.ca/',
 		@schoolDescription = 'Since 1877, the University of Manitoba has been driving discovery and inspiring minds through innovative teaching and research excellence. The U of M has 24,000 undergraduate and graduate students studying more than 90 degree programs.',
 		@school_path = 'UniversityManitoba.png',
 		@schoolLocationId = 5
