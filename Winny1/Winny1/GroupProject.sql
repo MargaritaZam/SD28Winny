@@ -360,6 +360,19 @@ as begin
 end
 go
 
+create procedure spGetStoreCategory(
+@storetype varchar(50)=null
+)
+as begin
+select CategoryType from tbShoppingCategories
+where CategoryType=isnull(@storetype, CategoryType)
+end
+go
+
+exec spGetStoreCategory
+go
+
+
 --exec spGetShoppingCategories
 --go
 
@@ -857,6 +870,15 @@ as begin
 	select * from tbFood_Category where FoodId=isnull(@FoodId,FoodId)
 end
 go
+--create procedure spLocation
+--(
+--@LocationId int=null ,
+--@LocationName varchar(30)=null
+--)
+--as begin
+--	select * from tbLocation where locationID=isnull(@LocationId,locationID)
+--end
+--go
 
 --  Restaurant Table and Procedures  --
 
@@ -874,7 +896,6 @@ create table tbRestaurants
 	LocationId int foreign key references tbLocation(LocationId)
 )
 go
-
 create procedure spRestaurants
 (
 	@RestaurantId int=null,
@@ -892,16 +913,16 @@ create procedure spRestaurants
 as begin
 	if @crud='a'
 	begin
-		select RestaurantName,Description,RestaurantId,'./Restaurant/' + path as path  from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId)
+		select RestaurantName,Description,RestaurantId,'./Restaurants/' + path as path  from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId)
 	end
 	else if @crud='r'
 	begin
-		select RestaurantId,RestaurantName,Address,ContactNo,Description,'./Restaurant/' + path as path,Website from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId)
+		select RestaurantId,RestaurantName,Address,ContactNo,Description,'./Restaurants/' + path as path,Website from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId)
 	end
 	else if @crud='s'  --  Select Restaurants, join with Location and Food Category
 	begin
 		
-			select RestaurantName,Description,RestaurantId,'./Restaurant/' + path as path  from tbRestaurants join tbFood_Category on
+			select RestaurantName,Description,RestaurantId,'./Restaurants/' + path as path  from tbRestaurants join tbFood_Category on
 			tbRestaurants.FoodId=tbFood_Category.FoodId join tbLocation on 
 			tbRestaurants.LocationId=tbLocation.LocationId 
 		where tbRestaurants.LocationId=ISNULL(@LocationId,tbRestaurants.LocationId)
@@ -1640,7 +1661,8 @@ exec spRestaurants @crud='c',
 		@FoodId=12,
 		@LocationId=3
 
---exec spRestaurants @crud='r'
+exec spRestaurants @crud='r'
+
 
 --  'About Winnipeg' Table and Procedures  --
 
@@ -2125,15 +2147,97 @@ exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolLocationId = 5
 go
 
-create table tbClients(
+create table tbUsers(
 id int identity (1,1) primary key,
 firstName varchar (50) not null,
 lastName varchar (50) not null,
 phoneNumber varchar (20) not null,
-Address varchar (120) not null,
-Email varchar (60) not null,
-Password varchar (30) not null,
-AccessLevel varchar(1),   
-path varchar(50)
+address varchar (max) not null,
+email varchar (60) not null,
+password varchar (30) not null,
+accessLevel varchar(1)
 )
 go
+create table tbWrongLogins(
+id int identity(1,1) primary key,
+email varchar (60)  null,
+password varchar (30)  null,
+date date 
+)
+go
+create procedure spUser(
+@id int=null,
+@firstName varchar (50)=null,
+@lastName varchar (50)=null,
+@phoneNumber varchar(20)= null,
+@address varchar (max)= null,
+@email varchar(60)=null,
+@password varchar(30)=null,
+@accessLevel varchar(1)=null,
+@crud varchar(10))
+as begin
+if @crud='r'
+begin
+select
+id,firstName,lastName,phoneNumber,address,email,password,accessLevel
+from tbUsers where id=isnull(@id,id)
+end
+else if
+@crud='c'
+begin
+insert into tbUsers(firstName,lastName,phoneNumber,address,email,password,accessLevel) values
+                    (@firstName,@lastName, @phoneNumber,@address,@email,@password,@accessLevel)  
+end
+else if
+@Crud='d'
+begin
+delete from tbUsers where id=@id
+end
+else if
+@Crud='u'
+begin
+update tbUsers set
+firstName=@firstName,
+lastName=@lastName,
+phoneNumber=@phoneNumber,
+address=@address,
+accessLevel=@accessLevel
+where id=@id
+end
+end
+go
+create procedure spLogin(
+@email varchar(60),
+@password varchar(30)
+)
+as begin
+declare @accessLevel varchar(1);
+if exists( select* from tbUsers where email=@email and
+          password=@password)
+begin
+select @accessLevel= accessLevel from tbUsers where email=@email and
+          password=@password
+select @accessLevel as access;
+if @accessLevel='c'or @accessLevel='a'
+begin
+select id, firstName +' ' +lastName as fullName from tbUsers 
+where email=@email
+end
+end
+else
+begin
+select 'x' as access, 'Invalid' as Id
+insert into tbWrongLogins(email,password,date) values(@email,@password,getdate())
+end
+end
+go
+select * from tbUsers
+go
+ exec spUser @crud='c', @firstName='Anjali', @lastName='Patel', @phoneNumber='777-55-55', @address='555 Main Str., Winnipeg, MB ',
+              @email='admin@winny', @password='pass1', @accessLevel='a' --a=admin
+ exec spUser @crud='c', @firstName='Margarita', @lastName='Zamoshch', @phoneNumber='222-55-55', @address='111 Main Str., Winnipeg, MB ',
+              @email='margo@winny', @password='pass2', @accessLevel='c' --c=client
+ exec spUser @crud='c', @firstName='Tracy', @lastName='McCormack', @phoneNumber='333-55-55', @address='444 Main Str., Winnipeg, MB ',
+              @email='tracy@winny', @password='pass3', @accessLevel='c' 
+ exec spUser @crud='c', @firstName='Natalia', @lastName='Shmer', @phoneNumber='555-55-55', @address='777 Main Str., Winnipeg, MB ',
+              @email='natalia@winny', @password='pass4', @accessLevel='c' 

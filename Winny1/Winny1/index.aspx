@@ -22,7 +22,8 @@
 
                     <li><a href="https://www.theweathernetwork.com/ca/weather/manitoba/winnipeg" ><strong>Winnipeg Weather</strong></a></li>
                     <li><a href="http://winnipegtransit.com/en" ><strong>Winnipeg Transit</strong></a></li>
-                    <li><a href="#" class="service_four">In aliquet in libero</a></li>
+                    <li><a href="https://goo.gl/maps/Bg8GWt8qps52"><strong>Map</strong></a></li>
+                   
                     <li><a href="#" class="service_five">Maecenas ut pretium</a></li>
                   </ul>
                 </div>

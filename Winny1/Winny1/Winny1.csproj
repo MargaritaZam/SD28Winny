@@ -79,6 +79,7 @@
     <Content Include="Anjali.sql" />
     <Content Include="attraction.aspx" />
     <Content Include="ChatBot.html" />
+    <Content Include="Client.aspx" />
     <Content Include="GroupProject.sql" />
     <Content Include="hotel.aspx" />
     <Content Include="HotelPictures\CanadInnsHSC.png" />
@@ -302,6 +303,13 @@
       <DependentUpon>attraction.aspx</DependentUpon>
     </Compile>
     <Compile Include="Attraction.cs" />
+    <Compile Include="Client.aspx.cs">
+      <DependentUpon>Client.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Client.aspx.designer.cs">
+      <DependentUpon>Client.aspx</DependentUpon>
+    </Compile>
     <Compile Include="hotel.aspx.cs">
       <DependentUpon>hotel.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
