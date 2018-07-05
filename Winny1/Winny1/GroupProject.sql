@@ -2165,6 +2165,8 @@ password varchar (30)  null,
 date date 
 )
 go
+select * from tbWrongLogins
+go
 create procedure spUser(
 @id int=null,
 @firstName varchar (50)=null,
@@ -2231,6 +2233,8 @@ insert into tbWrongLogins(email,password,date) values(@email,@password,getdate()
 end
 end
 go
+
+
 select * from tbUsers
 go
  exec spUser @crud='c', @firstName='Anjali', @lastName='Patel', @phoneNumber='777-55-55', @address='555 Main Str., Winnipeg, MB ',
