@@ -16,6 +16,23 @@ namespace Winny1
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
+            Security security = new Security();
+            if (security.Login(txtUserEmail.Text, txtPassword.Text))
+            {
+                if (security.access == "a")
+                {
+                    
+                    Response.Redirect("index.aspx");
+                }
+                else if (security.access == "c")
+                {
+                    Response.Redirect("Client.aspx");
+                }
+            }
+            else
+            {
+                lblMessage.Text = "Invalid Login";
+            }
 
         }
     }
