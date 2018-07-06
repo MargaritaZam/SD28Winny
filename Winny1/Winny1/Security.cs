@@ -30,7 +30,7 @@ namespace Winny1
                 // new Client()
                 // initialize Client()
                 User user = new User();
-                user.AccessLevel = ds.Tables[0].Rows[0]["accessLevel"].ToString();
+                user.AccessLevel = ds.Tables[0].Rows[0]["access"].ToString();
                 user.Id = Convert.ToInt32(ds.Tables[0].Rows[0]["id"]);
                 user.Address = ds.Tables[0].Rows[0]["address"].ToString();
                 user.FirstName = ds.Tables[0].Rows[0]["firstName"].ToString();
