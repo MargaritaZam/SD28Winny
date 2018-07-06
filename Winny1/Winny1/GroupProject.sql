@@ -870,6 +870,7 @@ as begin
 	select * from tbFood_Category where FoodId=isnull(@FoodId,FoodId)
 end
 go
+
 --create procedure spLocation
 --(
 --@LocationId int=null ,
@@ -1775,6 +1776,29 @@ exec spAboutCrud @crud = 'c',
 
 --  Hotel Table and Procedures  --
 
+create table tbHotelStars
+(
+	StarsID int identity(0,1) primary key,
+	NumberOfStars varchar(12)
+)
+insert into tbHotelStars (NumberOfStars) values
+	('0'),   ('*'),    ('* *'),
+	('* * *'), ('* * * *'), ('* * * * *')
+go
+
+create procedure spHotelStars
+(
+	@starsID int = null ,
+	@numberStars varchar(12) = null
+)
+as begin
+	select * from tbHotelStars where StarsID = isnull(@starsID, StarsID)
+end
+go
+
+--exec spHotelStars
+--go
+
 create table tbHotels
 (
 	HotelID int identity(1,1) primary key,
@@ -1795,27 +1819,27 @@ create procedure spHotelsCrud
 (
 	@hotelID int = null,
 	@hotelName	varchar(30) = null,
-	@hotelPrice int,
-	@hotelStars varchar(6),
+	@hotelPrice int = null,
+	@hotelStars varchar(6) = null,
 	@hotelDescription varchar(800) = null,
 	@hotelPhoneNumber varchar(15) = null,
 	@hotelAddress varchar(100) = null,
 	@hotelPostalCode varchar(7) = null,
 	@hotelWebsite varchar(100) = null,
 	@hotel_path varchar(200) = null,
-	@hotelLocationID int,
+	@hotelLocationID int = null,
 	@crud varchar(1)
 )
 as begin
 	if @crud='r'
 	begin
-		select HotelName, HotelPrice, HotelStars, HotelDescription, HotelPhoneNumber, HotelAddress, HotelPostalCode, HotelWebsite,'.\HotelPictures\' + Hotel_path as Hotel_path from tbHotels where HotelId=isnull(@hotelId,HotelId)
+		select HotelName, HotelPrice, HotelStars, HotelDescription, HotelPhoneNumber, HotelAddress, HotelPostalCode, HotelWebsite,'.\HotelPictures\' + Hotel_path as Hotel_path from tbHotels where HotelId = isnull(@hotelId,HotelId)
 	end
 	else if @crud='c'
 	begin
-		insert into tbHotels(HotelName,HotelPrice,HotelStars,HotelDescription,HotelPhoneNumber,HotelAddress,HotelPostalCode,HotelWebsite,Hotel_path,HotelLocationID)
+		insert into tbHotels(HotelName, HotelPrice, HotelStars, HotelDescription, HotelPhoneNumber, HotelAddress, HotelPostalCode, HotelWebsite, Hotel_path, HotelLocationID)
 								values
-								(@hotelName,@hotelPrice,@hotelStars,@hotelDescription,@hotelPhoneNumber,@hotelAddress,@hotelPostalCode,@hotelWebsite,@hotel_path,@hotelLocationID)
+							(@hotelName,@hotelPrice,@hotelStars,@hotelDescription,@hotelPhoneNumber,@hotelAddress,@hotelPostalCode,@hotelWebsite,@hotel_path,@hotelLocationID)
 	end
 	else if @crud='u'
 	begin
@@ -1847,7 +1871,7 @@ exec spHotelsCrud @crud = 'c',
 		@hotelPhoneNumber = '1-844-946-6258',
 		@hotelAddress = '310 Donald Street',
 		@hotelPostalCode = 'R3B 2H3',
-		@hotelWebsite = 'althotels.com/en/winnipeg/',
+		@hotelWebsite = 'http://www.althotels.com/en/winnipeg/',
 		@hotel_path = 'AltHotel.jpg',
 		@hotelLocationId = 9
 
@@ -1859,11 +1883,10 @@ exec spHotelsCrud @crud='c',
 		@hotelPhoneNumber='204-594-9472',
 		@hotelAddress='720 William Avenue',
 		@hotelPostalCode='R3E 3J7',
-		@hotelWebsite='www.canadinns.com/stay/health-sciences-centre',
+		@hotelWebsite='http://www.canadinns.com/stay/health-sciences-centre/',
 		@hotel_path='CanadInnsHSC.png',
 		@hotelLocationId=9
 			  
-
 exec spHotelsCrud @crud='c',
 		@hotelName='Clarion Hotel & Suites',
 		@hotelPrice=149,
@@ -1872,7 +1895,7 @@ exec spHotelsCrud @crud='c',
 		@hotelPhoneNumber='204-774-5110',
 		@hotelAddress='1445 Portage Avenue',
 		@hotelPostalCode='R3G 3P4',
-		@hotelWebsite='www.clarionhotelwinnipeg.com',
+		@hotelWebsite='http://www.clarionhotelwinnipeg.com/',
 		@hotel_path='ClarionPoloPark.jpg',
 		@hotelLocationId=7
 
@@ -1884,7 +1907,7 @@ exec spHotelsCrud @crud='c',
 		@hotelPhoneNumber='204-942-0551',
 		@hotelAddress='350 St Mary Avenue',
 		@hotelPostalCode='R3C 3J2',
-		@hotelWebsite='www.marriott.com/hotels/travel/ywgdw-delta-hotels-winnipeg',
+		@hotelWebsite='http://www.marriott.com/hotels/travel/ywgdw-delta-hotels-winnipeg/',
 		@hotel_path='DeltaHotel.png',
 		@hotelLocationId=9
 
@@ -1896,7 +1919,7 @@ exec spHotelsCrud @crud = 'c',
 		@hotelPhoneNumber = '204-255-7100',
 		@hotelAddress = '690 Notre Dame Avenue',
 		@hotelPostalCode = 'R3E 0L7',
-		@hotelWebsite = 'www.econolodge.com',
+		@hotelWebsite = 'http://www.econolodge.com/',
 		@hotel_path = 'EconoLodgeND.jpg',
 		@hotelLocationId = 9
 
@@ -1908,42 +1931,43 @@ exec spHotelsCrud @crud='c',
 		@hotelPhoneNumber='204-942-8251',
 		@hotelAddress='222 Broadway',
 		@hotelPostalCode='R3C 0R3',
+		@hotelWebsite = 'https://www.fortgarryhotel.com/',
 		@hotel_path='FortGarryHotel.jpg',
 		@hotelLocationId=9
 
 exec spHotelsCrud @crud='c',
 		@hotelName='Hilton Winnipeg Airport Suites',
-		@hotelPrice=123,
+		@hotelPrice = 123,
 		@hotelStars='***',
 		@hotelDescription='Located in Winnipeg Airport Industrial Park, we provide easy access to downtown Winnipeg. Use the complimentary airport shuttle service to/from the hotel. Polo Park Mall, the largest shopping center in Manitoba with over 200 stores, is less than 2 miles away. We’re also a short drive to the newest Outlet Collection Winnipeg.',
 		@hotelPhoneNumber='204-783-1700',
 		@hotelAddress='1800 Wellington Avenue',
 		@hotelPostalCode='R3H 1B2',
-		@hotelWebsite='www3.hilton.com/en/hotels/manitoba/hilton-winnipeg-airport-suites-YWGWIHF/index.html',
+		@hotelWebsite='http://www3.hilton.com/en/hotels/manitoba/hilton-winnipeg-airport-suites-YWGWIHF/index.html/',
 		@hotel_path='HiltonAirport.jpg',
 		@hotelLocationId=10
 
 exec spHotelsCrud @crud='c',
 		@hotelName='Inn at the Forks',
-		@hotelPrice=186,
+		@hotelPrice = 186,
 		@hotelStars='***',
 		@hotelDescription='Located in downtown Winnipeg at The Forks, our top tourism attraction, you''re immersed in a convergence of cultures – Aboriginal, French Canadian and Manitoban – at a 6,000-year-old meeting place. The myriad of shopping, arts, and entertainment options on-site and nearby is unmatched.',
 		@hotelPhoneNumber='1-866-500-4938',
 		@hotelAddress='75 Forks Market Road',
 		@hotelPostalCode='R3C 0A2',
-		@hotelWebsite='www.innforks.com',
+		@hotelWebsite='http://www.innforks.com/',
 		@hotel_path='InnAtTheForks.jpg',
 		@hotelLocationId=9
 
 exec spHotelsCrud @crud = 'c',
 		@hotelName = 'Queen Bee Hotel',
-		@hotelPrice = '89',
+		@hotelPrice = 89,
 		@hotelStars = '**',
 		@hotelDescription = 'Located just outside of the main gates of the University of Manitoba, the Queen Bee Hotel is within walking distance to many restaurants, cultural venues and other conveniences.',
 		@hotelPhoneNumber = '204-269-4666',
 		@hotelAddress = '2615 Pembina Hwy.',
 		@hotelPostalCode = 'R3T 2H5',
-		@hotelWebsite = 'www.queenbeehotel.com',
+		@hotelWebsite = 'http://www.queenbeehotel.com/',
 		@hotel_path = 'QueenBee.jpg',
 		@hotelLocationId = 5
 
@@ -1955,13 +1979,13 @@ exec spHotelsCrud @crud='c',
 		@hotelPhoneNumber='204-956-0410',
 		@hotelAddress='288 Portage Avenue',
 		@hotelPostalCode='R3C 0B8',
-		@hotelWebsite='www.radisson.com/winnipeg-hotel-mb-r3c0b8/mbwinnip',
+		@hotelWebsite='http://www.radisson.com/winnipeg-hotel-mb-r3c0b8/mbwinnip/',
 		@hotel_path='RadissonHotel.jpg',
 		@hotelLocationId=9
 
 exec spHotelsCrud @crud='c',
 		@hotelName='Royal Albert Arms',
-		@hotelPrice=0,
+		@hotelPrice = 0,
 		@hotelStars='0',
 		@hotelDescription='The Royal Albert Hotel with its 54 rooms, restaurant, coffee shop and cigar stand opened its doors on November 5, 1913.  The façade of the hotel was designed with a continental flair. A red-tiled roof forms a cornice over a brick front accentuated with ornamental iron fretwork, elaborate iron lights and arched main floor windows and doors which combine to create an Italian effect.',
 		@hotelPhoneNumber='204-943-8433',
@@ -1979,38 +2003,41 @@ exec spHotelsCrud @crud = 'c',
 		@hotelPhoneNumber = '204-255-6000',
 		@hotelAddress = '20 Alpine Avenue',
 		@hotelPostalCode = 'R2M 0Y5',
-		@hotelWebsite = 'www.wyndhamhotels.com',
+		@hotelWebsite = 'http://www.wyndhamhotels.com/',
 		@hotel_path = 'TravelodgeEast.jpg',
 		@hotelLocationId = 4
 
 exec spHotelsCrud @crud='c',
 		@hotelName='Viscount Gort Hotel',
-		@hotelPrice=115,
+		@hotelPrice = 115,
 		@hotelStars='***',
 		@hotelDescription='Pronounced vī kount, the Viscount Gort is located minutes from Polo Park Shopping Centre.  We offer free parking for our guests and a free shuttle to and from the airport. City buses stop close by and there are plenty of taxi and limo services always available.',
 		@hotelPhoneNumber='1-800-665-1122',
 		@hotelAddress='1670 Portage Avenue',
 		@hotelPostalCode='R3J 0C9',
-		@hotelWebsite='www.viscount-gort.com',
+		@hotelWebsite='http://www.viscount-gort.com/',
 		@hotel_path='ViscountGort.png',
 		@hotelLocationId=7
-go
+
+exec spHotelsCrud @crud = 'r'
 
 --  Universities and Colleges  --
+
 --  School Types Table and Procedures  --
 
-create table tbTypeOfSchool
+go
+create table tbSchoolTypes
 (
-	TypeOfSchoolID int identity(1,1) primary key,
-	TypeOfSchool varchar(40)
+	SchTypeID int identity(1,1) primary key,
+	SchType varchar(40)
 )
-insert into tbTypeOfSchool (TypeOfSchool) values
-	('Undergraduate'), ('Graduate / Undergraduate'), ('College')
+insert into tbSchoolTypes (SchType) values
+	('Undergraduate'), ('Graduate & Undergraduate'), ('College')
 go
 
 create procedure spGetSchoolTypes
 as begin
-select* from tbTypeOfSchool
+	select * from tbSchoolTypes
 end
 go
 
@@ -2023,7 +2050,7 @@ create table tbUniversitiesColleges
 (
 	SchoolID int identity(1,1) primary key,
 	SchoolName varchar(50),
-	SchoolType int foreign key references tbTypeOfSchool(TypeOfSchoolID),
+	SchoolTypeId int foreign key references tbSchoolTypes(SchTypeID),
 	SchoolPhoneNumber varchar(15),
 	SchoolAddress varchar(100),
 	SchoolPostalCode varchar(7),
@@ -2038,7 +2065,7 @@ create procedure spSchoolsCrud
 (
 	@schoolID int = null,
 	@schoolName varchar(50) = null,
-	@schoolType int = null,
+	@schoolTypeId int = null,
 	@schoolPhoneNumber varchar(15) = null,
 	@schoolAddress varchar(100) = null,
 	@schoolPostalCode varchar(7) = null,
@@ -2051,19 +2078,19 @@ create procedure spSchoolsCrud
 as begin
 	if @schoolCrud='r'
 	begin
-		select SchoolName, SchoolType, SchoolPhoneNumber, SchoolAddress, SchoolPostalCode, SchoolWebsite, SchoolDescription,'.\SchoolPictures\' + School_path as School_path from tbUniversitiesColleges where SchoolId=isnull(@SchoolId,SchoolId)
+		select SchoolName, SchoolTypeId, SchoolPhoneNumber, SchoolAddress, SchoolPostalCode, SchoolWebsite, SchoolDescription,'.\SchoolPictures\' + School_path as School_path from tbUniversitiesColleges where SchoolId=isnull(@schoolID,SchoolID)
 	end
 	else if @schoolCrud='c'
 	begin
-		insert into tbUniversitiesColleges(SchoolName,SchoolType,SchoolPhoneNumber,SchoolAddress,SchoolPostalCode,SchoolWebsite,SchoolDescription,School_path,SchoolLocationID)
+		insert into tbUniversitiesColleges(SchoolName,SchoolTypeId,SchoolPhoneNumber,SchoolAddress,SchoolPostalCode,SchoolWebsite,SchoolDescription,School_path,SchoolLocationID)
 								values
-								(@schoolName,@schoolType,@schoolPhoneNumber,@schoolAddress,@schoolPostalCode,@schoolWebsite,@schoolDescription,@school_path,@schoolLocationID)
+								(@schoolName,@schoolTypeId,@schoolPhoneNumber,@schoolAddress,@schoolPostalCode,@schoolWebsite,@schoolDescription,@school_path,@schoolLocationID)
 	end
 	else if @schoolCrud='u'
 	begin
 		update tbUniversitiesColleges set
 			   SchoolName = @schoolName,
-			   SchoolType = @schoolType,
+			   SchoolTypeId = @schoolTypeId,
 			   SchoolPhoneNumber = @schoolPhoneNumber,
 			   SchoolAddress = @schoolAddress,
 			   SchoolPostalCode = @schoolPostalCode,
@@ -2082,66 +2109,66 @@ go
 
 exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolName = 'Booth University College',
-		@schoolType = 3,
+		@schoolTypeId = 3,
 		@schoolPhoneNumber = '204-942-3856',
 		@schoolAddress = '447 Webb Place',
 		@schoolPostalCode = 'R3B 2P2',
-		@schoolWebsite = 'www.boothuc.ca',
+		@schoolWebsite = 'http://www.boothuc.ca/',
 		@schoolDescription = 'William and Catherine Booth University College, rooted in The Salvation Army’s Wesleyan theological tradition, brings together Christian faith, rigorous scholarship and a passion for service.  A small campus with just 250 students, located in downtown Winnipeg.',
 		@school_path = 'BoothUC.png',
 		@schoolLocationId = 7
 
 exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolName = 'Canadian Mennonite University',
-		@schoolType = 1,
+		@schoolTypeId = 1,
 		@schoolPhoneNumber = '204-487-3300',
 		@schoolAddress = '500 Shaftesbury Boulevard',
 		@schoolPostalCode = 'R3P 2N2',
-		@schoolWebsite = 'www.cmu.ca/',
+		@schoolWebsite = 'http://www.cmu.ca/',
 		@schoolDescription = 'CMU offers comprehensive university education within a dynamic and diverse Christian community. Exemplary academic studies across the arts and sciences are distinguished by interdisciplinary interaction, experiential learning, and quality connection between students and faculty.',
 		@school_path = 'CanadianMennoniteUniversity.jpg',
 		@schoolLocationId = 9
 
 exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolName = 'Herzing College Winnipeg',
-		@schoolType = 3,
+		@schoolTypeId = 3,
 		@schoolPhoneNumber = '204-775-8175',
 		@schoolAddress = '1700 Portage Avenue',
 		@schoolPostalCode = 'R3J 0E1',
-		@schoolWebsite = 'www.herzing.ca/winnipeg',
+		@schoolWebsite = 'http://www.herzing.ca/winnipeg/',
 		@schoolDescription = '',
 		@school_path = 'Herzing.png',
 		@schoolLocationId = 7
 
 exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolName = 'Red River College',
-		@schoolType = 3,
+		@schoolTypeId = 3,
 		@schoolPhoneNumber = '204-632-2327',
 		@schoolAddress = '2055 Notre Dame Avenue',
 		@schoolPostalCode = 'R3H 0J9',
-		@schoolWebsite = 'www.rrc.mb.ca',
+		@schoolWebsite = 'http://www.rrc.mb.ca/',
 		@schoolDescription = 'We have 4 campuses scattered throughout Winnipeg, and 5 more outside Winnipeg.  We are Manitoba’s largest institute of applied learning and research, with more than 200 full- and part-time degree, diploma and certificate options.  We have close to 22,000 students each year from more than 60 countries.',
 		@school_path = 'RedRiverCollege.jpg',
 		@schoolLocationId = 10
 
 exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolName = 'Robertson College',
-		@schoolType = 3,
+		@schoolTypeId = 3,
 		@schoolPhoneNumber = '204-926-8325',
 		@schoolAddress = '265 Notre Dame Avenue',
 		@schoolPostalCode = 'R3B 1N9',
-		@schoolWebsite = 'www.robertsoncollege.com',
+		@schoolWebsite = 'http://www.robertsoncollege.com/',
 		@schoolDescription = 'Having been in operation for over 100 years, Robertson College has established itself as a leading private post-secondary institution in Canada.  There are 12 locations in Canada and one in China.',
 		@school_path = 'RobertsonCollege.png',
 		@schoolLocationId = 9
 
 exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolName = 'University of Manitoba',
-		@schoolType = 2,
+		@schoolTypeId = 2,
 		@schoolPhoneNumber = '204-474-8880',
 		@schoolAddress = '66 Chancellors Circle',
 		@schoolPostalCode = 'R3T 2N2',
-		@schoolWebsite = 'www.umanitoba.ca',
+		@schoolWebsite = 'http://www.umanitoba.ca/',
 		@schoolDescription = 'Since 1877, the University of Manitoba has been driving discovery and inspiring minds through innovative teaching and research excellence. The U of M has 24,000 undergraduate and graduate students studying more than 90 degree programs.',
 		@school_path = 'UniversityManitoba.png',
 		@schoolLocationId = 5
@@ -2164,6 +2191,8 @@ email varchar (60)  null,
 password varchar (30)  null,
 date date 
 )
+go
+select * from tbWrongLogins
 go
 create procedure spUser(
 @id int=null,
@@ -2231,6 +2260,8 @@ insert into tbWrongLogins(email,password,date) values(@email,@password,getdate()
 end
 end
 go
+
+
 select * from tbUsers
 go
  exec spUser @crud='c', @firstName='Anjali', @lastName='Patel', @phoneNumber='777-55-55', @address='555 Main Str., Winnipeg, MB ',

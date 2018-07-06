@@ -66,8 +66,9 @@ namespace Winny1
             //btnprevious.Enabled = !adsource.IsFirstPage;
             //btnlast.Enabled = !adsource.IsLastPage;
             //btnnext.Enabled = !adsource.IsLastPage;
-            //dlRestaurant.DataSource = adsource;
-            //dlRestaurant.DataBind();
+            //just comment
+            dlRestaurant.DataSource = rs.LoadRestaurant();
+            dlRestaurant.DataBind();
 
 
 
