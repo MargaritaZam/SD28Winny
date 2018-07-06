@@ -870,6 +870,7 @@ as begin
 	select * from tbFood_Category where FoodId=isnull(@FoodId,FoodId)
 end
 go
+
 --create procedure spLocation
 --(
 --@LocationId int=null ,
@@ -1824,27 +1825,27 @@ create procedure spHotelsCrud
 (
 	@hotelID int = null,
 	@hotelName	varchar(30) = null,
-	@hotelPrice int,
-	@hotelStars varchar(6),
+	@hotelPrice int = null,
+	@hotelStars varchar(6) = null,
 	@hotelDescription varchar(800) = null,
 	@hotelPhoneNumber varchar(15) = null,
 	@hotelAddress varchar(100) = null,
 	@hotelPostalCode varchar(7) = null,
 	@hotelWebsite varchar(100) = null,
 	@hotel_path varchar(200) = null,
-	@hotelLocationID int,
+	@hotelLocationID int = null,
 	@crud varchar(1)
 )
 as begin
 	if @crud='r'
 	begin
-		select HotelName, HotelPrice, HotelStars, HotelDescription, HotelPhoneNumber, HotelAddress, HotelPostalCode, HotelWebsite,'.\HotelPictures\' + Hotel_path as Hotel_path from tbHotels where HotelId=isnull(@hotelId,HotelId)
+		select HotelName, HotelPrice, HotelStars, HotelDescription, HotelPhoneNumber, HotelAddress, HotelPostalCode, HotelWebsite,'.\HotelPictures\' + Hotel_path as Hotel_path from tbHotels where HotelId = isnull(@hotelId,HotelId)
 	end
 	else if @crud='c'
 	begin
-		insert into tbHotels(HotelName,HotelPrice,HotelStars,HotelDescription,HotelPhoneNumber,HotelAddress,HotelPostalCode,HotelWebsite,Hotel_path,HotelLocationID)
+		insert into tbHotels(HotelName, HotelPrice, HotelStars, HotelDescription, HotelPhoneNumber, HotelAddress, HotelPostalCode, HotelWebsite, Hotel_path, HotelLocationID)
 								values
-								(@hotelName,@hotelPrice,@hotelStars,@hotelDescription,@hotelPhoneNumber,@hotelAddress,@hotelPostalCode,@hotelWebsite,@hotel_path,@hotelLocationID)
+							(@hotelName,@hotelPrice,@hotelStars,@hotelDescription,@hotelPhoneNumber,@hotelAddress,@hotelPostalCode,@hotelWebsite,@hotel_path,@hotelLocationID)
 	end
 	else if @crud='u'
 	begin
@@ -1866,6 +1867,7 @@ as begin
 		delete from tbHotels where HotelID = @hotelID
 	end
 end
+go
 
 exec spHotelsCrud @crud = 'c',
 		@hotelName = 'Alt Hotel Winnipeg',
@@ -1891,7 +1893,6 @@ exec spHotelsCrud @crud='c',
 		@hotel_path='CanadInnsHSC.png',
 		@hotelLocationId=9
 			  
-
 exec spHotelsCrud @crud='c',
 		@hotelName='Clarion Hotel & Suites',
 		@hotelPrice=149,
@@ -1942,7 +1943,7 @@ exec spHotelsCrud @crud='c',
 
 exec spHotelsCrud @crud='c',
 		@hotelName='Hilton Winnipeg Airport Suites',
-		@hotelPrice=123,
+		@hotelPrice = 123,
 		@hotelStars='***',
 		@hotelDescription='Located in Winnipeg Airport Industrial Park, we provide easy access to downtown Winnipeg. Use the complimentary airport shuttle service to/from the hotel. Polo Park Mall, the largest shopping center in Manitoba with over 200 stores, is less than 2 miles away. We’re also a short drive to the newest Outlet Collection Winnipeg.',
 		@hotelPhoneNumber='204-783-1700',
@@ -1954,7 +1955,7 @@ exec spHotelsCrud @crud='c',
 
 exec spHotelsCrud @crud='c',
 		@hotelName='Inn at the Forks',
-		@hotelPrice=186,
+		@hotelPrice = 186,
 		@hotelStars='***',
 		@hotelDescription='Located in downtown Winnipeg at The Forks, our top tourism attraction, you''re immersed in a convergence of cultures – Aboriginal, French Canadian and Manitoban – at a 6,000-year-old meeting place. The myriad of shopping, arts, and entertainment options on-site and nearby is unmatched.',
 		@hotelPhoneNumber='1-866-500-4938',
@@ -1990,7 +1991,7 @@ exec spHotelsCrud @crud='c',
 
 exec spHotelsCrud @crud='c',
 		@hotelName='Royal Albert Arms',
-		@hotelPrice=20,
+		@hotelPrice = 0,
 		@hotelStars='0',
 		@hotelDescription='The Royal Albert Hotel with its 54 rooms, restaurant, coffee shop and cigar stand opened its doors on November 5, 1913.  The façade of the hotel was designed with a continental flair. A red-tiled roof forms a cornice over a brick front accentuated with ornamental iron fretwork, elaborate iron lights and arched main floor windows and doors which combine to create an Italian effect.',
 		@hotelPhoneNumber='204-943-8433',
@@ -2014,7 +2015,7 @@ exec spHotelsCrud @crud = 'c',
 
 exec spHotelsCrud @crud='c',
 		@hotelName='Viscount Gort Hotel',
-		@hotelPrice=115,
+		@hotelPrice = 115,
 		@hotelStars='***',
 		@hotelDescription='Pronounced vī kount, the Viscount Gort is located minutes from Polo Park Shopping Centre.  We offer free parking for our guests and a free shuttle to and from the airport. City buses stop close by and there are plenty of taxi and limo services always available.',
 		@hotelPhoneNumber='1-800-665-1122',
@@ -2027,20 +2028,22 @@ exec spHotelsCrud @crud='c',
 exec spHotelsCrud @crud = 'r'
 
 --  Universities and Colleges  --
+
 --  School Types Table and Procedures  --
 
-create table tbTypeOfSchool
+go
+create table tbSchoolTypes
 (
-	TypeOfSchoolID int identity(1,1) primary key,
-	TypeOfSchool varchar(40)
+	SchTypeID int identity(1,1) primary key,
+	SchType varchar(40)
 )
-insert into tbTypeOfSchool (TypeOfSchool) values
+insert into tbSchoolTypes (SchType) values
 	('Undergraduate'), ('Graduate & Undergraduate'), ('College')
 go
 
 create procedure spGetSchoolTypes
 as begin
-	select* from tbTypeOfSchool
+	select * from tbSchoolTypes
 end
 go
 
@@ -2053,7 +2056,7 @@ create table tbUniversitiesColleges
 (
 	SchoolID int identity(1,1) primary key,
 	SchoolName varchar(50),
-	SchoolType int foreign key references tbTypeOfSchool(TypeOfSchoolID),
+	SchoolTypeId int foreign key references tbSchoolTypes(SchTypeID),
 	SchoolPhoneNumber varchar(15),
 	SchoolAddress varchar(100),
 	SchoolPostalCode varchar(7),
@@ -2068,7 +2071,7 @@ create procedure spSchoolsCrud
 (
 	@schoolID int = null,
 	@schoolName varchar(50) = null,
-	@schoolType int = null,
+	@schoolTypeId int = null,
 	@schoolPhoneNumber varchar(15) = null,
 	@schoolAddress varchar(100) = null,
 	@schoolPostalCode varchar(7) = null,
@@ -2081,19 +2084,19 @@ create procedure spSchoolsCrud
 as begin
 	if @schoolCrud='r'
 	begin
-		select SchoolName, SchoolType, SchoolPhoneNumber, SchoolAddress, SchoolPostalCode, SchoolWebsite, SchoolDescription,'.\SchoolPictures\' + School_path as School_path from tbUniversitiesColleges where SchoolId=isnull(@SchoolId,SchoolId)
+		select SchoolName, SchoolTypeId, SchoolPhoneNumber, SchoolAddress, SchoolPostalCode, SchoolWebsite, SchoolDescription,'.\SchoolPictures\' + School_path as School_path from tbUniversitiesColleges where SchoolId=isnull(@schoolID,SchoolID)
 	end
 	else if @schoolCrud='c'
 	begin
-		insert into tbUniversitiesColleges(SchoolName,SchoolType,SchoolPhoneNumber,SchoolAddress,SchoolPostalCode,SchoolWebsite,SchoolDescription,School_path,SchoolLocationID)
+		insert into tbUniversitiesColleges(SchoolName,SchoolTypeId,SchoolPhoneNumber,SchoolAddress,SchoolPostalCode,SchoolWebsite,SchoolDescription,School_path,SchoolLocationID)
 								values
-								(@schoolName,@schoolType,@schoolPhoneNumber,@schoolAddress,@schoolPostalCode,@schoolWebsite,@schoolDescription,@school_path,@schoolLocationID)
+								(@schoolName,@schoolTypeId,@schoolPhoneNumber,@schoolAddress,@schoolPostalCode,@schoolWebsite,@schoolDescription,@school_path,@schoolLocationID)
 	end
 	else if @schoolCrud='u'
 	begin
 		update tbUniversitiesColleges set
 			   SchoolName = @schoolName,
-			   SchoolType = @schoolType,
+			   SchoolTypeId = @schoolTypeId,
 			   SchoolPhoneNumber = @schoolPhoneNumber,
 			   SchoolAddress = @schoolAddress,
 			   SchoolPostalCode = @schoolPostalCode,
@@ -2112,7 +2115,7 @@ go
 
 exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolName = 'Booth University College',
-		@schoolType = 3,
+		@schoolTypeId = 3,
 		@schoolPhoneNumber = '204-942-3856',
 		@schoolAddress = '447 Webb Place',
 		@schoolPostalCode = 'R3B 2P2',
@@ -2123,7 +2126,7 @@ exec spSchoolsCrud @schoolCrud = 'c',
 
 exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolName = 'Canadian Mennonite University',
-		@schoolType = 1,
+		@schoolTypeId = 1,
 		@schoolPhoneNumber = '204-487-3300',
 		@schoolAddress = '500 Shaftesbury Boulevard',
 		@schoolPostalCode = 'R3P 2N2',
@@ -2134,7 +2137,7 @@ exec spSchoolsCrud @schoolCrud = 'c',
 
 exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolName = 'Herzing College Winnipeg',
-		@schoolType = 3,
+		@schoolTypeId = 3,
 		@schoolPhoneNumber = '204-775-8175',
 		@schoolAddress = '1700 Portage Avenue',
 		@schoolPostalCode = 'R3J 0E1',
@@ -2145,7 +2148,7 @@ exec spSchoolsCrud @schoolCrud = 'c',
 
 exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolName = 'Red River College',
-		@schoolType = 3,
+		@schoolTypeId = 3,
 		@schoolPhoneNumber = '204-632-2327',
 		@schoolAddress = '2055 Notre Dame Avenue',
 		@schoolPostalCode = 'R3H 0J9',
@@ -2156,7 +2159,7 @@ exec spSchoolsCrud @schoolCrud = 'c',
 
 exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolName = 'Robertson College',
-		@schoolType = 3,
+		@schoolTypeId = 3,
 		@schoolPhoneNumber = '204-926-8325',
 		@schoolAddress = '265 Notre Dame Avenue',
 		@schoolPostalCode = 'R3B 1N9',
@@ -2167,7 +2170,7 @@ exec spSchoolsCrud @schoolCrud = 'c',
 
 exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolName = 'University of Manitoba',
-		@schoolType = 2,
+		@schoolTypeId = 2,
 		@schoolPhoneNumber = '204-474-8880',
 		@schoolAddress = '66 Chancellors Circle',
 		@schoolPostalCode = 'R3T 2N2',
@@ -2275,3 +2278,8 @@ go
               @email='tracy@winny', @password='pass3', @accessLevel='c' 
  exec spUser @crud='c', @firstName='Natalia', @lastName='Shmer', @phoneNumber='555-55-55', @address='777 Main Str., Winnipeg, MB ',
               @email='natalia@winny', @password='pass4', @accessLevel='c' 
+
+select * from tbUsers
+go
+exec spUser @crud='r'
+go
