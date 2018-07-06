@@ -14,20 +14,20 @@
             <td>User Email</td>
             <td>
                 <asp:TextBox ID="txtUserEmail" runat="server"></asp:TextBox>
-              <%--   <asp:RequiredFieldValidator ID="valReqUser" runat="server"
+                 <asp:RequiredFieldValidator ID="valReqUser" runat="server"
                    ControlToValidate="txtUserEmail"
                     Text="*Email is Required"
-                    ForeColor="Red"></asp:RequiredFieldValidator>--%>
+                    ForeColor="Red"></asp:RequiredFieldValidator>
             </td>
         </tr>
            <tr>
             <td><strong>Password</strong></td>
             <td>
                 <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
-              <%--  <asp:RequiredFieldValidator ID="valReqPassword" runat="server"
+                <asp:RequiredFieldValidator ID="valReqPassword" runat="server"
                   ControlToValidate="txtPassword"
                     Text="*Password is Required"
-                    ForeColor="Red"></asp:RequiredFieldValidator>--%>
+                    ForeColor="Red"></asp:RequiredFieldValidator>
             </td>
         </tr>
     </table>

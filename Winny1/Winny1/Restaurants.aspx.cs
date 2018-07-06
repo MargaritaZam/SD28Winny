@@ -115,15 +115,15 @@ namespace Winny1
             myDal.AddParam("@FoodId", id);
             myDal.AddParam("@LocationId",LocationId);
             DataSet ds = myDal.ExecuteProcedure("spRestaurants");
-            adsource.DataSource = ds.Tables[0].DefaultView;
-            adsource.PageSize = 3;
-            adsource.AllowPaging = true;
-            adsource.CurrentPageIndex = pos;
-            btnfirst.Enabled = !adsource.IsFirstPage;
-            btnprevious.Enabled = !adsource.IsFirstPage;
-            btnlast.Enabled = !adsource.IsLastPage;
-            btnnext.Enabled = !adsource.IsLastPage;
-            dlRestaurant.DataSource = adsource;
+            //adsource.DataSource = ds.Tables[0].DefaultView;
+            //adsource.PageSize = 3;
+            //adsource.AllowPaging = true;
+            //adsource.CurrentPageIndex = pos;
+            //btnfirst.Enabled = !adsource.IsFirstPage;
+            //btnprevious.Enabled = !adsource.IsFirstPage;
+            //btnlast.Enabled = !adsource.IsLastPage;
+            //btnnext.Enabled = !adsource.IsLastPage;
+            dlRestaurant.DataSource = ds.Tables[0];
             dlRestaurant.DataBind();
 
         }
