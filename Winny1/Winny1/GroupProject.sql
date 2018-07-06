@@ -113,7 +113,8 @@ as begin
 	end
 end
 go
-
+exec spAttractions @crud='r'
+go
 create procedure spGetAttraction
 (
 	@id int =null

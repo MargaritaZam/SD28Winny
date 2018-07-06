@@ -446,7 +446,7 @@ namespace Winny1
             txtAttrDesc.Text = "";
             txtAttrAddress.Text = "";
             txtAttrPhone.Text = "";
-            txtAttrWeb.Text = "";
+            txtAttrWeb.Text = "";       
             ddlAttrCategory.SelectedItem.Text = "";
             ddllocat.SelectedItem.Text = "";
         }
