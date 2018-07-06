@@ -14,25 +14,25 @@
             <td>User Email</td>
             <td>
                 <asp:TextBox ID="txtUserEmail" runat="server"></asp:TextBox>
-              <%--   <asp:RequiredFieldValidator ID="valReqUser" runat="server"
+                 <asp:RequiredFieldValidator ID="valReqUser" runat="server"
                    ControlToValidate="txtUserEmail"
-                    Text="*Email is Required"
-                    ForeColor="Red"></asp:RequiredFieldValidator>--%>
+                    Text="*Email is Required" 
+                    ForeColor="Red"></asp:RequiredFieldValidator>
             </td>
         </tr>
            <tr>
             <td><strong>Password</strong></td>
             <td>
                 <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
-              <%--  <asp:RequiredFieldValidator ID="valReqPassword" runat="server"
+                <asp:RequiredFieldValidator ID="valReqPassword" runat="server"
                   ControlToValidate="txtPassword"
                     Text="*Password is Required"
-                    ForeColor="Red"></asp:RequiredFieldValidator>--%>
+                    ForeColor="Red"></asp:RequiredFieldValidator>
             </td>
         </tr>
     </table>
     <br />
-    <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" />
+    <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click"  />
     <br />
      <asp:Label ID="lblMessage" runat="server" ></asp:Label>
    <%-- CSS--%>
@@ -66,7 +66,7 @@
                 <asp:TextBox ID="txtNewFirstName" runat="server"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="valReqFirstName" runat="server"
                     ControlToValidate="txtNewFirstName" EnableClientScript="false" 
-                    Text="*First Name is Required"
+                    Text="*First Name is Required" ValidationGroup="gvsave"
                     ForeColor="Red"></asp:RequiredFieldValidator>
             </td>
         </tr>
@@ -76,7 +76,7 @@
                 <asp:TextBox ID="txtNewLastName" runat="server"></asp:TextBox>
                  <asp:RequiredFieldValidator ID="valReqLastName" runat="server"
                     ControlToValidate="txtNewLastName" EnableClientScript="false" 
-                    Text="*Last Name is Required"
+                    Text="*Last Name is Required" ValidationGroup="gvsave"
                     ForeColor="Red"></asp:RequiredFieldValidator>
             </td>
         </tr>  
@@ -86,7 +86,7 @@
                 <asp:TextBox ID="txtNewPhoneNumber" runat="server"></asp:TextBox>
                  <asp:RequiredFieldValidator ID="valReqPhoneNumber" runat="server"
                     ControlToValidate="txtNewPhoneNumber" EnableClientScript="false" 
-                    Text="*Phone Number is Required"
+                    Text="*Phone Number is Required" ValidationGroup="gvsave"
                     ForeColor="Red"></asp:RequiredFieldValidator>
                 
             </td>
@@ -97,7 +97,7 @@
                 <asp:TextBox ID="txtNewAddress" runat="server"></asp:TextBox>
                  <asp:RequiredFieldValidator ID="valReqAddress" runat="server"
                     ControlToValidate="txtNewAddress" EnableClientScript="false" 
-                    Text="*Address is Required"
+                    Text="*Address is Required" ValidationGroup="gvsave"
                     ForeColor="Red"></asp:RequiredFieldValidator>
             </td>
         </tr>  
@@ -107,7 +107,7 @@
                 <asp:TextBox ID="txtNewEmail" runat="server" ></asp:TextBox>
                  <asp:RequiredFieldValidator ID="valReqEmail" runat="server"
                     ControlToValidate="txtNewEmail" EnableClientScript="false" 
-                    Text="*Email is Required"
+                    Text="*Email is Required" ValidationGroup="gvsave"
                     ForeColor="Red"></asp:RequiredFieldValidator>
             </td>
         </tr>    
@@ -117,7 +117,7 @@
                 <asp:TextBox ID="txtNewPassword" runat="server"></asp:TextBox>
                  <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
                     ControlToValidate="txtNewPassword" EnableClientScript="false" 
-                    Text="* Password is Required"
+                    Text="* Password is Required" ValidationGroup="gvsave"
                     ForeColor="Red"></asp:RequiredFieldValidator>
             </td>
         </tr>   
@@ -129,7 +129,7 @@
         </tr>
     </table>
     <br />
-    <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
+    <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" ValidationGroup="gvsave" />
 </div>
    
 
