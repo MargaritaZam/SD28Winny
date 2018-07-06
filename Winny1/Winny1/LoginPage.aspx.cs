@@ -14,9 +14,13 @@ namespace Winny1
         SqlConnection conn = new SqlConnection("Data Source=localhost; Initial Catalog=dbGroupProject; Integrated Security=SSPI ");
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblNewAccount.Text = "";
+            if (!IsPostBack)
+            {
+                lblNewAccount.Text = "";
+            }
+                
+            
         }
-
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             Security security = new Security();
@@ -41,7 +45,8 @@ namespace Winny1
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-
+           
+           
             if (Page.IsValid)
             {
 
@@ -55,18 +60,20 @@ namespace Winny1
                 cmd.Parameters.AddWithValue("@Email", txtNewEmail.Text);
                 cmd.Parameters.AddWithValue("@Password", txtNewPassword.Text);
                 cmd.Parameters.AddWithValue("@AccessLevel", txtAccessLevel.Text);
+                
                 conn.Open();
                 cmd.ExecuteNonQuery();
                 conn.Close();
+              
                 lblNewAccount.Text = "Registration is successfully completed!";
-              //  Response.Redirect ("Client.aspx");
+            //Response.Redirect("Client.aspx");
 
-            }
+        }
             else
             {
                 lblNewAccount.Text = " Something went wrong...";
             }
 
-        }
+}
     }
 }
