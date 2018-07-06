@@ -915,6 +915,12 @@ as begin
 	begin
 		select RestaurantName,Description,RestaurantId,'./Restaurants/' + path as path  from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId)
 	end
+	else if @crud='w'
+	begin
+	select RestaurantId, RestaurantName, Description, Address, PostalCode, ContactNo, Website, './Restaurants/' + path as path, FoodId, LocationId from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId)
+	end
+
+
 	else if @crud='r'
 	begin
 		select RestaurantId,RestaurantName,Address,ContactNo,Description, PostalCode,'./Restaurants/' + path as path,Website from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId)

@@ -6,7 +6,7 @@
     <style>
         .adm {
             background-color: aliceblue;
-            height: 2000px;
+            height: 4000px;
         }
 
         .l {
@@ -232,7 +232,7 @@
         <asp:GridView ID="gvAttractions" runat="server" AutoGenerateColumns="False"
             BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" 
             BorderWidth="1px" CellPadding="4" DataKeyNames="attractionID" 
-            ForeColor="Black" GridLines="Vertical" OnRowCommand="gvAttractions_RowCommand" 
+            ForeColor="Black" GridLines="Vertical" OnRowCommand="gvAttractions_RowCommand" OnPageIndexChanging="gvAttractions_PageIndexChanging" 
            >
 
             <AlternatingRowStyle BackColor="White" />
@@ -427,7 +427,7 @@
         <br />
         <br />
         <br />
-        <asp:GridView ID="gvUniversity" runat="server" AutoGenerateColumns="False" CellPadding="3" DataKeyNames="SchoolID" DataSourceID="SqlDataSource5" ForeColor="Black" GridLines="Vertical" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px">
+        <asp:GridView ID="gvUniversity" runat="server" AutoGenerateColumns="False" CellPadding="3" DataKeyNames="SchoolID" DataSourceID="SqlDataSource5" ForeColor="Black" GridLines="Vertical" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" OnPageIndexChanging="gvUniversity_PageIndexChanging">
 
             <AlternatingRowStyle BackColor="#CCCCCC" />
             <Columns>
