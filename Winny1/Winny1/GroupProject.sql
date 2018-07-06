@@ -2272,3 +2272,8 @@ go
               @email='tracy@winny', @password='pass3', @accessLevel='c' 
  exec spUser @crud='c', @firstName='Natalia', @lastName='Shmer', @phoneNumber='555-55-55', @address='777 Main Str., Winnipeg, MB ',
               @email='natalia@winny', @password='pass4', @accessLevel='c' 
+
+select * from tbUsers
+go
+exec spUser @crud='r'
+go
