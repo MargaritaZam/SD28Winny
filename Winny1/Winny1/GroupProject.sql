@@ -915,22 +915,16 @@ create procedure spRestaurants
 as begin
 	if @crud='a'
 	begin
-		select RestaurantName,Description,RestaurantId,'./Restaurants/' + path as path  from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId)
+		select RestaurantName,Description,RestaurantId,'./Restaurant/' + path as path  from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId)
 	end
-	else if @crud='w'
-	begin
-	select RestaurantId, RestaurantName, Description, Address, PostalCode, ContactNo, Website, './Restaurants/' + path as path, FoodId, LocationId from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId)
-	end
-
-
 	else if @crud='r'
 	begin
-		select RestaurantId,RestaurantName,Address,ContactNo,Description, PostalCode,'./Restaurants/' + path as path,Website from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId)
+		select RestaurantId,RestaurantName,Address,ContactNo,Description,'./Restaurants/' + path as path,Website from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId)
 	end
 	else if @crud='s'  --  Select Restaurants, join with Location and Food Category
 	begin
 		
-			select RestaurantName,Description,RestaurantId,'./Restaurants/' + path as path  from tbRestaurants join tbFood_Category on
+			select RestaurantName,Description,RestaurantId,'./Restaurant/' + path as path  from tbRestaurants join tbFood_Category on
 			tbRestaurants.FoodId=tbFood_Category.FoodId join tbLocation on 
 			tbRestaurants.LocationId=tbLocation.LocationId 
 		where tbRestaurants.LocationId=ISNULL(@LocationId,tbRestaurants.LocationId)
