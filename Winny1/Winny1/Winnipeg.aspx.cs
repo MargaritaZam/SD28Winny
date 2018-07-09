@@ -13,30 +13,30 @@ namespace Winny1
 {
     public partial class Winnipeg1 : System.Web.UI.Page
     {
-        SqlConnection conn = new SqlConnection("Data Source = localhost; Initial Catalog = dbGroupProject; Integrated Security = SSPI");
-        WinnipegMain myWinnipeg;
+       // SqlConnection conn = new SqlConnection("Data Source = localhost; Initial Catalog = dbGroupProject; Integrated Security = SSPI");
+       // WinnipegMain myWinnipeg;
 
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            myWinnipeg = new WinnipegMain();
-            loadDataBase();
-        }
+       // protected void Page_Load(object sender, EventArgs e)
+       // {
+       //     myWinnipeg = new WinnipegMain();
+       //     loadDataBase();
+       // }
 
-        private void LoadWinnipeg()
-        {
-            gvWinnipeg.DataSource = myWinnipeg.Get();
-            gvWinnipeg.DataBind();
+       // private void LoadWinnipeg()
+       // {
+       //     gvWinnipeg.DataSource = myWinnipeg.Get();
+       //     gvWinnipeg.DataBind();
 
-        }
+       // }
 
-        protected void btnSave_Click(object sender, EventArgs e)
-        {
+       // protected void btnSave_Click(object sender, EventArgs e)
+       // {
 
-        }
-       private void loadDataBase()
-        {
-            DataSet ds = new DataSet();
-            SqlDataAdapter da = new SqlDataAdapter();
-        }
+       // }
+       //private void loadDataBase()
+       // {
+       //     DataSet ds = new DataSet();
+       //     SqlDataAdapter da = new SqlDataAdapter();
+       // }
     }
 }

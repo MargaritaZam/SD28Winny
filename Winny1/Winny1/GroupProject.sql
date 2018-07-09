@@ -113,10 +113,8 @@ as begin
 	end
 end
 go
-
---exec spAttractions @crud='r'
---go
-
+exec spAttractions @crud='r'
+go
 create procedure spGetAttraction
 (
 	@id int =null
@@ -372,8 +370,9 @@ where CategoryType=isnull(@storetype, CategoryType)
 end
 go
 
---exec spGetStoreCategory
---go
+exec spGetStoreCategory
+go
+
 
 --exec spGetShoppingCategories
 --go
@@ -916,22 +915,16 @@ create procedure spRestaurants
 as begin
 	if @crud='a'
 	begin
-		select RestaurantName,Description,RestaurantId,'./Restaurants/' + path as path  from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId)
+		select RestaurantName,Description,RestaurantId,'./Restaurant/' + path as path  from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId)
 	end
-	else if @crud='w'
-	begin
-	select RestaurantId, RestaurantName, Description, Address, PostalCode, ContactNo, Website, './Restaurants/' + path as path, FoodId, LocationId from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId)
-	end
-
-
 	else if @crud='r'
 	begin
-		select RestaurantId,RestaurantName,Address,ContactNo,Description, PostalCode,'./Restaurants/' + path as path,Website from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId)
+		select RestaurantId,RestaurantName,Address,ContactNo,Description,'./Restaurants/' + path as path,Website from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId)
 	end
 	else if @crud='s'  --  Select Restaurants, join with Location and Food Category
 	begin
 		
-			select RestaurantName,Description,RestaurantId,'./Restaurants/' + path as path  from tbRestaurants join tbFood_Category on
+			select RestaurantName,Description,RestaurantId,'./Restaurant/' + path as path  from tbRestaurants join tbFood_Category on
 			tbRestaurants.FoodId=tbFood_Category.FoodId join tbLocation on 
 			tbRestaurants.LocationId=tbLocation.LocationId 
 		where tbRestaurants.LocationId=ISNULL(@LocationId,tbRestaurants.LocationId)
@@ -1670,7 +1663,7 @@ exec spRestaurants @crud='c',
 		@FoodId=12,
 		@LocationId=3
 
---exec spRestaurants @crud='r'
+exec spRestaurants @crud='r'
 
 
 --  'About Winnipeg' Table and Procedures  --
@@ -1787,11 +1780,11 @@ exec spAboutCrud @crud = 'c',
 create table tbHotelStars
 (
 	StarsID		  int identity(0,1) primary key,
-	NumberOfStars varchar(14)
+	NumberOfStars varchar(12)
 )
 insert into tbHotelStars (NumberOfStars) values
-	('0'),   ('*'),    ('*  *'),
-	('*  *  *'), ('*  *  *  *'), ('*  *  *  *  *')
+	('0'),   ('*'),    ('* *'),
+	('* * *'), ('* * * *'), ('* * * * *')
 go
 
 create procedure spHotelStars
@@ -1811,8 +1804,8 @@ create table tbHotels
 (
 	HotelID			 int identity(1,1) primary key,
 	HotelName		 varchar(30),
-	HotelPrice		 varchar(25),
-	HotelStarsID	 int foreign key references tbHotelStars(StarsID),
+	HotelPrice		 int,
+	HotelStars		 varchar(6),
 	HotelDescription varchar(800),
 	HotelPhoneNumber varchar(15),
 	HotelAddress	 varchar(100),
@@ -1827,8 +1820,8 @@ create procedure spHotelsCrud
 (
 	@hotelID int = null,
 	@hotelName	varchar(30) = null,
-	@hotelPrice varchar(25) = null,
-	@hotelStarsID int = null,
+	@hotelPrice int = null,
+	@hotelStars varchar(6) = null,
 	@hotelDescription varchar(800) = null,
 	@hotelPhoneNumber varchar(15) = null,
 	@hotelAddress varchar(100) = null,
@@ -1841,27 +1834,24 @@ create procedure spHotelsCrud
 as begin
 	if @crud='r'
 	begin
-		select tbHotels.HotelName, tbHotels.HotelPrice, tbHotelStars.NumberOfStars,
-			tbHotels.HotelDescription, tbHotels.HotelPhoneNumber, 
-			tbHotels.HotelAddress, tbHotels.HotelPostalCode, tbHotels.HotelWebsite,
-			'.\HotelPictures\' + tbHotels.Hotel_path as Hotel_path from tbHotels inner join tbHotelStars on tbHotels.HotelStarsID = tbHotelStars.StarsID where HotelId = isnull(@hotelId,HotelId)
+		select HotelID, HotelName, HotelPrice, HotelStars, HotelDescription, HotelPhoneNumber, HotelAddress, HotelPostalCode, HotelWebsite,HotelLocationID,'.\HotelPictures\' + Hotel_path as Hotel_path from tbHotels where HotelId = isnull(@hotelId,HotelID)
 	end
 	if @crud='s'
 	begin
-		select HotelID, HotelName, HotelPrice, HotelStarsID, HotelDescription, HotelPhoneNumber, HotelAddress, HotelPostalCode, HotelWebsite,'.\HotelPictures\' + Hotel_path as Hotel_path from tbHotels where HotelId = isnull(@hotelId,HotelId)
+		select HotelID, HotelName, HotelPrice, HotelStars, HotelDescription, HotelPhoneNumber, HotelAddress, HotelPostalCode, HotelWebsite,'.\HotelPictures\' + Hotel_path as Hotel_path from tbHotels where HotelId = isnull(@hotelId,HotelId)
 	end
 	else if @crud='c'
 	begin
-		insert into tbHotels(HotelName, HotelPrice, HotelStarsID, HotelDescription, HotelPhoneNumber, HotelAddress, HotelPostalCode, HotelWebsite, Hotel_path, HotelLocationID)
+		insert into tbHotels(HotelName, HotelPrice, HotelStars, HotelDescription, HotelPhoneNumber, HotelAddress, HotelPostalCode, HotelWebsite, Hotel_path, HotelLocationID)
 								values
-							(@hotelName,@hotelPrice,@hotelStarsID,@hotelDescription,@hotelPhoneNumber,@hotelAddress,@hotelPostalCode,@hotelWebsite,@hotel_path,@hotelLocationID)
+							(@hotelName,@hotelPrice,@hotelStars,@hotelDescription,@hotelPhoneNumber,@hotelAddress,@hotelPostalCode,@hotelWebsite,@hotel_path,@hotelLocationID)
 	end
 	else if @crud='u'
 	begin
 		update tbHotels set
 			   HotelName = @hotelName,
 			   HotelPrice = @hotelPrice,
-			   HotelStarsID = @hotelStarsID,
+			   HotelStars = @hotelStars,
 			   HotelDescription = @hotelDescription,
 			   HotelPhoneNumber = @hotelPhoneNumber,
 			   HotelAddress = @hotelAddress,
@@ -1880,9 +1870,9 @@ go
 
 exec spHotelsCrud @crud = 'c',
 		@hotelName = 'Alt Hotel Winnipeg',
-		@hotelPrice = '$159',
-		@hotelStarsID = '3',
-		@hotelDescription = 'Located in the new Sports, Hospitality and Entertainment District (SHED), the hotel is just steps away from the Bell MTS Place, home of the Winnipeg Jets hockey team, and an array of businesses such as restaurants, bars and boutiques.',
+		@hotelPrice = 159,
+		@hotelStars = '***',
+		@hotelDescription = 'Located in the new Sports, Hospitality and Entertainment District (SHED), the hotel is just steps away from the Bell MTS Place, home of the Winnipeg Jets hockey team, an array of businesses such as restaurants, bars and boutiques.',
 		@hotelPhoneNumber = '1-844-946-6258',
 		@hotelAddress = '310 Donald Street',
 		@hotelPostalCode = 'R3B 2H3',
@@ -1892,8 +1882,8 @@ exec spHotelsCrud @crud = 'c',
 
 exec spHotelsCrud @crud='c',
 		@hotelName='Canad Inns Destination Centre Health Sciences Centre',
-		@hotelPrice='$143',
-		@hotelStarsID = '3',
+		@hotelPrice=143,
+		@hotelStars='***',
 		@hotelDescription='Our hotel is conveniently attached to the Health Sciences Centre, located just a few minutes from downtown Winnipeg, including shopping at Portage Place and The Forks, and just a five minute drive from McPhillips Station Casino.  For your comfort, our hotel offers a number of universally-accessible and wheelchair-friendly rooms.',
 		@hotelPhoneNumber='204-594-9472',
 		@hotelAddress='720 William Avenue',
@@ -1904,9 +1894,9 @@ exec spHotelsCrud @crud='c',
 			  
 exec spHotelsCrud @crud='c',
 		@hotelName='Clarion Hotel & Suites',
-		@hotelPrice='$149',
-		@hotelStarsID = '2',
-		@hotelDescription='The hotel is nestled in the hub of Winnipeg’s shopping, restaurant and business neighbourhoods. Located just 6 km from the James Richard Armstrong International Airport (YWG), Ikea and the new Seasons Outlet Collection Mall, and within walking distance to Manitoba’s largest Mall CF Polo Park Shopping Centre. The Clarion Hotel is only 15 minutes from downtown Winnipeg.',
+		@hotelPrice=149,
+		@hotelStars='**',
+		@hotelDescription='the hotel is nestled in the hub of Winnipeg’s shopping, restaurant and business neighbourhoods. Located just 6 km from the James Richard Armstrong International Airport (YWG), Ikea and the new Seasons Outlet Collection Mall, and within walking distance to Manitoba’s largest Mall CF Polo Park Shopping Centre. The Clarion Hotel is only 15 minutes from downtown Winnipeg.',
 		@hotelPhoneNumber='204-774-5110',
 		@hotelAddress='1445 Portage Avenue',
 		@hotelPostalCode='R3G 3P4',
@@ -1916,8 +1906,8 @@ exec spHotelsCrud @crud='c',
 
 exec spHotelsCrud @crud='c',
 		@hotelName='Delta Hotels by Marriott Winnipeg',
-		@hotelPrice='$175',
-		@hotelStarsID = '4',
+		@hotelPrice=175,
+		@hotelStars='****',
 		@hotelDescription='The Delta Hotels Winnipeg has established itself as a premier destination for business travelers and vacationing families here in the heart of the city.  Take a dip in the heated indoor pool, or relax on the rooftop at our seasonal outdoor pool when the weather here in Winnipeg is warm.  Those visiting here in the city will love our hotel''s downtown location and our versatile event venues. And we offer direct Skywalk access to the RBC Convention Centre, BellMTS Place and much more, making exploration easy.',
 		@hotelPhoneNumber='204-942-0551',
 		@hotelAddress='350 St Mary Avenue',
@@ -1928,8 +1918,8 @@ exec spHotelsCrud @crud='c',
 
 exec spHotelsCrud @crud = 'c',
 		@hotelName = 'Econo Lodge',
-		@hotelPrice = '$110',
-		@hotelStarsID = '2',
+		@hotelPrice = 110,
+		@hotelStars = '**',
 		@hotelDescription = 'Convenient for accessing the hospital, University of Winnipeg campus and downtown Winnipeg.  Rooms not wheelchair accessible',
 		@hotelPhoneNumber = '204-255-7100',
 		@hotelAddress = '690 Notre Dame Avenue',
@@ -1940,8 +1930,8 @@ exec spHotelsCrud @crud = 'c',
 
 exec spHotelsCrud @crud='c',
 		@hotelName='The Fort Garry Hotel',
-		@hotelPrice='$149',
-		@hotelStarsID = '3',
+		@hotelPrice=149,
+		@hotelStars='***',
 		@hotelDescription='Located in downtown Winnipeg, the Fort Garry Hotel was built in 1913 as a grand railway hotel.  The century-old Fort Garry Hotel, Spa and Conference Centre ushers in a new era of modern-day style in downtown Winnipeg. Catering to guests who appreciate local history mixed with authentic charm, this iconic 240-room “Grand Dame” is a favorite for weddings, romantic getaways and wellness weekends. Don’t leave without saying hello to one of the hotel’s friendly resident ghosts.',
 		@hotelPhoneNumber='204-942-8251',
 		@hotelAddress='222 Broadway',
@@ -1952,8 +1942,8 @@ exec spHotelsCrud @crud='c',
 
 exec spHotelsCrud @crud='c',
 		@hotelName='Hilton Winnipeg Airport Suites',
-		@hotelPrice = '$123',
-		@hotelStarsID = '3',
+		@hotelPrice = 123,
+		@hotelStars='***',
 		@hotelDescription='Located in Winnipeg Airport Industrial Park, we provide easy access to downtown Winnipeg. Use the complimentary airport shuttle service to/from the hotel. Polo Park Mall, the largest shopping center in Manitoba with over 200 stores, is less than 2 miles away. We’re also a short drive to the newest Outlet Collection Winnipeg.',
 		@hotelPhoneNumber='204-783-1700',
 		@hotelAddress='1800 Wellington Avenue',
@@ -1964,8 +1954,8 @@ exec spHotelsCrud @crud='c',
 
 exec spHotelsCrud @crud='c',
 		@hotelName='Inn at the Forks',
-		@hotelPrice = '$186',
-		@hotelStarsID = '3',
+		@hotelPrice = 186,
+		@hotelStars='***',
 		@hotelDescription='Located in downtown Winnipeg at The Forks, our top tourism attraction, you''re immersed in a convergence of cultures – Aboriginal, French Canadian and Manitoban – at a 6,000-year-old meeting place. The myriad of shopping, arts, and entertainment options on-site and nearby is unmatched.',
 		@hotelPhoneNumber='1-866-500-4938',
 		@hotelAddress='75 Forks Market Road',
@@ -1976,8 +1966,8 @@ exec spHotelsCrud @crud='c',
 
 exec spHotelsCrud @crud = 'c',
 		@hotelName = 'Queen Bee Hotel',
-		@hotelPrice = '$89',
-		@hotelStarsID = '2',
+		@hotelPrice = 89,
+		@hotelStars = '**',
 		@hotelDescription = 'Located just outside of the main gates of the University of Manitoba, the Queen Bee Hotel is within walking distance to many restaurants, cultural venues and other conveniences.',
 		@hotelPhoneNumber = '204-269-4666',
 		@hotelAddress = '2615 Pembina Hwy.',
@@ -1988,8 +1978,8 @@ exec spHotelsCrud @crud = 'c',
 
 exec spHotelsCrud @crud='c',
 		@hotelName='Radisson Hotel Winnipeg Downtown',
-		@hotelPrice='$152',
-		@hotelStarsID = '3',
+		@hotelPrice=152,
+		@hotelStars='***',
 		@hotelDescription='Conveniently located on Portage Avenue, Radisson Hotel Winnipeg Downtown is within sight of the Burton Cummings Theatre and area shopping centres.  Open on weekdays from 7:30 a.m. to 5 p.m., our skywalk connects you to Cityplace, Bell MTS Place and Winnipeg Square. The Radisson is also less than 20 minutes from Winnipeg James Armstrong Richardson International Airport (YWG) and within a 10-minute walk of the Canadian Museum for Human Rights, the Exchange District, the RBC Convention Centre and Chinatown.',
 		@hotelPhoneNumber='204-956-0410',
 		@hotelAddress='288 Portage Avenue',
@@ -2000,8 +1990,8 @@ exec spHotelsCrud @crud='c',
 
 exec spHotelsCrud @crud='c',
 		@hotelName='Royal Albert Arms',
-		@hotelPrice = 'Unknown at this time',
-		@hotelStarsID='0',
+		@hotelPrice = 0,
+		@hotelStars='0',
 		@hotelDescription='The Royal Albert Hotel with its 54 rooms, restaurant, coffee shop and cigar stand opened its doors on November 5, 1913.  The façade of the hotel was designed with a continental flair. A red-tiled roof forms a cornice over a brick front accentuated with ornamental iron fretwork, elaborate iron lights and arched main floor windows and doors which combine to create an Italian effect.',
 		@hotelPhoneNumber='204-943-8433',
 		@hotelAddress='48 Albert Street',
@@ -2012,8 +2002,8 @@ exec spHotelsCrud @crud='c',
 
 exec spHotelsCrud @crud = 'c',
 		@hotelName = 'Travelodge Winnipeg East',
-		@hotelPrice = '$95',
-		@hotelStarsID = '2',
+		@hotelPrice = 95,
+		@hotelStars = '**',
 		@hotelDescription = '',
 		@hotelPhoneNumber = '204-255-6000',
 		@hotelAddress = '20 Alpine Avenue',
@@ -2024,8 +2014,8 @@ exec spHotelsCrud @crud = 'c',
 
 exec spHotelsCrud @crud='c',
 		@hotelName='Viscount Gort Hotel',
-		@hotelPrice = '$115',
-		@hotelStarsID = '3',
+		@hotelPrice = 115,
+		@hotelStars='***',
 		@hotelDescription='Pronounced vī kount, the Viscount Gort is located minutes from Polo Park Shopping Centre.  We offer free parking for our guests and a free shuttle to and from the airport. City buses stop close by and there are plenty of taxi and limo services always available.',
 		@hotelPhoneNumber='1-800-665-1122',
 		@hotelAddress='1670 Portage Avenue',
@@ -2034,7 +2024,7 @@ exec spHotelsCrud @crud='c',
 		@hotel_path='ViscountGort.png',
 		@hotelLocationId=7
 
---exec spHotelsCrud @crud = 'r', @HotelID = 1
+exec spHotelsCrud @crud = 'r'
 
 --  Universities and Colleges  --
 
@@ -2056,8 +2046,8 @@ as begin
 end
 go
 
---exec spGetSchoolTypes
---go
+exec spGetSchoolTypes
+go
 
 --  School Table and Procedures  --
 
@@ -2121,7 +2111,7 @@ as begin
 	end
 end
 go
-
+exec spSchoolsCrud @schoolCrud='r'
 exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolName = 'Booth University College',
 		@schoolTypeId = 3,
@@ -2292,3 +2282,33 @@ select * from tbUsers
 go
 exec spUser @crud='r'
 go
+
+create procedure spReports(
+@crud varchar(50)
+)
+as begin
+if @crud='f'
+begin
+select (firstName + ''+ lastName) as fullName, email, accessLevel
+
+from tbUsers
+end
+else if @crud='i'
+begin
+select*from tbWrongLogins
+end
+else if @crud='at'
+begin
+select count(attractionID) as [attraction qnt], attractionCategory
+from tbAttractions
+group by attractionCategory
+end
+else if @crud='st'
+select count(CategoryId) as [ qnt], CategoryType from tbShoppingCategories 
+group by CategoryType
+end
+go
+exec spReports @crud='f'
+exec spReports @crud='i'
+exec spReports @crud='at'
+exec spReports @crud='st'

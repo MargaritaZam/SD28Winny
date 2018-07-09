@@ -21,9 +21,61 @@
         <%--  <asp:LinkButton ID="lbAttractions" CssClass="l" runat="server" OnClick="lbAttractions_Click">#Attractions</asp:LinkButton><br />
         <asp:LinkButton ID="lbHotels" CssClass="l" runat="server" OnClick="lbHotels_Click">#Hotels</asp:LinkButton><br />
         <asp:LinkButton ID="lbSchools" CssClass="l" runat="server" OnClick="lbSchools_Click">#Universities/Schools</asp:LinkButton>--%>--%>
+       <h3 style="color:crimson"><strong>Report</strong></h3>
+        
+        <div>
+            <asp:RadioButtonList ID="rblReport" AutoPostBack="true" 
+                RepeatDirection="Vertical" runat="server" OnSelectedIndexChanged="rblReport_SelectedIndexChanged">
+                <asp:ListItem Value="f" Text="Users"></asp:ListItem>
+                <asp:ListItem Value="i" Text="Wrong logins"></asp:ListItem>
+                <asp:ListItem Value="at" Text="Attraction's qnt"></asp:ListItem>
+                <asp:ListItem Value="st" Text="List of Shopping category"></asp:ListItem>
+            </asp:RadioButtonList>
+        </div>
+        <div>
+        <asp:GridView ID="gvreport" runat="server"></asp:GridView>
+        </div>
+                      
+        <br />
+        <br />
+        <h2><strong>Users</strong></h2>
+        <asp:GridView ID="gvUsers" runat="server" AutoGenerateColumns="False" AllowPaging="True"
+            AllowSorting="True" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="id" DataSourceID="SqlDataSource1" ForeColor="Black" GridLines="Vertical" >
+
+            <AlternatingRowStyle BackColor="White" />
+            <Columns>
+                <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
+                <asp:BoundField DataField="firstName" HeaderText="firstName" SortExpression="firstName" />
+                <asp:BoundField DataField="lastName" HeaderText="lastName" SortExpression="lastName" />
+                <asp:BoundField DataField="phoneNumber" HeaderText="phoneNumber" SortExpression="phoneNumber" />
+                <asp:BoundField DataField="address" HeaderText="address" SortExpression="address" />
+                <asp:BoundField DataField="email" HeaderText="email" SortExpression="email" />
+                <asp:BoundField DataField="password" HeaderText="password" SortExpression="password" />
+                <asp:BoundField DataField="accessLevel" HeaderText="accessLevel" SortExpression="accessLevel" />
+            </Columns>
+            <FooterStyle BackColor="#CCCC99" />
+            <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#F7F7DE" ForeColor="Black" HorizontalAlign="Right" />
+            <RowStyle BackColor="#F7F7DE" />
+            <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
+            <SortedAscendingCellStyle BackColor="#FBFBF2" />
+            <SortedAscendingHeaderStyle BackColor="#848384" />
+            <SortedDescendingCellStyle BackColor="#EAEAD3" />
+            <SortedDescendingHeaderStyle BackColor="#575357" />
+
+        </asp:GridView>
+         <asp:SqlDataSource ID="SqlDataSource1" runat="server"
+             ConnectionString="<%$ ConnectionStrings:dbGroupProjectConnectionString %>" 
+             SelectCommand="SELECT [id], [firstName], [lastName], [phoneNumber], [address], [email], [password], [accessLevel] FROM [tbUsers] ORDER BY [lastName]"></asp:SqlDataSource>
+
+
+
+
+
+
+
 
          <br />
-
         <br />
         <asp:GridView ID="gvRestaurants" runat="server" Visible="False"
             CellPadding="4" DataKeyNames="RestaurantId" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="false"
@@ -244,7 +296,8 @@
                 <asp:BoundField DataField="atAddress" HeaderText="atAddress" SortExpression="atAddress" />
                 <asp:BoundField DataField="atPhone" HeaderText="atPhone" SortExpression="atPhone" />
                 <asp:BoundField DataField="atWebsite" HeaderText="atWebsite" SortExpression="atWebsite" />
-                <asp:BoundField DataField="atImage" HeaderText="atImage" SortExpression="atImage" />
+                <asp:ImageField HeaderText="AttrImage" >
+                </asp:ImageField>
                 <asp:BoundField DataField="location" HeaderText="location" SortExpression="location" />
                 <asp:ButtonField ButtonType="Button" CommandName="Delete" HeaderText="del" ShowHeader="True" Text="Del" />
                 <asp:ButtonField ButtonType="Button" CommandName="Update" HeaderText="upd" ShowHeader="True" Text="Upd" />
@@ -324,9 +377,11 @@
         <br />
         <br />
         <asp:GridView ID="gvHotels" runat="server" AutoGenerateColumns="False"
-            DataKeyNames="HotelID" DataSourceID="SqlDataSource4" BackColor="White"  AllowPaging="true" AllowSorting="true"
+            DataKeyNames="HotelID"  BackColor="White"  AllowPaging="true" AllowSorting="true"
             BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellPadding="3" 
-            GridLines="None" CellSpacing="1" OnSelectedIndexChanged="gvHotels_SelectedIndexChanged" OnPageIndexChanging="gvHotels_PageIndexChanging" OnRowCommand="gvHotels_RowCommand" OnSelectedIndexChanging="gvHotels_SelectedIndexChanging">
+            GridLines="None" CellSpacing="1" OnSelectedIndexChanged="gvHotels_SelectedIndexChanged"
+            OnPageIndexChanging="gvHotels_PageIndexChanging" OnRowCommand="gvHotels_RowCommand" 
+            OnSelectedIndexChanging="gvHotels_SelectedIndexChanging">
 
             <Columns>
                 <asp:BoundField DataField="HotelID" HeaderText="HotelID" InsertVisible="False" ReadOnly="True" SortExpression="HotelID" />
@@ -433,7 +488,7 @@
             <Columns>
                 <asp:BoundField DataField="SchoolID" HeaderText="SchoolID" InsertVisible="False" ReadOnly="True" SortExpression="SchoolID" />
                 <asp:BoundField DataField="SchoolName" HeaderText="SchoolName" SortExpression="SchoolName" />
-                <asp:BoundField DataField="SchoolType" HeaderText="SchoolType" SortExpression="SchoolType" />
+                <asp:BoundField DataField="SchoolTypeId" HeaderText="SchoolTypeId" SortExpression="SchoolTypeId" />
                 <asp:BoundField DataField="SchoolPhoneNumber" HeaderText="SchoolPhoneNumber" SortExpression="SchoolPhoneNumber" />
                 <asp:BoundField DataField="SchoolAddress" HeaderText="SchoolAddress" SortExpression="SchoolAddress" />
                 <asp:BoundField DataField="SchoolPostalCode" HeaderText="SchoolPostalCode" SortExpression="SchoolPostalCode" />

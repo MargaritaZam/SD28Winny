@@ -34,7 +34,7 @@ namespace Winny1
             //if (SchoolId != null)
             da.SelectCommand.Parameters.AddWithValue("@schoolID", SchoolID);
             //if(TypeId != null)         
-            da.SelectCommand.Parameters.AddWithValue("@schoolType", SchoolType);
+            da.SelectCommand.Parameters.AddWithValue("@schoolTypeId", SchoolType);
 
             conn.Open();
             da.Fill(ds);
