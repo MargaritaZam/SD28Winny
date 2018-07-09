@@ -113,7 +113,8 @@ as begin
 	end
 end
 go
-
+exec spAttractions @crud='r'
+go
 create procedure spGetAttraction
 (
 	@id int =null
@@ -918,7 +919,7 @@ as begin
 	end
 	else if @crud='r'
 	begin
-		select RestaurantId,RestaurantName,Address,ContactNo,Description,'./Restaurant/' + path as path,Website from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId)
+		select RestaurantId,RestaurantName,Address,ContactNo,Description,'./Restaurants/' + path as path,Website from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId)
 	end
 	else if @crud='s'  --  Select Restaurants, join with Location and Food Category
 	begin
@@ -1778,7 +1779,7 @@ exec spAboutCrud @crud = 'c',
 
 create table tbHotelStars
 (
-	StarsID int identity(0,1) primary key,
+	StarsID		  int identity(0,1) primary key,
 	NumberOfStars varchar(12)
 )
 insert into tbHotelStars (NumberOfStars) values
@@ -1788,7 +1789,7 @@ go
 
 create procedure spHotelStars
 (
-	@starsID int = null ,
+	@starsID int = null,
 	@numberStars varchar(12) = null
 )
 as begin
@@ -1801,17 +1802,17 @@ go
 
 create table tbHotels
 (
-	HotelID int identity(1,1) primary key,
-	HotelName	varchar(30),
-	HotelPrice int,
-	HotelStars varchar(6),
+	HotelID			 int identity(1,1) primary key,
+	HotelName		 varchar(30),
+	HotelPrice		 int,
+	HotelStars		 varchar(6),
 	HotelDescription varchar(800),
 	HotelPhoneNumber varchar(15),
-	HotelAddress varchar(100),
-	HotelPostalCode varchar(7),
-	HotelWebsite varchar(100),
-	Hotel_path varchar(200),
-	HotelLocationID int foreign key references tbLocation(LocationID)
+	HotelAddress	 varchar(100),
+	HotelPostalCode  varchar(7),
+	HotelWebsite	 varchar(100),
+	Hotel_path		 varchar(200),
+	HotelLocationID  int foreign key references tbLocation(LocationID)
 )
 go
 
@@ -1833,7 +1834,11 @@ create procedure spHotelsCrud
 as begin
 	if @crud='r'
 	begin
-		select HotelName, HotelPrice, HotelStars, HotelDescription, HotelPhoneNumber, HotelAddress, HotelPostalCode, HotelWebsite,'.\HotelPictures\' + Hotel_path as Hotel_path from tbHotels where HotelId = isnull(@hotelId,HotelId)
+		select HotelID, HotelName, HotelPrice, HotelStars, HotelDescription, HotelPhoneNumber, HotelAddress, HotelPostalCode, HotelWebsite,HotelLocationID,'.\HotelPictures\' + Hotel_path as Hotel_path from tbHotels where HotelId = isnull(@hotelId,HotelID)
+	end
+	if @crud='s'
+	begin
+		select HotelID, HotelName, HotelPrice, HotelStars, HotelDescription, HotelPhoneNumber, HotelAddress, HotelPostalCode, HotelWebsite,'.\HotelPictures\' + Hotel_path as Hotel_path from tbHotels where HotelId = isnull(@hotelId,HotelId)
 	end
 	else if @crud='c'
 	begin
@@ -2041,8 +2046,8 @@ as begin
 end
 go
 
---exec spGetSchoolTypes
---go
+exec spGetSchoolTypes
+go
 
 --  School Table and Procedures  --
 
@@ -2106,7 +2111,7 @@ as begin
 	end
 end
 go
-
+exec spSchoolsCrud @schoolCrud='r'
 exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolName = 'Booth University College',
 		@schoolTypeId = 3,
@@ -2277,3 +2282,33 @@ select * from tbUsers
 go
 exec spUser @crud='r'
 go
+
+create procedure spReports(
+@crud varchar(50)
+)
+as begin
+if @crud='f'
+begin
+select (firstName + ''+ lastName) as fullName, email, accessLevel
+
+from tbUsers
+end
+else if @crud='i'
+begin
+select*from tbWrongLogins
+end
+else if @crud='at'
+begin
+select count(attractionID) as [attraction qnt], attractionCategory
+from tbAttractions
+group by attractionCategory
+end
+else if @crud='st'
+select count(CategoryId) as [ qnt], CategoryType from tbShoppingCategories 
+group by CategoryType
+end
+go
+exec spReports @crud='f'
+exec spReports @crud='i'
+exec spReports @crud='at'
+exec spReports @crud='st'
