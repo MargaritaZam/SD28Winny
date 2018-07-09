@@ -32,7 +32,7 @@ namespace Winny1
             DAL myDal = new DAL(conn);
 
             adsource = new PagedDataSource();
-            myDal.AddParam("@crud", "a");
+            myDal.AddParam("@crud", "s");
             DataSet ds = myDal.ExecuteProcedure("spHotelsCrud");
             adsource.DataSource = ds.Tables[0].DefaultView;
             adsource.PageSize = 3;
@@ -69,7 +69,7 @@ namespace Winny1
             string LocationId = DdlLocation.SelectedItem.Value;
             DAL myDal = new DAL(conn);
             adsource = new PagedDataSource();
-            myDal.AddParam("@crud", "s");
+            myDal.AddParam("@crud", "r");
             myDal.AddParam("@StarsID", id);
             myDal.AddParam("@LocationID", LocationId);
             DataSet ds = myDal.ExecuteProcedure("spHotelCrud");

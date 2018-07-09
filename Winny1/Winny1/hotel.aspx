@@ -8,7 +8,7 @@ div.gallery {
     margin: 5px;
     border: 1px solid #ccc;
     float: left;
-    width: 180px;
+    width: 200px;
 }
 
 div.gallery:hover {
@@ -83,11 +83,9 @@ div.desc {
                     ImageUrl='<%# Eval("Hotel_path") %>'
                     ToolTip='<%# Eval("HotelDescription") %>'/>
                 <br />
-                    <%# Eval("HotelName") %>'
+                    Name: <%# Eval("HotelName") %>
                 <br />
-                    <%# Eval ("HotelPrice") %>
-                <br />
-                    <%# Eval ("HotelStars") %>
+                    Price: $<%# Eval ("HotelPrice") %><br />Rating: <%# Eval ("HotelStars") %>
                 <br />
                     Phone: <%# Eval ("HotelPhoneNumber") %>
                 <br />
@@ -95,7 +93,7 @@ div.desc {
                 <br />
                     Postal Code: <%# Eval ("HotelPostalCode") %>
                 <br />
-                    Website: <asp:HyperLink ID="HotelWeb" runat="server" NavigateUrl='<%# Eval ("HotelWebsite") %>' Text='<%# Eval ("Web") %>'></asp:HyperLink>
+                    Website: <asp:HyperLink ID="HotelWeb" runat="server" NavigateUrl='<%# Eval ("HotelWebsite") %>' ></asp:HyperLink>
                 <br />
             </div>
         </ItemTemplate>

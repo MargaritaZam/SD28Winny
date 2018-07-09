@@ -1785,7 +1785,7 @@ exec spAboutCrud @crud = 'c',
 
 create table tbHotelStars
 (
-	StarsID int identity(0,1) primary key,
+	StarsID		  int identity(0,1) primary key,
 	NumberOfStars varchar(12)
 )
 insert into tbHotelStars (NumberOfStars) values
@@ -1795,7 +1795,7 @@ go
 
 create procedure spHotelStars
 (
-	@starsID int = null ,
+	@starsID int = null,
 	@numberStars varchar(12) = null
 )
 as begin
@@ -1808,17 +1808,17 @@ go
 
 create table tbHotels
 (
-	HotelID int identity(1,1) primary key,
-	HotelName	varchar(30),
-	HotelPrice int,
-	HotelStars varchar(6),
+	HotelID			 int identity(1,1) primary key,
+	HotelName		 varchar(30),
+	HotelPrice		 int,
+	HotelStars		 varchar(6),
 	HotelDescription varchar(800),
 	HotelPhoneNumber varchar(15),
-	HotelAddress varchar(100),
-	HotelPostalCode varchar(7),
-	HotelWebsite varchar(100),
-	Hotel_path varchar(200),
-	HotelLocationID int foreign key references tbLocation(LocationID)
+	HotelAddress	 varchar(100),
+	HotelPostalCode  varchar(7),
+	HotelWebsite	 varchar(100),
+	Hotel_path		 varchar(200),
+	HotelLocationID  int foreign key references tbLocation(LocationID)
 )
 go
 
@@ -1841,6 +1841,10 @@ as begin
 	if @crud='r'
 	begin
 		select HotelName, HotelPrice, HotelStars, HotelDescription, HotelPhoneNumber, HotelAddress, HotelPostalCode, HotelWebsite,'.\HotelPictures\' + Hotel_path as Hotel_path from tbHotels where HotelId = isnull(@hotelId,HotelId)
+	end
+	if @crud='s'
+	begin
+		select HotelID, HotelName, HotelPrice, HotelStars, HotelDescription, HotelPhoneNumber, HotelAddress, HotelPostalCode, HotelWebsite,'.\HotelPictures\' + Hotel_path as Hotel_path from tbHotels where HotelId = isnull(@hotelId,HotelId)
 	end
 	else if @crud='c'
 	begin
