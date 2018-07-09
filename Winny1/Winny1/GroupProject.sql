@@ -1840,7 +1840,7 @@ create procedure spHotelsCrud
 as begin
 	if @crud='r'
 	begin
-		select HotelName, HotelPrice, HotelStars, HotelDescription, HotelPhoneNumber, HotelAddress, HotelPostalCode, HotelWebsite,'.\HotelPictures\' + Hotel_path as Hotel_path from tbHotels where HotelId = isnull(@hotelId,HotelId)
+		select HotelID, HotelName, HotelPrice, HotelStars, HotelDescription, HotelPhoneNumber, HotelAddress, HotelPostalCode, HotelWebsite,HotelLocationID,'.\HotelPictures\' + Hotel_path as Hotel_path from tbHotels where HotelId = isnull(@hotelId,HotelID)
 	end
 	else if @crud='c'
 	begin
@@ -2048,8 +2048,8 @@ as begin
 end
 go
 
---exec spGetSchoolTypes
---go
+exec spGetSchoolTypes
+go
 
 --  School Table and Procedures  --
 
@@ -2113,7 +2113,7 @@ as begin
 	end
 end
 go
-
+exec spSchoolsCrud @schoolCrud='r'
 exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolName = 'Booth University College',
 		@schoolTypeId = 3,
@@ -2284,3 +2284,33 @@ select * from tbUsers
 go
 exec spUser @crud='r'
 go
+
+create procedure spReports(
+@crud varchar(50)
+)
+as begin
+if @crud='f'
+begin
+select (firstName + ''+ lastName) as fullName, email, accessLevel
+
+from tbUsers
+end
+else if @crud='i'
+begin
+select*from tbWrongLogins
+end
+else if @crud='at'
+begin
+select count(attractionID) as [attraction qnt], attractionCategory
+from tbAttractions
+group by attractionCategory
+end
+else if @crud='st'
+select count(CategoryId) as [ qnt], CategoryType from tbShoppingCategories 
+group by CategoryType
+end
+go
+exec spReports @crud='f'
+exec spReports @crud='i'
+exec spReports @crud='at'
+exec spReports @crud='st'
