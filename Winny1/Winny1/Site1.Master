@@ -96,8 +96,9 @@ var year = currentTime.getFullYear()
                         </div>
                     </li>
                       <li class="dropdown"><a href="ChatBot.html">Have a question?</a>                    
+                    </li>                      
+                      <li class="dropdown"><a href="Coupons.aspx">Coupons</a>                    
                     </li>
-                       
                       <li class="dropdown"><a href="LoginPage.aspx">Login</a>                    
                     </li>
                 </ul>    	
