@@ -11,7 +11,7 @@
     <h1><asp:Label ID="lblLogin" runat="server" Text="Login"></asp:Label> </h1>
     <table>
         <tr>
-            <td>User Email</td>
+            <td><strong>User Email</strong></td>
             <td>
                 <asp:TextBox ID="txtUserEmail" runat="server"></asp:TextBox>
                  <asp:RequiredFieldValidator ID="valReqUser" runat="server"
@@ -49,19 +49,21 @@
     #float_r{
         vertical-align:top;
             }
-
+    label{
+        color:gold;
+    }
     </style>
     </div>
-<%--    Registration--%>
+<%--    Registration & Validation--%>
         <div class="float_r">
     <h1><asp:Label ID="lblRegistration" runat="server" Text="Create an Account"></asp:Label></h1>
-            <asp:Label ID="lblNewAccount" runat="server" Text=""></asp:Label>
+            <h2><asp:Label ID="lblNewAccount" runat="server" Text="" ></asp:Label></h2>
             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
             <asp:ValidationSummary ID="ValidationSummary1" runat="server"
                 DisplayMode="List" BorderStyle="Dashed" BorderColor="Red" Width="250px" />
     <table>
         <tr>
-            <td>First Name</td>
+            <td><strong>First Name</strong></td>
             <td>
                 <asp:TextBox ID="txtNewFirstName" runat="server"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="valReqFirstName" runat="server"
@@ -71,7 +73,7 @@
             </td>
         </tr>
         <tr>
-            <td>Last Name</td>
+            <td><strong>Last Name</strong></td>
             <td>
                 <asp:TextBox ID="txtNewLastName" runat="server"></asp:TextBox>
                  <asp:RequiredFieldValidator ID="valReqLastName" runat="server"
@@ -81,7 +83,7 @@
             </td>
         </tr>  
         <tr>
-            <td>Phone Number</td>
+            <td><strong>Phone Number</strong></td>
             <td>
                 <asp:TextBox ID="txtNewPhoneNumber" runat="server"></asp:TextBox>
                  <asp:RequiredFieldValidator ID="valReqPhoneNumber" runat="server"
@@ -92,7 +94,7 @@
             </td>
         </tr> 
         <tr>
-            <td>Address</td>
+            <td><strong>Address</strong></td>
             <td>
                 <asp:TextBox ID="txtNewAddress" runat="server"></asp:TextBox>
                  <asp:RequiredFieldValidator ID="valReqAddress" runat="server"
@@ -102,7 +104,7 @@
             </td>
         </tr>  
         <tr>
-            <td>Email</td>
+            <td><strong>Email</strong></td>
             <td>
                 <asp:TextBox ID="txtNewEmail" runat="server" ></asp:TextBox>
                  <asp:RequiredFieldValidator ID="valReqEmail" runat="server"
@@ -112,7 +114,7 @@
             </td>
         </tr>    
         <tr>
-               <td>Choose Password</td>
+               <td><strong>Choose Password</strong></td>
             <td>
                 <asp:TextBox ID="txtNewPassword" runat="server"></asp:TextBox>
                  <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
@@ -122,7 +124,7 @@
             </td>
         </tr>   
         <tr>
-            <td> Access Level</td>
+            <td> <strong>Access Level</strong></td>
             <td>
                 <asp:TextBox ID="txtAccessLevel" runat="server" Enabled="false">c</asp:TextBox>
             </td>
