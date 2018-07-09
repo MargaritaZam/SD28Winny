@@ -21,14 +21,21 @@
         <%--  <asp:LinkButton ID="lbAttractions" CssClass="l" runat="server" OnClick="lbAttractions_Click">#Attractions</asp:LinkButton><br />
         <asp:LinkButton ID="lbHotels" CssClass="l" runat="server" OnClick="lbHotels_Click">#Hotels</asp:LinkButton><br />
         <asp:LinkButton ID="lbSchools" CssClass="l" runat="server" OnClick="lbSchools_Click">#Universities/Schools</asp:LinkButton>--%>--%>
-       <h3><strong>Report</strong></h3>
-
+       <h3 style="color:crimson"><strong>Report</strong></h3>
         
-        
-        
-        
-        
-        
+        <div>
+            <asp:RadioButtonList ID="rblReport" AutoPostBack="true" 
+                RepeatDirection="Vertical" runat="server" OnSelectedIndexChanged="rblReport_SelectedIndexChanged">
+                <asp:ListItem Value="f" Text="Users"></asp:ListItem>
+                <asp:ListItem Value="i" Text="Wrong logins"></asp:ListItem>
+                <asp:ListItem Value="at" Text="Attraction's qnt"></asp:ListItem>
+                <asp:ListItem Value="st" Text="List of Shopping category"></asp:ListItem>
+            </asp:RadioButtonList>
+        </div>
+        <div>
+        <asp:GridView ID="gvreport" runat="server"></asp:GridView>
+        </div>
+                      
         <br />
         <br />
         <h2><strong>Users</strong></h2>
