@@ -80,6 +80,13 @@
     <Content Include="attraction.aspx" />
     <Content Include="ChatBot.html" />
     <Content Include="Client.aspx" />
+    <Content Include="Coupons.aspx" />
+    <Content Include="Coupons\boston_pizza_coupon.jpg" />
+    <Content Include="Coupons\HudsonBay_coupon.gif" />
+    <Content Include="Coupons\Michaels_coupon.jpg" />
+    <Content Include="Coupons\Rona_coupon.jpg" />
+    <Content Include="Coupons\TacoDelMar_coupon.jpg" />
+    <Content Include="Coupons\TimHortons_coupon.jpg" />
     <Content Include="GroupProject.sql" />
     <Content Include="hotel.aspx" />
     <Content Include="HotelPictures\CanadInnsHSC.png" />
@@ -309,6 +316,13 @@
     </Compile>
     <Compile Include="Client.aspx.designer.cs">
       <DependentUpon>Client.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Coupons.aspx.cs">
+      <DependentUpon>Coupons.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Coupons.aspx.designer.cs">
+      <DependentUpon>Coupons.aspx</DependentUpon>
     </Compile>
     <Compile Include="hotel.aspx.cs">
       <DependentUpon>hotel.aspx</DependentUpon>

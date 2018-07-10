@@ -721,6 +721,58 @@ namespace Winny1
             gvUniversity.PageIndex = Convert.ToInt32(e.NewPageIndex);
             loadSchools();
         }
+
+        protected void rblReport_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string Report = rblReport.SelectedValue;
+            DataSet ds = new DataSet();
+            switch(Report)
+            {
+                case "f":
+                    SqlDataAdapter da1 = new SqlDataAdapter("spReports", conn);
+                    da1.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    da1.SelectCommand.Parameters.AddWithValue("@crud", "f");
+                    conn.Open();
+                    da1.Fill(ds);
+                    conn.Close();
+                    gvreport.DataSource = ds.Tables[0];
+                    gvreport.DataBind();
+                    break;
+
+                case "i":
+                    SqlDataAdapter da2 = new SqlDataAdapter("spReports", conn);
+                    da2.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    da2.SelectCommand.Parameters.AddWithValue("@crud", "i");
+                    conn.Open();
+                    da2.Fill(ds);
+                    conn.Close();
+                    gvreport.DataSource = ds.Tables[0];
+                    gvreport.DataBind();
+                    break;
+
+                case "at":
+                    SqlDataAdapter da3 = new SqlDataAdapter("spReports", conn);
+                    da3.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    da3.SelectCommand.Parameters.AddWithValue("@crud", "at");
+                    conn.Open();
+                    da3.Fill(ds);
+                    conn.Close();
+                    gvreport.DataSource = ds.Tables[0];
+                    gvreport.DataBind();
+                    break;
+
+                case "st":
+                    SqlDataAdapter da4 = new SqlDataAdapter("spReports", conn);
+                    da4.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    da4.SelectCommand.Parameters.AddWithValue("@crud", "st");
+                    conn.Open();
+                    da4.Fill(ds);
+                    conn.Close();
+                    gvreport.DataSource = ds.Tables[0];
+                    gvreport.DataBind();
+                    break;
+            }
+        }
     }
 
    
