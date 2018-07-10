@@ -2312,3 +2312,65 @@ exec spReports @crud='f'
 exec spReports @crud='i'
 exec spReports @crud='at'
 exec spReports @crud='st'
+
+--Coupons
+create table tbCouponType(
+TypeId int identity (1,1) primary key,
+CouponType varchar (max)not null)
+go
+insert into tbCouponType(CouponType) values
+('Restaurants'),('Attractions'),('Shopping'),('Hotels')
+go
+create table tbCoupons(
+CouponId int identity (1,1) primary key,
+CouponName varchar (max) not null,
+Path varchar(max),
+TypeId int foreign key references tbCouponType (TypeId))
+go
+create procedure spCoupon(
+@CouponId int=null,
+@CouponName varchar(max)=null,
+@Path varchar (max)=null,
+@TypeId int= null,
+@Crud varchar(10))
+as begin
+if @Crud='r'
+begin select
+CouponId,CouponName,Path, TypeId from tbCoupons where CouponId=isnull(@CouponId, CouponId)
+end
+else if
+@Crud='c'
+begin 
+insert into tbCoupons (CouponName,Path, TypeId) values
+(@CouponName,@Path, @TypeId)
+end
+else if
+@Crud='d'
+begin
+delete from tbCoupons where CouponId=@CouponId
+end
+else if
+@Crud='u'
+begin
+update tbCoupons set
+CouponName=@CouponName,
+Path=@Path,
+TypeId=@TypeId
+where
+CouponId=@CouponId
+end
+else if
+@Crud='x'
+begin
+select CouponId, CouponName, Path, TypeId from tbCoupons where
+TypeId=@TypeId
+end
+end
+go
+go
+exec spCoupon @Crud='c', @CouponName='Boston Pizza', @Path='boston_pizza_coupon.jpg', @TypeId=1
+exec spCoupon @Crud='c', @CouponName='Taco Del Mar', @Path='TacoDelMar_coupon.jpg', @TypeId=1
+exec spCoupon @Crud='c', @CouponName='Tim Hortons', @Path='TimHortons_coupon.jpg', @TypeId=1
+exec spCoupon @Crud='c', @CouponName='Hudson Bay', @Path='HudsonBay_coupon.gif', @TypeId=3
+exec spCoupon @Crud='c', @CouponName='Michaels', @Path='Michaels_coupon.jpg', @TypeId=3
+exec spCoupon @Crud='c', @CouponName='Rona', @Path='Rona_coupon.jpg', @TypeId=3
