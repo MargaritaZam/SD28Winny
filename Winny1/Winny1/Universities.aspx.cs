@@ -32,10 +32,10 @@ namespace Winny1
             DAL myDal = new DAL(conn);
 
             DataSet ds = myDal.ExecuteProcedure("spLocation");
-            ddlLocation.DataSource = ds.Tables[0];
-            ddlLocation.DataTextField = "LocationName";
-            ddlLocation.DataValueField = "LocationID";
-            ddlLocation.DataBind();
+            DdlLocation.DataSource = ds.Tables[0];
+            DdlLocation.DataTextField = "LocationName";
+            DdlLocation.DataValueField = "LocationID";
+            DdlLocation.DataBind();
         }
 
         public void loadTypeOfSchool()
@@ -43,10 +43,10 @@ namespace Winny1
             DAL myDal = new DAL(conn);
 
             DataSet ds = myDal.ExecuteProcedure("spGetSchoolType");
-            ddlTypeOfSchool.DataSource = ds.Tables[0];
-            ddlTypeOfSchool.DataTextField = "TypeOfSchool";
-            ddlTypeOfSchool.DataValueField = "TypeID";
-            ddlTypeOfSchool.DataBind();
+            DdlTypeOfSchool.DataSource = ds.Tables[0];
+            DdlTypeOfSchool.DataTextField = "TypeOfSchool";
+            DdlTypeOfSchool.DataValueField = "TypeID";
+            DdlTypeOfSchool.DataBind();
         }
 
         public void loadSchools()
