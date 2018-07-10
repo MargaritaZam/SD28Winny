@@ -93,7 +93,7 @@ function showHint(str) {
                     ControlToValidate="txtNewFirstName" EnableClientScript="false" 
                     Text="*First Name is Required" ValidationGroup="gvsave"
                     ForeColor="Red"></asp:RequiredFieldValidator>
-
+             <%--   For names Suggestion--%>
                 <p>Suggestions: <span id="txtHint"></span></p>
             </td>
         </tr>
