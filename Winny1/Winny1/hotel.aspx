@@ -39,13 +39,13 @@ div.desc {
       .auto-style6 {
           width: 268px;
       }
+
 tr {
     height: 15px;
 }
  </style>
 
-<asp:Panel ID="PnlHotels" style="background-color:antiquewhite; width:800px "
-    runat="server">
+<asp:Panel ID="PnlHotels" style="background-color:antiquewhite; width:800px;" runat="server">
 
     <table>
         <tr>
@@ -81,7 +81,8 @@ tr {
 
     <asp:DataList ID="DlHotels" DataKeyField="HotelID" RepeatColumns="1" RepeatDirection="Horizontal" runat="server" CssClass="auto-style7">
         <ItemTemplate>
-            <div class="Hotels" style="width:650px;" onclick="return ViewHotel(<%#Eval ("HotelID") %>)">
+            <div class="Hotels" style="width:650px;" onclick="return ViewHotel(<%#Eval("HotelID") %>)">
+                
                 <table>
                     <tr>
                         <td colspan="2" rowspan="8" style="padding: 10px;">
@@ -92,7 +93,7 @@ tr {
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="3" style="color:black;">
+                        <td colspan="3" style="color:black; text-align:left;" >
                             <%# Eval("HotelDescription") %>
                         </td>
                     </tr>
@@ -142,7 +143,7 @@ tr {
                             Website: 
                         </td>
                         <td colspan="2">
-                            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval ("HotelWebsite") %>' ></asp:HyperLink>
+                            <asp:HyperLink ID="HyperLinkHotel" runat="server" NavigateUrl='<%# Eval ("HotelWebsite") %>' ></asp:HyperLink>
                         </td>
                     </tr>
                 </table>

@@ -2111,7 +2111,9 @@ as begin
 	end
 end
 go
+
 exec spSchoolsCrud @schoolCrud='r'
+
 exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolName = 'Booth University College',
 		@schoolTypeId = 3,
