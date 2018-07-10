@@ -70,12 +70,12 @@ namespace Winny1
 
         protected void BtnSearch_Click(object sender, EventArgs e)
         {
-            string TypeId = ddlTypeOfSchool.SelectedItem.Value;
-            string LocationId = ddlLocation.SelectedItem.Value;
+            string TypeId = DdlTypeOfSchool.SelectedItem.Value;
+            string LocationId = DdlLocation.SelectedItem.Value;
             DAL myDal = new DAL(conn);
             adsource = new PagedDataSource();
-            myDal.AddParam("@crud", "s");
-            myDal.AddParam("@typeId", TypeId);
+            myDal.AddParam("@crud", "r");
+            myDal.AddParam("@schTypeId", TypeId);
             myDal.AddParam("@locationId", LocationId);
             DataSet ds = myDal.ExecuteProcedure("spSchoolsCrud");
             adsource.DataSource = ds.Tables[0].DefaultView;

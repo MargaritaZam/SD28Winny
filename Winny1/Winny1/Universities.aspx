@@ -81,12 +81,12 @@ tr {
 
     <asp:DataList ID="DlSchools" DataKeyField="SchoolID" RepeatColumns="1" RepeatDirection="Horizontal" runat="server" CssClass="auto-style7">
         <ItemTemplate>
-            <div class="Schools" style="width:650px;"  onclick="return ViewProduct(<%#Eval("SchoolID")%>)" >
+            <div class="Schools" style="width:650px;"  onclick="return ViewSchool(<%#Eval("SchoolID") %>)" >
                
             <table>
                 <tr>
                     <td colspan="2" rowspan="8" style="padding: 10px;" >
-                        <asp:Image  ID="ImgSchool" runat="server" ImageUrl='<%#Eval("School_path") %>' />
+                        <asp:Image  ID="ImgSchool" runat="server" ImageUrl='<%# Eval("School_path") %>' />
                     </td>
                     <td colspan="3" style="text-align: center; color:red; font-weight:bold;" >
                         <%#Eval ("SchoolName")%>
