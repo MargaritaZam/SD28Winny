@@ -29,6 +29,7 @@ namespace Winny1
             {
                 // new Client()
                 // initialize Client()
+                
                 User user = new User();
                 user.AccessLevel = ds.Tables[0].Rows[0]["access"].ToString();
                 //user.Id = Convert.ToInt32(ds.Tables[0].Rows[0]["id"]);
@@ -37,7 +38,7 @@ namespace Winny1
                 //user.LastName = ds.Tables[0].Rows[0]["lastName"].ToString();
                 //user.Phone = ds.Tables[0].Rows[0]["phoneNumber"].ToString();
                 access = user.AccessLevel;
-                // add to Session
+               
                 HttpContext.Current.Session["user"] = user;
 
                 return true;

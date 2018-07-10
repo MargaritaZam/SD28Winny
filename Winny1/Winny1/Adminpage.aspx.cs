@@ -26,7 +26,7 @@ namespace Winny1
                 loadLocation();
                 loadStoreCategory();
                 loadStores();
-               
+
                 loadHotels();
                 loadSchools();
             }

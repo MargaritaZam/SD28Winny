@@ -32,7 +32,7 @@ namespace Winny1
             {
                 if (security.access == "a")
                 {
-                    
+                   
                     Response.Redirect("index.aspx");
                 }
                 else if (security.access == "c")
