@@ -87,6 +87,7 @@
     <Content Include="Coupons\Rona_coupon.jpg" />
     <Content Include="Coupons\TacoDelMar_coupon.jpg" />
     <Content Include="Coupons\TimHortons_coupon.jpg" />
+    <Content Include="gethint.asp" />
     <Content Include="GroupProject.sql" />
     <Content Include="hotel.aspx" />
     <Content Include="HotelPictures\CanadInnsHSC.png" />

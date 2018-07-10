@@ -1,7 +1,28 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="LoginPage.aspx.cs" Inherits="Winny1.LoginPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+     <script>
+function showHint(str) {
+    if (str.length == 0) { 
+        document.getElementById("txtHint").innerHTML = "";
+        return;
+    } else {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("txtHint").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET", "gethint.asp?q=" + str, true);
+        xmlhttp.send();
+    }
+}
+</script>
+
+
         <%-- <asp:ScriptManager ID="ScriptManager2" runat="server"></asp:ScriptManager>--%>
             <asp:ValidationSummary ID="ValidationSummary2" runat="server"
            DisplayMode="List" BorderStyle="solid" BorderColor="Red" Width="250px"/>
@@ -64,12 +85,16 @@
     <table>
         <tr>
             <td><strong>First Name</strong></td>
+            
             <td>
-                <asp:TextBox ID="txtNewFirstName" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtNewFirstName" onKeyUp="showHint(this.value)" runat="server"></asp:TextBox>
+               
                 <asp:RequiredFieldValidator ID="valReqFirstName" runat="server"
                     ControlToValidate="txtNewFirstName" EnableClientScript="false" 
                     Text="*First Name is Required" ValidationGroup="gvsave"
                     ForeColor="Red"></asp:RequiredFieldValidator>
+
+                <p>Suggestions: <span id="txtHint"></span></p>
             </td>
         </tr>
         <tr>
