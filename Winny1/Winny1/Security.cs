@@ -13,7 +13,7 @@ namespace Winny1
         SqlConnection conn = new SqlConnection("Data Source=localhost; Initial Catalog=dbGroupProject; Integrated Security= SSPI");
         public string access { get; set; }
 
-
+       
         public bool Login(string UserID, string Password)
         {
             DataSet ds = new DataSet();
@@ -31,11 +31,11 @@ namespace Winny1
                 // initialize Client()
                 User user = new User();
                 user.AccessLevel = ds.Tables[0].Rows[0]["access"].ToString();
-                user.Id = Convert.ToInt32(ds.Tables[0].Rows[0]["id"]);
-                user.Address = ds.Tables[0].Rows[0]["address"].ToString();
-                user.FirstName = ds.Tables[0].Rows[0]["firstName"].ToString();
-                user.LastName = ds.Tables[0].Rows[0]["lastName"].ToString();
-                user.Phone = ds.Tables[0].Rows[0]["phoneNumber"].ToString();
+                //user.Id = Convert.ToInt32(ds.Tables[0].Rows[0]["id"]);
+                //user.Address = ds.Tables[0].Rows[0]["address"].ToString();
+                //user.FirstName = ds.Tables[0].Rows[0]["firstName"].ToString();
+                //user.LastName = ds.Tables[0].Rows[0]["lastName"].ToString();
+                //user.Phone = ds.Tables[0].Rows[0]["phoneNumber"].ToString();
                 access = user.AccessLevel;
                 // add to Session
                 HttpContext.Current.Session["user"] = user;
@@ -44,6 +44,7 @@ namespace Winny1
             }
             else
             {
+                access = "";
                 return false;
             }
         }

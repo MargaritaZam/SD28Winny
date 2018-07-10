@@ -14,5 +14,14 @@ namespace Winny1
         public string AccessLevel;
         public string Address;
         public string Phone;
+
+        public User()
+        {
+            FirstName = "";
+            LastName = "";
+            AccessLevel = "";
+            Address = "";
+            Phone = "";
+        }
     }
 }

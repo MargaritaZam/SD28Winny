@@ -20,12 +20,13 @@ namespace Winny1
         {
             if (!IsPostBack)
             {
+                loadAttractions();
                 loadRestaurants();
                 loadFoodCategory();
                 loadLocation();
                 loadStoreCategory();
                 loadStores();
-                loadAttractions();
+               
                 loadHotels();
                 loadSchools();
             }
