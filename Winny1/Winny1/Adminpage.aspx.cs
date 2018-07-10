@@ -428,7 +428,7 @@ namespace Winny1
 
         protected void lbSchools_Click(object sender, EventArgs e)
         {
-            gvUniversity.Visible = true;
+            //gvUniversity.Visible = true;
         }
 
 
@@ -717,8 +717,8 @@ namespace Winny1
         }
         protected void gvUniversity_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            gvUniversity.PageIndex = Convert.ToInt32(e.NewPageIndex);
-            loadSchools();
+            //gvUniversity.PageIndex = Convert.ToInt32(e.NewPageIndex);
+            //loadSchools();
         }
 
         protected void rblReport_SelectedIndexChanged(object sender, EventArgs e)
@@ -769,6 +769,38 @@ namespace Winny1
                     conn.Close();
                     gvreport.DataSource = ds.Tables[0];
                     gvreport.DataBind();
+                    break;
+            }
+        }
+
+        protected void rblAdmin_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string Choice = rblAdmin.SelectedValue;
+            switch(Choice)
+            {
+                case "R":
+                    panelRestaurants.Visible = true;
+                    panelStores.Visible = false;
+                    panelAttraction.Visible = false;
+                    panelHotel.Visible = false;
+                    break;
+                case "S":
+                    panelStores.Visible = true;
+                    panelRestaurants.Visible = false;
+                    panelAttraction.Visible = false;
+                    panelHotel.Visible = false;
+                    break;
+                case "A":
+                    panelAttraction.Visible = true;             
+                    panelRestaurants.Visible = false;
+                    panelStores.Visible = false;
+                    panelHotel.Visible = false;
+                    break;
+                case "H":
+                    panelHotel.Visible = true;
+                    panelRestaurants.Visible = false;
+                    panelStores.Visible = false;
+                    panelAttraction.Visible = false;
                     break;
             }
         }

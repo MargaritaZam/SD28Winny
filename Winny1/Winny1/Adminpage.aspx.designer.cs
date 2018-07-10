@@ -58,6 +58,24 @@ namespace Winny1 {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
         
         /// <summary>
+        /// rblAdmin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rblAdmin;
+        
+        /// <summary>
+        /// panelRestaurants control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panelRestaurants;
+        
+        /// <summary>
         /// gvRestaurants control.
         /// </summary>
         /// <remarks>
@@ -182,6 +200,15 @@ namespace Winny1 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btbRestSave;
+        
+        /// <summary>
+        /// panelStores control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panelStores;
         
         /// <summary>
         /// gvShoping control.
@@ -310,6 +337,15 @@ namespace Winny1 {
         protected global::System.Web.UI.WebControls.Button btnSavestore;
         
         /// <summary>
+        /// panelAttraction control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panelAttraction;
+        
+        /// <summary>
         /// gvAttractions control.
         /// </summary>
         /// <remarks>
@@ -434,6 +470,15 @@ namespace Winny1 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSaveAttr;
+        
+        /// <summary>
+        /// panelHotel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panelHotel;
         
         /// <summary>
         /// gvHotels control.
@@ -578,23 +623,5 @@ namespace Winny1 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSaveHotel;
-        
-        /// <summary>
-        /// gvUniversity control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvUniversity;
-        
-        /// <summary>
-        /// SqlDataSource5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource5;
     }
 }
