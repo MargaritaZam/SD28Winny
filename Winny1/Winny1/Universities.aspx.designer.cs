@@ -40,22 +40,22 @@ namespace Winny1 {
         protected global::System.Web.UI.WebControls.Label lblTypeOfSchool;
         
         /// <summary>
-        /// ddlLocation control.
+        /// DdlLocation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlLocation;
+        protected global::System.Web.UI.WebControls.DropDownList DdlLocation;
         
         /// <summary>
-        /// ddlTypeOfSchool control.
+        /// DdlTypeOfSchool control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTypeOfSchool;
+        protected global::System.Web.UI.WebControls.DropDownList DdlTypeOfSchool;
         
         /// <summary>
         /// lblSearch control.
@@ -67,66 +67,66 @@ namespace Winny1 {
         protected global::System.Web.UI.WebControls.Label lblSearch;
         
         /// <summary>
-        /// txtSearch control.
+        /// TxtSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSearch;
+        protected global::System.Web.UI.WebControls.TextBox TxtSearch;
         
         /// <summary>
-        /// btnSearch control.
+        /// BtnSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSearch;
+        protected global::System.Web.UI.WebControls.Button BtnSearch;
         
         /// <summary>
-        /// dlSchools control.
+        /// DlSchools control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList dlSchools;
+        protected global::System.Web.UI.WebControls.DataList DlSchools;
         
         /// <summary>
-        /// btnFirst control.
+        /// BtnFirst control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnFirst;
+        protected global::System.Web.UI.WebControls.Button BtnFirst;
         
         /// <summary>
-        /// btnPrevious control.
+        /// BtnPrevious control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPrevious;
+        protected global::System.Web.UI.WebControls.Button BtnPrevious;
         
         /// <summary>
-        /// btnNext control.
+        /// BtnNext control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnNext;
+        protected global::System.Web.UI.WebControls.Button BtnNext;
         
         /// <summary>
-        /// btnLast control.
+        /// BtnLast control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLast;
+        protected global::System.Web.UI.WebControls.Button BtnLast;
     }
 }

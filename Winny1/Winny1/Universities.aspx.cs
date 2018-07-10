@@ -27,6 +27,17 @@ namespace Winny1
             loadSchools();
         }
 
+        public void loadLocation()
+        {
+            DAL myDal = new DAL(conn);
+
+            DataSet ds = myDal.ExecuteProcedure("spLocation");
+            ddlLocation.DataSource = ds.Tables[0];
+            ddlLocation.DataTextField = "LocationName";
+            ddlLocation.DataValueField = "LocationID";
+            ddlLocation.DataBind();
+        }
+
         public void loadTypeOfSchool()
         {
             DAL myDal = new DAL(conn);
@@ -38,56 +49,45 @@ namespace Winny1
             ddlTypeOfSchool.DataBind();
         }
 
-        public void loadLocation()
-        {
-            DAL myDal = new DAL(conn);
-            
-            DataSet ds = myDal.ExecuteProcedure("spLocations");
-            ddlLocation.DataSource = ds.Tables[0];
-            ddlLocation.DataTextField = "LocationName";
-            ddlLocation.DataValueField = "LocationID";
-            ddlLocation.DataBind();
-        }
-
         public void loadSchools()
         {
             DAL myDal = new DAL(conn);
 
             adsource = new PagedDataSource();
-            myDal.AddParam("@crud", "a");
+            myDal.AddParam("@crud", "r");
             DataSet ds = myDal.ExecuteProcedure("spSchoolsCrud");
             adsource.DataSource = ds.Tables[0].DefaultView;
             adsource.PageSize = 3;
             adsource.AllowPaging = true;
             adsource.CurrentPageIndex = pos;
-            btnFirst.Enabled = !adsource.IsFirstPage;
-            btnPrevious.Enabled = !adsource.IsFirstPage;
-            btnLast.Enabled = !adsource.IsLastPage;
-            btnNext.Enabled = !adsource.IsLastPage;
-            dlSchools.DataSource = adsource;
-            dlSchools.DataBind();
+            BtnFirst.Enabled = !adsource.IsFirstPage;
+            BtnPrevious.Enabled = !adsource.IsFirstPage;
+            BtnLast.Enabled = !adsource.IsLastPage;
+            BtnNext.Enabled = !adsource.IsLastPage;
+            DlSchools.DataSource = adsource;
+            DlSchools.DataBind();
         }
 
-        protected void btnSearch_Click(object sender, EventArgs e)
+        protected void BtnSearch_Click(object sender, EventArgs e)
         {
-            string TypeId = ddlTypeOfSchool.SelectedItem.Value;
-            string LocationId = ddlLocation.SelectedItem.Value;
+            string TypeId = DdlTypeOfSchool.SelectedItem.Value;
+            string LocationId = DdlLocation.SelectedItem.Value;
             DAL myDal = new DAL(conn);
             adsource = new PagedDataSource();
-            myDal.AddParam("@crud", "s");
-            myDal.AddParam("@typeId", TypeId);
+            myDal.AddParam("@crud", "r");
+            myDal.AddParam("@schTypeId", TypeId);
             myDal.AddParam("@locationId", LocationId);
             DataSet ds = myDal.ExecuteProcedure("spSchoolsCrud");
             adsource.DataSource = ds.Tables[0].DefaultView;
             adsource.PageSize = 3;
             adsource.AllowPaging = true;
             adsource.CurrentPageIndex = pos;
-            btnFirst.Enabled = !adsource.IsFirstPage;
-            btnPrevious.Enabled = !adsource.IsFirstPage;
-            btnLast.Enabled = !adsource.IsLastPage;
-            btnNext.Enabled = !adsource.IsLastPage;
-            dlSchools.DataSource = adsource;
-            dlSchools.DataBind();
+            BtnFirst.Enabled = !adsource.IsFirstPage;
+            BtnPrevious.Enabled = !adsource.IsFirstPage;
+            BtnLast.Enabled = !adsource.IsLastPage;
+            BtnNext.Enabled = !adsource.IsLastPage;
+            DlSchools.DataSource = adsource;
+            DlSchools.DataBind();
         }
 
         protected void btnFirst_Click(object sender, EventArgs e)

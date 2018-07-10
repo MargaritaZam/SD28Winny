@@ -86,12 +86,10 @@ var year = currentTime.getFullYear()
                     </div>
                     </li>
 
-                    <li class="dropdown"><a href="Universities.aspx">Universities & Colleges</a>
-                        <div class="dropdown-content">
-                            <a href="Universities.aspx?id=1">Location</a>
-                            <a href="Universities.aspx?id=2">Type of Studies</a>
-                        </div>
+                    <li class="dropdown">
+                        <a href="Universities.aspx">Universities & Colleges</a>
                     </li>
+
                       <li class="dropdown"><a href="ChatBot.html">Have a question?</a>                    
                     </li>                      
                       <li class="dropdown"><a href="Coupons.aspx">Coupons</a>                    
