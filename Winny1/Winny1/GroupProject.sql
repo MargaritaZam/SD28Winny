@@ -2093,7 +2093,7 @@ as begin
 			tbUniversitiesColleges.SchoolPhoneNumber, tbUniversitiesColleges.SchoolAddress,
 			tbUniversitiesColleges.SchoolPostalCode, tbUniversitiesColleges.SchoolWebsite,
 			tbUniversitiesColleges.SchoolDescription,
-			'.\SchoolPictures\' + School_path as School_path 
+			'.\UniversityPictures\' + School_path as School_path 
 		from tbUniversitiesColleges
 		inner join tbSchoolTypes on tbUniversitiesColleges.SchoolTypeID = tbSchoolTypes.SchTypeID
 		where SchoolID=isnull(@schoolID,SchoolID)
