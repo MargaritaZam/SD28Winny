@@ -8,7 +8,7 @@ div.gallery {
     margin: 5px;
     border: 1px solid #ccc;
     float: left;
-    width: 200px;
+    width: 180px;
 }
 
 div.gallery:hover {
@@ -39,10 +39,13 @@ div.desc {
       .auto-style6 {
           width: 268px;
       }
+
+tr {
+    height: 15px;
+}
  </style>
 
-<asp:Panel ID="PnlHotels" style="background-color:antiquewhite; width:800px "
-    runat="server">
+<asp:Panel ID="PnlHotels" style="background-color:antiquewhite; width:800px;" runat="server">
 
     <table>
         <tr>
@@ -50,15 +53,15 @@ div.desc {
                 <asp:Label ID="LblLocation" runat="server" Text="Browse by Location" ForeColor="Black" Font-Bold="true"></asp:Label>
             </td>
             <td>
-                    <asp:Label ID="LblHotelStars" runat="server" Text="Browse by Number of Stars" ForeColor="Black" Font-Bold="true"></asp:Label>
+                    <asp:Label ID="LblHotelStars" runat="server" Text="Browse by Rating" ForeColor="Black" Font-Bold="true"></asp:Label>
             </td>
         </tr>
         <tr>
             <td>
-                    <asp:DropDownList ID="DdlLocation" runat="server" Height="23px" Width="263px" BackColor="White"></asp:DropDownList>
+                    <asp:DropDownList ID="DdlLocation" runat="server" Height="23px" Width="250px" BackColor="White"></asp:DropDownList>
             </td>
             <td>
-                    <asp:DropDownList ID="DdlHotelStars"  runat="server" Height="23px" Width="268px" BackColor="White"></asp:DropDownList>
+                    <asp:DropDownList ID="DdlHotelStars"  runat="server" Height="23px" Width="250px" BackColor="White"></asp:DropDownList>
             </td>
         </tr>
         <tr>
@@ -68,7 +71,7 @@ div.desc {
         </tr>
         <tr>
             <td>
-                    <asp:TextBox ID="TxtSearch" runat="server" Height="26px" Width="258px" ></asp:TextBox>
+                    <asp:TextBox ID="TxtSearch" runat="server" Height="26px" Width="250px" ></asp:TextBox>
             </td>
             <td>
                 <asp:Button ID="BtnSearch" runat="server" Text="Search" BackColor="#CC0099" Font-Bold="True" ForeColor="White" Height="33px" Width="80px" OnClick="BtnSearch_Click" />
@@ -76,25 +79,74 @@ div.desc {
         </tr>
     </table>
 
-    <asp:DataList ID="DlHotels" DataKeyField="HotelID" RepeatColumns="3" runat="server">
+    <asp:DataList ID="DlHotels" DataKeyField="HotelID" RepeatColumns="1" RepeatDirection="Horizontal" runat="server" CssClass="auto-style7">
         <ItemTemplate>
-            <div class="Hotels" style="width:90%;" onclick="return ViewHotel(<%#Eval ("HotelID") %>)">
-                <asp:Image ID="ImgHotel" runat="server"
-                    ImageUrl='<%# Eval("Hotel_path") %>'
-                    ToolTip='<%# Eval("HotelDescription") %>'/>
-                <br />
-                    Name: <%# Eval("HotelName") %>
-                <br />
-                    Price: $<%# Eval ("HotelPrice") %><br />Rating: <%# Eval ("HotelStars") %>
-                <br />
-                    Phone: <%# Eval ("HotelPhoneNumber") %>
-                <br />
-                    Address: <%# Eval ("HotelAddress") %>
-                <br />
-                    Postal Code: <%# Eval ("HotelPostalCode") %>
-                <br />
-                    Website: <asp:HyperLink ID="HotelWeb" runat="server" NavigateUrl='<%# Eval ("HotelWebsite") %>' ></asp:HyperLink>
-                <br />
+            <div class="Hotels" style="width:650px;" onclick="return ViewHotel(<%#Eval("HotelID") %>)">
+                
+                <table>
+                    <tr>
+                        <td colspan="2" rowspan="8" style="padding: 10px;">
+                            <asp:Image ID="ImgHotel" runat="server" ImageUrl='<%# Eval("Hotel_path") %>' />
+                        </td>
+                        <td colspan="3" style="text-align: center; color:red; font-weight:bold;">
+                            <%# Eval("HotelName") %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="color:black; text-align:left;" >
+                            <%# Eval("HotelDescription") %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Rating: 
+                        </td>
+                        <td style="color:black; text-align: left;">
+                            <%# Eval ("HotelStarsID") %>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Price:
+                        </td>
+                        <td style="color:black;">
+                            <%# Eval ("HotelPrice") %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Phone: 
+                        </td>
+                        <td style="color:black;">
+                            <%# Eval ("HotelPhoneNumber") %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Address: 
+                        </td>
+                        <td style="color:black;">
+                            <%# Eval ("HotelAddress") %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Postal Code: 
+                        </td>
+                        <td style="color:black;">
+                            <%# Eval ("HotelPostalCode") %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Website: 
+                        </td>
+                        <td colspan="2">
+                            <asp:HyperLink ID="HyperLinkHotel" runat="server" NavigateUrl='<%# Eval ("HotelWebsite") %>' ></asp:HyperLink>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </ItemTemplate>
     </asp:DataList>
