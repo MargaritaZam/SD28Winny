@@ -1840,11 +1840,13 @@ as begin
 			'.\HotelPictures\' + Hotel_path as Hotel_path 
 		from tbHotels
 		inner join tbHotelStars on tbHotels.HotelStarsID = tbHotelStars.StarsID
-		where HotelId = isnull(@hotelId,HotelID)
+		where HotelID = isnull(@hotelID,HotelID)
 	end
 	if @crud='s'
 	begin
-		select HotelID, HotelName, HotelPrice, HotelStarsID, HotelDescription, HotelPhoneNumber, HotelAddress, HotelPostalCode, HotelWebsite,'.\HotelPictures\' + Hotel_path as Hotel_path from tbHotels where HotelId = isnull(@hotelId,HotelId)
+		select HotelID, HotelName, HotelPrice, HotelStarsID, HotelDescription, HotelPhoneNumber,
+			HotelAddress, HotelPostalCode, HotelWebsite,'.\HotelPictures\' + Hotel_path as Hotel_path 
+		from tbHotels where HotelID = isnull(@hotelID,HotelID)
 	end
 	else if @crud='c'
 	begin
@@ -2062,11 +2064,11 @@ create table tbUniversitiesColleges
 	SchoolID int identity(1,1) primary key,
 	SchoolName varchar(50),
 	SchoolTypeID int foreign key references tbSchoolTypes(SchTypeID),
+	SchoolDescription varchar(800),
 	SchoolPhoneNumber varchar(15),
 	SchoolAddress varchar(100),
 	SchoolPostalCode varchar(7),
 	SchoolWebsite varchar(100),
-	SchoolDescription varchar(800),
 	School_path varchar(200),
 	SchoolLocationID int foreign key references tbLocation(LocationID)
 )
@@ -2077,11 +2079,11 @@ create procedure spSchoolsCrud
 	@schoolID int = null,
 	@schoolName varchar(50) = null,
 	@schoolTypeId int = null,
+	@schoolDescription varchar(800) = null,
 	@schoolPhoneNumber varchar(15) = null,
 	@schoolAddress varchar(100) = null,
 	@schoolPostalCode varchar(7) = null,
 	@schoolWebsite varchar(100) = null,
-	@schoolDescription varchar(800) = null,
 	@school_path varchar(200) = null,
 	@schoolLocationID int = null,
 	@schoolCrud varchar(1)
@@ -2089,31 +2091,35 @@ create procedure spSchoolsCrud
 as begin
 	if @schoolCrud='r'
 	begin
-		select tbUniversitiesColleges.SchoolName, tbSchoolTypes.SchType,
-			tbUniversitiesColleges.SchoolPhoneNumber, tbUniversitiesColleges.SchoolAddress,
+		select tbUniversitiesColleges.SchoolID, tbUniversitiesColleges.SchoolName, tbSchoolTypes.SchType,
+			tbUniversitiesColleges.SchoolDescription, tbUniversitiesColleges.SchoolPhoneNumber, tbUniversitiesColleges.SchoolAddress,
 			tbUniversitiesColleges.SchoolPostalCode, tbUniversitiesColleges.SchoolWebsite,
-			tbUniversitiesColleges.SchoolDescription,
 			'.\UniversityPictures\' + School_path as School_path 
 		from tbUniversitiesColleges
 		inner join tbSchoolTypes on tbUniversitiesColleges.SchoolTypeID = tbSchoolTypes.SchTypeID
-		where SchoolID=isnull(@schoolID,SchoolID)
+		where SchoolID = isnull(@schoolID,SchoolID)
+	end
+	if @schoolCrud='s'
+	begin
+		select SchoolID, SchoolName, SchoolTypeID, SchoolDescription, SchoolPhoneNumber,
+			SchoolAddress, SchoolPostalCode, SchoolWebsite,'.\UniversityPictures\' + School_path as School_path
+		from tbUniversitiesColleges where SchoolId = isnull(@schoolID,SchoolID)
 	end
 	else if @schoolCrud='c'
 	begin
-		insert into tbUniversitiesColleges(SchoolName,SchoolTypeId,SchoolPhoneNumber,SchoolAddress,SchoolPostalCode,SchoolWebsite,SchoolDescription,School_path,SchoolLocationID)
-								values
-								(@schoolName,@schoolTypeId,@schoolPhoneNumber,@schoolAddress,@schoolPostalCode,@schoolWebsite,@schoolDescription,@school_path,@schoolLocationID)
+		insert into tbUniversitiesColleges(SchoolName, SchoolTypeId, SchoolDescription, SchoolPhoneNumber, SchoolAddress, SchoolPostalCode, SchoolWebsite, School_path, SchoolLocationID) values
+				(@schoolName,@schoolTypeId,@schoolDescription,@schoolPhoneNumber,@schoolAddress,@schoolPostalCode,@schoolWebsite,@school_path,@schoolLocationID)
 	end
 	else if @schoolCrud='u'
 	begin
 		update tbUniversitiesColleges set
 			   SchoolName = @schoolName,
 			   SchoolTypeId = @schoolTypeId,
+			   SchoolDescription = @schoolDescription,
 			   SchoolPhoneNumber = @schoolPhoneNumber,
 			   SchoolAddress = @schoolAddress,
 			   SchoolPostalCode = @schoolPostalCode,
 			   SchoolWebsite = @schoolWebsite,
-			   SchoolDescription = @schoolDescription,
 			   School_path = @school_path,
 			   SchoolLocationID = @schoolLocationID
 		where SchoolID = @schoolID
@@ -2128,66 +2134,66 @@ go
 exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolName = 'Booth University College',
 		@schoolTypeId = 3,
+		@schoolDescription = 'William and Catherine Booth University College, rooted in The Salvation Army’s Wesleyan theological tradition, brings together Christian faith, rigorous scholarship and a passion for service.  A small campus with just 250 students, located in downtown Winnipeg.',
 		@schoolPhoneNumber = '204-942-3856',
 		@schoolAddress = '447 Webb Place',
 		@schoolPostalCode = 'R3B 2P2',
 		@schoolWebsite = 'http://www.boothuc.ca/',
-		@schoolDescription = 'William and Catherine Booth University College, rooted in The Salvation Army’s Wesleyan theological tradition, brings together Christian faith, rigorous scholarship and a passion for service.  A small campus with just 250 students, located in downtown Winnipeg.',
 		@school_path = 'BoothUC.png',
 		@schoolLocationId = 7
 
 exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolName = 'Canadian Mennonite University',
 		@schoolTypeId = 1,
+		@schoolDescription = 'CMU offers comprehensive university education within a dynamic and diverse Christian community. Exemplary academic studies across the arts and sciences are distinguished by interdisciplinary interaction, experiential learning, and quality connection between students and faculty.',
 		@schoolPhoneNumber = '204-487-3300',
 		@schoolAddress = '500 Shaftesbury Boulevard',
 		@schoolPostalCode = 'R3P 2N2',
 		@schoolWebsite = 'http://www.cmu.ca/',
-		@schoolDescription = 'CMU offers comprehensive university education within a dynamic and diverse Christian community. Exemplary academic studies across the arts and sciences are distinguished by interdisciplinary interaction, experiential learning, and quality connection between students and faculty.',
 		@school_path = 'CanadianMennoniteUniversity.jpg',
 		@schoolLocationId = 9
 
 exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolName = 'Herzing College Winnipeg',
 		@schoolTypeId = 3,
+		@schoolDescription = '',
 		@schoolPhoneNumber = '204-775-8175',
 		@schoolAddress = '1700 Portage Avenue',
 		@schoolPostalCode = 'R3J 0E1',
 		@schoolWebsite = 'http://www.herzing.ca/winnipeg/',
-		@schoolDescription = '',
 		@school_path = 'Herzing.png',
 		@schoolLocationId = 7
 
 exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolName = 'Red River College',
 		@schoolTypeId = 3,
+		@schoolDescription = 'We have 4 campuses scattered throughout Winnipeg, and 5 more outside Winnipeg.  We are Manitoba’s largest institute of applied learning and research, with more than 200 full- and part-time degree, diploma and certificate options.  We have close to 22,000 students each year from more than 60 countries.',
 		@schoolPhoneNumber = '204-632-2327',
 		@schoolAddress = '2055 Notre Dame Avenue',
 		@schoolPostalCode = 'R3H 0J9',
 		@schoolWebsite = 'http://www.rrc.mb.ca/',
-		@schoolDescription = 'We have 4 campuses scattered throughout Winnipeg, and 5 more outside Winnipeg.  We are Manitoba’s largest institute of applied learning and research, with more than 200 full- and part-time degree, diploma and certificate options.  We have close to 22,000 students each year from more than 60 countries.',
 		@school_path = 'RedRiverCollege.jpg',
 		@schoolLocationId = 10
 
 exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolName = 'Robertson College',
 		@schoolTypeId = 3,
+		@schoolDescription = 'Having been in operation for over 100 years, Robertson College has established itself as a leading private post-secondary institution in Canada.  There are 12 locations in Canada and one in China.',
 		@schoolPhoneNumber = '204-926-8325',
 		@schoolAddress = '265 Notre Dame Avenue',
 		@schoolPostalCode = 'R3B 1N9',
 		@schoolWebsite = 'http://www.robertsoncollege.com/',
-		@schoolDescription = 'Having been in operation for over 100 years, Robertson College has established itself as a leading private post-secondary institution in Canada.  There are 12 locations in Canada and one in China.',
 		@school_path = 'RobertsonCollege.png',
 		@schoolLocationId = 9
 
 exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolName = 'University of Manitoba',
 		@schoolTypeId = 2,
+		@schoolDescription = 'Since 1877, the University of Manitoba has been driving discovery and inspiring minds through innovative teaching and research excellence. The U of M has 24,000 undergraduate and graduate students studying more than 90 degree programs.',
 		@schoolPhoneNumber = '204-474-8880',
 		@schoolAddress = '66 Chancellors Circle',
 		@schoolPostalCode = 'R3T 2N2',
 		@schoolWebsite = 'http://www.umanitoba.ca/',
-		@schoolDescription = 'Since 1877, the University of Manitoba has been driving discovery and inspiring minds through innovative teaching and research excellence. The U of M has 24,000 undergraduate and graduate students studying more than 90 degree programs.',
 		@school_path = 'UniversityManitoba.png',
 		@schoolLocationId = 5
 

@@ -42,10 +42,10 @@ namespace Winny1
         {
             DAL myDal = new DAL(conn);
 
-            DataSet ds = myDal.ExecuteProcedure("spGetSchoolType");
+            DataSet ds = myDal.ExecuteProcedure("spGetSchoolTypes");
             DdlTypeOfSchool.DataSource = ds.Tables[0];
-            DdlTypeOfSchool.DataTextField = "TypeOfSchool";
-            DdlTypeOfSchool.DataValueField = "TypeID";
+            DdlTypeOfSchool.DataTextField = "SchType";
+            DdlTypeOfSchool.DataValueField = "SchTypeID";
             DdlTypeOfSchool.DataBind();
         }
 
@@ -54,10 +54,10 @@ namespace Winny1
             DAL myDal = new DAL(conn);
 
             adsource = new PagedDataSource();
-            myDal.AddParam("@crud", "r");
+            myDal.AddParam("@schoolCrud", "r");
             DataSet ds = myDal.ExecuteProcedure("spSchoolsCrud");
             adsource.DataSource = ds.Tables[0].DefaultView;
-            adsource.PageSize = 3;
+            adsource.PageSize = 2;
             adsource.AllowPaging = true;
             adsource.CurrentPageIndex = pos;
             BtnFirst.Enabled = !adsource.IsFirstPage;
@@ -74,12 +74,12 @@ namespace Winny1
             string LocationId = DdlLocation.SelectedItem.Value;
             DAL myDal = new DAL(conn);
             adsource = new PagedDataSource();
-            myDal.AddParam("@crud", "r");
+            myDal.AddParam("@schoolCrud", "r");
             myDal.AddParam("@schTypeId", TypeId);
             myDal.AddParam("@locationId", LocationId);
             DataSet ds = myDal.ExecuteProcedure("spSchoolsCrud");
             adsource.DataSource = ds.Tables[0].DefaultView;
-            adsource.PageSize = 3;
+            adsource.PageSize = 2;
             adsource.AllowPaging = true;
             adsource.CurrentPageIndex = pos;
             BtnFirst.Enabled = !adsource.IsFirstPage;
@@ -88,15 +88,17 @@ namespace Winny1
             BtnNext.Enabled = !adsource.IsLastPage;
             DlSchools.DataSource = adsource;
             DlSchools.DataBind();
-        }
 
-        protected void btnFirst_Click(object sender, EventArgs e)
+            
+        }
+        
+        protected void BtnFirst_Click(object sender, EventArgs e)
         {
             pos = 0;
             loadSchools();
         }
 
-        protected void btnPrevious_Click(object sender, EventArgs e)
+        protected void BtnPrevious_Click(object sender, EventArgs e)
         {
             pos = (int)this.ViewState["vs"];
             pos -= 1;
@@ -104,7 +106,7 @@ namespace Winny1
             loadSchools();
         }
 
-        protected void btnNext_Click(object sender, EventArgs e)
+        protected void BtnNext_Click(object sender, EventArgs e)
         {
             pos = (int)this.ViewState["vs"];
             pos += 1;
@@ -112,7 +114,7 @@ namespace Winny1
             loadSchools();
         }
 
-        protected void btnLast_Click(object sender, EventArgs e)
+        protected void BtnLast_Click(object sender, EventArgs e)
         {
             pos = adsource.PageCount - 1;
             loadSchools();

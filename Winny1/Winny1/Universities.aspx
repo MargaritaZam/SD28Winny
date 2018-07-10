@@ -74,7 +74,7 @@ tr {
                     <asp:TextBox ID="TxtSearch" runat="server" Height="26px" Width="250px"></asp:TextBox>
             </td>
             <td>
-                <asp:Button ID="BtnSearch" runat="server" Text="Search" BackColor="#CC0099" Font-Bold="True" ForeColor="White" Height="33px" Width="80px" OnClick="btnSearch_Click" />
+                <asp:Button ID="BtnSearch" runat="server" Text="Search" BackColor="#CC0099" Font-Bold="True" ForeColor="White" Height="33px" Width="80px" OnClick="BtnSearch_Click" />
             </td>
         </tr>
     </table>
@@ -94,7 +94,7 @@ tr {
                 </tr>     
                 <tr>
                     <td colspan="3" style="color:black; text-align:left;" >
-                        <%#Eval ("Description")%>
+                        <%#Eval ("SchoolDescription")%>
                     </td>
                 </tr>
                     <tr>
@@ -102,7 +102,7 @@ tr {
                             Program Types:
                         </td>
                         <td style="color:black;">
-                            <%# Eval ("SchoolTypeID") %>
+                            <%# Eval ("SchType") %>
                         </td>
                     </tr>
                     <tr>
@@ -147,19 +147,19 @@ tr {
       <tr>
         <td>
             <asp:Button ID="BtnFirst" runat="server" Font-Bold="true" Text="First" 
-                Height="31px" Width="65px" OnClick="btnFirst_Click" />
+                Height="31px" Width="65px" OnClick="BtnFirst_Click" />
         </td>
         <td>
             <asp:Button ID="BtnPrevious" runat="server" Font-Bold="true" Text="Previous" Height="31px" 
-                    Width="65px" OnClick="btnPrevious_Click" />
+                    Width="65px" OnClick="BtnPrevious_Click" />
         </td>
         <td>
             <asp:Button ID="BtnNext" runat="server" Font-Bold="true" Text="Next" Height="31px" 
-                Width="65px" OnClick="btnNext_Click"  />
+                Width="65px" OnClick="BtnNext_Click"  />
         </td>
         <td>
             <asp:Button ID="BtnLast" runat="server" Font-Bold="true" Text="Last" Height="31px" 
-            Width="65px" OnClick="btnLast_Click"  />
+            Width="65px" OnClick="BtnLast_Click"  />
         </td>
       </tr>
     </table> 

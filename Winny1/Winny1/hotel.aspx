@@ -98,11 +98,11 @@ tr {
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td style="width:20%">
                             Rating: 
                         </td>
-                        <td style="color:black; text-align: left;">
-                            <%# Eval ("HotelStarsID") %>
+                        <td style="width:80%; color:black; text-align: left;">
+                            <%# Eval ("NumberOfStars") %>
                         </td>
                         <td></td>
                     </tr>
@@ -110,15 +110,15 @@ tr {
                         <td>
                             Price:
                         </td>
-                        <td style="color:black;">
-                            <%# Eval ("HotelPrice") %>
+                        <td style="color:black; text-align: left;">
+                            $<%# Eval ("HotelPrice") %>
                         </td>
                     </tr>
                     <tr>
                         <td>
                             Phone: 
                         </td>
-                        <td style="color:black;">
+                        <td style="color:black; text-align: left;">
                             <%# Eval ("HotelPhoneNumber") %>
                         </td>
                     </tr>
@@ -126,7 +126,7 @@ tr {
                         <td>
                             Address: 
                         </td>
-                        <td style="color:black;">
+                        <td style="color:black; text-align: left;">
                             <%# Eval ("HotelAddress") %>
                         </td>
                     </tr>
@@ -134,7 +134,7 @@ tr {
                         <td>
                             Postal Code: 
                         </td>
-                        <td style="color:black;">
+                        <td style="color:black; text-align: left;">
                             <%# Eval ("HotelPostalCode") %>
                         </td>
                     </tr>
@@ -142,7 +142,7 @@ tr {
                         <td>
                             Website: 
                         </td>
-                        <td colspan="2">
+                        <td colspan="2" style="color:black; text-align: left;">
                             <asp:HyperLink ID="HyperLinkHotel" runat="server" NavigateUrl='<%# Eval ("HotelWebsite") %>' ></asp:HyperLink>
                         </td>
                     </tr>
