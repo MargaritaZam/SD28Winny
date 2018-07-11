@@ -111,6 +111,8 @@
     <Content Include="Restaurants.aspx" />
     <Content Include="LoadInformation.ashx" />
     <Content Include="Team.JPG" />
+    <Content Include="UniversityPictures\RedRiverCollege.jpg" />
+    <Content Include="UniversityPictures\UniversityManitoba.png" />
     <Content Include="Winnipeg.aspx" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -281,9 +283,7 @@
     <Content Include="UniversityPictures\BoothUC.png" />
     <Content Include="UniversityPictures\CanadianMennoniteUniversity.jpg" />
     <Content Include="UniversityPictures\Herzing.png" />
-    <Content Include="UniversityPictures\RedRiverCollege.jpg" />
     <Content Include="UniversityPictures\RobertsonCollege.png" />
-    <Content Include="UniversityPictures\UniversityManitoba.png" />
     <Content Include="UniversityPictures\UniversityWinnipeg.jpg" />
     <Content Include="ViewRestaurant.aspx" />
     <Content Include="Web.config" />
