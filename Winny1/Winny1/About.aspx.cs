@@ -33,9 +33,9 @@ namespace Winny1
             myDal.AddParam("@crud", "r");
             DataSet ds = myDal.ExecuteProcedure("spAboutCrud");
             adsource.DataSource = ds.Tables[0].DefaultView;
-            //adsource.PageSize = 3;
-            //adsource.AllowPaging = true;
-            //adsource.CurrentPageIndex = pos;
+            adsource.PageSize = 2;
+            adsource.AllowPaging = true;
+            adsource.CurrentPageIndex = pos;
             DlAbout.DataSource = adsource;
             DlAbout.DataBind();
         }

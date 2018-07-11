@@ -1714,7 +1714,7 @@ exec spAboutCrud @crud = 'c',
 
 exec spAboutCrud @crud = 'c',
 			     @aboutTitle = 'Now',
-			     @aboutDescription = 'Winnipeg is the capital and largest city of the province of Manitoba in Canada. It is near the longitudinal centre of North America and is 110 kilometres from the Canada–United States border.'
+			     @aboutDescription = 'Winnipeg is the capital and largest city of the province of Manitoba in Canada with a population of approximately 700,000. It is near the longitudinal centre of North America and is 110 kilometres from the Canada–United States border.'
 
 exec spAboutCrud @crud = 'c',
 			     @aboutTitle = 'Motto',

@@ -22,6 +22,24 @@ namespace Winny1 {
         protected global::System.Web.UI.WebControls.Panel PnlAbout;
         
         /// <summary>
+        /// lblAboutTopic control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAboutTopic;
+        
+        /// <summary>
+        /// DdlAboutTopic control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DdlAboutTopic;
+        
+        /// <summary>
         /// DlAbout control.
         /// </summary>
         /// <remarks>
