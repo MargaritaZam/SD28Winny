@@ -88,8 +88,6 @@ namespace Winny1
             BtnNext.Enabled = !adsource.IsLastPage;
             DlSchools.DataSource = adsource;
             DlSchools.DataBind();
-
-            
         }
         
         protected void BtnFirst_Click(object sender, EventArgs e)

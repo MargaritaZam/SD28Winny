@@ -1668,10 +1668,31 @@ exec spRestaurants @crud='c',
 
 --  'About Winnipeg' Table and Procedures  --
 
+create table tbAboutTopics
+(
+	AboutTopicID int identity(1,1) primary key,
+	AboutTopic varchar(50)
+)
+insert into tbAboutTopics (AboutTopic) values
+	('Origins'), ('Now'), ('Motto'), ('Population'), ('Average Monthly Temperatures')
+go
+
+create procedure spGetAboutTopics
+(
+	@aboutTopicID int = null,
+	@aboutTopic varchar(50) = null
+)
+as begin
+	select * from tbAboutTopics where AboutTopicID = isnull(@aboutTopicID, AboutTopicID)
+end
+go
+
+--exec spGetAboutTopics
+
 create table tbAbout
 (
 	AboutID int identity(1,1) primary key,
-	AboutTitle	varchar(50),
+	AboutTopicID int foreign key references tbAboutTopics(AboutTopicID),
 	AboutDescription varchar(800)
 )
 go
@@ -1679,25 +1700,25 @@ go
 create procedure spAboutCrud
 (
 	@aboutID int = null,
-	@aboutTitle varchar(50) = null,
+	@aboutTopicID int = null,
 	@aboutDescription varchar(800) = null,
 	@crud varchar(1)
 )
 as begin
 	if @crud='r'
 	begin
-		select AboutTitle, AboutDescription from tbAbout 
-			where AboutId = isnull(@aboutId,AboutId)
+		select AboutID, AboutTopicID, AboutDescription from tbAbout 
+			where AboutID = isnull(@aboutID,AboutID)
 	end
 	else if @crud='c'
 	begin
-		insert into tbAbout(AboutTitle, AboutDescription) values
-						(@aboutTitle,@aboutDescription)
+		insert into tbAbout(AboutTopicID, AboutDescription) values
+						(@aboutTopicID,@aboutDescription)
 	end
 	else if @crud='u'
 	begin
 		update tbAbout set
-			   AboutTitle = @aboutTitle,
+			   AboutTopicID = @aboutTopicID,
 			   AboutDescription = @aboutDescription
 		where AboutID = @aboutID
 	end
@@ -1709,71 +1730,123 @@ end
 go
 
 exec spAboutCrud @crud = 'c',
-			     @aboutTitle = 'Origins',
+			     @aboutTopicID = 1,
 			     @aboutDescription = 'The confluence of the Red and the Assiniboine Rivers, known as The Forks, has been a meeting place for 6,000 years.  The city was created on November 8, 1873 near the present day intersection of Portage Avenue and Main Street and is named after the Western Cree words for ''Muddy Water''.'
 
 exec spAboutCrud @crud = 'c',
-			     @aboutTitle = 'Now',
-			     @aboutDescription = 'Winnipeg is the capital and largest city of the province of Manitoba in Canada with a population of approximately 700,000. It is near the longitudinal centre of North America and is 110 kilometres from the Canada–United States border.'
+			     @aboutTopicID = 2,
+			     @aboutDescription = 'Winnipeg is the capital and largest city of the province of Manitoba. It is near the longitudinal centre of North America and is 110 kilometres from the Canada–United States border.'
 
 exec spAboutCrud @crud = 'c',
-			     @aboutTitle = 'Motto',
+			     @aboutTopicID = 3,
 			     @aboutDescription = '"UNUM CUM VIRTUTE MULTORUM" is Latin for "One with the strength of many"'
 
 exec spAboutCrud @crud = 'c',
-			     @aboutTitle = 'Population',
+			     @aboutTopicID = 4,
 			     @aboutDescription = 'The city has a population of 749,500, while the Province of Manitoba has a total population of 1.33 million.  (Estimated 2017)'
 
-exec spAboutCrud @crud = 'c',
-			     @aboutTitle = 'January',
-			     @aboutDescription = 'Average High: -10 C,  Average Low: -20 C'
-				  
-exec spAboutCrud @crud = 'c',
-			     @aboutTitle = 'February',
-			     @aboutDescription = 'Average High:  -8 C,  Average Low: -18 C'
+go
+create table tbAvgMonthlyTemp
+(
+	MonthID int identity(1,1) primary key,
+	Month	varchar(15),
+	AvgHigh varchar(6),
+	AvgLow  varchar(6)
+)
+go
 
-exec spAboutCrud @crud = 'c',
-			     @aboutTitle = 'March',
-			     @aboutDescription = 'Average High:   0 C,  Average Low: -11 C'
+create procedure spMonthCrud
+(
+	@monthID int = null,
+	@month varchar(15) = null,
+	@avgHigh varchar(6) = null,
+	@avgLow varchar(6) = null,
+	@crud varchar(1)
+)
+as begin
+	if @crud='r'
+	begin
+		select MonthID, Month, AvgHigh, AvgLow from tbAvgMonthlyTemp 
+			where MonthID = isnull(@monthID, MonthID)
+	end
+	else if @crud='c'
+	begin
+		insert into tbAvgMonthlyTemp(Month, AvgHigh, AvgLow) values
+									(@month,@avgHigh,@avgLow)
+	end
+	else if @crud='u'
+	begin
+		update tbAvgMonthlyTemp set
+			   Month = @month,
+			   AvgHigh = @avgHigh,
+			   AvgLow = @avgLow
+		where MonthID = @monthID
+	end
+end
+go
 
-exec spAboutCrud @crud = 'c',
-			     @aboutTitle = 'April',
-			     @aboutDescription = 'Average High:  10 C,  Average Low:  -2 C'
+exec spMonthCrud @crud = 'c',
+			     @month = 'January',
+			     @avgHigh = '-10 C',
+				 @avgLow = '-20 C'
 
-exec spAboutCrud @crud = 'c',
-			     @aboutTitle = 'May',
-			     @aboutDescription = 'Average High:  18 C,  Average Low:   5 C'
+exec spMonthCrud @crud = 'c',
+			     @month = 'February',
+			     @avgHigh = '-8 C',
+				 @avgLow = '-18 C'
 
-exec spAboutCrud @crud = 'c',
-			     @aboutTitle = 'June',
-			     @aboutDescription = 'Average High:  23 C,  Average Low:  12 C'
+exec spMonthCrud @crud = 'c',
+			     @month = 'March',
+			     @avgHigh = '0 C',
+				 @avgLow = '-11 C'
 
-exec spAboutCrud @crud = 'c',
-			     @aboutTitle = 'July',
-			     @aboutDescription = 'Average High:  26 C,  Average Low:  14 C'
+exec spMonthCrud @crud = 'c',
+			     @month = 'April',
+			     @avgHigh = '10 C',
+				 @avgLow = '-2 C'
 
-exec spAboutCrud @crud = 'c',
-			     @aboutTitle = 'August',
-			     @aboutDescription = 'Average High:  26 C,  Average Low:  13 C'
+exec spMonthCrud @crud = 'c',
+			     @month = 'May',
+			     @avgHigh = '18 C',
+				 @avgLow = '5 C'
 
-exec spAboutCrud @crud = 'c',
-			     @aboutTitle = 'September',
-			     @aboutDescription = 'Average High:  20 C,  Average Low:   8 C'
+exec spMonthCrud @crud = 'c',
+			     @month = 'June',
+			     @avgHigh = '23 C',
+				 @avgLow = '12 C'
 
-exec spAboutCrud @crud = 'c',
-			     @aboutTitle = 'October',
-			     @aboutDescription = 'Average High:  11 C,  Average Low:   1 C'
+exec spMonthCrud @crud = 'c',
+			     @month = 'July',
+			     @avgHigh = '26 C',
+				 @avgLow = '14 C'
 
-exec spAboutCrud @crud = 'c',
-			     @aboutTitle = 'November',
-			     @aboutDescription = 'Average High:   1 C,  Average Low:  -8 C'
+exec spMonthCrud @crud = 'c',
+			     @month = 'August',
+			     @avgHigh = '26 C',
+				 @avgLow = '13 C'
 
-exec spAboutCrud @crud = 'c',
-			     @aboutTitle = 'December',
-			     @aboutDescription = 'Average High:  -8 C,  Average Low: -17 C'
+exec spMonthCrud @crud = 'c',
+			     @month = 'September',
+			     @avgHigh = '20 C',
+				 @avgLow = '8 C'
 
---exec spAboutCrud @crud='r'
---go
+exec spMonthCrud @crud = 'c',
+			     @month = 'October',
+			     @avgHigh = '11 C',
+				 @avgLow = '1 C'
+
+exec spMonthCrud @crud = 'c',
+			     @month = 'November',
+			     @avgHigh = '1 C',
+				 @avgLow = '-8 C'
+
+exec spMonthCrud @crud = 'c',
+			     @month = 'December',
+			     @avgHigh = '-8 C',
+				 @avgLow = '-17 C'
+
+exec spMonthCrud @crud='r'
+go
 
 --  Hotel Table and Procedures  --
 
@@ -2031,8 +2104,10 @@ exec spHotelsCrud @crud='c',
 		@hotelWebsite='http://www.viscount-gort.com/',
 		@hotel_path='ViscountGort.png',
 		@hotelLocationId=7
+go
 
 exec spHotelsCrud @crud = 'r'
+go
 
 --  Universities and Colleges  --
 
@@ -2196,9 +2271,10 @@ exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolWebsite = 'http://www.umanitoba.ca/',
 		@school_path = 'UniversityManitoba.png',
 		@schoolLocationId = 5
-
-exec spSchoolsCrud @schoolCrud='r'
 go
+
+--exec spSchoolsCrud @schoolCrud='r'
+--go
 
 create table tbUsers(
 id int identity (1,1) primary key,

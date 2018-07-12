@@ -70,13 +70,34 @@ tr {
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2">
+                    <td  colspan="2" style="color:black; text-align:left;">
                         <%#Eval ("AboutDescription")%>
                     </td>
                 </tr>
             </table>
         </ItemTemplate>
     </asp:DataList>
+
+    <table>
+      <tr>
+        <td>
+            <asp:Button ID="BtnFirst" runat="server" Font-Bold="true" Text="First" 
+                Height="31px" Width="65px" OnClick="BtnFirst_Click" />
+        </td>
+        <td>
+            <asp:Button ID="BtnPrevious" runat="server" Font-Bold="true" Text="Previous" Height="31px" 
+                    Width="65px" OnClick="BtnPrevious_Click"/>
+        </td>
+        <td>
+            <asp:Button ID="BtnNext" runat="server" Font-Bold="true" Text="Next" Height="31px" 
+                Width="65px" OnClick="BtnNext_Click"/>
+        </td>
+        <td>
+            <asp:Button ID="BtnLast" runat="server" Font-Bold="true" Text="Last" Height="31px" 
+            Width="65px" OnClick="BtnLast_Click"/>
+        </td>
+      </tr>
+    </table> 
             
 </asp:Panel>
 

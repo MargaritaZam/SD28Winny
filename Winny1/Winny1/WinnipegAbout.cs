@@ -9,9 +9,9 @@ namespace Winny1
 {
     public class WinnipegAbout
     {
-        SqlConnection conn = new SqlConnection("Data Source=localhost;Initial Catalog=dbOmegaProject;Integrated Security=SSPI");
+        SqlConnection conn = new SqlConnection("Data Source=localhost;Initial Catalog=dbGroupProject;Integrated Security=SSPI");
 
-        public DataTable LoadAboutCategories()
+        public DataTable LoadAboutTopics()
         {
             DataSet ds = new DataSet();
             SqlDataAdapter da = new SqlDataAdapter("spAboutCrud", conn);
