@@ -30,15 +30,38 @@ namespace Winny1
 
         public void loadAbout()
         {
-            string id = Request.QueryString["ID"].ToString();
-            DlAbout.DataSource = _about.LoadAbout(null, Convert.ToInt32(id));
+            DAL myDal = new DAL(conn);
+
+            adsource = new PagedDataSource();
+            myDal.AddParam("@crud", "r");
+            DataSet ds = myDal.ExecuteProcedure("spAboutCrud");
+            adsource.DataSource = ds.Tables[0].DefaultView;
+            adsource.PageSize = 4;
+            adsource.AllowPaging = true;
+            adsource.CurrentPageIndex = pos;
+            DlAbout.DataSource = adsource;
             DlAbout.DataBind();
+        }
+
+        public void loadTemps()
+        {
+            DAL myDal = new DAL(conn);
+
+            adsource = new PagedDataSource();
+            myDal.AddParam("@crud", "r");
+            DataSet ds = myDal.ExecuteProcedure("spMonthCrud");
+            adsource.DataSource = ds.Tables[0].DefaultView;
+            adsource.PageSize = 6;
+            adsource.AllowPaging = true;
+            adsource.CurrentPageIndex = pos;
+            DlTemp.DataSource = adsource;
+            DlTemp.DataBind();
         }
 
         protected void BtnFirst_Click(object sender, EventArgs e)
         {
             pos = 0;
-            loadAbout();
+            loadTemps();
         }
 
         protected void BtnPrevious_Click(object sender, EventArgs e)
@@ -46,7 +69,7 @@ namespace Winny1
             pos = (int)this.ViewState["vs"];
             pos -= 1;
             this.ViewState["vs"] = pos;
-            loadAbout();
+            loadTemps();
         }
 
         protected void BtnNext_Click(object sender, EventArgs e)
@@ -54,13 +77,13 @@ namespace Winny1
             pos = (int)this.ViewState["vs"];
             pos += 1;
             this.ViewState["vs"] = pos;
-            loadAbout();
+            loadTemps();
         }
 
         protected void BtnLast_Click(object sender, EventArgs e)
         {
             pos = adsource.PageCount - 1;
-            loadAbout();
+            loadTemps();
         }
     }
 }

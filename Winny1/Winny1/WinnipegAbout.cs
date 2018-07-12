@@ -14,7 +14,7 @@ namespace Winny1
         public DataTable LoadAboutTopics()
         {
             DataSet ds = new DataSet();
-            SqlDataAdapter da = new SqlDataAdapter("spAboutCrud", conn);
+            SqlDataAdapter da = new SqlDataAdapter("spGetAboutTopics", conn);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
 
             conn.Open();
@@ -24,15 +24,18 @@ namespace Winny1
             return ds.Tables[0];
         }
 
-        public DataTable LoadAbout(int? AboutID)
+        public DataTable LoadAbout(int? AboutID, int? AboutTopicID)
         {
             DataSet ds = new DataSet();
             SqlDataAdapter da = new SqlDataAdapter("spAboutCrud", conn);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
             da.SelectCommand.Parameters.AddWithValue("@crud", "r");
 
-            // if (AboutID != null)
-            da.SelectCommand.Parameters.AddWithValue("@aboutID", AboutID);
+            if (AboutID != null)
+                da.SelectCommand.Parameters.AddWithValue("@aboutID", AboutID);
+
+            if (AboutTopicID != null)
+                da.SelectCommand.Parameters.AddWithValue("@aboutTopicID", AboutTopicID);
 
             conn.Open();
             da.Fill(ds);

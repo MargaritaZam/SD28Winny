@@ -40,38 +40,49 @@ div.desc {
       .auto-style6 {
           width: 268px;
       }
+table {
+    margin-left: 25px;
+    border-spacing: 10px;
+}
 
 tr {
-    height: 15px;
+    height: 20px;
 }
 </style>
 
 <asp:Panel ID="PnlAbout" style="background-color:antiquewhite; width:800px; align-self: center; " runat="server">
-    
-    <table>
-        <tr>
-            <td style="padding: 15px;">
-                <asp:Label ID="lblAboutTopic" runat="server" Text="Learn About Us" ForeColor="Black" Font-Bold="true"></asp:Label>
-            </td>
-            <td>
-                <asp:DropDownList ID="DdlAboutTopic" runat="server" Height="23px" Width="250px" BackColor="White"></asp:DropDownList>
-            </td>
-        </tr>
-    </table>
-
+   
     <asp:DataList ID="DlAbout" DataKeyField="AboutID" RepeatColumns="1" RepeatDirection="Horizontal" runat="server" >
         <ItemTemplate>
             <div class="About" style="width:650px; align-self: center;"  onclick="return ViewAbout(<%#Eval("AboutID") %>)" >
 
-            <table style="border-bottom-style: solid; width: 100%">
+                <table style="border-bottom-style: solid; width: 100%">
+                    <tr>
+                        <td colspan="1" style="width: 100px; text-align: center; color:red; font-weight:bold;">
+                            <%#Eval ("AboutTopic")%>
+                        </td>
+                        <td  colspan="2" style="color:black; text-align:left;">
+                            <%#Eval ("AboutDescription")%>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </ItemTemplate>
+    </asp:DataList>
+
+    <asp:DataList ID="DlTemp" DataKeyField="MonthID" RepeatColumns="1" RepeatDirection="Horizontal" runat="server" >
+        <ItemTemplate>
+            <div class="AvgTemp" style="width:300px; align-self: center;"  onclick="return ViewTemp(<%#Eval("MonthID") %>)" >
+            <table style="padding: 15px;">
                 <tr>
-                    <td colspan="2" style="text-align: center; color:red; font-weight:bold;">
-                        <%#Eval ("AboutTitle")%>
+                    <td style="width: 100px; text-align: center; color:red; font-weight:bold;">
+                        <%# Eval ("Month")%>
                     </td>
-                </tr>
-                <tr>
-                    <td  colspan="2" style="color:black; text-align:left;">
-                        <%#Eval ("AboutDescription")%>
+                    <td colspan="2" style="width: 100px; text-align: center; color:black; font-weight:normal;">
+                        <%# Eval ("AvgHigh") %>
+                    </td>
+                    <td style="width: 100px; text-align: center; color:black; font-weight:normal;">
+                        <%# Eval ("AvgLow") %>
                     </td>
                 </tr>
             </table>

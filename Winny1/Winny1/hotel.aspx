@@ -39,7 +39,9 @@ div.desc {
       .auto-style6 {
           width: 268px;
       }
-
+table {
+    margin-left: 25px;
+}
 tr {
     height: 15px;
 }
