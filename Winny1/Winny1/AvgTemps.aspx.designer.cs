@@ -10,33 +10,24 @@
 namespace Winny1 {
     
     
-    public partial class About1 {
+    public partial class AvgTemps {
         
         /// <summary>
-        /// PnlAbout control.
+        /// PnlTemps control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PnlAbout;
+        protected global::System.Web.UI.WebControls.Panel PnlTemps;
         
         /// <summary>
-        /// DlAbout control.
+        /// DlTemps control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList DlAbout;
-        
-        /// <summary>
-        /// DlTemp control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList DlTemp;
+        protected global::System.Web.UI.WebControls.DataList DlTemps;
     }
 }
