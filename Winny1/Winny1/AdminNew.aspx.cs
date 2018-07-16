@@ -14,12 +14,14 @@ namespace Winny1
 {
     public partial class AdminNew : System.Web.UI.Page
     {
-      
-            SqlConnection conn = new SqlConnection("Data Source=localhost; Initial Catalog=dbGroupProject; Integrated Security=SSPI ");
-            string con = "Data Source= localhost; Initial Catalog=dbGroupProject; Integrated Security= SSPI";
-            protected void Page_Load(object sender, EventArgs e)
+
+        SqlConnection conn;
+    
+        protected void Page_Load(object sender, EventArgs e)
             {
-                if (!IsPostBack)
+            conn = new SqlConnection("Data Source=localhost; Initial Catalog=dbGroupProject; Integrated Security=SSPI ");
+           // string con = "Data Source= localhost; Initial Catalog=dbGroupProject; Integrated Security= SSPI";
+            if (!IsPostBack)
                 {
                     loadAttractions();
                     loadRestaurants();
@@ -85,9 +87,13 @@ namespace Winny1
             private void loadFoodCategory()
             {
 
-                DAL myDal = new DAL(con);
-
-                DataSet ds = myDal.ExecuteProcedure("spFood_Category");
+            SqlDataAdapter da = new SqlDataAdapter("spFood_Category", conn);
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
+        
+                DataSet ds = new DataSet();
+            conn.Open();
+            da.Fill(ds);
+            conn.Close();
                 dlFood.DataSource = ds.Tables[0];
                 dlFood.DataTextField = "FoodId";
                 dlFood.DataTextField = "FoodType";
