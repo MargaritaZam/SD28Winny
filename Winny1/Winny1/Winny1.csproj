@@ -75,10 +75,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="AdminNew.aspx" />
     <Content Include="Adminpage.aspx" />
     <Content Include="Anjali.sql" />
     <Content Include="attraction.aspx" />
-    <Content Include="AvgTemps.aspx" />
     <Content Include="ChatBot.html" />
     <Content Include="Client.aspx" />
     <Content Include="Coupons.aspx" />
@@ -296,6 +296,13 @@
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AdminNew.aspx.cs">
+      <DependentUpon>AdminNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminNew.aspx.designer.cs">
+      <DependentUpon>AdminNew.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Adminpage.aspx.cs">
       <DependentUpon>Adminpage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -311,13 +318,6 @@
       <DependentUpon>attraction.aspx</DependentUpon>
     </Compile>
     <Compile Include="Attraction.cs" />
-    <Compile Include="AvgTemps.aspx.cs">
-      <DependentUpon>AvgTemps.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AvgTemps.aspx.designer.cs">
-      <DependentUpon>AvgTemps.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Client.aspx.cs">
       <DependentUpon>Client.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

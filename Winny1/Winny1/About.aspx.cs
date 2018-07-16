@@ -31,8 +31,20 @@ namespace Winny1
         public void loadAbout()
         {
             string id = Request.QueryString["id"].ToString();
-            DlAbout.DataSource = _about.LoadAbout(Convert.ToInt32(id));
-            DlAbout.DataBind();
+            int intID = Convert.ToInt32(id);
+
+            if (intID < 5)
+            {
+                DlAbout.DataSource = _about.LoadAbout(Convert.ToInt32(id));
+                DlAbout.DataBind();
+            }
+            else
+            {
+                DlAbout.DataSource = _about.LoadAbout(Convert.ToInt32(id));
+                DlAbout.DataBind();
+                loadTemps();
+            }
+            
         }
 
         public void loadTemps()

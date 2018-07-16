@@ -48,7 +48,7 @@ var year = currentTime.getFullYear()
                 <ul class="navigation">
            
                     <li><a href="#home" class="selected">Home</a></li>
-                     <li><a href="Adminpage.aspx" class="dropbtn">Admin</a></li>
+                     <li><a href="AdminNew.aspx" class="dropbtn">Admin</a></li>
 
                     <li class="dropdown">
                         <a href="About.aspx" class="dropbtn">About Us</a>
@@ -57,6 +57,7 @@ var year = currentTime.getFullYear()
                                 <a href="about.aspx?id=2">Now</a>
                                 <a href="about.aspx?id=3">Motto</a>
                                 <a href="about.aspx?id=4">Population</a>
+                                <a href="about.aspx?id=5">Monthly Temperatures</a>
                         
                             </div>
                     </li>
