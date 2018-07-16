@@ -1904,6 +1904,12 @@ as begin
 		inner join tbHotelStars on tbHotels.HotelStarsID = tbHotelStars.StarsID
 		where HotelID = isnull(@hotelID,HotelID)
 	end
+	if @crud='h'
+	begin
+	select HotelID, HotelName, HotelPrice, HotelStarsID, HotelDescription, HotelPhoneNumber,
+			HotelAddress, HotelPostalCode, HotelWebsite, HotelLocationID, '.\HotelPictures\' + Hotel_path as Hotel_path 
+		from tbHotels where HotelID = isnull(@hotelID,HotelID)
+	end
 	else if @crud='s'
 	begin
 		select HotelID, HotelName, HotelPrice, HotelStarsID, HotelDescription, HotelPhoneNumber,
@@ -1937,7 +1943,7 @@ as begin
 	end
 end
 go
-
+exec spHotelsCrud @crud='s'
 exec spHotelsCrud @crud = 'c',
 		@hotelName = 'Alt Hotel Winnipeg',
 		@hotelPrice = 159,
