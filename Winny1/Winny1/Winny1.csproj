@@ -332,6 +332,7 @@
     <Compile Include="Coupons.aspx.designer.cs">
       <DependentUpon>Coupons.aspx</DependentUpon>
     </Compile>
+    <Compile Include="GetCoupon.cs" />
     <Compile Include="hotel.aspx.cs">
       <DependentUpon>hotel.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -2413,6 +2413,7 @@ go
 insert into tbCouponType(CouponType) values
 ('Restaurants'),('Attractions'),('Shopping'),('Hotels')
 go
+
 create table tbCoupons(
 CouponId int identity (1,1) primary key,
 CouponName varchar (max) not null,
@@ -2466,3 +2467,13 @@ exec spCoupon @Crud='c', @CouponName='Tim Hortons', @Path='TimHortons_coupon.jpg
 exec spCoupon @Crud='c', @CouponName='Hudson Bay', @Path='HudsonBay_coupon.gif', @TypeId=3
 exec spCoupon @Crud='c', @CouponName='Michaels', @Path='Michaels_coupon.jpg', @TypeId=3
 exec spCoupon @Crud='c', @CouponName='Rona', @Path='Rona_coupon.jpg', @TypeId=3
+go
+--create procedure spGetCouponType(
+--@CouponType varchar(max))
+--as begin
+--select CouponName,'.\Coupons\'+ Path as Path from tbCoupons inner join
+--tbCouponType on tbCoupons.TypeId=tbCouponType.TypeId
+--where tbCouponType.CouponType=@CouponType
+--end
+--go
+--exec spGetCouponType @CouponType=1
