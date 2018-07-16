@@ -4,9 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using DAL_Project;
 using System.Data;
 using System.Data.SqlClient;
+using DAL_Project;
 
 namespace Winny1
 {
@@ -30,16 +30,8 @@ namespace Winny1
 
         public void loadAbout()
         {
-            DAL myDal = new DAL(conn);
-
-            adsource = new PagedDataSource();
-            myDal.AddParam("@crud", "r");
-            DataSet ds = myDal.ExecuteProcedure("spAboutCrud");
-            adsource.DataSource = ds.Tables[0].DefaultView;
-            adsource.PageSize = 4;
-            adsource.AllowPaging = true;
-            adsource.CurrentPageIndex = pos;
-            DlAbout.DataSource = adsource;
+            string id = Request.QueryString["id"].ToString();
+            DlAbout.DataSource = _about.LoadAbout(Convert.ToInt32(id));
             DlAbout.DataBind();
         }
 
@@ -49,41 +41,13 @@ namespace Winny1
 
             adsource = new PagedDataSource();
             myDal.AddParam("@crud", "r");
-            DataSet ds = myDal.ExecuteProcedure("spMonthCrud");
+            DataSet ds = myDal.ExecuteProcedure("spAvgTempCrud");
             adsource.DataSource = ds.Tables[0].DefaultView;
-            adsource.PageSize = 6;
+            adsource.PageSize = 12;
             adsource.AllowPaging = true;
             adsource.CurrentPageIndex = pos;
             DlTemp.DataSource = adsource;
             DlTemp.DataBind();
-        }
-
-        protected void BtnFirst_Click(object sender, EventArgs e)
-        {
-            pos = 0;
-            loadTemps();
-        }
-
-        protected void BtnPrevious_Click(object sender, EventArgs e)
-        {
-            pos = (int)this.ViewState["vs"];
-            pos -= 1;
-            this.ViewState["vs"] = pos;
-            loadTemps();
-        }
-
-        protected void BtnNext_Click(object sender, EventArgs e)
-        {
-            pos = (int)this.ViewState["vs"];
-            pos += 1;
-            this.ViewState["vs"] = pos;
-            loadTemps();
-        }
-
-        protected void BtnLast_Click(object sender, EventArgs e)
-        {
-            pos = adsource.PageCount - 1;
-            loadTemps();
         }
     }
 }

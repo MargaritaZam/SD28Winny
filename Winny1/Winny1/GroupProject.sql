@@ -20,7 +20,7 @@ insert into tbLocation(locationName)values
 go
 
 --select*from tbLocation
---go
+go
 
 create procedure spLocation
 (
@@ -69,7 +69,7 @@ as begin
 	begin
 		select attractionID, attractionCategory,
 		atName, atDesc, atAddress, atPhone,
-		atWebsite, './Attractions/'+ atImage as image, location from tbAttractions
+		atWebsite, './Attractions/'+ atImage as atImage, location from tbAttractions
 		where attractionID=isnull(@id, attractionID)
 	end
 
@@ -83,7 +83,7 @@ as begin
 	else if @crud='a'  --  Select Attractions 
 	begin
 		select attractionID, attractionCategory, atName, atDesc, atAddress, 
-				atPhone, atWebsite, './Attractions/'+ atImage as image, location 
+				atPhone, atWebsite, './Attractions/'+ atImage as atImage, location 
 			from tbAttractions
 			where attractionCategory=isnull (@category, attractionCategory)
 	end
@@ -132,7 +132,7 @@ as begin
 	select distinct attractionCategory as Category from tbAttractions
 end
 go
-
+exec spGetCategory
 exec spAttractions @crud='c', @category='Museums',
         @name='Winnipeg Police Museum',
         @desc='The Museum is displays artifacts related to the history of the Winnipeg Police Force, dating from its beginning in 1874.', 
@@ -922,7 +922,7 @@ as begin
 	end
 	else if @crud='r'
 	begin
-		select RestaurantId,RestaurantName,Address,ContactNo,Description,'./Restaurants/' + path as path,Website from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId)
+		select RestaurantId,RestaurantName,Address,ContactNo,Description,'./Restaurant/' + path as path,Website from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId)
 	end
 	else if @crud='s'  --  Select Restaurants, join with Location and Food Category
 	begin
@@ -932,6 +932,10 @@ as begin
 			tbRestaurants.LocationId=tbLocation.LocationId 
 		where tbRestaurants.LocationId=ISNULL(@LocationId,tbRestaurants.LocationId)
 		and	tbRestaurants.FoodId=ISNULL(@FoodId,tbRestaurants.FoodId)
+	end
+	else if @crud='w' 
+	begin  
+	select RestaurantId, RestaurantName, Description, Address, PostalCode, ContactNo, Website, './Restaurant/' + path as path, FoodId, LocationId from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId) 
 	end
 	else if @crud='c'
 	begin
@@ -1689,7 +1693,7 @@ create procedure spAboutCrud
 as begin
 	if @crud='r'  --  Read by AboutID  --
 	begin
-		select AboutID, AboutTopic, AboutDescription 
+		select AboutTopic, AboutDescription 
 		from tbAbout 
 		where AboutID = isnull(@aboutID,AboutID)
 	end
@@ -1728,59 +1732,109 @@ exec spAboutCrud @crud = 'c',
 			     @aboutTopic = 'Population',
 			     @aboutDescription = 'The city has a population of 749,500, while the Province of Manitoba has a total population of 1.33 million.  (Estimated 2017)'
 
-exec spAboutCrud @crud = 'c',
-				@aboutTopic = 'Monthly Temperatures',
-				@aboutDescription = 'Average High     Average Low'
-
-exec spAboutCrud @crud = 'c',
-				@aboutTopic = 'January',
-				@aboutDescription = '-10 C     -20 C'
-
-exec spAboutCrud @crud = 'c',
-				@aboutTopic = 'February',
-				@aboutDescription = ' -8 C  -20 C'
-
-exec spAboutCrud @crud = 'c',
-				@aboutTopic = 'March',
-				@aboutDescription = ' 0 C  -11 C'
-
-exec spAboutCrud @crud = 'c',
-				@aboutTopic = 'April',
-				@aboutDescription = ' 10 C  -2 C'
-
-exec spAboutCrud @crud = 'c',
-				@aboutTopic = 'May',
-				@aboutDescription = ' 18 C  5 C'
-
-exec spAboutCrud @crud = 'c',
-				@aboutTopic = 'June',
-				@aboutDescription = ' 23 C  12 C'
-
-exec spAboutCrud @crud = 'c',
-				@aboutTopic = 'July',
-				@aboutDescription = ' 26 C  14 C'
-
-exec spAboutCrud @crud = 'c',
-				@aboutTopic = 'August',
-				@aboutDescription = ' 26 C  13 C'
-
-exec spAboutCrud @crud = 'c',
-				@aboutTopic = 'September',
-				@aboutDescription = ' 20 C  8 C'
-
-exec spAboutCrud @crud = 'c',
-				@aboutTopic = 'October',
-				@aboutDescription = ' 11 C  1 C'
-
-exec spAboutCrud @crud = 'c',
-				@aboutTopic = 'November',
-				@aboutDescription = ' 1 C  -8 C'
-
-exec spAboutCrud @crud = 'c',
-				@aboutTopic = 'December',
-				@aboutDescription = ' -8 C  -17 C'
-
 exec spAboutCrud @crud = 'r'
+
+create table tbAvgTemps
+(
+		MonthID int identity(1,1) primary key,
+		Month	varchar(15),
+		AvgHigh varchar(6),
+		AvgLow	varchar(6)
+)
+go
+
+create procedure spAvgTempCrud
+(
+	@monthID int = null,
+	@month	 varchar(15) = null,
+	@avgHigh varchar(6) = null,
+	@avgLow  varchar(6) = null,
+	@crud	 varchar(1)
+)
+as begin
+	if @crud='r'
+	begin
+		select MonthID, Month, AvgHigh, AvgLow from tbAvgTemps
+		where MonthID = isnull(@monthID,MonthID)
+	end
+	else if @crud='c'
+	begin
+		insert into tbAvgTemps(Month, AvgHigh, AvgLow) values
+							 (@month,@avgHigh,@avgLow)
+	end
+	else if @crud='u'
+	begin
+		update tbAvgTemps set
+			   Month = @month,
+			   AvgHigh = @avgHigh,
+			   AvgLow = @avgLow
+		where MonthID = @monthID
+	end
+end
+go
+
+exec spAvgTempCrud @crud = 'c',
+				   @month = 'January',
+				   @avgHigh = '-10 C',
+				   @avgLow = '-20 C'
+
+exec spAvgTempCrud @crud = 'c',
+				   @month = 'February',
+				   @avgHigh = ' -8 C',
+				   @avgLow = '-20 C'
+
+exec spAvgTempCrud @crud = 'c',
+				   @month = 'March',
+				   @avgHigh = '  0 C',
+				   @avgLow = '-11 C'
+
+exec spAvgTempCrud @crud = 'c',
+				   @month = 'April',
+				   @avgHigh = ' 10 C',
+				   @avgLow = ' -2 C'
+
+exec spAvgTempCrud @crud = 'c',
+				   @month = 'May',
+				   @avgHigh = ' 18 C',
+				   @avgLow = '  5 C'
+
+exec spAvgTempCrud @crud = 'c',
+				   @month = 'June',
+				   @avgHigh = ' 23 C',
+				   @avgLow = ' 12 C'
+
+exec spAvgTempCrud @crud = 'c',
+				   @month = 'July',
+				   @avgHigh = ' 26 C',
+				   @avgLow = ' 14 C'
+
+exec spAvgTempCrud @crud = 'c',
+				   @month = 'August',
+				   @avgHigh = ' 26 C',
+				   @avgLow = ' 13 C'
+
+exec spAvgTempCrud @crud = 'c',
+				   @month = 'September',
+				   @avgHigh = ' 20 C',
+				   @avgLow = ' 8 C'
+
+exec spAvgTempCrud @crud = 'c',
+				   @month = 'October',
+				   @avgHigh = ' 11 C',
+				   @avgLow = '  1 C'
+
+exec spAvgTempCrud @crud = 'c',
+				   @month = 'November',
+				   @avgHigh = '  1 C',
+				   @avgLow = ' -8 C'
+
+exec spAvgTempCrud @crud = 'c',
+				   @month = 'December',
+				   @avgHigh = ' -8 C',
+				   @avgLow = '-17 C'
+
+exec spAvgTempCrud @crud = 'r'
+
 
 --  Hotel Table and Procedures  --
 
@@ -1850,7 +1904,7 @@ as begin
 		inner join tbHotelStars on tbHotels.HotelStarsID = tbHotelStars.StarsID
 		where HotelID = isnull(@hotelID,HotelID)
 	end
-	if @crud='s'
+	else if @crud='s'
 	begin
 		select HotelID, HotelName, HotelPrice, HotelStarsID, HotelDescription, HotelPhoneNumber,
 			HotelAddress, HotelPostalCode, HotelWebsite,'.\HotelPictures\' + Hotel_path as Hotel_path 

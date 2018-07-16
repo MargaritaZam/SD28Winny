@@ -47,6 +47,7 @@ table {
 
 tr {
     height: 20px;
+    padding-bottom: 10px;
 }
 </style>
 
@@ -56,11 +57,13 @@ tr {
         <ItemTemplate>
             <div class="About" style="width:650px; align-self: center;"  onclick="return ViewAbout(<%#Eval("AboutID") %>)" >
 
-                <table style="border-bottom-style: solid; width: 100%">
+                <table style="width: 100%">
                     <tr>
-                        <td colspan="1" style="width: 100px; text-align: center; color:red; font-weight:bold;">
+                        <td colspan="2" style="width: 100px; text-align: center; color:red; font-weight:bold;">
                             <%#Eval ("AboutTopic")%>
                         </td>
+                    </tr>
+                    <tr>
                         <td  colspan="2" style="color:black; text-align:left;">
                             <%#Eval ("AboutDescription")%>
                         </td>
@@ -89,7 +92,7 @@ tr {
         </ItemTemplate>
     </asp:DataList>
 
-    <table>
+    <%--<table>
       <tr>
         <td>
             <asp:Button ID="BtnFirst" runat="server" Font-Bold="true" Text="First" 
@@ -108,7 +111,7 @@ tr {
             Width="65px" OnClick="BtnLast_Click"/>
         </td>
       </tr>
-    </table> 
+    </table> --%>
             
 </asp:Panel>
 

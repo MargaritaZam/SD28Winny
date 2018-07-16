@@ -78,6 +78,7 @@
     <Content Include="Adminpage.aspx" />
     <Content Include="Anjali.sql" />
     <Content Include="attraction.aspx" />
+    <Content Include="AvgTemps.aspx" />
     <Content Include="ChatBot.html" />
     <Content Include="Client.aspx" />
     <Content Include="Coupons.aspx" />
@@ -310,6 +311,13 @@
       <DependentUpon>attraction.aspx</DependentUpon>
     </Compile>
     <Compile Include="Attraction.cs" />
+    <Compile Include="AvgTemps.aspx.cs">
+      <DependentUpon>AvgTemps.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AvgTemps.aspx.designer.cs">
+      <DependentUpon>AvgTemps.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Client.aspx.cs">
       <DependentUpon>Client.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
