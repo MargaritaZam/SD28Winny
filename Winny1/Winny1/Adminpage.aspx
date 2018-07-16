@@ -392,13 +392,14 @@
                     <asp:BoundField DataField="HotelID" HeaderText="HotelID" InsertVisible="False" ReadOnly="True" SortExpression="HotelID" />
                     <asp:BoundField DataField="HotelName" HeaderText="HotelName" SortExpression="HotelName" />
                     <asp:BoundField DataField="HotelPrice" HeaderText="HotelPrice" SortExpression="HotelPrice" />
-                    <asp:BoundField DataField="HotelStars" HeaderText="HotelStars" SortExpression="HotelStars" />
+                    <asp:BoundField DataField="HotelStarsID" HeaderText="HotelStarsID" SortExpression="HotelStarsID" />
                     <asp:BoundField DataField="HotelDescription" HeaderText="HotelDescription" SortExpression="HotelDescription" />
                     <asp:BoundField DataField="HotelPhoneNumber" HeaderText="HotelPhoneNumber" SortExpression="HotelPhoneNumber" />
                     <asp:BoundField DataField="HotelAddress" HeaderText="HotelAddress" SortExpression="HotelAddress" />
                     <asp:BoundField DataField="HotelPostalCode" HeaderText="HotelPostalCode" SortExpression="HotelPostalCode" />
                     <asp:BoundField DataField="HotelLocationID" HeaderText="HotelLocationID" SortExpression="HotelLocationID" />
-                    <asp:BoundField DataField="Hotel_path" HeaderText="Hotel_path" SortExpression="Hotel_path" />
+                   <asp:ImageField  DataImageUrlField="Hotel_path" HeaderText="Hotel_path">
+                    </asp:ImageField>
                     <asp:BoundField DataField="HotelWebsite" HeaderText="HotelWebsite" SortExpression="HotelWebsite" />
                     <asp:ButtonField ButtonType="Button" CommandName="DEL" HeaderText="Delete" ShowHeader="True" Text="Del" />
                     <asp:ButtonField ButtonType="Button" CommandName="UPD" HeaderText="Update" ShowHeader="True" Text="Upd" />

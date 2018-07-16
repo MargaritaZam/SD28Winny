@@ -570,7 +570,7 @@ namespace Winny1
             DataSet ds = new DataSet();
             SqlDataAdapter da = new SqlDataAdapter("spHotelsCrud", conn);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
-            da.SelectCommand.Parameters.AddWithValue("@crud", "r");
+            da.SelectCommand.Parameters.AddWithValue("@crud", "h");
             conn.Open();
             da.Fill(ds);
             conn.Close();
@@ -614,13 +614,13 @@ namespace Winny1
                 com.Parameters.AddWithValue("@crud", "c");
                 com.Parameters.AddWithValue("@hotelName", txtHotelName.Text);
                 com.Parameters.AddWithValue("@hotelPrice", txtHotelPrice.Text);
-                com.Parameters.AddWithValue("@hotelStars", txtHotelStars.Text);
+                com.Parameters.AddWithValue("@hotelStarsID", txtHotelStars.Text);
                 com.Parameters.AddWithValue("@hotelDescription", txtHotelDesc.Text);
                 com.Parameters.AddWithValue("@hotelPhoneNumber", txtHotelPhone.Text);
                 com.Parameters.AddWithValue("@hotelAddress", txtHotelAddress.Text);
                 com.Parameters.AddWithValue("@hotelPostalCode", txtHotelPostal.Text);
                 com.Parameters.AddWithValue("@hotelWebsite", txtHotelWeb.Text);
-                com.Parameters.AddWithValue("@location", ddlHotelLoc.SelectedItem.Text);              
+                com.Parameters.AddWithValue("@hotelLocationID", ddlHotelLoc.SelectedItem.Text);              
                 com.Parameters.AddWithValue("@hotel_path", Hname);
 
                 conn.Open();
@@ -633,13 +633,13 @@ namespace Winny1
                 com.Parameters.AddWithValue("@hotelID", lblHotel.Text);
             com.Parameters.AddWithValue("@hotelName", txtHotelName.Text);
             com.Parameters.AddWithValue("@hotelPrice", txtHotelPrice.Text);
-            com.Parameters.AddWithValue("@hotelStars", txtHotelStars.Text);
+            com.Parameters.AddWithValue("@hotelStarsID", txtHotelStars.Text);
             com.Parameters.AddWithValue("@hotelDescription", txtHotelDesc.Text);
             com.Parameters.AddWithValue("@hotelPhoneNumber", txtHotelPhone.Text);
             com.Parameters.AddWithValue("@hotelAddress", txtHotelAddress.Text);
             com.Parameters.AddWithValue("@hotelPostalCode", txtHotelPostal.Text);
             com.Parameters.AddWithValue("@hotelWebsite", txtHotelWeb.Text);
-            com.Parameters.AddWithValue("@location", ddlHotelLoc.SelectedItem.Text);
+            com.Parameters.AddWithValue("@hotelLocationID", ddlHotelLoc.SelectedItem.Text);
             com.Parameters.AddWithValue("@hotel_path", Hname);
 
 
@@ -698,7 +698,7 @@ namespace Winny1
 
             txtHotelName.Text = dataset.Tables[0].Rows[0]["HotelName"].ToString();
             txtHotelPrice.Text = dataset.Tables[0].Rows[0]["HotelPrice"].ToString();
-            txtHotelStars.Text = dataset.Tables[0].Rows[0]["HotelStars"].ToString();
+            txtHotelStars.Text = dataset.Tables[0].Rows[0]["HotelStarsID"].ToString();
             txtHotelDesc.Text = dataset.Tables[0].Rows[0]["HotelDescription"].ToString();
             txtHotelPhone.Text = dataset.Tables[0].Rows[0]["HotelPhoneNumber"].ToString();
             txtHotelAddress.Text = dataset.Tables[0].Rows[0]["HotelAddress"].ToString();
