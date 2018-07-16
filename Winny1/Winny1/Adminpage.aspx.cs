@@ -14,7 +14,7 @@ namespace Winny1
 {
     public partial class Adminpage : System.Web.UI.Page
     {
-        SqlConnection conn = new SqlConnection("Data Source=localhost; Initial Catalog=dbGroupProject; Integrated Security=SSPI ");
+        SqlConnection conn = new SqlConnection("Data Source=localhost; Initial Catalog=dbGroupProject; Integrated Security=SSPI;");
         string con = "Data Source= localhost; Initial Catalog=dbGroupProject; Integrated Security= SSPI";
         protected void Page_Load(object sender, EventArgs e)
         {
