@@ -60,7 +60,7 @@
                   <img src="images/tooplate_image_03.jpg" alt="Image 03" class="image_wrapper" />
                   <p>Sed eu libero quis neque laoreet cursus. Fusce elit metus, elementum nec consequat a, interdum vitae est. Aliquam sit amet odio vitae dui blandit elementum. Ut eu dolor nunc. Nam in nunc sed mi adipiscing lacinia suscipit eget tortor. Vivamus lacinia lectus in <a href="#">velit aliquet</a> ac placerat magna euismod. In hac habitasse platea dictumst. Integer eget nibh eu libero cursus ultricies neque dolor imperdiet nulla a odio.</p>
                 </div>
-                <div class="col_270 float_r">
+          <%--      <div class="col_270 float_r">
                   <h1>Our Services</h1>
                   <ul class="service_list">
                     <li><a href="#" class="service_one">Morbi luctus vitae cursus</a></li>
@@ -69,7 +69,7 @@
                     <li><a href="#" class="service_four">In aliquet in libero</a></li>
                     <li><a href="#" class="service_five">Maecenas ut pretium</a></li>
                   </ul>
-                </div>
+                </div>--%>
               </div>
 			  <!-- end of service -->
 			  
@@ -104,7 +104,7 @@
                 <div class="cleaner_h10"></div>
                 <div class="col_380 float_l">
                   <div id="contact_form">
-                    <form method="post" name="contact" action="#">
+             
 					
                       <label for="author">Name:</label><input type="text" id="author" name="author" class="required input_field" />
 					  <div class="cleaner_h10"></div>
@@ -118,7 +118,7 @@
                       <input type="submit" class="submit_btn float_l" name="submit" id="submit" value=" Send " />
                       <input type="reset" class="submit_btn float_r" name="reset" id="reset" value="Reset" />
 					  
-                    </form>
+                   
                   </div>
                 </div>
 				
