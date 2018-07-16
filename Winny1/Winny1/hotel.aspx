@@ -39,13 +39,15 @@ div.desc {
       .auto-style6 {
           width: 268px;
       }
+table {
+    margin-left: 25px;
+}
 tr {
     height: 15px;
 }
  </style>
 
-<asp:Panel ID="PnlHotels" style="background-color:antiquewhite; width:800px "
-    runat="server">
+<asp:Panel ID="PnlHotels" style="background-color:antiquewhite; width:800px;" runat="server">
 
     <table>
         <tr>
@@ -81,7 +83,8 @@ tr {
 
     <asp:DataList ID="DlHotels" DataKeyField="HotelID" RepeatColumns="1" RepeatDirection="Horizontal" runat="server" CssClass="auto-style7">
         <ItemTemplate>
-            <div class="Hotels" style="width:650px;" onclick="return ViewHotel(<%#Eval ("HotelID") %>)">
+            <div class="Hotels" style="width:650px;" onclick="return ViewHotel(<%#Eval("HotelID") %>)">
+                
                 <table>
                     <tr>
                         <td colspan="2" rowspan="8" style="padding: 10px;">
@@ -92,16 +95,16 @@ tr {
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="3" style="color:black;">
+                        <td colspan="3" style="color:black; text-align:left;" >
                             <%# Eval("HotelDescription") %>
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td style="width:20%">
                             Rating: 
                         </td>
-                        <td style="color:black; text-align: left;">
-                            <%# Eval ("HotelStarsID") %>
+                        <td style="width:80%; color:black; text-align: left;">
+                            <%# Eval ("NumberOfStars") %>
                         </td>
                         <td></td>
                     </tr>
@@ -109,15 +112,15 @@ tr {
                         <td>
                             Price:
                         </td>
-                        <td style="color:black;">
-                            <%# Eval ("HotelPrice") %>
+                        <td style="color:black; text-align: left;">
+                            $<%# Eval ("HotelPrice") %>
                         </td>
                     </tr>
                     <tr>
                         <td>
                             Phone: 
                         </td>
-                        <td style="color:black;">
+                        <td style="color:black; text-align: left;">
                             <%# Eval ("HotelPhoneNumber") %>
                         </td>
                     </tr>
@@ -125,7 +128,7 @@ tr {
                         <td>
                             Address: 
                         </td>
-                        <td style="color:black;">
+                        <td style="color:black; text-align: left;">
                             <%# Eval ("HotelAddress") %>
                         </td>
                     </tr>
@@ -133,7 +136,7 @@ tr {
                         <td>
                             Postal Code: 
                         </td>
-                        <td style="color:black;">
+                        <td style="color:black; text-align: left;">
                             <%# Eval ("HotelPostalCode") %>
                         </td>
                     </tr>
@@ -141,8 +144,8 @@ tr {
                         <td>
                             Website: 
                         </td>
-                        <td colspan="2">
-                            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval ("HotelWebsite") %>' ></asp:HyperLink>
+                        <td colspan="2" style="color:black; text-align: left;">
+                            <asp:HyperLink ID="HyperLinkHotel" runat="server" NavigateUrl='<%# Eval ("HotelWebsite") %>' ></asp:HyperLink>
                         </td>
                     </tr>
                 </table>

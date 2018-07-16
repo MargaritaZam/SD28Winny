@@ -21,7 +21,7 @@ namespace Winny1
             {
                 this.ViewState["vs"] = 0;
                 loadLocation();
-                this.ViewState["vs1"] = 1;
+                this.ViewState["vs"] = 0;
                 loadHotelStars();
             }
             pos = (int)this.ViewState["vs"];
@@ -55,7 +55,7 @@ namespace Winny1
             DAL myDal = new DAL(conn);
 
             adsource = new PagedDataSource();
-            myDal.AddParam("@crud", "s");
+            myDal.AddParam("@crud", "r");
             DataSet ds = myDal.ExecuteProcedure("spHotelsCrud");
             adsource.DataSource = ds.Tables[0].DefaultView;
             adsource.PageSize = 2;
@@ -75,12 +75,12 @@ namespace Winny1
             string LocationId = DdlLocation.SelectedItem.Value;
             DAL myDal = new DAL(conn);
             adsource = new PagedDataSource();
-            myDal.AddParam("@crud", "r");
+            myDal.AddParam("@crud", "s");
             myDal.AddParam("@starsID", StarsID);
             myDal.AddParam("@LocationID", LocationId);
-            DataSet ds = myDal.ExecuteProcedure("spHotelCrud");
+            DataSet ds = myDal.ExecuteProcedure("spHotelsCrud");
             adsource.DataSource = ds.Tables[0].DefaultView;
-            adsource.PageSize = 3;
+            adsource.PageSize = 2;
             adsource.AllowPaging = true;
             adsource.CurrentPageIndex = pos;
             btnFirst.Enabled = !adsource.IsFirstPage;

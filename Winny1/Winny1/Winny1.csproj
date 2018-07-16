@@ -78,6 +78,7 @@
     <Content Include="Adminpage.aspx" />
     <Content Include="Anjali.sql" />
     <Content Include="attraction.aspx" />
+    <Content Include="AvgTemps.aspx" />
     <Content Include="ChatBot.html" />
     <Content Include="Client.aspx" />
     <Content Include="Coupons.aspx" />
@@ -87,6 +88,7 @@
     <Content Include="Coupons\Rona_coupon.jpg" />
     <Content Include="Coupons\TacoDelMar_coupon.jpg" />
     <Content Include="Coupons\TimHortons_coupon.jpg" />
+    <Content Include="gethint.asp" />
     <Content Include="GroupProject.sql" />
     <Content Include="hotel.aspx" />
     <Content Include="HotelPictures\CanadInnsHSC.png" />
@@ -110,6 +112,8 @@
     <Content Include="Restaurants.aspx" />
     <Content Include="LoadInformation.ashx" />
     <Content Include="Team.JPG" />
+    <Content Include="UniversityPictures\RedRiverCollege.jpg" />
+    <Content Include="UniversityPictures\UniversityManitoba.png" />
     <Content Include="Winnipeg.aspx" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -275,14 +279,11 @@
     <Content Include="Shopping\Winnipeg Trading Post.jpg" />
     <Content Include="StyleSheet1.css" />
     <Content Include="tooplate_style.css" />
-    <Content Include="Tracy.sql" />
     <Content Include="Universities.aspx" />
     <Content Include="UniversityPictures\BoothUC.png" />
     <Content Include="UniversityPictures\CanadianMennoniteUniversity.jpg" />
     <Content Include="UniversityPictures\Herzing.png" />
-    <Content Include="UniversityPictures\RedRiverCollege.jpg" />
     <Content Include="UniversityPictures\RobertsonCollege.png" />
-    <Content Include="UniversityPictures\UniversityManitoba.png" />
     <Content Include="UniversityPictures\UniversityWinnipeg.jpg" />
     <Content Include="ViewRestaurant.aspx" />
     <Content Include="Web.config" />
@@ -310,6 +311,13 @@
       <DependentUpon>attraction.aspx</DependentUpon>
     </Compile>
     <Compile Include="Attraction.cs" />
+    <Compile Include="AvgTemps.aspx.cs">
+      <DependentUpon>AvgTemps.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AvgTemps.aspx.designer.cs">
+      <DependentUpon>AvgTemps.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Client.aspx.cs">
       <DependentUpon>Client.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

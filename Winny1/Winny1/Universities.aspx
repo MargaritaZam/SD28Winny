@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Universities.aspx.cs" Inherits="Winny1.Universities1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 <style>
@@ -19,6 +18,7 @@ div.gallery:hover {
 div.gallery img {
     width: 100%;
     height: auto;
+    object-fit: scale-down;
 }
 
 div.desc {
@@ -40,9 +40,15 @@ div.desc {
       .auto-style6 {
           width: 268px;
       }
+table {
+    margin-left: 25px;
+}
+tr {
+    height: 15px;
+}
 </style>
 
-<asp:Panel ID="PnlSchools" runat="server">
+<asp:Panel ID="PnlSchools" style="background-color:antiquewhite; width:800px;" runat="server">
     
     <table>
         <tr>
@@ -55,10 +61,10 @@ div.desc {
         </tr>
         <tr>
             <td>
-                    <asp:DropDownList ID="ddlLocation" runat="server" Height="23px" Width="263px" BackColor="White"></asp:DropDownList>
+                    <asp:DropDownList ID="DdlLocation" runat="server" Height="23px" Width="250px" BackColor="White"></asp:DropDownList>
             </td>
             <td>
-                    <asp:DropDownList ID="ddlTypeOfSchool"  runat="server" Height="23px" Width="268px" BackColor="White"></asp:DropDownList>
+                    <asp:DropDownList ID="DdlTypeOfSchool"  runat="server" Height="23px" Width="250px" BackColor="White"></asp:DropDownList>
             </td>
         </tr>
         <tr>
@@ -68,45 +74,73 @@ div.desc {
         </tr>
         <tr>
             <td>
-                    <asp:TextBox ID="txtSearch" runat="server" Height="26px" Width="258px"></asp:TextBox>
+                    <asp:TextBox ID="TxtSearch" runat="server" Height="26px" Width="250px"></asp:TextBox>
             </td>
-        </tr>
-        <tr>
             <td>
-                <asp:Button ID="btnSearch" runat="server" Text="Search" BackColor="#CC0099" Font-Bold="True" ForeColor="White" Height="33px" Width="80px" OnClick="btnSearch_Click" />
+                <asp:Button ID="BtnSearch" runat="server" Text="Search" BackColor="#CC0099" Font-Bold="True" ForeColor="White" Height="33px" Width="80px" OnClick="BtnSearch_Click" />
             </td>
         </tr>
     </table>
 
-    <asp:DataList ID="dlSchools" RepeatColumns="3" RepeatDirection="Horizontal" runat="server">
+    <asp:DataList ID="DlSchools" DataKeyField="SchoolID" RepeatColumns="1" RepeatDirection="Horizontal" runat="server" CssClass="auto-style7">
         <ItemTemplate>
-            <div id="SchoolDiv"  onclick="return ViewProduct(<%#Eval ("SchoolID")%>)"  style="height:380px;">
+            <div class="Schools" style="width:650px;"  onclick="return ViewSchool(<%#Eval("SchoolID") %>)" >
                
-            <table style="border-bottom-style: solid">
+            <table>
                 <tr>
-                    <td>
-                        <asp:Image  ID="Image1" Height="250px" Width="240px" runat="server"
-                            ImageUrl='<%#Eval ("School_path") %>' />
+                    <td colspan="2" rowspan="8" style="padding: 10px;" >
+                        <asp:Image  ID="ImgSchool" runat="server" ImageUrl='<%# Eval("School_path") %>' />
                     </td>
-                    <td>
-                        <table>
-                            <tr>
-                                <th>
-                                    <%#Eval ("SchoolName")%>
-                                </th>
-                            </tr>     
-                            <tr>
-                                <td>Description: <%#Eval ("Description")%></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Website: <asp:HyperLink ID="UnivWeb" runat="server" NavigateUrl='<%# Eval ("SchoolWebsite") %>' Text='<%# Eval ("Web") %>'></asp:HyperLink>
-                                </td>
-                            </tr>
-                        </table>
+                    <td colspan="3" style="text-align: center; color:red; font-weight:bold;" >
+                        <%#Eval ("SchoolName")%>
+                    </td>
+                </tr>     
+                <tr>
+                    <td colspan="3" style="color:black; text-align:left;" >
+                        <%#Eval ("SchoolDescription")%>
                     </td>
                 </tr>
-            </table>             
+                    <tr>
+                        <td>
+                            Program Types:
+                        </td>
+                        <td style="color:black;">
+                            <%# Eval ("SchType") %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Phone: 
+                        </td>
+                        <td style="color:black;">
+                            <%# Eval ("SchoolPhoneNumber") %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Address: 
+                        </td>
+                        <td style="color:black;">
+                            <%# Eval ("SchoolAddress") %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Postal Code: 
+                        </td>
+                        <td style="color:black;">
+                            <%# Eval ("SchoolPostalCode") %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Website: 
+                        </td>
+                        <td colspan="2">
+                            <asp:HyperLink ID="HyperLinkSchool" runat="server" NavigateUrl='<%# Eval ("SchoolWebsite") %>' ></asp:HyperLink>
+                        </td>
+                    </tr>
+                </table>             
                       
             </div>
         </ItemTemplate>
@@ -115,20 +149,20 @@ div.desc {
     <table>
       <tr>
         <td>
-            <asp:Button ID="btnFirst" runat="server" Font-Bold="true" Text="First" 
-                Height="31px" Width="65px" OnClick="btnFirst_Click" />
+            <asp:Button ID="BtnFirst" runat="server" Font-Bold="true" Text="First" 
+                Height="31px" Width="65px" OnClick="BtnFirst_Click" />
         </td>
         <td>
-            <asp:Button ID="btnPrevious" runat="server" Font-Bold="true" Text="Previous" Height="31px" 
-                    Width="65px" OnClick="btnPrevious_Click" />
+            <asp:Button ID="BtnPrevious" runat="server" Font-Bold="true" Text="Previous" Height="31px" 
+                    Width="65px" OnClick="BtnPrevious_Click" />
         </td>
         <td>
-            <asp:Button ID="btnNext" runat="server" Font-Bold="true" Text="Next" Height="31px" 
-                Width="65px" OnClick="btnNext_Click"  />
+            <asp:Button ID="BtnNext" runat="server" Font-Bold="true" Text="Next" Height="31px" 
+                Width="65px" OnClick="BtnNext_Click"  />
         </td>
         <td>
-            <asp:Button ID="btnLast" runat="server" Font-Bold="true" Text="Last" Height="31px" 
-            Width="65px" OnClick="btnLast_Click"  />
+            <asp:Button ID="BtnLast" runat="server" Font-Bold="true" Text="Last" Height="31px" 
+            Width="65px" OnClick="BtnLast_Click"  />
         </td>
       </tr>
     </table> 

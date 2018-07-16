@@ -20,7 +20,7 @@ insert into tbLocation(locationName)values
 go
 
 --select*from tbLocation
---go
+go
 
 create procedure spLocation
 (
@@ -113,8 +113,10 @@ as begin
 	end
 end
 go
-exec spAttractions @crud='r'
-go
+
+--exec spAttractions @crud='r'
+--go
+
 create procedure spGetAttraction
 (
 	@id int =null
@@ -370,8 +372,8 @@ where CategoryType=isnull(@storetype, CategoryType)
 end
 go
 
-exec spGetStoreCategory
-go
+--exec spGetStoreCategory
+--go
 
 
 --exec spGetShoppingCategories
@@ -438,7 +440,8 @@ as begin
 	end
 	else if @Crud='x'
 	begin
-		select StoreId,StoreName, Description,'.\Shopping\'+ Path as Path,Address,PhoneNumber,Web,LocationId,CategoryId
+		select StoreId,StoreName, Description,'.\Shopping\'+ Path as Path,Address,PhoneNumber,
+			Web,LocationId,CategoryId
 		from tbStores where CategoryId=@CategoryId
 	end
 end
@@ -1667,45 +1670,46 @@ exec spRestaurants @crud='c',
 		@FoodId=12,
 		@LocationId=3
 
-exec spRestaurants @crud='r'
+--exec spRestaurants @crud='r'
 
 
 --  'About Winnipeg' Table and Procedures  --
 
 create table tbAbout
 (
-	AboutID int identity(1,1) primary key,
-	AboutTitle	varchar(50),
+	AboutID			 int identity(1,1) primary key,
+	AboutTopic		 varchar(40),
 	AboutDescription varchar(800)
 )
 go
 
 create procedure spAboutCrud
 (
-	@aboutID int = null,
-	@aboutTitle varchar(50) = null,
+	@aboutID		  int = null,
+	@aboutTopic		  varchar(40) = null,
 	@aboutDescription varchar(800) = null,
-	@crud varchar(1)
+	@crud			  varchar(1)
 )
 as begin
-	if @crud='r'
+	if @crud='r'  --  Read by AboutID  --
 	begin
-		select AboutTitle, AboutDescription from tbAbout 
-			where AboutId = isnull(@aboutId,AboutId)
+		select AboutTopic, AboutDescription 
+		from tbAbout 
+		where AboutID = isnull(@aboutID,AboutID)
 	end
-	else if @crud='c'
+	else if @crud='c'  --  Create  --
 	begin
-		insert into tbAbout(AboutTitle, AboutDescription) values
-						(@aboutTitle,@aboutDescription)
+		insert into tbAbout(AboutTopic, AboutDescription) values
+						(@aboutTopic,@aboutDescription)
 	end
-	else if @crud='u'
+	else if @crud='u'  --  Update  --
 	begin
 		update tbAbout set
-			   AboutTitle = @aboutTitle,
+			   AboutTopic = @aboutTopic,
 			   AboutDescription = @aboutDescription
 		where AboutID = @aboutID
 	end
-	else if @crud = 'd'
+	else if @crud = 'd'  --  Delete  --
 	begin
 		delete from tbAbout where AboutID = @aboutID
 	end
@@ -1713,74 +1717,128 @@ end
 go
 
 exec spAboutCrud @crud = 'c',
-			     @aboutTitle = 'Origins',
+			     @aboutTopic = 'Origins',
 			     @aboutDescription = 'The confluence of the Red and the Assiniboine Rivers, known as The Forks, has been a meeting place for 6,000 years.  The city was created on November 8, 1873 near the present day intersection of Portage Avenue and Main Street and is named after the Western Cree words for ''Muddy Water''.'
 
 exec spAboutCrud @crud = 'c',
-			     @aboutTitle = 'Now',
-			     @aboutDescription = 'Winnipeg is the capital and largest city of the province of Manitoba in Canada. It is near the longitudinal centre of North America and is 110 kilometres from the Canada–United States border.'
+			     @aboutTopic = 'Now',
+			     @aboutDescription = 'Winnipeg is the capital and largest city of the province of Manitoba. It is near the longitudinal centre of North America and is 110 kilometres from the Canada–United States border.'
 
 exec spAboutCrud @crud = 'c',
-			     @aboutTitle = 'Motto',
+			     @aboutTopic = 'Motto',
 			     @aboutDescription = '"UNUM CUM VIRTUTE MULTORUM" is Latin for "One with the strength of many"'
 
 exec spAboutCrud @crud = 'c',
-			     @aboutTitle = 'Population',
+			     @aboutTopic = 'Population',
 			     @aboutDescription = 'The city has a population of 749,500, while the Province of Manitoba has a total population of 1.33 million.  (Estimated 2017)'
 
-exec spAboutCrud @crud = 'c',
-			     @aboutTitle = 'January',
-			     @aboutDescription = 'Average High: -10 C,  Average Low: -20 C'
-				  
-exec spAboutCrud @crud = 'c',
-			     @aboutTitle = 'February',
-			     @aboutDescription = 'Average High:  -8 C,  Average Low: -18 C'
+exec spAboutCrud @crud = 'r'
 
-exec spAboutCrud @crud = 'c',
-			     @aboutTitle = 'March',
-			     @aboutDescription = 'Average High:   0 C,  Average Low: -11 C'
+create table tbAvgTemps
+(
+		MonthID int identity(1,1) primary key,
+		Month	varchar(15),
+		AvgHigh varchar(6),
+		AvgLow	varchar(6)
+)
+go
 
-exec spAboutCrud @crud = 'c',
-			     @aboutTitle = 'April',
-			     @aboutDescription = 'Average High:  10 C,  Average Low:  -2 C'
+create procedure spAvgTempCrud
+(
+	@monthID int = null,
+	@month	 varchar(15) = null,
+	@avgHigh varchar(6) = null,
+	@avgLow  varchar(6) = null,
+	@crud	 varchar(1)
+)
+as begin
+	if @crud='r'
+	begin
+		select MonthID, Month, AvgHigh, AvgLow from tbAvgTemps
+		where MonthID = isnull(@monthID,MonthID)
+	end
+	else if @crud='c'
+	begin
+		insert into tbAvgTemps(Month, AvgHigh, AvgLow) values
+							 (@month,@avgHigh,@avgLow)
+	end
+	else if @crud='u'
+	begin
+		update tbAvgTemps set
+			   Month = @month,
+			   AvgHigh = @avgHigh,
+			   AvgLow = @avgLow
+		where MonthID = @monthID
+	end
+end
+go
 
-exec spAboutCrud @crud = 'c',
-			     @aboutTitle = 'May',
-			     @aboutDescription = 'Average High:  18 C,  Average Low:   5 C'
+exec spAvgTempCrud @crud = 'c',
+				   @month = 'January',
+				   @avgHigh = '-10 C',
+				   @avgLow = '-20 C'
 
-exec spAboutCrud @crud = 'c',
-			     @aboutTitle = 'June',
-			     @aboutDescription = 'Average High:  23 C,  Average Low:  12 C'
+exec spAvgTempCrud @crud = 'c',
+				   @month = 'February',
+				   @avgHigh = ' -8 C',
+				   @avgLow = '-20 C'
 
-exec spAboutCrud @crud = 'c',
-			     @aboutTitle = 'July',
-			     @aboutDescription = 'Average High:  26 C,  Average Low:  14 C'
+exec spAvgTempCrud @crud = 'c',
+				   @month = 'March',
+				   @avgHigh = '  0 C',
+				   @avgLow = '-11 C'
 
-exec spAboutCrud @crud = 'c',
-			     @aboutTitle = 'August',
-			     @aboutDescription = 'Average High:  26 C,  Average Low:  13 C'
+exec spAvgTempCrud @crud = 'c',
+				   @month = 'April',
+				   @avgHigh = ' 10 C',
+				   @avgLow = ' -2 C'
 
-exec spAboutCrud @crud = 'c',
-			     @aboutTitle = 'September',
-			     @aboutDescription = 'Average High:  20 C,  Average Low:   8 C'
+exec spAvgTempCrud @crud = 'c',
+				   @month = 'May',
+				   @avgHigh = ' 18 C',
+				   @avgLow = '  5 C'
 
-exec spAboutCrud @crud = 'c',
-			     @aboutTitle = 'October',
-			     @aboutDescription = 'Average High:  11 C,  Average Low:   1 C'
+exec spAvgTempCrud @crud = 'c',
+				   @month = 'June',
+				   @avgHigh = ' 23 C',
+				   @avgLow = ' 12 C'
 
-exec spAboutCrud @crud = 'c',
-			     @aboutTitle = 'November',
-			     @aboutDescription = 'Average High:   1 C,  Average Low:  -8 C'
+exec spAvgTempCrud @crud = 'c',
+				   @month = 'July',
+				   @avgHigh = ' 26 C',
+				   @avgLow = ' 14 C'
 
-exec spAboutCrud @crud = 'c',
-			     @aboutTitle = 'December',
-			     @aboutDescription = 'Average High:  -8 C,  Average Low: -17 C'
+exec spAvgTempCrud @crud = 'c',
+				   @month = 'August',
+				   @avgHigh = ' 26 C',
+				   @avgLow = ' 13 C'
 
---exec spAboutCrud @crud='r'
---go
+exec spAvgTempCrud @crud = 'c',
+				   @month = 'September',
+				   @avgHigh = ' 20 C',
+				   @avgLow = ' 8 C'
+
+exec spAvgTempCrud @crud = 'c',
+				   @month = 'October',
+				   @avgHigh = ' 11 C',
+				   @avgLow = '  1 C'
+
+exec spAvgTempCrud @crud = 'c',
+				   @month = 'November',
+				   @avgHigh = '  1 C',
+				   @avgLow = ' -8 C'
+
+exec spAvgTempCrud @crud = 'c',
+				   @month = 'December',
+				   @avgHigh = ' -8 C',
+				   @avgLow = '-17 C'
+
+exec spAvgTempCrud @crud = 'r'
+
 
 --  Hotel Table and Procedures  --
 
+go
 create table tbHotelStars
 (
 	StarsID		  int identity(0,1) primary key,
@@ -1809,7 +1867,7 @@ create table tbHotels
 	HotelID			 int identity(1,1) primary key,
 	HotelName		 varchar(30),
 	HotelPrice		 int,
-	HotelStars		 int foreign key references tbHotelStars(StarsID),
+	HotelStarsID	 int foreign key references tbHotelStars(StarsID),
 	HotelDescription varchar(800),
 	HotelPhoneNumber varchar(15),
 	HotelAddress	 varchar(100),
@@ -1825,7 +1883,7 @@ create procedure spHotelsCrud
 	@hotelID int = null,
 	@hotelName	varchar(30) = null,
 	@hotelPrice int = null,
-	@hotelStars varchar(6) = null,
+	@hotelStarsID int = null,
 	@hotelDescription varchar(800) = null,
 	@hotelPhoneNumber varchar(15) = null,
 	@hotelAddress varchar(100) = null,
@@ -1838,24 +1896,32 @@ create procedure spHotelsCrud
 as begin
 	if @crud='r'
 	begin
-		select HotelID, HotelName, HotelPrice, HotelStars, HotelDescription, HotelPhoneNumber, HotelAddress, HotelPostalCode, HotelWebsite,HotelLocationID,'.\HotelPictures\' + Hotel_path as Hotel_path from tbHotels where HotelId = isnull(@hotelId,HotelID)
+		select tbHotels.HotelID, tbHotels.HotelName, tbHotels.HotelPrice, tbHotelStars.NumberOfStars,
+			tbHotels.HotelDescription, tbHotels.HotelPhoneNumber, tbHotels.HotelAddress, 
+			tbHotels.HotelPostalCode, tbHotels.HotelWebsite, tbHotels.HotelLocationID,
+			'.\HotelPictures\' + Hotel_path as Hotel_path 
+		from tbHotels
+		inner join tbHotelStars on tbHotels.HotelStarsID = tbHotelStars.StarsID
+		where HotelID = isnull(@hotelID,HotelID)
 	end
-	if @crud='s'
+	else if @crud='s'
 	begin
-		select HotelID, HotelName, HotelPrice, HotelStars, HotelDescription, HotelPhoneNumber, HotelAddress, HotelPostalCode, HotelWebsite,'.\HotelPictures\' + Hotel_path as Hotel_path from tbHotels where HotelId = isnull(@hotelId,HotelId)
+		select HotelID, HotelName, HotelPrice, HotelStarsID, HotelDescription, HotelPhoneNumber,
+			HotelAddress, HotelPostalCode, HotelWebsite,'.\HotelPictures\' + Hotel_path as Hotel_path 
+		from tbHotels where HotelID = isnull(@hotelID,HotelID)
 	end
 	else if @crud='c'
 	begin
-		insert into tbHotels(HotelName, HotelPrice, HotelStars, HotelDescription, HotelPhoneNumber, HotelAddress, HotelPostalCode, HotelWebsite, Hotel_path, HotelLocationID)
+		insert into tbHotels(HotelName, HotelPrice, HotelStarsID, HotelDescription, HotelPhoneNumber, HotelAddress, HotelPostalCode, HotelWebsite, Hotel_path, HotelLocationID)
 								values
-							(@hotelName,@hotelPrice,@hotelStars,@hotelDescription,@hotelPhoneNumber,@hotelAddress,@hotelPostalCode,@hotelWebsite,@hotel_path,@hotelLocationID)
+							(@hotelName,@hotelPrice,@hotelStarsID,@hotelDescription,@hotelPhoneNumber,@hotelAddress,@hotelPostalCode,@hotelWebsite,@hotel_path,@hotelLocationID)
 	end
 	else if @crud='u'
 	begin
 		update tbHotels set
 			   HotelName = @hotelName,
 			   HotelPrice = @hotelPrice,
-			   HotelStars = @hotelStars,
+			   HotelStarsID = @hotelStarsID,
 			   HotelDescription = @hotelDescription,
 			   HotelPhoneNumber = @hotelPhoneNumber,
 			   HotelAddress = @hotelAddress,
@@ -1875,7 +1941,7 @@ go
 exec spHotelsCrud @crud = 'c',
 		@hotelName = 'Alt Hotel Winnipeg',
 		@hotelPrice = 159,
-		@hotelStars = 3,
+		@hotelStarsID = 3,
 		@hotelDescription = 'Located in the new Sports, Hospitality and Entertainment District (SHED), the hotel is just steps away from the Bell MTS Place, home of the Winnipeg Jets hockey team, an array of businesses such as restaurants, bars and boutiques.',
 		@hotelPhoneNumber = '1-844-946-6258',
 		@hotelAddress = '310 Donald Street',
@@ -1887,7 +1953,7 @@ exec spHotelsCrud @crud = 'c',
 exec spHotelsCrud @crud='c',
 		@hotelName='Canad Inns Destination Centre Health Sciences Centre',
 		@hotelPrice=143,
-		@hotelStars=3,
+		@hotelStarsID=3,
 		@hotelDescription='Our hotel is conveniently attached to the Health Sciences Centre, located just a few minutes from downtown Winnipeg, including shopping at Portage Place and The Forks, and just a five minute drive from McPhillips Station Casino.  For your comfort, our hotel offers a number of universally-accessible and wheelchair-friendly rooms.',
 		@hotelPhoneNumber='204-594-9472',
 		@hotelAddress='720 William Avenue',
@@ -1899,7 +1965,7 @@ exec spHotelsCrud @crud='c',
 exec spHotelsCrud @crud='c',
 		@hotelName='Clarion Hotel & Suites',
 		@hotelPrice=149,
-		@hotelStars=2,
+		@hotelStarsID=2,
 		@hotelDescription='The hotel is nestled in the hub of Winnipeg’s shopping, restaurant and business neighbourhoods. Located just 6 km from the James Richard Armstrong International Airport (YWG), Ikea and the new Seasons Outlet Collection Mall, and within walking distance to Manitoba’s largest Mall CF Polo Park Shopping Centre. The Clarion Hotel is only 15 minutes from downtown Winnipeg.',
 		@hotelPhoneNumber='204-774-5110',
 		@hotelAddress='1445 Portage Avenue',
@@ -1911,7 +1977,7 @@ exec spHotelsCrud @crud='c',
 exec spHotelsCrud @crud='c',
 		@hotelName='Delta Hotels by Marriott Winnipeg',
 		@hotelPrice=175,
-		@hotelStars=4,
+		@hotelStarsID=4,
 		@hotelDescription='The Delta Hotels Winnipeg has established itself as a premier destination for business travelers and vacationing families here in the heart of the city.  Take a dip in the heated indoor pool, or relax on the rooftop at our seasonal outdoor pool when the weather here in Winnipeg is warm.  Those visiting here in the city will love our hotel''s downtown location and our versatile event venues. And we offer direct Skywalk access to the RBC Convention Centre, BellMTS Place and much more, making exploration easy.',
 		@hotelPhoneNumber='204-942-0551',
 		@hotelAddress='350 St Mary Avenue',
@@ -1923,7 +1989,7 @@ exec spHotelsCrud @crud='c',
 exec spHotelsCrud @crud = 'c',
 		@hotelName = 'Econo Lodge',
 		@hotelPrice = 110,
-		@hotelStars = 2,
+		@hotelStarsID = 2,
 		@hotelDescription = 'Convenient for accessing the hospital, University of Winnipeg campus and downtown Winnipeg.  Rooms not wheelchair accessible',
 		@hotelPhoneNumber = '204-255-7100',
 		@hotelAddress = '690 Notre Dame Avenue',
@@ -1935,7 +2001,7 @@ exec spHotelsCrud @crud = 'c',
 exec spHotelsCrud @crud='c',
 		@hotelName='The Fort Garry Hotel',
 		@hotelPrice=149,
-		@hotelStars=3,
+		@hotelStarsID=3,
 		@hotelDescription='Located in downtown Winnipeg, the Fort Garry Hotel was built in 1913 as a grand railway hotel.  The century-old Fort Garry Hotel, Spa and Conference Centre ushers in a new era of modern-day style in downtown Winnipeg. Catering to guests who appreciate local history mixed with authentic charm, this iconic 240-room “Grand Dame” is a favorite for weddings, romantic getaways and wellness weekends. Don’t leave without saying hello to one of the hotel’s friendly resident ghosts.',
 		@hotelPhoneNumber='204-942-8251',
 		@hotelAddress='222 Broadway',
@@ -1947,7 +2013,7 @@ exec spHotelsCrud @crud='c',
 exec spHotelsCrud @crud='c',
 		@hotelName='Hilton Winnipeg Airport Suites',
 		@hotelPrice = 123,
-		@hotelStars=3,
+		@hotelStarsID=3,
 		@hotelDescription='Located in Winnipeg Airport Industrial Park, we provide easy access to downtown Winnipeg. Use the complimentary airport shuttle service to/from the hotel. Polo Park Mall, the largest shopping center in Manitoba with over 200 stores, is less than 2 miles away. We’re also a short drive to the newest Outlet Collection Winnipeg.',
 		@hotelPhoneNumber='204-783-1700',
 		@hotelAddress='1800 Wellington Avenue',
@@ -1959,7 +2025,7 @@ exec spHotelsCrud @crud='c',
 exec spHotelsCrud @crud='c',
 		@hotelName='Inn at the Forks',
 		@hotelPrice = 186,
-		@hotelStars=3,
+		@hotelStarsID=3,
 		@hotelDescription='Located in downtown Winnipeg at The Forks, our top tourism attraction, you''re immersed in a convergence of cultures – Aboriginal, French Canadian and Manitoban – at a 6,000-year-old meeting place. The myriad of shopping, arts, and entertainment options on-site and nearby is unmatched.',
 		@hotelPhoneNumber='1-866-500-4938',
 		@hotelAddress='75 Forks Market Road',
@@ -1971,7 +2037,7 @@ exec spHotelsCrud @crud='c',
 exec spHotelsCrud @crud = 'c',
 		@hotelName = 'Queen Bee Hotel',
 		@hotelPrice = 89,
-		@hotelStars = 2,
+		@hotelStarsID = 2,
 		@hotelDescription = 'Located just outside of the main gates of the University of Manitoba, the Queen Bee Hotel is within walking distance to many restaurants, cultural venues and other conveniences.',
 		@hotelPhoneNumber = '204-269-4666',
 		@hotelAddress = '2615 Pembina Hwy.',
@@ -1983,7 +2049,7 @@ exec spHotelsCrud @crud = 'c',
 exec spHotelsCrud @crud='c',
 		@hotelName='Radisson Hotel Winnipeg Downtown',
 		@hotelPrice=152,
-		@hotelStars=3,
+		@hotelStarsID=3,
 		@hotelDescription='Conveniently located on Portage Avenue, Radisson Hotel Winnipeg Downtown is within sight of the Burton Cummings Theatre and area shopping centres.  Open on weekdays from 7:30 a.m. to 5 p.m., our skywalk connects you to Cityplace, Bell MTS Place and Winnipeg Square. The Radisson is also less than 20 minutes from Winnipeg James Armstrong Richardson International Airport (YWG) and within a 10-minute walk of the Canadian Museum for Human Rights, the Exchange District, the RBC Convention Centre and Chinatown.',
 		@hotelPhoneNumber='204-956-0410',
 		@hotelAddress='288 Portage Avenue',
@@ -1995,7 +2061,7 @@ exec spHotelsCrud @crud='c',
 exec spHotelsCrud @crud='c',
 		@hotelName='Royal Albert Arms',
 		@hotelPrice = 0,
-		@hotelStars=0,
+		@hotelStarsID=0,
 		@hotelDescription='The Royal Albert Hotel with its 54 rooms, restaurant, coffee shop and cigar stand opened its doors on November 5, 1913.  The façade of the hotel was designed with a continental flair. A red-tiled roof forms a cornice over a brick front accentuated with ornamental iron fretwork, elaborate iron lights and arched main floor windows and doors which combine to create an Italian effect.',
 		@hotelPhoneNumber='204-943-8433',
 		@hotelAddress='48 Albert Street',
@@ -2007,7 +2073,7 @@ exec spHotelsCrud @crud='c',
 exec spHotelsCrud @crud = 'c',
 		@hotelName = 'Travelodge Winnipeg East',
 		@hotelPrice = 95,
-		@hotelStars = 2,
+		@hotelStarsID = 2,
 		@hotelDescription = '',
 		@hotelPhoneNumber = '204-255-6000',
 		@hotelAddress = '20 Alpine Avenue',
@@ -2019,7 +2085,7 @@ exec spHotelsCrud @crud = 'c',
 exec spHotelsCrud @crud='c',
 		@hotelName='Viscount Gort Hotel',
 		@hotelPrice = 115,
-		@hotelStars=3,
+		@hotelStarsID=3,
 		@hotelDescription='Pronounced vī kount, the Viscount Gort is located minutes from Polo Park Shopping Centre.  We offer free parking for our guests and a free shuttle to and from the airport. City buses stop close by and there are plenty of taxi and limo services always available.',
 		@hotelPhoneNumber='1-800-665-1122',
 		@hotelAddress='1670 Portage Avenue',
@@ -2027,8 +2093,10 @@ exec spHotelsCrud @crud='c',
 		@hotelWebsite='http://www.viscount-gort.com/',
 		@hotel_path='ViscountGort.png',
 		@hotelLocationId=7
+go
 
 --exec spHotelsCrud @crud = 'r'
+--go
 
 --  Universities and Colleges  --
 
@@ -2050,8 +2118,8 @@ as begin
 end
 go
 
-exec spGetSchoolTypes
-go
+--exec spGetSchoolTypes
+--go
 
 --  School Table and Procedures  --
 
@@ -2059,12 +2127,12 @@ create table tbUniversitiesColleges
 (
 	SchoolID int identity(1,1) primary key,
 	SchoolName varchar(50),
-	SchoolTypeId int foreign key references tbSchoolTypes(SchTypeID),
+	SchoolTypeID int foreign key references tbSchoolTypes(SchTypeID),
+	SchoolDescription varchar(800),
 	SchoolPhoneNumber varchar(15),
 	SchoolAddress varchar(100),
 	SchoolPostalCode varchar(7),
 	SchoolWebsite varchar(100),
-	SchoolDescription varchar(800),
 	School_path varchar(200),
 	SchoolLocationID int foreign key references tbLocation(LocationID)
 )
@@ -2075,11 +2143,11 @@ create procedure spSchoolsCrud
 	@schoolID int = null,
 	@schoolName varchar(50) = null,
 	@schoolTypeId int = null,
+	@schoolDescription varchar(800) = null,
 	@schoolPhoneNumber varchar(15) = null,
 	@schoolAddress varchar(100) = null,
 	@schoolPostalCode varchar(7) = null,
 	@schoolWebsite varchar(100) = null,
-	@schoolDescription varchar(800) = null,
 	@school_path varchar(200) = null,
 	@schoolLocationID int = null,
 	@schoolCrud varchar(1)
@@ -2087,24 +2155,35 @@ create procedure spSchoolsCrud
 as begin
 	if @schoolCrud='r'
 	begin
-		select SchoolName, SchoolTypeId, SchoolPhoneNumber, SchoolAddress, SchoolPostalCode, SchoolWebsite, SchoolDescription,'.\SchoolPictures\' + School_path as School_path from tbUniversitiesColleges where SchoolId=isnull(@schoolID,SchoolID)
+		select tbUniversitiesColleges.SchoolID, tbUniversitiesColleges.SchoolName, tbSchoolTypes.SchType,
+			tbUniversitiesColleges.SchoolDescription, tbUniversitiesColleges.SchoolPhoneNumber, tbUniversitiesColleges.SchoolAddress,
+			tbUniversitiesColleges.SchoolPostalCode, tbUniversitiesColleges.SchoolWebsite,
+			'.\UniversityPictures\' + School_path as School_path 
+		from tbUniversitiesColleges
+		inner join tbSchoolTypes on tbUniversitiesColleges.SchoolTypeID = tbSchoolTypes.SchTypeID
+		where SchoolID = isnull(@schoolID,SchoolID)
+	end
+	if @schoolCrud='s'
+	begin
+		select SchoolID, SchoolName, SchoolTypeID, SchoolDescription, SchoolPhoneNumber,
+			SchoolAddress, SchoolPostalCode, SchoolWebsite,'.\UniversityPictures\' + School_path as School_path
+		from tbUniversitiesColleges where SchoolId = isnull(@schoolID,SchoolID)
 	end
 	else if @schoolCrud='c'
 	begin
-		insert into tbUniversitiesColleges(SchoolName,SchoolTypeId,SchoolPhoneNumber,SchoolAddress,SchoolPostalCode,SchoolWebsite,SchoolDescription,School_path,SchoolLocationID)
-								values
-								(@schoolName,@schoolTypeId,@schoolPhoneNumber,@schoolAddress,@schoolPostalCode,@schoolWebsite,@schoolDescription,@school_path,@schoolLocationID)
+		insert into tbUniversitiesColleges(SchoolName, SchoolTypeId, SchoolDescription, SchoolPhoneNumber, SchoolAddress, SchoolPostalCode, SchoolWebsite, School_path, SchoolLocationID) values
+				(@schoolName,@schoolTypeId,@schoolDescription,@schoolPhoneNumber,@schoolAddress,@schoolPostalCode,@schoolWebsite,@school_path,@schoolLocationID)
 	end
 	else if @schoolCrud='u'
 	begin
 		update tbUniversitiesColleges set
 			   SchoolName = @schoolName,
 			   SchoolTypeId = @schoolTypeId,
+			   SchoolDescription = @schoolDescription,
 			   SchoolPhoneNumber = @schoolPhoneNumber,
 			   SchoolAddress = @schoolAddress,
 			   SchoolPostalCode = @schoolPostalCode,
 			   SchoolWebsite = @schoolWebsite,
-			   SchoolDescription = @schoolDescription,
 			   School_path = @school_path,
 			   SchoolLocationID = @schoolLocationID
 		where SchoolID = @schoolID
@@ -2115,73 +2194,76 @@ as begin
 	end
 end
 go
-exec spSchoolsCrud @schoolCrud='r'
+
 exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolName = 'Booth University College',
 		@schoolTypeId = 3,
+		@schoolDescription = 'William and Catherine Booth University College, rooted in The Salvation Army’s Wesleyan theological tradition, brings together Christian faith, rigorous scholarship and a passion for service.  A small campus with just 250 students, located in downtown Winnipeg.',
 		@schoolPhoneNumber = '204-942-3856',
 		@schoolAddress = '447 Webb Place',
 		@schoolPostalCode = 'R3B 2P2',
 		@schoolWebsite = 'http://www.boothuc.ca/',
-		@schoolDescription = 'William and Catherine Booth University College, rooted in The Salvation Army’s Wesleyan theological tradition, brings together Christian faith, rigorous scholarship and a passion for service.  A small campus with just 250 students, located in downtown Winnipeg.',
 		@school_path = 'BoothUC.png',
 		@schoolLocationId = 7
 
 exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolName = 'Canadian Mennonite University',
 		@schoolTypeId = 1,
+		@schoolDescription = 'CMU offers comprehensive university education within a dynamic and diverse Christian community. Exemplary academic studies across the arts and sciences are distinguished by interdisciplinary interaction, experiential learning, and quality connection between students and faculty.',
 		@schoolPhoneNumber = '204-487-3300',
 		@schoolAddress = '500 Shaftesbury Boulevard',
 		@schoolPostalCode = 'R3P 2N2',
 		@schoolWebsite = 'http://www.cmu.ca/',
-		@schoolDescription = 'CMU offers comprehensive university education within a dynamic and diverse Christian community. Exemplary academic studies across the arts and sciences are distinguished by interdisciplinary interaction, experiential learning, and quality connection between students and faculty.',
 		@school_path = 'CanadianMennoniteUniversity.jpg',
 		@schoolLocationId = 9
 
 exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolName = 'Herzing College Winnipeg',
 		@schoolTypeId = 3,
+		@schoolDescription = 'Herzing College has been recognized as a leader in high quality, credible training for market driven programs since 1965.  Over the years, the college has expanded its breadth of career-focused education and has expanded geographically to include campus locations across the country. Our reputation is built on a foundation of high ethical standards, and a commitment to the success of our students.',
 		@schoolPhoneNumber = '204-775-8175',
 		@schoolAddress = '1700 Portage Avenue',
 		@schoolPostalCode = 'R3J 0E1',
 		@schoolWebsite = 'http://www.herzing.ca/winnipeg/',
-		@schoolDescription = '',
 		@school_path = 'Herzing.png',
 		@schoolLocationId = 7
 
 exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolName = 'Red River College',
 		@schoolTypeId = 3,
+		@schoolDescription = 'We have 4 campuses scattered throughout Winnipeg, and 5 more outside Winnipeg.  We are Manitoba’s largest institute of applied learning and research, with more than 200 full- and part-time degree, diploma and certificate options.  We have close to 22,000 students each year from more than 60 countries.',
 		@schoolPhoneNumber = '204-632-2327',
 		@schoolAddress = '2055 Notre Dame Avenue',
 		@schoolPostalCode = 'R3H 0J9',
 		@schoolWebsite = 'http://www.rrc.mb.ca/',
-		@schoolDescription = 'We have 4 campuses scattered throughout Winnipeg, and 5 more outside Winnipeg.  We are Manitoba’s largest institute of applied learning and research, with more than 200 full- and part-time degree, diploma and certificate options.  We have close to 22,000 students each year from more than 60 countries.',
 		@school_path = 'RedRiverCollege.jpg',
 		@schoolLocationId = 10
 
 exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolName = 'Robertson College',
 		@schoolTypeId = 3,
+		@schoolDescription = 'Having been in operation for over 100 years, Robertson College has established itself as a leading private post-secondary institution in Canada.  There are 12 locations in Canada and one in China.',
 		@schoolPhoneNumber = '204-926-8325',
 		@schoolAddress = '265 Notre Dame Avenue',
 		@schoolPostalCode = 'R3B 1N9',
 		@schoolWebsite = 'http://www.robertsoncollege.com/',
-		@schoolDescription = 'Having been in operation for over 100 years, Robertson College has established itself as a leading private post-secondary institution in Canada.  There are 12 locations in Canada and one in China.',
 		@school_path = 'RobertsonCollege.png',
 		@schoolLocationId = 9
 
 exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolName = 'University of Manitoba',
 		@schoolTypeId = 2,
+		@schoolDescription = 'Since 1877, the University of Manitoba has been driving discovery and inspiring minds through innovative teaching and research excellence. The U of M has 24,000 undergraduate and graduate students studying more than 90 degree programs.',
 		@schoolPhoneNumber = '204-474-8880',
 		@schoolAddress = '66 Chancellors Circle',
 		@schoolPostalCode = 'R3T 2N2',
 		@schoolWebsite = 'http://www.umanitoba.ca/',
-		@schoolDescription = 'Since 1877, the University of Manitoba has been driving discovery and inspiring minds through innovative teaching and research excellence. The U of M has 24,000 undergraduate and graduate students studying more than 90 degree programs.',
 		@school_path = 'UniversityManitoba.png',
 		@schoolLocationId = 5
 go
+
+--exec spSchoolsCrud @schoolCrud='r'
+--go
 
 create table tbUsers(
 id int identity (1,1) primary key,
@@ -2270,9 +2352,9 @@ end
 end
 go
 
+--select * from tbUsers
+--go
 
-select * from tbUsers
-go
  exec spUser @crud='c', @firstName='Anjali', @lastName='Patel', @phoneNumber='777-55-55', @address='555 Main Str., Winnipeg, MB ',
               @email='admin@winny', @password='pass1', @accessLevel='a' --a=admin
  exec spUser @crud='c', @firstName='Margarita', @lastName='Zamoshch', @phoneNumber='222-55-55', @address='111 Main Str., Winnipeg, MB ',
@@ -2316,3 +2398,65 @@ exec spReports @crud='f'
 exec spReports @crud='i'
 exec spReports @crud='at'
 exec spReports @crud='st'
+
+--Coupons
+create table tbCouponType(
+TypeId int identity (1,1) primary key,
+CouponType varchar (max)not null)
+go
+insert into tbCouponType(CouponType) values
+('Restaurants'),('Attractions'),('Shopping'),('Hotels')
+go
+create table tbCoupons(
+CouponId int identity (1,1) primary key,
+CouponName varchar (max) not null,
+Path varchar(max),
+TypeId int foreign key references tbCouponType (TypeId))
+go
+create procedure spCoupon(
+@CouponId int=null,
+@CouponName varchar(max)=null,
+@Path varchar (max)=null,
+@TypeId int= null,
+@Crud varchar(10))
+as begin
+if @Crud='r'
+begin select
+CouponId,CouponName,Path, TypeId from tbCoupons where CouponId=isnull(@CouponId, CouponId)
+end
+else if
+@Crud='c'
+begin 
+insert into tbCoupons (CouponName,Path, TypeId) values
+(@CouponName,@Path, @TypeId)
+end
+else if
+@Crud='d'
+begin
+delete from tbCoupons where CouponId=@CouponId
+end
+else if
+@Crud='u'
+begin
+update tbCoupons set
+CouponName=@CouponName,
+Path=@Path,
+TypeId=@TypeId
+where
+CouponId=@CouponId
+end
+else if
+@Crud='x'
+begin
+select CouponId, CouponName, Path, TypeId from tbCoupons where
+TypeId=@TypeId
+end
+end
+go
+go
+exec spCoupon @Crud='c', @CouponName='Boston Pizza', @Path='boston_pizza_coupon.jpg', @TypeId=1
+exec spCoupon @Crud='c', @CouponName='Taco Del Mar', @Path='TacoDelMar_coupon.jpg', @TypeId=1
+exec spCoupon @Crud='c', @CouponName='Tim Hortons', @Path='TimHortons_coupon.jpg', @TypeId=1
+exec spCoupon @Crud='c', @CouponName='Hudson Bay', @Path='HudsonBay_coupon.gif', @TypeId=3
+exec spCoupon @Crud='c', @CouponName='Michaels', @Path='Michaels_coupon.jpg', @TypeId=3
+exec spCoupon @Crud='c', @CouponName='Rona', @Path='Rona_coupon.jpg', @TypeId=3

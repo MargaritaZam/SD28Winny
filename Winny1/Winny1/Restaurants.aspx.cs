@@ -29,15 +29,13 @@ namespace Winny1
             }
             pos = (int)this.ViewState["vs"];
             loadRestaurants();
-
-
-
         }
+
         public void loadFood()
         {
             DAL myDal = new DAL(conn);
            
-           DataSet ds = myDal.ExecuteProcedure("spFood_Category");
+            DataSet ds = myDal.ExecuteProcedure("spFood_Category");
             ddlCulinary.DataSource = ds.Tables[0];
             ddlCulinary.DataTextField ="FoodType";
             ddlCulinary.DataValueField ="FoodId";
