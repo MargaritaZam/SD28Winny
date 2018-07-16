@@ -69,7 +69,7 @@ as begin
 	begin
 		select attractionID, attractionCategory,
 		atName, atDesc, atAddress, atPhone,
-		atWebsite, './Attractions/'+ atImage as image, location from tbAttractions
+		atWebsite, './Attractions/'+ atImage as atImage, location from tbAttractions
 		where attractionID=isnull(@id, attractionID)
 	end
 
@@ -83,7 +83,7 @@ as begin
 	else if @crud='a'  --  Select Attractions 
 	begin
 		select attractionID, attractionCategory, atName, atDesc, atAddress, 
-				atPhone, atWebsite, './Attractions/'+ atImage as image, location 
+				atPhone, atWebsite, './Attractions/'+ atImage as atImage, location 
 			from tbAttractions
 			where attractionCategory=isnull (@category, attractionCategory)
 	end
@@ -130,7 +130,7 @@ as begin
 	select distinct attractionCategory as Category from tbAttractions
 end
 go
-
+exec spGetCategory
 exec spAttractions @crud='c', @category='Museums',
         @name='Winnipeg Police Museum',
         @desc='The Museum is displays artifacts related to the history of the Winnipeg Police Force, dating from its beginning in 1874.', 
@@ -919,7 +919,7 @@ as begin
 	end
 	else if @crud='r'
 	begin
-		select RestaurantId,RestaurantName,Address,ContactNo,Description,'./Restaurants/' + path as path,Website from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId)
+		select RestaurantId,RestaurantName,Address,ContactNo,Description,'./Restaurant/' + path as path,Website from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId)
 	end
 	else if @crud='s'  --  Select Restaurants, join with Location and Food Category
 	begin
@@ -929,6 +929,10 @@ as begin
 			tbRestaurants.LocationId=tbLocation.LocationId 
 		where tbRestaurants.LocationId=ISNULL(@LocationId,tbRestaurants.LocationId)
 		and	tbRestaurants.FoodId=ISNULL(@FoodId,tbRestaurants.FoodId)
+	end
+	else if @crud='w' 
+	begin  
+	select RestaurantId, RestaurantName, Description, Address, PostalCode, ContactNo, Website, './Restaurant/' + path as path, FoodId, LocationId from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId) 
 	end
 	else if @crud='c'
 	begin

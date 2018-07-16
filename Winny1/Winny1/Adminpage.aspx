@@ -4,6 +4,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <style>
+        image{
+            width:250px;
+            height:250px;
+        }
         .adm {
             background-color: aliceblue;
             height: 4000px;
@@ -94,7 +98,8 @@
                     <asp:BoundField DataField="Address" HeaderText="Address" SortExpression="Address" />
                     <asp:BoundField DataField="PostalCode" HeaderText="PostalCode" SortExpression="PostalCode" />
                     <asp:BoundField DataField="ContactNo" HeaderText="ContactNo" SortExpression="ContactNo" />
-                    <asp:BoundField DataField="path" HeaderText="path" SortExpression="path" />
+                     <asp:ImageField  DataImageUrlField="path" HeaderText="path">
+                    </asp:ImageField>
                     <asp:BoundField DataField="Website" HeaderText="Website" SortExpression="Website" />
                     <asp:BoundField DataField="FoodId" HeaderText="FoodId" SortExpression="FoodId" />
                     <asp:BoundField DataField="LocationId" HeaderText="LocationId" SortExpression="LocationId" />
@@ -191,7 +196,8 @@
                     <asp:BoundField DataField="StoreId" HeaderText="StoreId" InsertVisible="False" ReadOnly="True" SortExpression="StoreId" />
                     <asp:BoundField DataField="StoreName" HeaderText="StoreName" SortExpression="StoreName" />
                     <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
-                    <asp:BoundField DataField="Path" HeaderText="Path" SortExpression="Path" />
+                    <asp:ImageField  DataImageUrlField="Path"  HeaderText="Path" >
+                    </asp:ImageField>
                     <asp:BoundField DataField="Address" HeaderText="Address" SortExpression="Address" />
                     <asp:BoundField DataField="PhoneNumber" HeaderText="PhoneNumber" SortExpression="PhoneNumber" />
                     <asp:BoundField DataField="Web" HeaderText="Web" SortExpression="Web" />
@@ -276,10 +282,11 @@
             <br />
             <br />
 
-            <asp:GridView ID="gvAttractions" runat="server" AutoGenerateColumns="False"
-                BackColor="White" BorderColor="#DEDFDE" BorderStyle="None"
+            <asp:GridView ID="gvAttractions" runat="server" AutoGenerateColumns="False" AllowPaging="true" AllowSorting="true"
+                BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" 
                 BorderWidth="1px" CellPadding="4" DataKeyNames="attractionID"
-                ForeColor="Black" GridLines="Vertical" OnRowCommand="gvAttractions_RowCommand" OnPageIndexChanging="gvAttractions_PageIndexChanging">
+                ForeColor="Black" GridLines="Vertical" OnRowCommand="gvAttractions_RowCommand"
+                OnPageIndexChanging="gvAttractions_PageIndexChanging">
 
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
@@ -290,7 +297,7 @@
                     <asp:BoundField DataField="atAddress" HeaderText="atAddress" SortExpression="atAddress" />
                     <asp:BoundField DataField="atPhone" HeaderText="atPhone" SortExpression="atPhone" />
                     <asp:BoundField DataField="atWebsite" HeaderText="atWebsite" SortExpression="atWebsite" />
-                    <asp:ImageField HeaderText="AttrImage">
+                    <asp:ImageField  DataImageUrlField="atImage" HeaderText="atImage">
                     </asp:ImageField>
                     <asp:BoundField DataField="location" HeaderText="location" SortExpression="location" />
                     <asp:ButtonField ButtonType="Button" CommandName="Delete" HeaderText="del" ShowHeader="True" Text="Del" />
@@ -349,7 +356,11 @@
                     <tr>
                         <td>AttrCategory</td>
                         <td>
-                            <asp:DropDownList ID="ddlAttrCategory" runat="server" AutoPostBack="true"></asp:DropDownList></td>
+                            <asp:DropDownList ID="ddlAttrCategory" runat="server" AutoPostBack="true">
+                                <asp:ListItem>Museums</asp:ListItem>
+                                <asp:ListItem>Galleries</asp:ListItem>
+                                <asp:ListItem>Parks</asp:ListItem>
+                            </asp:DropDownList></td>
                     </tr>
                     <tr>
                         <td>Location</td>

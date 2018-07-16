@@ -11,7 +11,8 @@
              vertical-align:top;
        } 
         .Attr{
-           background: linear-gradient(to right, white, aquamarine, blue)
+           background: linear-gradient(to right, white, aquamarine, blue);
+          
         }
         .View{
             height:2000px;
@@ -21,11 +22,17 @@
             background-color:cornflowerblue;
             float:right;
         }
-       
-       
+            
     </style>
-    <asp:Panel ID="Attr" runat="server"  Height="2000px" Width="1000px" BackColor="White" >
-<table>
+    <br />
+    <br />
+
+    <asp:Panel ID="Attr" runat="server"   Height="2500px" Width="1000px" BackColor="White"  >
+        <br />
+    <br />
+     <br />
+    <br />
+<%--<table>
     <tr>
         <td>
             <asp:Label ID="lblLocation" runat="server" Text="Browse by Location" ForeColor="Black" Font-Bold="true"></asp:Label>
@@ -39,15 +46,19 @@
              <asp:DropDownList ID="ddlLocation" runat="server" Height="23px" Width="263px" BackColor="White"></asp:DropDownList>
         </td>
         <td>
-             <asp:DropDownList ID="ddlCategory" runat="server" Height="23px" Width="268px" BackColor="White"></asp:DropDownList>
+             <asp:DropDownList ID="ddlCategory" runat="server" Height="23px" Width="268px" BackColor="White">
+                 <asp:ListItem>Museums</asp:ListItem>
+                 <asp:ListItem>Galleies</asp:ListItem>
+                 <asp:ListItem>Parks</asp:ListItem>
+             </asp:DropDownList>
         </td>
-    </tr>
-    <tr>
+    </tr>--%>
+   <%-- <tr>
         <td>
             <asp:Label ID="lblSearch" runat="server" Text="Searh by Name" ForeColor="Black" Font-Bold="true" BackColor="White"></asp:Label>
         </td>
-    </tr>
-    <tr>
+    </tr>--%>
+   <%-- <tr>
         <td>
              <asp:TextBox ID="txtSearch" runat="server" Height="26px" Width="258px"></asp:TextBox>
         </td>
@@ -56,8 +67,10 @@
         <td>
             <asp:Button ID="btnSearch" runat="server" Text="Search" BackColor="#CC0099" Font-Bold="True" ForeColor="White" Height="33px" Width="80px" OnClick="btnSearch_Click" />
         </td>
-    </tr>
-</table>
+    </tr>--%>
+<%--</table>--%>
+        <br />
+        <br />
         <asp:DataList ID="dlAttraction" runat="server" CssClass="11">
        <ItemTemplate>
             <div id="div" onclick="return ViewProduct(<%#Eval ("attractionID")%>)"  style="width:100%" >         
@@ -110,7 +123,7 @@
    </table>
         
           </asp:Panel>
-    <div Class="View" style="display:inline-table">
+   <%-- <div Class="View" style="display:inline-table">
         <table style="border: 2px solid blue; width:200px; height:200px"">
             <tr>
                <td></td>
@@ -130,7 +143,7 @@
                 <td><object data="http://impress.wag.ca/"></object>/</td>
             </tr>
         </table>
-    </div>
+    </div>--%>
     <script>
             function ViewProduct(id)
             {

@@ -26,7 +26,7 @@ namespace Winny1
                 loadLocation();
                 loadStoreCategory();
                 loadStores();
-
+                loadAttractionCategory(); 
                 loadHotels();
                 loadSchools();
             }
@@ -41,6 +41,17 @@ namespace Winny1
             ddlStoreCategory.DataTextField = "CategoryId";
             ddlStoreCategory.DataTextField = "CategoryType";
             ddlStoreCategory.DataBind();
+
+        }
+        private void loadAttractionCategory()
+        {
+            //string connect = "Data Source= localhost; Initial Catalog=dbGroupProject; Integrated Security= SSPI";
+            //DAL MYDAL = new DAL(connect);
+            //DataSet dst = MYDAL.ExecuteProcedure("spGetCategory");
+            //ddlAttrCategory.DataSource = dst.Tables[0];
+
+            //ddlAttrCategory.DataBind();
+
 
         }
         private void loadLocation()
@@ -192,7 +203,7 @@ namespace Winny1
 
         protected void btbRestSave_Click(object sender, EventArgs e)
         {
-            string path = Server.MapPath(@".\Pictires\Restaurants");
+            string path = Server.MapPath(@".\Restaurant");
             string name = flRestImage.FileName;
             flRestImage.PostedFile.SaveAs(path + name);
             SqlCommand cmd = new SqlCommand("spRestaurants", conn);
@@ -448,8 +459,8 @@ namespace Winny1
             txtAttrAddress.Text = "";
             txtAttrPhone.Text = "";
             txtAttrWeb.Text = "";       
-            ddlAttrCategory.SelectedItem.Text = "";
-            ddllocat.SelectedItem.Text = "";
+            //ddlAttrCategory.SelectedItem.Text = "";
+            //ddllocat.SelectedItem.Text = "";
         }
         protected void gvAttractions_RowCommand(object sender, GridViewCommandEventArgs e)
         {
@@ -509,8 +520,8 @@ namespace Winny1
         protected void btnSaveAttr_Click(object sender, EventArgs e)
         {
             string PATH = Server.MapPath(@".\Attractions\");
-            string NAME = flStoreImage.FileName;
-            flStoreImage.PostedFile.SaveAs(PATH + NAME);
+            string NAME = flAttrImage.FileName;
+            flAttrImage.PostedFile.SaveAs(PATH + NAME);
             pnlUpdateAttr.Visible = false;
             SqlCommand com = new SqlCommand("spAttractions", conn);
             com.Connection = conn;
