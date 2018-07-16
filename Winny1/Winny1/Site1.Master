@@ -57,6 +57,7 @@ var year = currentTime.getFullYear()
                                 <a href="about.aspx?id=2">Now</a>
                                 <a href="about.aspx?id=3">Motto</a>
                                 <a href="about.aspx?id=4">Population</a>
+                                <a href="about.aspx?id=5">Monthly Temperatures</a>
                         
                             </div>
                     </li>

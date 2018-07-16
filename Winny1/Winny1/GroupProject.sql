@@ -1678,7 +1678,7 @@ exec spRestaurants @crud='c',
 create table tbAbout
 (
 	AboutID			 int identity(1,1) primary key,
-	AboutTopic		 varchar(40),
+	AboutTopic		 varchar(60),
 	AboutDescription varchar(800)
 )
 go
@@ -1686,14 +1686,14 @@ go
 create procedure spAboutCrud
 (
 	@aboutID		  int = null,
-	@aboutTopic		  varchar(40) = null,
+	@aboutTopic		  varchar(60) = null,
 	@aboutDescription varchar(800) = null,
 	@crud			  varchar(1)
 )
 as begin
 	if @crud='r'  --  Read by AboutID  --
 	begin
-		select AboutTopic, AboutDescription 
+		select AboutID, AboutTopic, AboutDescription 
 		from tbAbout 
 		where AboutID = isnull(@aboutID,AboutID)
 	end
@@ -1732,14 +1732,18 @@ exec spAboutCrud @crud = 'c',
 			     @aboutTopic = 'Population',
 			     @aboutDescription = 'The city has a population of 749,500, while the Province of Manitoba has a total population of 1.33 million.  (Estimated 2017)'
 
+exec spAboutCrud @crud = 'c',
+			     @aboutTopic = 'Average Monthly Temperatures',
+			     @aboutDescription = 'The following table shows the average monthly highs and lows:'
+
 exec spAboutCrud @crud = 'r'
 
 create table tbAvgTemps
 (
 		MonthID int identity(1,1) primary key,
 		Month	varchar(15),
-		AvgHigh varchar(6),
-		AvgLow	varchar(6)
+		AvgHigh varchar(12),
+		AvgLow	varchar(12)
 )
 go
 
@@ -1747,8 +1751,8 @@ create procedure spAvgTempCrud
 (
 	@monthID int = null,
 	@month	 varchar(15) = null,
-	@avgHigh varchar(6) = null,
-	@avgLow  varchar(6) = null,
+	@avgHigh varchar(12) = null,
+	@avgLow  varchar(12) = null,
 	@crud	 varchar(1)
 )
 as begin
