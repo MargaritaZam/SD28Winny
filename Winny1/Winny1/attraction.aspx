@@ -78,7 +78,7 @@
     <table >
      <tr>
      <td>
-      <asp:Image ID="Image1"  runat="server" Height="200px" ImageUrl='<%# Bind("image") %>' Width="200px" />
+      <asp:Image ID="Image1"  runat="server" Height="200px" ImageUrl='<%# Bind("atImage") %>' Width="200px" />
      </td>
    <td >   
 <table>
