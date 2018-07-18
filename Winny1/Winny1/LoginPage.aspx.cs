@@ -33,7 +33,7 @@ namespace Winny1
                 if (security.access == "a")
                 {
                    
-                    Response.Redirect("Adminpage.aspx");
+                    Response.Redirect("ADMIN.aspx");
                 }
                 else if (security.access == "c")
                 {
