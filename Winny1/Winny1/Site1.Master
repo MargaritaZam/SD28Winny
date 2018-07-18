@@ -69,6 +69,13 @@ span.psw {
     padding-top: 16px;
 }
 
+        #right {
+            position: absolute;
+            top:0;
+             right: 0;
+             width: 134px;
+        }
+
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
@@ -135,10 +142,6 @@ span.psw {
     }
 }
 </style>
-
-
-
-
 
 </head>
 <body>
@@ -232,21 +235,16 @@ var year = currentTime.getFullYear()
                     </li>                      
                       <li class="dropdown"><a href="Coupons.aspx">Coupons</a>                    
                     </li>
-                     
-                  
-                    <li>             <button onclick="document.getElementById('id01').style.display='block'" style="width:auto; ">Login</button>
-                    </li>
-                    <li></li>
-                    <li></li>
-                    <li>
-                        <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Register</button>
-                    </li>
+                    
                 </ul>    	
             </div> <!-- end of tooplate_menu -->
             </div>
            </div>
   </div>
-   
+   <div id="right">
+        <button onclick="document.getElementById('id01').style.display='block'" style="width:auto; ">Login</button>
+        <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Register</button>
+   </div>
     <br />
     <br />
 
