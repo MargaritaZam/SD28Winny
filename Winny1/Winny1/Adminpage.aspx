@@ -190,7 +190,7 @@
                 BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2"
                 DataKeyNames="StoreId" ForeColor="Black" OnPageIndexChanging="gvShoping_PageIndexChanging"
                 OnRowCommand="gvShoping_RowCommand" OnSelectedIndexChanging="gvShoping_SelectedIndexChanging"
-                OnSorting="gvShoping_Sorting">
+                OnSorting="gvShoping_Sorting" OnSelectedIndexChanged="gvShoping_SelectedIndexChanged">
 
                 <Columns>
                     <asp:BoundField DataField="StoreId" HeaderText="StoreId" InsertVisible="False" ReadOnly="True" SortExpression="StoreId" />
@@ -286,7 +286,7 @@
                 BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" 
                 BorderWidth="1px" CellPadding="4" DataKeyNames="attractionID"
                 ForeColor="Black" GridLines="Vertical" OnRowCommand="gvAttractions_RowCommand"
-                OnPageIndexChanging="gvAttractions_PageIndexChanging">
+                OnPageIndexChanging="gvAttractions_PageIndexChanging" OnSelectedIndexChanged="gvAttractions_SelectedIndexChanged">
 
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
