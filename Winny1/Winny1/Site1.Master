@@ -75,10 +75,6 @@ var year = currentTime.getFullYear()
                         <a href="hotel.aspx" class="dropbtn">Hotels</a>
                     </li>
 
-                    <li class="dropdown">
-                        <a href="avgTemps.aspx" class="dropbtn">Monthly Weather</a>
-                    </li>
-
                     <li class="dropdown"><a href="Restaurants.aspx" class="dropbtn">Restaurants</a>
                         
                     </li>

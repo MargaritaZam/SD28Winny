@@ -115,6 +115,12 @@
     <Content Include="UniversityPictures\RedRiverCollege.jpg" />
     <Content Include="UniversityPictures\UniversityManitoba.png" />
     <Content Include="Winnipeg.aspx" />
+    <Content Include="WpgImages\BoyAndBoot.jpg" />
+    <Content Include="WpgImages\ForksHarbour.jpg" />
+    <Content Include="WpgImages\GoldenBoy.png" />
+    <Content Include="WpgImages\InsideLegislature.png" />
+    <Content Include="WpgImages\PortageMain.jpg" />
+    <Content Include="WpgImages\WinnieBear.jpg" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Restaurant\1.png" />
@@ -433,9 +439,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Pictures\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\DAL_Project\DAL_Project.csproj">
       <Project>{e3026510-5b06-4ff2-816b-3f06cbe5f7df}</Project>

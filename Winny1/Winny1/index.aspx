@@ -33,7 +33,7 @@
 
               <!-- end of home -->
 			  
-              <div class="panel" id="about">
+              <%--<div class="panel" id="about">
                 <div class="col_320 float_l">
                   <h1>About Us</h1>
                   <img src="images/aboutUs.jpg"  alt="Image 02" class="image_wrapper" />
@@ -120,7 +120,7 @@
 					  
                    
                   </div>
-                </div>
+                </div>--%>
 				
                 <div class="col_270 float_r">
                 	<p>Pellentesque a ligula nunc. Morbi est risus, dapibus ut fringilla quis, imperdiet sed erat. Donec tempor venenatis pulvinar. Validate <a href="http://validator.w3.org/check?uri=referer" rel="nofollow"><strong>XHTML</strong></a> &amp; <a href="http://jigsaw.w3.org/css-validator/check/referer" rel="nofollow"><strong>CSS</strong></a>.</p>
@@ -154,7 +154,7 @@
             
             <div id="footer_left">
 				
-            	Copyright © 2048 <a href="#">Company Name</a><br />
+            	Copyright © 2018 <a href="#">The Omega Group (SD28)</a><br />
             	<!-- Winnipeg by <a rel="nofollow" href="http://www.tooplate.com">Templates</a><br /> -->
                 
             </div>
