@@ -406,7 +406,7 @@ window.onclick = function(event) {
             }
             else if (login == "a") {
                
-                window.location = "AdminPage.aspx";
+                window.location = "ADMIN.aspx";
 
             }
             else
