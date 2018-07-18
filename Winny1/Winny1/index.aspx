@@ -23,8 +23,7 @@
                     <li><a href="https://www.theweathernetwork.com/ca/weather/manitoba/winnipeg" ><strong>Winnipeg Weather</strong></a></li>
                     <li><a href="http://winnipegtransit.com/en" ><strong>Winnipeg Transit</strong></a></li>
                     <li><a href="https://goo.gl/maps/Bg8GWt8qps52"><strong>Map</strong></a></li>
-                   
-                    <li><a href="#" class="service_five">Maecenas ut pretium</a></li>
+                  
                   </ul>
                 </div>
               </div>
@@ -92,13 +91,13 @@
                 </div>
               </div>
 			  <!-- end of gallery -->
-			  
+		<%--	  
                 <div class="panel" id="attraction">
                 <h1>Attractions</h1>
               
-              </div>
+              </div>--%>
                       <!-- end of attraction -->
-              <div class="panel" id="contact">
+          <%--    <div class="panel" id="contact">
                 <h1>Contact Us</h1>
                 
                 <div class="cleaner_h10"></div>
@@ -120,9 +119,9 @@
 					  
                    
                   </div>
-                </div>--%>
+                <%--</div>--%>--%>
 				
-                <div class="col_270 float_r">
+          <%--      <div class="col_270 float_r">
                 	<p>Pellentesque a ligula nunc. Morbi est risus, dapibus ut fringilla quis, imperdiet sed erat. Donec tempor venenatis pulvinar. Validate <a href="http://validator.w3.org/check?uri=referer" rel="nofollow"><strong>XHTML</strong></a> &amp; <a href="http://jigsaw.w3.org/css-validator/check/referer" rel="nofollow"><strong>CSS</strong></a>.</p>
                     
 					<h3>Mailing Address</h3>
@@ -133,24 +132,24 @@
 					
 					Tel: 020-030-0020<br />
 					Fax: 040-010-0040<br />
-				</div>
-              </div>
+				</div>--%>
+             <%-- </div>--%>
 			  <!-- end of contact -->
 			  
-            </div>
+         <%--   </div>--%>
           
           <!-- end of scroll -->
 		
         
   		<div id="footer">
     
-        	<div id="social_box">
+        <%--	<div id="social_box">
             	<a href="#"><img src="images/facebook.png" alt="facebook" /></a>
             	<a href="#"><img src="images/flickr.png" alt="flickr" /></a>
             	<a href="#"><img src="images/myspace.png" alt="myspace" /></a>
             	<a href="#"><img src="images/twitter.png" alt="twitter" /></a>
             	<a href="#"><img src="images/youtube.png" alt="youtube" /></a>
-            </div>
+            </div>--%>
             
             <div id="footer_left">
 				
