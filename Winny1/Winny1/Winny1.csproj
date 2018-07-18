@@ -80,6 +80,7 @@
     <Content Include="Adminpage.aspx" />
     <Content Include="Anjali.sql" />
     <Content Include="attraction.aspx" />
+    <Content Include="Avatar.png" />
     <Content Include="ChatBot.html" />
     <Content Include="Client.aspx" />
     <Content Include="Coupons.aspx" />
