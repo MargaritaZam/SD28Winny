@@ -76,12 +76,12 @@
               <div class="panel" id="gallery">
                 <h1>Our Gallery</h1>
                 <div id="gallery_container">
-                  <div class="gallery_box"> <a href="#"><img src="images/gallery/image_01.jpg" alt="Image 01" /></a> </div>
-                  <div class="gallery_box"> <a href="#"><img src="images/gallery/image_02.jpg" alt="Image 02" /></a> </div>
-                  <div class="gallery_box"> <a href="#"><img src="images/gallery/image_03.jpg" alt="Image 03" /></a> </div>
-                  <div class="gallery_box gb_rm"> <a href="#"><img src="images/gallery/image_04.jpg" alt="Image 04" /></a> </div>
-                  <div class="gallery_box"> <a href="#"><img src="images/gallery/image_05.jpg" alt="Image 05" /></a> </div>
-                  <div class="gallery_box"> <a href="#"><img src="images/gallery/image_06.jpg" alt="Image 06" /></a> </div>
+                  <div class="gallery_box"> <a href="#"><img src="WpgImages/BoyAndBoot.jpg" /></a> </div>
+                  <div class="gallery_box"> <a href="#"><img src="WpgImages/ForksHarbour.jpg" /></a> </div>
+                  <div class="gallery_box"> <a href="#"><img src="WpgImages/GoldenBoy.png" /></a> </div>
+                  <div class="gallery_box gb_rm"> <a href="#"><img src="WpgImages/InsideLegislature.png" /></a> </div>
+                  <div class="gallery_box"> <a href="#"><img src="WpgImages/PortageMain.jpg" /></a> </div>
+                  <div class="gallery_box"> <a href="#"><img src="WpgImages/WinnieBear.jpg" /></a> </div>
                   <div class="gallery_box"> <a href="#"><img src="images/gallery/image_07.jpg" alt="Image 07" /></a> </div>
                   <div class="gallery_box gb_rm"> <a href="#"><img src="images/gallery/image_08.jpg" alt="Image 08" /></a> </div>
                   <div class="gallery_box"> <a href="#"><img src="images/gallery/image_09.jpg" alt="Image 09" /></a> </div>
