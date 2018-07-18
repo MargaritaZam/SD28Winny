@@ -80,6 +80,7 @@
     <Content Include="Adminpage.aspx" />
     <Content Include="Anjali.sql" />
     <Content Include="attraction.aspx" />
+    <Content Include="Avatar.png" />
     <Content Include="ChatBot.html" />
     <Content Include="Client.aspx" />
     <Content Include="Coupons.aspx" />
@@ -131,13 +132,20 @@
     <Content Include="UniversityPictures\RedRiverCollege.jpg" />
     <Content Include="UniversityPictures\UniversityManitoba.png" />
     <Content Include="Winnipeg.aspx" />
+    <Content Include="WpgImages\AcrossRiver.jpg" />
     <Content Include="WpgImages\BoyAndBoot.jpg" />
     <Content Include="WpgImages\ForksHarbour.jpg" />
     <Content Include="WpgImages\GoldenBoy.png" />
     <Content Include="WpgImages\InsideLegislature.png" />
+    <Content Include="WpgImages\Pool.jpg" />
+    <Content Include="WpgImages\PortageAve.jpg" />
     <Content Include="WpgImages\PortageMain.jpg" />
+    <Content Include="WpgImages\TheForks.jpg" />
     <Content Include="WpgImages\WinnieBear.jpg" />
+    <Content Include="WpgImages\WinnipegSign.jpg" />
+    <Content Include="WpgImages\Winter.jpg" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="Register.ashx" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Restaurant\1.png" />
     <Content Include="Restaurant\10.png" />
@@ -387,6 +395,9 @@
     <Compile Include="LoadInformation.ashx.cs">
       <DependentUpon>LoadInformation.ashx</DependentUpon>
     </Compile>
+    <Compile Include="login.ashx.cs">
+      <DependentUpon>login.ashx</DependentUpon>
+    </Compile>
     <Compile Include="LoginPage.aspx.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -396,6 +407,9 @@
     </Compile>
     <Compile Include="MyInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Register.ashx.cs">
+      <DependentUpon>Register.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Restaurant.cs" />
     <Compile Include="Restclass.cs" />
     <Compile Include="Restaurants.aspx.cs">

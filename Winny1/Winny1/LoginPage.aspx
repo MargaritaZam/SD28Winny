@@ -68,7 +68,6 @@ function showHint(str) {
             font-size: 18px;
         }
     #float_r{
-        vertical-align:top;
             }
     label{
         color:gold;
