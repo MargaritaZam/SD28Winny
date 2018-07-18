@@ -33,7 +33,7 @@
 
               <!-- end of home -->
 			  
-              <div class="panel" id="about">
+              <%--<div class="panel" id="about">
                 <div class="col_320 float_l">
                   <h1>About Us</h1>
                   <img src="images/aboutUs.jpg"  alt="Image 02" class="image_wrapper" />
@@ -76,12 +76,12 @@
               <div class="panel" id="gallery">
                 <h1>Our Gallery</h1>
                 <div id="gallery_container">
-                  <div class="gallery_box"> <a href="#"><img src="images/gallery/image_01.jpg" alt="Image 01" /></a> </div>
-                  <div class="gallery_box"> <a href="#"><img src="images/gallery/image_02.jpg" alt="Image 02" /></a> </div>
-                  <div class="gallery_box"> <a href="#"><img src="images/gallery/image_03.jpg" alt="Image 03" /></a> </div>
-                  <div class="gallery_box gb_rm"> <a href="#"><img src="images/gallery/image_04.jpg" alt="Image 04" /></a> </div>
-                  <div class="gallery_box"> <a href="#"><img src="images/gallery/image_05.jpg" alt="Image 05" /></a> </div>
-                  <div class="gallery_box"> <a href="#"><img src="images/gallery/image_06.jpg" alt="Image 06" /></a> </div>
+                  <div class="gallery_box"> <a href="#"><img src="WpgImages/BoyAndBoot.jpg" /></a> </div>
+                  <div class="gallery_box"> <a href="#"><img src="WpgImages/ForksHarbour.jpg" /></a> </div>
+                  <div class="gallery_box"> <a href="#"><img src="WpgImages/GoldenBoy.png" /></a> </div>
+                  <div class="gallery_box gb_rm"> <a href="#"><img src="WpgImages/InsideLegislature.png" /></a> </div>
+                  <div class="gallery_box"> <a href="#"><img src="WpgImages/PortageMain.jpg" /></a> </div>
+                  <div class="gallery_box"> <a href="#"><img src="WpgImages/WinnieBear.jpg" /></a> </div>
                   <div class="gallery_box"> <a href="#"><img src="images/gallery/image_07.jpg" alt="Image 07" /></a> </div>
                   <div class="gallery_box gb_rm"> <a href="#"><img src="images/gallery/image_08.jpg" alt="Image 08" /></a> </div>
                   <div class="gallery_box"> <a href="#"><img src="images/gallery/image_09.jpg" alt="Image 09" /></a> </div>
@@ -120,7 +120,7 @@
 					  
                    
                   </div>
-                </div>
+                </div>--%>
 				
                 <div class="col_270 float_r">
                 	<p>Pellentesque a ligula nunc. Morbi est risus, dapibus ut fringilla quis, imperdiet sed erat. Donec tempor venenatis pulvinar. Validate <a href="http://validator.w3.org/check?uri=referer" rel="nofollow"><strong>XHTML</strong></a> &amp; <a href="http://jigsaw.w3.org/css-validator/check/referer" rel="nofollow"><strong>CSS</strong></a>.</p>
@@ -154,7 +154,7 @@
             
             <div id="footer_left">
 				
-            	Copyright © 2048 <a href="#">Company Name</a><br />
+            	Copyright © 2018 <a href="#">The Omega Group (SD28)</a><br />
             	<!-- Winnipeg by <a rel="nofollow" href="http://www.tooplate.com">Templates</a><br /> -->
                 
             </div>

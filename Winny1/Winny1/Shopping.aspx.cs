@@ -29,23 +29,21 @@ namespace Winny1
         }
         public void loadStores()
         {
-            DataSet ds = new DataSet();
-            SqlDataAdapter da = new SqlDataAdapter("spStores", conn);
-            da.SelectCommand.CommandType = CommandType.StoredProcedure;
-            da.SelectCommand.Parameters.AddWithValue("@crud", "r");
-            conn.Open();
-            da.Fill(ds);
-            conn.Close();
+            //DataSet ds = new DataSet();
+            //SqlDataAdapter da = new SqlDataAdapter("spStores", conn);
+            //da.SelectCommand.CommandType = CommandType.StoredProcedure;
+            //da.SelectCommand.Parameters.AddWithValue("@crud", "r");
+            //conn.Open();
+            //da.Fill(ds);
+            //conn.Close();
 
-            dlStores.DataSource = ds.Tables[0];
-            dlStores.DataBind();
-
-
-
-
-            //string id = Request.QueryString["id"].ToString();
-            //dlStores.DataSource = _shop.LoadStores(null, Convert.ToInt32(id));
+            //dlStores.DataSource = ds.Tables[0];
             //dlStores.DataBind();
+
+
+            string id = Request.QueryString["id"].ToString();
+            dlStores.DataSource = _shop.LoadStores(null, Convert.ToInt32(id));
+            dlStores.DataBind();
         }
 
         protected void btnfirst_Click(object sender, EventArgs e)

@@ -75,6 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="ADMIN.aspx" />
     <Content Include="AdminNew.aspx" />
     <Content Include="Adminpage.aspx" />
     <Content Include="Anjali.sql" />
@@ -111,11 +112,25 @@
     <Content Include="Natalia.sql" />
     <Content Include="Restaurants.aspx" />
     <Content Include="LoadInformation.ashx" />
+    <Content Include="Slide.html" />
+    <Content Include="Slides\bridge.jpg" />
+    <Content Include="Slides\canHumanightview.jpg" />
+    <Content Include="Slides\downtown.jpg" />
+    <Content Include="Slides\forks.jpg" />
+    <Content Include="Slides\goldenboy.jpg" />
+    <Content Include="Slides\highview.jpg" />
+    <Content Include="Slides\humanrig.jpg" />
+    <Content Include="Slides\main.jpg" />
+    <Content Include="Slides\mts_centre.jpg" />
+    <Content Include="Slides\nightdowntown.jpg" />
+    <Content Include="Slides\nightview.jpg" />
+    <Content Include="Slides\riverview.jpg" />
+    <Content Include="Slides\street.jpg" />
+    <Content Include="Slides\winnipeg.jpg" />
     <Content Include="Team.JPG" />
     <Content Include="UniversityPictures\RedRiverCollege.jpg" />
     <Content Include="UniversityPictures\UniversityManitoba.png" />
     <Content Include="Winnipeg.aspx" />
-    <Content Include="login.ashx" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Register.ashx" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -298,6 +313,13 @@
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ADMIN.aspx.cs">
+      <DependentUpon>ADMIN.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADMIN.aspx.designer.cs">
+      <DependentUpon>ADMIN.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AdminNew.aspx.cs">
       <DependentUpon>AdminNew.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -441,9 +463,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Pictures\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\DAL_Project\DAL_Project.csproj">
       <Project>{e3026510-5b06-4ff2-816b-3f06cbe5f7df}</Project>

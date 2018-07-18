@@ -6,6 +6,41 @@ create database dbGroupProject;
 go
 use dbGroupProject;
 
+
+create table tbSlide(
+slideID int identity(1,1) primary key,
+slidedesc varchar(60),
+path varchar(60)
+)
+go
+
+create procedure spSlide(
+@slideID int=null,
+@slidedesc varchar(60)=null,
+@path varchar(60)=null,
+@crud varchar(1)
+)
+as begin
+if @crud='r'
+begin
+select slideID, slidedesc, './Slides/'+ path as path from tbSlide
+where slideID=isnull(@slideID, slideID)
+end
+else if @crud='n'
+begin
+insert into tbSlide(slidedesc, path)values
+                   (@slidedesc, @path)
+end
+end
+go
+exec spSlide @crud='r'
+go
+create procedure spGetSlides
+as begin
+select*from tbSlide
+end
+go
+
 --  Location Table and Procedure  --
 
 create table tbLocation
