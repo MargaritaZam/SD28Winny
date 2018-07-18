@@ -478,17 +478,17 @@ namespace Winny1
             {
                 return;
             }
-            string com = e.CommandName;
-            gvAttractions.SelectedIndex = Convert.ToInt32(e.CommandName);
+           // string com = e.CommandName;
+            gvAttractions.SelectedIndex = Convert.ToInt32(e.CommandArgument);
             string aid = gvAttractions.SelectedDataKey["attractionID"].ToString();
 
             switch (e.CommandName)
             {
-                case "del":
+                case "Delete":
                     DeleteAttr(aid);
                     break;
 
-                case "Upd":
+                case "Update":
                     pnlUpdateAttr.Visible = true;
                     UpdateAttr(aid);
                     break;
@@ -826,6 +826,8 @@ namespace Winny1
                     break;
             }
         }
+
+       
     }
 
 

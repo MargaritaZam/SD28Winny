@@ -1,5 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="AdminNew.aspx.cs" Inherits="Winny1.AdminNew" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="ADMIN.aspx.cs" Inherits="Winny1.ADMIN" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -18,9 +17,7 @@
             font-family: 'Times New Roman', Times, serif;
         }
     </style>
-
-
-    <asp:Panel ID="plAdmin" runat="server" CssClass="adm">
+     <asp:Panel ID="plAdmin" runat="server" CssClass="adm">
         <h2 style="color: crimson"><strong>Report</strong></h2>
 
         <div>
@@ -33,7 +30,7 @@
             </asp:RadioButtonList>
         </div>
         <div>
-            <asp:GridView ID="gvreport" runat="server" OnSelectedIndexChanged="gvreport_SelectedIndexChanged"></asp:GridView>
+            <asp:GridView ID="gvreport" runat="server"></asp:GridView>
         </div>
 
         <br />
@@ -190,7 +187,7 @@
                 BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2"
                 DataKeyNames="StoreId" ForeColor="Black" OnPageIndexChanging="gvShoping_PageIndexChanging"
                 OnRowCommand="gvShoping_RowCommand" OnSelectedIndexChanging="gvShoping_SelectedIndexChanging"
-                OnSorting="gvShoping_Sorting">
+                OnSorting="gvShoping_Sorting" OnSelectedIndexChanged="gvShoping_SelectedIndexChanged">
 
                 <Columns>
                     <asp:BoundField DataField="StoreId" HeaderText="StoreId" InsertVisible="False" ReadOnly="True" SortExpression="StoreId" />
@@ -286,7 +283,7 @@
                 BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" 
                 BorderWidth="1px" CellPadding="4" DataKeyNames="attractionID"
                 ForeColor="Black" GridLines="Vertical" OnRowCommand="gvAttractions_RowCommand"
-                OnPageIndexChanging="gvAttractions_PageIndexChanging">
+                OnPageIndexChanging="gvAttractions_PageIndexChanging" OnSelectedIndexChanged="gvAttractions_SelectedIndexChanged" OnSorting="gvAttractions_Sorting">
 
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
@@ -300,8 +297,8 @@
                     <asp:ImageField  DataImageUrlField="atImage" HeaderText="atImage">
                     </asp:ImageField>
                     <asp:BoundField DataField="location" HeaderText="location" SortExpression="location" />
-                    <asp:ButtonField ButtonType="Button" CommandName="Delete" HeaderText="del" ShowHeader="True" Text="Del" />
-                    <asp:ButtonField ButtonType="Button" CommandName="Update" HeaderText="upd" ShowHeader="True" Text="Upd" />
+                    <asp:ButtonField ButtonType="Button" CommandName="del" HeaderText="del" ShowHeader="True" Text="Del" />
+                    <asp:ButtonField ButtonType="Button" CommandName="upd" HeaderText="upd" ShowHeader="True" Text="Upd" />
                 </Columns>
                 <FooterStyle BackColor="#CCCC99" />
                 <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
@@ -386,7 +383,7 @@
                 BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellPadding="3"
                 GridLines="None" CellSpacing="1" OnSelectedIndexChanged="gvHotels_SelectedIndexChanged"
                 OnPageIndexChanging="gvHotels_PageIndexChanging" OnRowCommand="gvHotels_RowCommand"
-                OnSelectedIndexChanging="gvHotels_SelectedIndexChanging">
+                OnSelectedIndexChanging="gvHotels_SelectedIndexChanging" OnSorting="gvHotels_Sorting">
 
                 <Columns>
                     <asp:BoundField DataField="HotelID" HeaderText="HotelID" InsertVisible="False" ReadOnly="True" SortExpression="HotelID" />
