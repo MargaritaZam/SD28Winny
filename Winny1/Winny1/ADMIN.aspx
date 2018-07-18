@@ -164,12 +164,12 @@
                     <tr>
                         <td>FoodCategory</td>
                         <td>
-                            <asp:DropDownList ID="dlFood" runat="server" AutoPostBack="true" OnSelectedIndexChanged="dlFood_SelectedIndexChanged"></asp:DropDownList></td>
+                            <asp:DropDownList ID="dlFood" runat="server" AutoPostBack="true" ></asp:DropDownList></td>
                     </tr>
                     <tr>
                         <td>Location</td>
                         <td>
-                            <asp:DropDownList ID="dlLoc" runat="server" AutoPostBack="true" OnSelectedIndexChanged="dlLoc_SelectedIndexChanged"></asp:DropDownList></td>
+                            <asp:DropDownList ID="dlLoc" runat="server" AutoPostBack="true" ></asp:DropDownList></td>
                     </tr>
 
                 </table>
@@ -186,7 +186,7 @@
             <asp:GridView ID="gvShoping" runat="server" PageSize="5" AutoGenerateColumns="False" AllowPaging="true" BackColor="#CCCCCC"
                 BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2"
                 DataKeyNames="StoreId" ForeColor="Black" OnPageIndexChanging="gvShoping_PageIndexChanging"
-                OnRowCommand="gvShoping_RowCommand" OnSelectedIndexChanging="gvShoping_SelectedIndexChanging"
+                OnRowCommand="gvShoping_RowCommand" 
                 OnSorting="gvShoping_Sorting" OnSelectedIndexChanged="gvShoping_SelectedIndexChanged">
 
                 <Columns>
