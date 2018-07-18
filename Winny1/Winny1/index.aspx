@@ -82,12 +82,12 @@
                   <div class="gallery_box gb_rm"> <a href="#"><img src="WpgImages/InsideLegislature.png" /></a> </div>
                   <div class="gallery_box"> <a href="#"><img src="WpgImages/PortageMain.jpg" /></a> </div>
                   <div class="gallery_box"> <a href="#"><img src="WpgImages/WinnieBear.jpg" /></a> </div>
-                  <div class="gallery_box"> <a href="#"><img src="WpgImages/BoyAndBoot.jpg" alt="Image 07" /></a> </div>
-                  <div class="gallery_box gb_rm"> <a href="#"><img src="images/gallery/image_08.jpg" alt="Image 08" /></a> </div>
-                  <div class="gallery_box"> <a href="#"><img src="images/gallery/image_09.jpg" alt="Image 09" /></a> </div>
-                  <div class="gallery_box"> <a href="#"><img src="images/gallery/image_10.jpg" alt="Image 10" /></a> </div>
-                  <div class="gallery_box"> <a href="#"><img src="images/gallery/image_11.jpg" alt="Image 11" /></a> </div>
-                  <div class="gallery_box gb_rm"> <a href="#"><img src="images/gallery/image_12.jpg" alt="Image 12" /></a> </div>
+                  <div class="gallery_box"> <a href="#"><img src="WpgImages/BoyAndBoot.jpg" /></a> </div>
+                  <div class="gallery_box gb_rm"> <a href="#"><img src="WpgImages/AcrossRiver.jpg" /></a> </div>
+                  <div class="gallery_box"> <a href="#"><img src="WpgImages/Pool.jpg" /></a> </div>
+                  <div class="gallery_box"> <a href="#"><img src="WpgImages/PortageAve.jpg" /></a> </div>
+                  <div class="gallery_box"> <a href="#"><img src="WpgImages/TheForks.jpg" /></a> </div>
+                  <div class="gallery_box gb_rm"> <a href="#"><img src="WpgImages/Winter.jpg" /></a> </div>
                   <div class="cleaner"></div>
                 </div>
               </div>
