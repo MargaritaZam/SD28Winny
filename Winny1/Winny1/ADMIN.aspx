@@ -4,12 +4,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <style>
         image{
-            width:250px;
-            height:250px;
+            width:150px;
+            height:150px;
         }
         .adm {
             background-color: aliceblue;
-            height: 4000px;
+            height: 5000px;
         }
 
         .l {
@@ -37,9 +37,9 @@
         <br />
         <h2><strong>List of Users</strong></h2>
         <asp:GridView ID="gvUsers" runat="server" AutoGenerateColumns="False" AllowPaging="True"
-            AllowSorting="True" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="id" DataSourceID="SqlDataSource1" ForeColor="Black" GridLines="Vertical" OnSelectedIndexChanged="gvUsers_SelectedIndexChanged">
+            AllowSorting="True" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataKeyNames="id" DataSourceID="SqlDataSource1" GridLines="Horizontal" OnSelectedIndexChanged="gvUsers_SelectedIndexChanged">
 
-            <AlternatingRowStyle BackColor="White" />
+            <AlternatingRowStyle BackColor="#F7F7F7" />
             <Columns>
                 <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
                 <asp:BoundField DataField="firstName" HeaderText="firstName" SortExpression="firstName" />
@@ -50,15 +50,15 @@
                 <asp:BoundField DataField="password" HeaderText="password" SortExpression="password" />
                 <asp:BoundField DataField="accessLevel" HeaderText="accessLevel" SortExpression="accessLevel" />
             </Columns>
-            <FooterStyle BackColor="#CCCC99" />
-            <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
-            <PagerStyle BackColor="#F7F7DE" ForeColor="Black" HorizontalAlign="Right" />
-            <RowStyle BackColor="#F7F7DE" />
-            <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
-            <SortedAscendingCellStyle BackColor="#FBFBF2" />
-            <SortedAscendingHeaderStyle BackColor="#848384" />
-            <SortedDescendingCellStyle BackColor="#EAEAD3" />
-            <SortedDescendingHeaderStyle BackColor="#575357" />
+            <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
+            <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />
+            <PagerStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" HorizontalAlign="Right" />
+            <RowStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" />
+            <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="#F7F7F7" />
+            <SortedAscendingCellStyle BackColor="#F4F4FD" />
+            <SortedAscendingHeaderStyle BackColor="#5A4C9D" />
+            <SortedDescendingCellStyle BackColor="#D8D8F0" />
+            <SortedDescendingHeaderStyle BackColor="#3E3277" />
 
         </asp:GridView>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server"
@@ -81,11 +81,14 @@
         <asp:Panel ID="panelRestaurants" runat="server" Visible="false">
             <h2><strong>Restaurants</strong></h2>
             <asp:GridView ID="gvRestaurants" runat="server" 
-                CellPadding="4" DataKeyNames="RestaurantId" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="false"
+                CellPadding="3" DataKeyNames="RestaurantId" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False"
                 OnPageIndexChanging="gvRestaurants_PageIndexChanging"
                 OnRowCommand="gvRestaurants_RowCommand"
                 OnSelectedIndexChanging="gvRestaurants_SelectedIndexChanging"
-                OnSorting="gvRestaurants_Sorting" OnSelectedIndexChanged="gvRestaurants_SelectedIndexChanged" BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px">
+                OnSorting="gvRestaurants_Sorting" OnSelectedIndexChanged="gvRestaurants_SelectedIndexChanged" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" GridLines="Horizontal">
+
+
+                <AlternatingRowStyle BackColor="#F7F7F7" />
 
 
                 <Columns>
@@ -107,15 +110,15 @@
 
 
                 </Columns>
-                <FooterStyle BackColor="#FFFFCC" ForeColor="#330099" />
-                <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="#FFFFCC" />
-                <PagerStyle BackColor="#FFFFCC" ForeColor="#330099" HorizontalAlign="Center" />
-                <RowStyle BackColor="White" ForeColor="#330099" />
-                <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="#663399" />
-                <SortedAscendingCellStyle BackColor="#FEFCEB" />
-                <SortedAscendingHeaderStyle BackColor="#AF0101" />
-                <SortedDescendingCellStyle BackColor="#F6F0C0" />
-                <SortedDescendingHeaderStyle BackColor="#7E0000" />
+                <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
+                <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />
+                <PagerStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" HorizontalAlign="Right" />
+                <RowStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" />
+                <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="#F7F7F7" />
+                <SortedAscendingCellStyle BackColor="#F4F4FD" />
+                <SortedAscendingHeaderStyle BackColor="#5A4C9D" />
+                <SortedDescendingCellStyle BackColor="#D8D8F0" />
+                <SortedDescendingHeaderStyle BackColor="#3E3277" />
 
 
             </asp:GridView>
@@ -183,11 +186,13 @@
             <br />
             <br />
             <br />
-            <asp:GridView ID="gvShoping" runat="server" PageSize="5" AutoGenerateColumns="False" AllowPaging="true" BackColor="#CCCCCC"
-                BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2"
-                DataKeyNames="StoreId" ForeColor="Black" OnPageIndexChanging="gvShoping_PageIndexChanging"
+            <asp:GridView ID="gvShoping" runat="server" PageSize="5" AutoGenerateColumns="False" AllowPaging="True" BackColor="White"
+                BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3"
+                DataKeyNames="StoreId" OnPageIndexChanging="gvShoping_PageIndexChanging"
                 OnRowCommand="gvShoping_RowCommand" 
-                OnSorting="gvShoping_Sorting" OnSelectedIndexChanged="gvShoping_SelectedIndexChanged">
+                OnSorting="gvShoping_Sorting" OnSelectedIndexChanged="gvShoping_SelectedIndexChanged" GridLines="Horizontal">
+
+                <AlternatingRowStyle BackColor="#F7F7F7" />
 
                 <Columns>
                     <asp:BoundField DataField="StoreId" HeaderText="StoreId" InsertVisible="False" ReadOnly="True" SortExpression="StoreId" />
@@ -203,15 +208,15 @@
                     <asp:ButtonField ButtonType="Button" CommandName="Del" HeaderText="Delete" ShowHeader="True" Text="Del" />
                     <asp:ButtonField ButtonType="Button" CommandName="Upd" HeaderText="Update" ShowHeader="True" Text="Upd" />
                 </Columns>
-                <FooterStyle BackColor="#CCCCCC" />
-                <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
-                <PagerStyle BackColor="#CCCCCC" ForeColor="Black" HorizontalAlign="Left" />
-                <RowStyle BackColor="White" />
-                <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
-                <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                <SortedAscendingHeaderStyle BackColor="#808080" />
-                <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                <SortedDescendingHeaderStyle BackColor="#383838" />
+                <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
+                <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />
+                <PagerStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" HorizontalAlign="Right" />
+                <RowStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" />
+                <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="#F7F7F7" />
+                <SortedAscendingCellStyle BackColor="#F4F4FD" />
+                <SortedAscendingHeaderStyle BackColor="#5A4C9D" />
+                <SortedDescendingCellStyle BackColor="#D8D8F0" />
+                <SortedDescendingHeaderStyle BackColor="#3E3277" />
 
             </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:dbGroupProjectConnectionString %>" SelectCommand="SELECT [StoreId], [StoreName], [Description], [Path], [Address], [PhoneNumber], [Web], [LocationId], [CategoryId] FROM [tbStores]"></asp:SqlDataSource>
@@ -279,13 +284,13 @@
             <br />
             <br />
 
-            <asp:GridView ID="gvAttractions" runat="server" AutoGenerateColumns="False" AllowPaging="true" AllowSorting="true"
-                BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" 
-                BorderWidth="1px" CellPadding="4" DataKeyNames="attractionID"
-                ForeColor="Black" GridLines="Vertical" OnRowCommand="gvAttractions_RowCommand"
-                OnPageIndexChanging="gvAttractions_PageIndexChanging" OnSelectedIndexChanged="gvAttractions_SelectedIndexChanged" OnSorting="gvAttractions_Sorting">
+            <asp:GridView ID="gvAttractions" runat="server" AutoGenerateColumns="False" AllowPaging="True" AllowSorting="True"
+                BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" 
+                BorderWidth="1px" CellPadding="3" DataKeyNames="attractionID" GridLines="Horizontal" OnRowCommand="gvAttractions_RowCommand"
+                OnPageIndexChanging="gvAttractions_PageIndexChanging" OnSelectedIndexChanged="gvAttractions_SelectedIndexChanged"
+                OnSorting="gvAttractions_Sorting">
 
-                <AlternatingRowStyle BackColor="White" />
+                <AlternatingRowStyle BackColor="#F7F7F7" />
                 <Columns>
                     <asp:BoundField DataField="attractionID" HeaderText="attractionID" InsertVisible="False" ReadOnly="True" SortExpression="attractionID" />
                     <asp:BoundField DataField="attractionCategory" HeaderText="attractionCategory" SortExpression="attractionCategory" />
@@ -300,15 +305,15 @@
                     <asp:ButtonField ButtonType="Button" CommandName="del" HeaderText="del" ShowHeader="True" Text="Del" />
                     <asp:ButtonField ButtonType="Button" CommandName="upd" HeaderText="upd" ShowHeader="True" Text="Upd" />
                 </Columns>
-                <FooterStyle BackColor="#CCCC99" />
-                <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
-                <PagerStyle BackColor="#F7F7DE" ForeColor="Black" HorizontalAlign="Right" />
-                <RowStyle BackColor="#F7F7DE" />
-                <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
-                <SortedAscendingCellStyle BackColor="#FBFBF2" />
-                <SortedAscendingHeaderStyle BackColor="#848384" />
-                <SortedDescendingCellStyle BackColor="#EAEAD3" />
-                <SortedDescendingHeaderStyle BackColor="#575357" />
+                <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
+                <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />
+                <PagerStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" HorizontalAlign="Right" />
+                <RowStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" />
+                <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="#F7F7F7" />
+                <SortedAscendingCellStyle BackColor="#F4F4FD" />
+                <SortedAscendingHeaderStyle BackColor="#5A4C9D" />
+                <SortedDescendingCellStyle BackColor="#D8D8F0" />
+                <SortedDescendingHeaderStyle BackColor="#3E3277" />
 
             </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:dbGroupProjectConnectionString %>" SelectCommand="SELECT [attractionID], [attractionCategory], [atName], [atDesc], [atAddress], [atPhone], [atWebsite], [atImage], [location] FROM [tbAttractions]"></asp:SqlDataSource>
@@ -379,11 +384,13 @@
             <br />
             <br />
             <asp:GridView ID="gvHotels" runat="server" AutoGenerateColumns="False"
-                DataKeyNames="HotelID" BackColor="White" AllowPaging="true" AllowSorting="true"
-                BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellPadding="3"
-                GridLines="None" CellSpacing="1" OnSelectedIndexChanged="gvHotels_SelectedIndexChanged"
+                DataKeyNames="HotelID" BackColor="White" AllowPaging="True" AllowSorting="True"
+                BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3"
+                GridLines="Horizontal" OnSelectedIndexChanged="gvHotels_SelectedIndexChanged"
                 OnPageIndexChanging="gvHotels_PageIndexChanging" OnRowCommand="gvHotels_RowCommand"
-                OnSelectedIndexChanging="gvHotels_SelectedIndexChanging" OnSorting="gvHotels_Sorting">
+                OnSorting="gvHotels_Sorting">
+
+                <AlternatingRowStyle BackColor="#F7F7F7" />
 
                 <Columns>
                     <asp:BoundField DataField="HotelID" HeaderText="HotelID" InsertVisible="False" ReadOnly="True" SortExpression="HotelID" />
@@ -402,15 +409,15 @@
                     <asp:ButtonField ButtonType="Button" CommandName="UPD" HeaderText="Update" ShowHeader="True" Text="Upd" />
                 </Columns>
 
-                <FooterStyle BackColor="#C6C3C6" ForeColor="Black" />
-                <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#E7E7FF" />
-                <PagerStyle BackColor="#C6C3C6" ForeColor="Black" HorizontalAlign="Right" />
-                <RowStyle BackColor="#DEDFDE" ForeColor="Black" />
-                <SelectedRowStyle BackColor="#9471DE" Font-Bold="True" ForeColor="White" />
-                <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                <SortedAscendingHeaderStyle BackColor="#594B9C" />
-                <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                <SortedDescendingHeaderStyle BackColor="#33276A" />
+                <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
+                <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />
+                <PagerStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" HorizontalAlign="Right" />
+                <RowStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" />
+                <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="#F7F7F7" />
+                <SortedAscendingCellStyle BackColor="#F4F4FD" />
+                <SortedAscendingHeaderStyle BackColor="#5A4C9D" />
+                <SortedDescendingCellStyle BackColor="#D8D8F0" />
+                <SortedDescendingHeaderStyle BackColor="#3E3277" />
 
             </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:dbGroupProjectConnectionString %>" SelectCommand="SELECT [HotelID], [HotelName], [HotelPrice], [HotelStars], [HotelDescription], [HotelPhoneNumber], [HotelAddress], [HotelPostalCode], [HotelLocationID], [Hotel_path], [HotelWebsite] FROM [tbHotels]"></asp:SqlDataSource>

@@ -19,7 +19,7 @@ namespace Winny1
             conn = new SqlConnection("Data Source= localhost; Initial Catalog=dbGroupProject; Integrated Security= SSPI");
             if (!IsPostBack)
             {
-               // loadAttractions();
+               loadAttractions();
                 loadRestaurants();
                 loadFoodCategory();
                 loadLocation();
@@ -221,7 +221,7 @@ namespace Winny1
                     break;
                 case "Update":
                     plUpdRest.Visible = true;
-                    UpdateModel(rid);
+                    Update(rid);
                     break;
             }
         }
@@ -242,7 +242,7 @@ namespace Winny1
             DataSet ds = new DataSet();
             SqlDataAdapter da = new SqlDataAdapter("spRestaurants", conn);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
-            da.SelectCommand.Parameters.AddWithValue("@crud", "r");
+            da.SelectCommand.Parameters.AddWithValue("@crud", "w");
             da.SelectCommand.Parameters.AddWithValue("@RestaurantId", rid);
             conn.Open();
             da.Fill(ds);
@@ -458,6 +458,7 @@ namespace Winny1
         }
         private void loadAttractions()
         {
+            
             DataSet ds = new DataSet();
             SqlDataAdapter da = new SqlDataAdapter("spAttractions", conn);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -764,6 +765,11 @@ namespace Winny1
         }
 
         protected void gvUsers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void gvHotels_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
