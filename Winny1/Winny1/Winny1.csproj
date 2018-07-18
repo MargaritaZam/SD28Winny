@@ -132,6 +132,12 @@
     <Content Include="UniversityPictures\RedRiverCollege.jpg" />
     <Content Include="UniversityPictures\UniversityManitoba.png" />
     <Content Include="Winnipeg.aspx" />
+    <Content Include="WpgImages\BoyAndBoot.jpg" />
+    <Content Include="WpgImages\ForksHarbour.jpg" />
+    <Content Include="WpgImages\GoldenBoy.png" />
+    <Content Include="WpgImages\InsideLegislature.png" />
+    <Content Include="WpgImages\PortageMain.jpg" />
+    <Content Include="WpgImages\WinnieBear.jpg" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Register.ashx" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
