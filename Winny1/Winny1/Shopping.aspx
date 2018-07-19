@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:Panel  style="background-color:antiquewhite; width:800px " ID="pnlStores" runat="server">
-        <table>
+<%--        <table>
     <tr>
         <td>
             <asp:Label ID="lblLocation" runat="server" Text="Browse by Location" ForeColor="Black" Font-Bold="true"></asp:Label>
@@ -35,7 +35,7 @@
             <asp:Button ID="btnSearch" runat="server" Text="Search" BackColor="#CC0099" Font-Bold="True" ForeColor="White" Height="33px" Width="80px" OnClick="btnSearch_Click" />
         </td>
     </tr>
-</table>
+</table>--%>
     <asp:DataList ID="dlStores" DataKeyField="StoreId" RepeatColumns="1"
         runat="server">
         <ItemTemplate>
