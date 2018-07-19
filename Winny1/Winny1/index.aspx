@@ -69,7 +69,7 @@
                     <li><a href="#" class="service_four">In aliquet in libero</a></li>
                     <li><a href="#" class="service_five">Maecenas ut pretium</a></li>
                   </ul>
-                </div>--%>
+                </div>
               </div>--%>
 			  <!-- end of service -->
 			  

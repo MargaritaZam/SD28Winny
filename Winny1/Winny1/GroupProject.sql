@@ -1769,7 +1769,7 @@ exec spAboutCrud @crud = 'c',
 
 exec spAboutCrud @crud = 'c',
 			     @aboutTopic = 'Average Monthly Temperatures',
-			     @aboutDescription = 'The following table shows the average monthly highs and lows:'
+			     @aboutDescription = 'Being in the middle of the continent, Winnipeg''s weather varies greatly between summer and winter.  The following table shows the average monthly highs and lows:'
 
 exec spAboutCrud @crud = 'r'
 
