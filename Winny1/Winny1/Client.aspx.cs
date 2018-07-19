@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace Winny1
@@ -11,7 +12,10 @@ namespace Winny1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Response.Write("welcome client");
+            HtmlInputButton LogIn = (HtmlInputButton)Master.FindControl("btnLogIn");
+            HtmlInputButton LogOut = (HtmlInputButton)Master.FindControl("btnLogOut");
+            LogOut.Visible = true;
+            LogIn.Visible = false;
         }
     }
 }

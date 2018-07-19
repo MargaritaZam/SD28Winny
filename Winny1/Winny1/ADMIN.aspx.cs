@@ -8,6 +8,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Globalization;
 using System.Threading;
+using System.Web.UI.HtmlControls;
 
 namespace Winny1
 {
@@ -19,7 +20,12 @@ namespace Winny1
             conn = new SqlConnection("Data Source= localhost; Initial Catalog=dbGroupProject; Integrated Security= SSPI");
             if (!IsPostBack)
             {
-               loadAttractions();
+                HtmlInputButton LogIn = (HtmlInputButton)Master.FindControl("btnLogIn");
+                HtmlInputButton LogOut = (HtmlInputButton)Master.FindControl("btnLogOut");
+                LogOut.Visible = true;
+                LogIn.Visible = false;
+               
+                loadAttractions();
                 loadRestaurants();
                 loadFoodCategory();
                 loadLocation();
@@ -210,7 +216,7 @@ namespace Winny1
             {
                 return;
             }
-            
+            string cmd = e.CommandName;
             gvRestaurants.SelectedIndex = Convert.ToInt32(e.CommandArgument);
             string rid = gvRestaurants.SelectedDataKey["RestaurantId"].ToString();
 
@@ -272,6 +278,7 @@ namespace Winny1
             flRestImage.PostedFile.SaveAs(path + name);
             SqlCommand cmd = new SqlCommand("spRestaurants", conn);
             plUpdRest.Visible = false;
+            cmd.Connection = conn;
             cmd.CommandType = CommandType.StoredProcedure;
             if (lblRest.Text == "New")
             {

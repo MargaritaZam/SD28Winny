@@ -12,8 +12,8 @@
                 <div class="col_380 float_l">
                   <h2>Welcome to Winnipeg</h2>
                   <img src="images/tooplate_image_01.jpg" alt="Image 01" class="image_wrapper" />
-                  <p><em>Winnipeg is located at the confluence of the Red and Assiniboine Rivers.  Known as the "Gateway to the West", Winnipeg is a railway and transportation hub with a diversified economy.</em></p>
-                  <p><em>The city was founded in 1873 and the word 'Winnipeg' comes from the Western Cree words that mean 'muddy water'.</em></p>
+                  <p><em>Winnipeg is located near the longitudinal centre of North America.  The city lies at the bottom of the Red River Valley, a flood plain with an extremely flat topography where, as one visitor exclaimed: "You can see for days!".</em></p>
+                  <p><em>We have an abundance of festivals and other attractions for you to enjoy.  Come see us in Friendly Manitoba!</em></p>
                 </div>
                 <div class="col_270 float_r">
                   <h2>Our Services</h2>
@@ -29,10 +29,11 @@
               </div>
                 </div>
               </div>
+            </div>
 
               <!-- end of home -->
 			  
-              <div class="panel" id="about">
+              <%--<div class="panel" id="about">
                 <div class="col_320 float_l">
                   <h1>About Us</h1>
                   <img src="images/aboutUs.jpg"  alt="Image 02" class="image_wrapper" />
@@ -49,10 +50,10 @@
                     <p>Integer et interdum risus. Vestibulum et tellus nec risus varius convallis. Suspendisse turpis massa, vestibulum quis lacinia porta, mattis non mi. Fusce consectetur eros in metus iaculis molestie. Cras malesuada egestas gravida.</p>
                     <cite>Paul - <span>Web Designer</span></cite> </blockquote>
                 </div>
-              </div>
+              </div>--%>
 			  <!-- end of aboutus -->
 			  
-              <div class="panel" id="services">
+              <%--<div class="panel" id="services">
                 <div class="col_380 float_l">
                   <h1>Service Overview</h1>
                   <p><em>Nam at arcu libero, ut venenatis elit. Nulla eget risus turpis, non aliquet dui ornare vitae urna ut venenatis ipsum. </em></p>
@@ -68,8 +69,8 @@
                     <li><a href="#" class="service_four">In aliquet in libero</a></li>
                     <li><a href="#" class="service_five">Maecenas ut pretium</a></li>
                   </ul>
-                </div>--%>
-              </div>
+                </div>
+              </div>--%>
 			  <!-- end of service -->
 			  
               <div class="panel" id="gallery">

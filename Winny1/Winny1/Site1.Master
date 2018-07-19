@@ -36,7 +36,17 @@ button {
     width: 100%;
    
 }
-
+input[type=button]
+{
+    background-color: #a1a0e8;
+    /*#4CAF50*/
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
 button:hover {
     opacity: 0.8;
 }
@@ -190,12 +200,13 @@ var year = currentTime.getFullYear()
                     <li class="dropdown">
                         <a href="About.aspx" class="dropbtn">Who?</a>
                             <div class="dropdown-content">
+
                                 <a href="about.aspx?id=1">Origins</a>                     
                                 <a href="about.aspx?id=2">Now</a>
                                 <a href="about.aspx?id=3">Motto</a>
                                 <a href="about.aspx?id=4">Population</a>
                                 <a href="about.aspx?id=5">Monthly Temperatures</a>
-                        
+                                <a href="AboutUs.html?id=6">About Us</a>
                             </div>
                     </li>
 
@@ -242,9 +253,13 @@ var year = currentTime.getFullYear()
            </div>
   </div>
    <div id="right">
-        <button onclick="document.getElementById('id01').style.display='block'" style="width:auto; ">Login</button>
-        <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Register</button>
+       <input id="btnLogIn" type="button" value="LogIn" onclick="document.getElementById('id01').style.display='block'" style="width:auto; " runat="server"/>
+        <button  onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Register</button>
+       <input id="btnLogOut" type="button" value="LogOut" runat="server" style="width:auto;" visible="false" onclick="return LogOut()"/>
    </div>
+    <script>
+        
+    </script>
     <br />
     <br />
 
@@ -356,6 +371,7 @@ var year = currentTime.getFullYear()
     </div>
   </form>
 </div>
+    <input id="txtAccess" type="text" style="visibility:hidden" value=""/>
 <script>
       <%-- //Login and Registeration  Code--%>
  //Get the modal
@@ -372,6 +388,11 @@ window.onclick = function(event) {
 
 
     <script>
+        function LogOut()
+        {
+            window.location = "index.aspx";
+        }
+       
         function Login()
         {
                //alert("testing");
@@ -394,6 +415,8 @@ window.onclick = function(event) {
                         alert("Bad stuff on Ajax call");
                     }
                 });
+                
+
             return false;
         }
       
@@ -401,13 +424,16 @@ window.onclick = function(event) {
         {
            
             if (login == "c") {
+
                
                 window.location = "client.aspx";
+                 
             }
             else if (login == "a") {
-               
+              
+                
                 window.location = "ADMIN.aspx";
-
+                
             }
             else
             {

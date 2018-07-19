@@ -81,11 +81,13 @@
         <asp:Panel ID="panelRestaurants" runat="server" Visible="false">
             <h2><strong>Restaurants</strong></h2>
             <asp:GridView ID="gvRestaurants" runat="server" 
-                CellPadding="3" DataKeyNames="RestaurantId" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False"
+                CellPadding="3" DataKeyNames="RestaurantId" AllowPaging="True" AllowSorting="True" 
+                AutoGenerateColumns="False"
                 OnPageIndexChanging="gvRestaurants_PageIndexChanging"
                 OnRowCommand="gvRestaurants_RowCommand"
                 OnSelectedIndexChanging="gvRestaurants_SelectedIndexChanging"
-                OnSorting="gvRestaurants_Sorting" OnSelectedIndexChanged="gvRestaurants_SelectedIndexChanged" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" GridLines="Horizontal">
+                OnSorting="gvRestaurants_Sorting" OnSelectedIndexChanged="gvRestaurants_SelectedIndexChanged"
+                BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" GridLines="Horizontal">
 
 
                 <AlternatingRowStyle BackColor="#F7F7F7" />

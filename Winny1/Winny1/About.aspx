@@ -61,6 +61,8 @@ tr {
                     <tr>
                         <td colspan="2" style="width: 100px; text-align: center; color:red; font-weight:bold;">
                             <%#Eval ("AboutTopic")%>
+                            <br />
+                            <hr />
                         </td>
                     </tr>
                     <tr>

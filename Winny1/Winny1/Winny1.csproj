@@ -75,6 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="AboutUs.html" />
     <Content Include="ADMIN.aspx" />
     <Content Include="Anjali.sql" />
     <Content Include="attraction.aspx" />
@@ -129,6 +130,11 @@
     <Content Include="Team.JPG" />
     <Content Include="UniversityPictures\RedRiverCollege.jpg" />
     <Content Include="UniversityPictures\UniversityManitoba.png" />
+    <Content Include="We\Anjaly.jpg" />
+    <Content Include="We\IMG_0074.JPG" />
+    <Content Include="We\Margo.jpg" />
+    <Content Include="We\Nataly.jpg" />
+    <Content Include="We\Tracy.jpg" />
     <Content Include="Winnipeg.aspx" />
     <Content Include="WpgImages\AcrossRiver.jpg" />
     <Content Include="WpgImages\BoyAndBoot.jpg" />
