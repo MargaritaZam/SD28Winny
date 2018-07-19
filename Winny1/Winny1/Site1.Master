@@ -200,12 +200,13 @@ var year = currentTime.getFullYear()
                     <li class="dropdown">
                         <a href="About.aspx" class="dropbtn">Who?</a>
                             <div class="dropdown-content">
+
                                 <a href="about.aspx?id=1">Origins</a>                     
                                 <a href="about.aspx?id=2">Now</a>
                                 <a href="about.aspx?id=3">Motto</a>
                                 <a href="about.aspx?id=4">Population</a>
                                 <a href="about.aspx?id=5">Monthly Temperatures</a>
-                        
+                                <a href="AboutUs.html?id=6">About Us</a>
                             </div>
                     </li>
 

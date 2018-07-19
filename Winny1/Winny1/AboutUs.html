@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+       
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+         
+        }
+
+        /* Style the header */
+        header {
+            width:100%;
+            height:500px;
+            background-color:dodgerblue;
+            padding: 30px;
+            text-align: center;
+            font-size: 35px;
+            color: white;
+        }
+
+        /* Create two columns/boxes that floats next to each other */
+        nav {
+            float: left;
+            width: 30%;
+            height: 300px; /* only for demonstration, should be removed */
+            background: #ccc;
+            padding: 20px;
+        }
+
+            /* Style the list inside the menu */
+            nav ul {
+                list-style-type: none;
+                padding: 0;
+            }
+
+        article {
+            float: left;
+            padding: 20px;
+            width: 70%;
+            background-color: #f1f1f1;
+            height: 300px; /* only for demonstration, should be removed */
+        }
+
+        /* Clear floats after the columns */
+        section:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Style the footer */
+        footer {
+            background-color: cornflowerblue;
+            padding: 10px;
+            text-align: center;
+            color: white;
+        }
+
+        /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+        @media (max-width: 1000px) {
+            nav, article {
+                width: 100%;
+                height: auto;
+            }
+        }
+    </style>
+        
+   
+</head>
+<body>
+    <header>
+        <img src="We/IMG_0074.JPG" style="float:left" width="450" height="450" />
+        <h1 style="float:right">Our team</h1>
+    </header>
+    <section>
+        <nav>
+            <ul>
+                <li><img width="60" height="60" src="We/Anjaly.jpg" />Anjali Patel</li>
+                <li><img width="60" height="60" src="We/Tracy.jpg" /> Tracy McCormack</li>
+                <li><img width="60" height="60" src="We/Nataly.jpg" /> Natalia Shmer</li>
+                <li><img width="60" height="60" src="We/Margo.jpg" /> Margarita Zamoshch</li>
+            </ul>
+        </nav>
+        <article>
+            <p>We are very cool girls</p>
+        </article>
+    </section>
+    <footer>
+        <p>Thanks</p>
+    </footer>
+
+
+
+
+
+
+
+
+
+
+
+    <!--<div class="chip">
+        <img src="We/Anjaly.jpg" alt="Person" width="150" height="150">
+        Anjali Patel
+    </div>
+
+    <div class="chip">
+        <img src="We/Margo.jpg" alt="Person" width="150" height="150">
+        Margarita Zamoshch
+    </div>
+
+    <div class="chip">
+        <img src="We/Tracy.jpg" alt="Person" width="150" height="150">
+        Tracy McCormack
+    </div>
+    <div class="chip">
+        <img src="We/Nataly.jpg" alt="Person" width="150" height="150">
+        Natalia Shmer
+    </div>-->
+
+</body>
+</html>
