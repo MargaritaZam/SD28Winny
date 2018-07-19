@@ -12,8 +12,8 @@
                 <div class="col_380 float_l">
                   <h2>Welcome to Winnipeg</h2>
                   <img src="images/tooplate_image_01.jpg" alt="Image 01" class="image_wrapper" />
-                  <p><em>Winnipeg is located at the confluence of the Red and Assiniboine Rivers.  Known as the "Gateway to the West", Winnipeg is a railway and transportation hub with a diversified economy.</em></p>
-                  <p><em>The city was founded in 1873 and the word 'Winnipeg' comes from the Western Cree words that mean 'muddy water'.</em></p>
+                  <p><em>Winnipeg is located near the longitudinal centre of North America.  The city lies at the bottom of the Red River Valley, a flood plain with an extremely flat topography where, as one visitor exclaimed: "You can see for days!".</em></p>
+                  <p><em>We have an abundance of festivals and other attractions for you to enjoy.  Come see us in Friendly Manitoba!</em></p>
                 </div>
                 <div class="col_270 float_r">
                   <h2>Our Services</h2>
