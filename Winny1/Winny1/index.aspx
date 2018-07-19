@@ -29,10 +29,11 @@
               </div>
                 </div>
               </div>
+            </div>
 
               <!-- end of home -->
 			  
-              <div class="panel" id="about">
+              <%--<div class="panel" id="about">
                 <div class="col_320 float_l">
                   <h1>About Us</h1>
                   <img src="images/aboutUs.jpg"  alt="Image 02" class="image_wrapper" />
@@ -49,10 +50,10 @@
                     <p>Integer et interdum risus. Vestibulum et tellus nec risus varius convallis. Suspendisse turpis massa, vestibulum quis lacinia porta, mattis non mi. Fusce consectetur eros in metus iaculis molestie. Cras malesuada egestas gravida.</p>
                     <cite>Paul - <span>Web Designer</span></cite> </blockquote>
                 </div>
-              </div>
+              </div>--%>
 			  <!-- end of aboutus -->
 			  
-              <div class="panel" id="services">
+              <%--<div class="panel" id="services">
                 <div class="col_380 float_l">
                   <h1>Service Overview</h1>
                   <p><em>Nam at arcu libero, ut venenatis elit. Nulla eget risus turpis, non aliquet dui ornare vitae urna ut venenatis ipsum. </em></p>
@@ -69,7 +70,7 @@
                     <li><a href="#" class="service_five">Maecenas ut pretium</a></li>
                   </ul>
                 </div>--%>
-              </div>
+              </div>--%>
 			  <!-- end of service -->
 			  
               <div class="panel" id="gallery">
