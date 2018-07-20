@@ -148,6 +148,7 @@
     <Content Include="WpgImages\WinnieBear.jpg" />
     <Content Include="WpgImages\WinnipegSign.jpg" />
     <Content Include="WpgImages\Winter.jpg" />
+    <Content Include="login.ashx" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Register.ashx" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />

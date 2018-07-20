@@ -1949,11 +1949,14 @@ as begin
 			HotelAddress, HotelPostalCode, HotelWebsite, HotelLocationID, '.\HotelPictures\' + Hotel_path as Hotel_path 
 		from tbHotels where HotelID = isnull(@hotelID,HotelID)
 	end
+	--  Search
 	else if @crud='s'
 	begin
-		select HotelID, HotelName, HotelPrice, HotelStarsID, HotelDescription, HotelPhoneNumber,
-			HotelAddress, HotelPostalCode, HotelWebsite,'.\HotelPictures\' + Hotel_path as Hotel_path 
-		from tbHotels where HotelID = isnull(@hotelID,HotelID)
+		select tbHotels.HotelID, tbHotels.HotelName, tbHotels.HotelPrice, tbHotelStars.StarsID, 
+			tbHotels.HotelDescription, tbHotels.HotelPhoneNumber, tbHotels.HotelAddress, 
+			tbHotels.HotelPostalCode, tbHotels.HotelWebsite, '.\HotelPictures\' + Hotel_path as Hotel_path 
+		from tbHotels inner join tbHotelStars on tbHotels.HotelStarsID=tbHotelStars.StarsID
+		where HotelID = isnull(@hotelID,HotelID)
 	end
 	else if @crud='c'
 	begin
