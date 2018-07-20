@@ -29,48 +29,6 @@
               </div>
                 </div>
               </div>
-
-              <!-- end of home -->
-			  
-              <div class="panel" id="about">
-                <div class="col_320 float_l">
-                  <h1>About Us</h1>
-                  <img src="images/aboutUs.jpg"  alt="Image 02" class="image_wrapper" />
-                  <p><em>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse in lectus turpis. Vivamus cursus tortor quis leo ullamcorper auctor quis tincidunt metus. In non ipsum leo.</em></p>
-                  <p>Vestibulum vitae lectus a leo commodo egestas. Sed et ligula mauris. Donec interdum iaculis eros, sed porttitor justo ornare ac. Suspendisse ultrices arcu auctor sapien <a href="#">malesuada dictum</a>. Maecenas varius blandit risus in varius. Donec eget arcu nisi.</p>
-           </div>
-           <div class="col_320 float_r">
-                   <h2>Testimonials</h2>
-                  <blockquote>
-                    <p>Fusce nec felis id lacus sollicitudin vulputate. Proin tincidunt, arcu id pellentesque accumsan, neque dolor imperdiet ligula, quis viverra tellus nulla a odio. Curabitur vitae enim risus, at placerat turpis. Fusce adipiscing aliquam faucibus.</p>
-                    <cite>William - <span>Senior Webmaster</span></cite> </blockquote>
-                  <div class="cleaner_h40"></div>
-                  <blockquote>
-                    <p>Integer et interdum risus. Vestibulum et tellus nec risus varius convallis. Suspendisse turpis massa, vestibulum quis lacinia porta, mattis non mi. Fusce consectetur eros in metus iaculis molestie. Cras malesuada egestas gravida.</p>
-                    <cite>Paul - <span>Web Designer</span></cite> </blockquote>
-                </div>
-              </div>
-			  <!-- end of aboutus -->
-			  
-              <%--<div class="panel" id="services">
-                <div class="col_380 float_l">
-                  <h1>Service Overview</h1>
-                  <p><em>Nam at arcu libero, ut venenatis elit. Nulla eget risus turpis, non aliquet dui ornare vitae urna ut venenatis ipsum. </em></p>
-                  <img src="images/tooplate_image_03.jpg" alt="Image 03" class="image_wrapper" />
-                  <p>Sed eu libero quis neque laoreet cursus. Fusce elit metus, elementum nec consequat a, interdum vitae est. Aliquam sit amet odio vitae dui blandit elementum. Ut eu dolor nunc. Nam in nunc sed mi adipiscing lacinia suscipit eget tortor. Vivamus lacinia lectus in <a href="#">velit aliquet</a> ac placerat magna euismod. In hac habitasse platea dictumst. Integer eget nibh eu libero cursus ultricies neque dolor imperdiet nulla a odio.</p>
-                </div>
-             <%--<div class="col_270 float_r">
-                  <h1>Our Services</h1>
-                  <ul class="service_list">
-                    <li><a href="#" class="service_one">Morbi luctus vitae cursus</a></li>
-                    <li><a href="#" class="service_two">Pellentesq tris senectus</a></li>
-                    <li><a href="#" class="service_three">Duis at commodo molestie</a></li>
-                    <li><a href="#" class="service_four">In aliquet in libero</a></li>
-                    <li><a href="#" class="service_five">Maecenas ut pretium</a></li>
-                  </ul>
-                </div>--%>
-              </div>
-			  <!-- end of service -->
 			  
               <div class="panel" id="gallery">
                 <h1>Our Gallery</h1>
