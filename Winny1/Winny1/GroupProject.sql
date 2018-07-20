@@ -2482,7 +2482,7 @@ create procedure spCoupon(
 as begin
 if @Crud='r'
 begin select
-CouponId,CouponName,Path, TypeId from tbCoupons where CouponId=isnull(@CouponId, CouponId)
+CouponId,CouponName, '.\Coupons\' +Path as Path, TypeId from tbCoupons where CouponId=isnull(@CouponId, CouponId)
 end
 else if
 @Crud='c'
@@ -2521,6 +2521,29 @@ exec spCoupon @Crud='c', @CouponName='Hudson Bay', @Path='HudsonBay_coupon.gif',
 exec spCoupon @Crud='c', @CouponName='Michaels', @Path='Michaels_coupon.jpg', @TypeId=3
 exec spCoupon @Crud='c', @CouponName='Rona', @Path='Rona_coupon.jpg', @TypeId=3
 go
+create table tbCouponOrder(
+OrderId int identity(1,1) primary key,
+UserId int foreign key references tbUsers(id),
+CouponId int foreign key references tbCoupons(CouponId)
+)
+go
+create procedure spAddCouponOrder(
+@UserId int,
+@CouponId int)
+as begin
+if exists
+(select OrderId from tbCouponOrder where UserId=@UserId and CouponId=@CouponId)
+begin
+select 'Something went wrong' as message
+end
+else
+begin
+insert into tbCouponOrder (UserId, CouponId) values (@UserId,@CouponId)
+select 'Great!' as message
+end
+end
+go
+
 --create procedure spGetCouponType(
 --@CouponType varchar(max))
 --as begin
@@ -2530,3 +2553,26 @@ go
 --end
 --go
 --exec spGetCouponType @CouponType=1
+
+
+
+  
+CREATE TABLE [dbo].[tbl_Users](  
+  
+[ID] [int] IDENTITY(1,1) NOT NULL,  
+[UserName] [varchar](50) NULL,  
+[Email] [varchar](50) NULL,  
+[Password] [varchar](50) NULL,  
+[Photo] [varchar](50) NULL,  
+  
+CONSTRAINT [PK_tbl_Users] PRIMARY KEY CLUSTERED   
+(   
+  [ID] ASC   
+)
+WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]  
+  
+) ON [PRIMARY]  
+  
+insert into [dbo].[tbl_Users] (UserName,Email,Password)values('admin','admin@admin.com','12345'); 
+insert into [dbo].[tbl_Users] (UserName,Email,Password)values('Anjali','user1@user.com','12345');  
+insert into [dbo].[tbl_Users] (UserName,Email,Password)values('Margo','user2@user.com','12345');  

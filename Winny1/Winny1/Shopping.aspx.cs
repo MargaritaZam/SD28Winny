@@ -75,8 +75,8 @@ namespace Winny1
             loadStores();
         }
 
-        protected void btnSearch_Click(object sender, EventArgs e)
-        {
+        //protected void btnSearch_Click(object sender, EventArgs e)
+        //{
             //string id = ddlCategory.SelectedItem.Value;
             //string LocationID = ddlLocation.SelectedItem.Value;
             //DAL myDal = new DAL(conn);
@@ -95,6 +95,6 @@ namespace Winny1
             //btnnext.Enabled = !adsource.IsLastPage;
             //dlStores.DataSource = adsource;
             //dlStores.DataBind();
-        }
+       // }
     }
 }
