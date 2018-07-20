@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
-    <script src="Scripts/jquery-3.3.1.js"></script>
     
+    <script src="Scripts/jquery-3.2.1.js"></script>
 </head>
 <body>
     <div id="mypictures">
@@ -72,7 +72,7 @@
                 Description.innerHTML = "<strong>Description: </strong>" + post.Table[i].Description;
                 Address.innerHTML = "<strong>Address: </strong>" + post.Table[i].Address;
                 var GetDirection = document.createElement('input');
-
+               
                 GetDirection.setAttribute("value","GetDirection");
                 GetDirection.setAttribute("id", post.Table[i].Address);
                 GetDirection.setAttribute("type", "button");
@@ -112,7 +112,7 @@
             type="text/javascript"></script>
     <script type="text/javascript">
         function GetRoute(add) {
-            var markers = new Array();
+                       var markers = new Array();
             var myLatLng;
             alert(add);
             //Find the current location of the user.

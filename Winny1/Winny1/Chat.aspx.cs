@@ -15,6 +15,7 @@ namespace Winny1
     {
         public string UserName = "admin";
         public string UserImage = "/images/DP/dummy.png";
+        //jdhdj
         ConnClass ConnC = new ConnClass();
         protected void Page_Load(object sender, EventArgs e)
         {
