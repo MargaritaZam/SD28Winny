@@ -16,7 +16,7 @@ namespace Winny1
         string conn = "Data Source=localhost;Initial Catalog=dbGroupProject;Integrated Security=SSPI";
 
         public string HotelStarsID { get; private set; }
-        public string NumberOfStars { get; private set; }
+        public string Stars { get; private set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -48,7 +48,7 @@ namespace Winny1
 
             DataSet ds = myDal.ExecuteProcedure("spHotelStars");
             DdlHotelStars.DataSource = ds.Tables[0];
-            DdlHotelStars.DataTextField = "NumberOfStars";
+            DdlHotelStars.DataTextField = "Stars";
             DdlHotelStars.DataValueField = "StarsID";
             DdlHotelStars.DataBind();
         }
@@ -76,6 +76,10 @@ namespace Winny1
         {
             string StarsID = DdlHotelStars.SelectedItem.Value;
             string LocationId = DdlLocation.SelectedItem.Value;
+            string Location = DdlLocation.SelectedItem.Text;
+
+            TxtSearch.Text = Location;
+
             DAL myDal = new DAL(conn);
             adsource = new PagedDataSource();
             myDal.AddParam("@crud", "s");

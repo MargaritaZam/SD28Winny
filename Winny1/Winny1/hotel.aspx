@@ -39,9 +39,11 @@ div.desc {
       .auto-style6 {
           width: 268px;
       }
+
 table {
     margin-left: 25px;
 }
+
 tr {
     height: 15px;
 }
@@ -52,18 +54,21 @@ tr {
     <table>
         <tr>
             <td>
-                <asp:Label ID="LblLocation" runat="server" Text="Browse by Location" ForeColor="Black" Font-Bold="true"></asp:Label>
+                <asp:Label ID="LblLocation" AutoPostBack="true" runat="server" Text="Browse by Location" ForeColor="Black" Font-Bold="true"></asp:Label>
             </td>
             <td>
-                    <asp:Label ID="LblHotelStars" runat="server" Text="Browse by Rating" ForeColor="Black" Font-Bold="true"></asp:Label>
+                <asp:Label ID="LblHotelStars" AutoPostBack="true" runat="server" Text="Browse by Rating" ForeColor="Black" Font-Bold="true"></asp:Label>
+            </td>
+            <td>
+
             </td>
         </tr>
         <tr>
             <td>
-                    <asp:DropDownList ID="DdlLocation" runat="server" Height="23px" Width="250px" BackColor="White"></asp:DropDownList>
+                <asp:DropDownList ID="DdlLocation" AutoPostBack="true" runat="server" Height="23px" Width="250px" BackColor="White"></asp:DropDownList>
             </td>
             <td>
-                    <asp:DropDownList ID="DdlHotelStars"  runat="server" Height="23px" Width="250px" BackColor="White"></asp:DropDownList>
+                <asp:DropDownList ID="DdlHotelStars" AutoPostBack="true" runat="server" Height="23px" Width="250px" BackColor="White"></asp:DropDownList>
             </td>
         </tr>
         <tr>
@@ -73,7 +78,7 @@ tr {
         </tr>
         <tr>
             <td>
-                    <asp:TextBox ID="TxtSearch" runat="server" Height="26px" Width="250px" ></asp:TextBox>
+                <asp:TextBox ID="TxtSearch" runat="server" Height="26px" Width="250px" ></asp:TextBox>
             </td>
             <td>
                 <asp:Button ID="BtnSearch" runat="server" Text="Search" BackColor="#CC0099" Font-Bold="True" ForeColor="White" Height="33px" Width="80px" OnClick="BtnSearch_Click" />
@@ -104,7 +109,7 @@ tr {
                             Rating: 
                         </td>
                         <td style="width:80%; color:black; text-align: left;">
-                            <%# Eval ("NumberOfStars") %>
+                            <%# Eval ("Stars") %>
                         </td>
                         <td></td>
                     </tr>

@@ -2,7 +2,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
- <div class="cleaner"></div>
+ <div class="cleaner">
+ </div>
      
      <div id="content">
         <div class="scroll">
@@ -27,8 +28,8 @@
                   </ul>
                 </div>
               </div>
-                </div>
-              </div>
+            </div>
+        </div>
 			  
               <div class="panel" id="gallery">
                 <h1>Our Gallery</h1>
@@ -48,8 +49,6 @@
                   <div class="cleaner"></div>
                 </div>
               </div>
-			  
-		
         
   		<div id="footer">
     
@@ -58,12 +57,13 @@
             <div id="footer_left">
 				
             	Copyright © 2018 <a href="#">The Omega Group (SD28)</a><br />
-            	<!-- Winnipeg by <a rel="nofollow" href="http://www.tooplate.com">Templates</a><br /> -->
+            	 <%--Winnipeg by <a rel="nofollow" href="htp://www.tooplate.com">Templates</a><br /> --%>
                 
             </div>
 			
-            <div class="cleaner"></div>
- 		</div>
-</div>
+            <div class="cleaner">
+            </div>
+ 	    </div>
+    </div>
 
 </asp:Content>

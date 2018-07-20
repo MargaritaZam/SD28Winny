@@ -8,9 +8,9 @@ use dbGroupProject;
 
 
 create table tbSlide(
-slideID int identity(1,1) primary key,
-slidedesc varchar(60),
-path varchar(60)
+	slideID int identity(1,1) primary key,
+	slidedesc varchar(60),
+	path varchar(60)
 )
 go
 
@@ -1881,17 +1881,17 @@ go
 create table tbHotelStars
 (
 	StarsID		  int identity(0,1) primary key,
-	NumberOfStars varchar(12)
+	Stars varchar(12)
 )
-insert into tbHotelStars (NumberOfStars) values
-	('0'),   ('*'),    ('* *'),
+insert into tbHotelStars (Stars) values
+	('--'),   ('*'),    ('* *'),
 	('* * *'), ('* * * *'), ('* * * * *')
 go
 
 create procedure spHotelStars
 (
 	@starsID int = null,
-	@numberStars varchar(12) = null
+	@stars varchar(12) = null
 )
 as begin
 	select * from tbHotelStars where StarsID = isnull(@starsID, StarsID)
@@ -1935,7 +1935,7 @@ create procedure spHotelsCrud
 as begin
 	if @crud='r'
 	begin
-		select tbHotels.HotelID, tbHotels.HotelName, tbHotels.HotelPrice, tbHotelStars.NumberOfStars,
+		select tbHotels.HotelID, tbHotels.HotelName, tbHotels.HotelPrice, tbHotelStars.Stars,
 			tbHotels.HotelDescription, tbHotels.HotelPhoneNumber, tbHotels.HotelAddress, 
 			tbHotels.HotelPostalCode, tbHotels.HotelWebsite, tbHotels.HotelLocationID,
 			'.\HotelPictures\' + Hotel_path as Hotel_path 
@@ -1985,7 +1985,9 @@ as begin
 	end
 end
 go
+
 exec spHotelsCrud @crud='s'
+
 exec spHotelsCrud @crud = 'c',
 		@hotelName = 'Alt Hotel Winnipeg',
 		@hotelPrice = 159,
