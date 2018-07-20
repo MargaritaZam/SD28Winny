@@ -2479,7 +2479,7 @@ create procedure spCoupon(
 as begin
 if @Crud='r'
 begin select
-CouponId,CouponName,Path, TypeId from tbCoupons where CouponId=isnull(@CouponId, CouponId)
+CouponId,CouponName, '.\Coupons\' +Path as Path, TypeId from tbCoupons where CouponId=isnull(@CouponId, CouponId)
 end
 else if
 @Crud='c'

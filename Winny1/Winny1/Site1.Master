@@ -244,9 +244,6 @@ var year = currentTime.getFullYear()
 
                       <li class="dropdown"><a href="ChatBot.html">Have a question?</a>                    
                     </li>                      
-                      <li class="dropdown"><a href="Coupons.aspx">Coupons</a>                    
-                    </li>
-                    
                 </ul>    	
             </div> <!-- end of tooplate_menu -->
             </div>
