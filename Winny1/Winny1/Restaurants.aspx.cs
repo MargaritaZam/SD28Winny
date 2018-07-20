@@ -54,24 +54,20 @@ namespace Winny1
         }
         public void loadRestaurants()
         {
-            //adsource = new PagedDataSource();
-            //adsource.DataSource =rs.LoadRestaurant();
-            //adsource.AllowPaging = true;
-            //adsource.PageSize = 3;
-            
-            //adsource.CurrentPageIndex = pos;
-            //btnfirst.Enabled = !adsource.IsFirstPage;
-            //btnprevious.Enabled = !adsource.IsFirstPage;
-            //btnlast.Enabled = !adsource.IsLastPage;
-            //btnnext.Enabled = !adsource.IsLastPage;
-            dlRestaurant.DataSource = rs.LoadRestaurant(); 
-            //adsource.CurrentPageIndex = pos;
-            //btnfirst.Enabled = !adsource.IsFirstPage;
-            //btnprevious.Enabled = !adsource.IsFirstPage;
-            //btnlast.Enabled = !adsource.IsLastPage;
-            //btnnext.Enabled = !adsource.IsLastPage;
-            //just comment
-            dlRestaurant.DataSource = rs.LoadRestaurant();
+            DAL myDal = new DAL(conn);
+            adsource = new PagedDataSource();
+            myDal.AddParam("@crud", "a");
+            DataSet ds = myDal.ExecuteProcedure("spRestaurants");
+            adsource.DataSource = ds.Tables[0].DefaultView;
+            adsource.PageSize = 3;
+            adsource.AllowPaging = true;
+            adsource.CurrentPageIndex = pos;
+            btnfirst.Enabled = !adsource.IsFirstPage;
+            btnprevious.Enabled = !adsource.IsFirstPage;
+            btnlast.Enabled = !adsource.IsLastPage;
+            btnnext.Enabled = !adsource.IsLastPage;
+
+            dlRestaurant.DataSource = adsource;
             dlRestaurant.DataBind();
 
 
@@ -130,6 +126,11 @@ namespace Winny1
             dlRestaurant.DataSource = ds.Tables[0];
             dlRestaurant.DataBind();
 
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("login.aspx");
         }
     }
 }
