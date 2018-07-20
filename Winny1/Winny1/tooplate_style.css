@@ -16,7 +16,8 @@ body {
     background-color: #07080a;
     background-image: url(images/winnipeg.jpg);
     background-repeat: no-repeat;
-    background-position: top center
+    background-position: top center;
+    background-size: 100% 100%;
 }
 
 a, a:link, a:visited {
