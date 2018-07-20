@@ -8,32 +8,32 @@
         <div class="scroll">
            <div class="scrollContainer">
 			
-                  <div class="panel" id="home">
-                        <div class="col_380 float_l">
-                              <h2>Welcome to Winnipeg</h2>
-                              <img src="images/tooplate_image_01.jpg" alt="Image 01" class="image_wrapper" />
-                              <p><em>Winnipeg is located at the confluence of the Red and Assiniboine Rivers.  Known as the "Gateway to the West", Winnipeg is a railway and transportation hub with a diversified economy.</em></p>
-                              <p><em>The city was founded in 1873 and the word 'Winnipeg' comes from the Western Cree words that mean 'muddy water'.</em></p>
-                        </div>
-                        <div class="col_270 float_r">
-                              <h2>Our Services</h2>
-                              <ul class="service_list">
-                                <li><a href="http://www.winnipegpass.com/city/" ><strong>Winnipeg City Pass</strong></a></li>
+              <div class="panel" id="home">
+                <div class="col_380 float_l">
+                  <h2>Welcome to Winnipeg</h2>
+                  <img src="images/tooplate_image_01.jpg" alt="Image 01" class="image_wrapper" />
+                  <p><em>Winnipeg is located at the confluence of the Red and Assiniboine Rivers.  Known as the "Gateway to the West", Winnipeg is a railway and transportation hub with a diversified economy.</em></p>
+                  <p><em>The city was founded in 1873 and the word 'Winnipeg' comes from the Western Cree words that mean 'muddy water'.</em></p>
+                </div>
+                <div class="col_270 float_r">
+                  <h2>Our Services</h2>
+                  <ul class="service_list">
+                    <li><a href="http://www.winnipegpass.com/city/" ><strong>Winnipeg City Pass</strong></a></li>
 
                                 <li><a href="https://www.theweathernetwork.com/ca/weather/manitoba/winnipeg" ><strong>Winnipeg Weather</strong></a></li>
                                 <li><a href="http://winnipegtransit.com/en" ><strong>Winnipeg Transit</strong></a></li>
                                 <li><a href="https://goo.gl/maps/Bg8GWt8qps52"><strong>Map</strong></a></li>
                   
-                              </ul>
-                        </div>
-                    </div>
-             </div>
-          </div>
+                  </ul>
+                </div>
+              </div>
+                </div>
+              </div>
 
               <!-- end of home -->
 			  
-   <div class="panel" id="about">
-         <div class="col_320 float_l">
+              <div class="panel" id="about">
+                <div class="col_320 float_l">
                   <h1>About Us</h1>
                   <img src="images/aboutUs.jpg"  alt="Image 02" class="image_wrapper" />
                   <p><em>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse in lectus turpis. Vivamus cursus tortor quis leo ullamcorper auctor quis tincidunt metus. In non ipsum leo.</em></p>
@@ -42,26 +42,36 @@
            <div class="col_320 float_r">
                    <h2>Testimonials</h2>
                   <blockquote>
-                   <p>Fusce nec felis id lacus sollicitudin vulputate. Proin tincidunt, arcu id pellentesque accumsan, neque dolor imperdiet ligula, quis viverra tellus nulla a odio. Curabitur vitae enim risus, at placerat turpis. Fusce adipiscing aliquam faucibus.</p>
-                   <cite>William - <span>Senior Webmaster</span></cite> </blockquote>
-                        <div class="cleaner_h40"></div>
-                        <blockquote>
-                        <p>Integer et interdum risus. Vestibulum et tellus nec risus varius convallis. Suspendisse turpis massa, vestibulum quis lacinia porta, mattis non mi. Fusce consectetur eros in metus iaculis molestie. Cras malesuada egestas gravida.</p>
-                         <cite>Paul - <span>Web Designer</span></cite> </blockquote>
-             </div>
-   </div>
+                    <p>Fusce nec felis id lacus sollicitudin vulputate. Proin tincidunt, arcu id pellentesque accumsan, neque dolor imperdiet ligula, quis viverra tellus nulla a odio. Curabitur vitae enim risus, at placerat turpis. Fusce adipiscing aliquam faucibus.</p>
+                    <cite>William - <span>Senior Webmaster</span></cite> </blockquote>
+                  <div class="cleaner_h40"></div>
+                  <blockquote>
+                    <p>Integer et interdum risus. Vestibulum et tellus nec risus varius convallis. Suspendisse turpis massa, vestibulum quis lacinia porta, mattis non mi. Fusce consectetur eros in metus iaculis molestie. Cras malesuada egestas gravida.</p>
+                    <cite>Paul - <span>Web Designer</span></cite> </blockquote>
+                </div>
+              </div>
 			  <!-- end of aboutus -->
 			  
-              <div class="panel" id="services">
+              <%--<div class="panel" id="services">
                 <div class="col_380 float_l">
                   <h1>Service Overview</h1>
                   <p><em>Nam at arcu libero, ut venenatis elit. Nulla eget risus turpis, non aliquet dui ornare vitae urna ut venenatis ipsum. </em></p>
                   <img src="images/tooplate_image_03.jpg" alt="Image 03" class="image_wrapper" />
                   <p>Sed eu libero quis neque laoreet cursus. Fusce elit metus, elementum nec consequat a, interdum vitae est. Aliquam sit amet odio vitae dui blandit elementum. Ut eu dolor nunc. Nam in nunc sed mi adipiscing lacinia suscipit eget tortor. Vivamus lacinia lectus in <a href="#">velit aliquet</a> ac placerat magna euismod. In hac habitasse platea dictumst. Integer eget nibh eu libero cursus ultricies neque dolor imperdiet nulla a odio.</p>
                 </div>
-            
+             <%--<div class="col_270 float_r">
+                  <h1>Our Services</h1>
+                  <ul class="service_list">
+                    <li><a href="#" class="service_one">Morbi luctus vitae cursus</a></li>
+                    <li><a href="#" class="service_two">Pellentesq tris senectus</a></li>
+                    <li><a href="#" class="service_three">Duis at commodo molestie</a></li>
+                    <li><a href="#" class="service_four">In aliquet in libero</a></li>
+                    <li><a href="#" class="service_five">Maecenas ut pretium</a></li>
+                  </ul>
+                </div>--%>
               </div>
-			
+			  <!-- end of service -->
+			  
               <div class="panel" id="gallery">
                 <h1>Our Gallery</h1>
                 <div id="gallery_container">

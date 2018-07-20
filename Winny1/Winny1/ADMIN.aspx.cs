@@ -216,7 +216,7 @@ namespace Winny1
             {
                 return;
             }
-            
+            string cmd = e.CommandName;
             gvRestaurants.SelectedIndex = Convert.ToInt32(e.CommandArgument);
             string rid = gvRestaurants.SelectedDataKey["RestaurantId"].ToString();
 
@@ -278,6 +278,7 @@ namespace Winny1
             flRestImage.PostedFile.SaveAs(path + name);
             SqlCommand cmd = new SqlCommand("spRestaurants", conn);
             plUpdRest.Visible = false;
+            cmd.Connection = conn;
             cmd.CommandType = CommandType.StoredProcedure;
             if (lblRest.Text == "New")
             {

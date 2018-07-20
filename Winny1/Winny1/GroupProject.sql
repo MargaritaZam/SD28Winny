@@ -1753,7 +1753,7 @@ go
 
 exec spAboutCrud @crud = 'c',
 			     @aboutTopic = 'Origins',
-			     @aboutDescription = 'The confluence of the Red and the Assiniboine Rivers, known as The Forks, has been a meeting place for 6,000 years.  The city was created on November 8, 1873 near the present day intersection of Portage Avenue and Main Street and is named after the Western Cree words for ''Muddy Water''.'
+			     @aboutDescription = 'The confluence of the Red and the Assiniboine Rivers, known as ''The Forks'', has been a meeting place for 6,000 years.  The city was created on November 8, 1873 near the present day intersection of Portage Avenue and Main Street and is named after the Western Cree words for ''Muddy Water''.'
 
 exec spAboutCrud @crud = 'c',
 			     @aboutTopic = 'Now',
@@ -1769,7 +1769,7 @@ exec spAboutCrud @crud = 'c',
 
 exec spAboutCrud @crud = 'c',
 			     @aboutTopic = 'Average Monthly Temperatures',
-			     @aboutDescription = 'The following table shows the average monthly highs and lows:'
+			     @aboutDescription = 'Being in the middle of the continent, Winnipeg''s weather varies greatly between summer and winter.  The following table shows the average monthly highs and lows:'
 
 exec spAboutCrud @crud = 'r'
 
