@@ -104,16 +104,6 @@
     <Content Include="Chat.aspx" />
     <Content Include="ChatBot.html" />
     <Content Include="Client.aspx" />
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\font-awesome.css" />
-    <Content Include="Content\font-awesome.min.css" />
-    <Content Include="Content\icheck-bootstrap.css" />
-    <Content Include="Content\icheck-bootstrap.min.css" />
-    <Content Include="Content\style.css" />
-    <Content Include="Coupons.aspx" />
     <Content Include="Coupons\boston_pizza_coupon.jpg" />
     <Content Include="Coupons\HudsonBay_coupon.gif" />
     <Content Include="Coupons\Michaels_coupon.jpg" />
@@ -465,14 +455,6 @@
     </Compile>
     <Compile Include="Client.aspx.designer.cs">
       <DependentUpon>Client.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ConnClass.cs" />
-    <Compile Include="Coupons.aspx.cs">
-      <DependentUpon>Coupons.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Coupons.aspx.designer.cs">
-      <DependentUpon>Coupons.aspx</DependentUpon>
     </Compile>
     <Compile Include="GetCoupon.cs" />
     <Compile Include="hotel.aspx.cs">

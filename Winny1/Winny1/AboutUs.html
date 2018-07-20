@@ -13,27 +13,31 @@
          
         }
 
-        /* Style the header */
+       
         header {
             width:100%;
             height:500px;
-            background-color:dodgerblue;
+            background-color:#12152e;
             padding: 30px;
             text-align: center;
-            font-size: 35px;
-            color: white;
+            border:double;
+            border-color:gold;
+            
+            
         }
 
-        /* Create two columns/boxes that floats next to each other */
+
         nav {
             float: left;
             width: 30%;
-            height: 300px; /* only for demonstration, should be removed */
-            background: #ccc;
+            height: 300px;
+            background: #12152e;
             padding: 20px;
+            border: double;
+            border-color: gold;
         }
 
-            /* Style the list inside the menu */
+           
             nav ul {
                 list-style-type: none;
                 padding: 0;
@@ -43,26 +47,47 @@
             float: left;
             padding: 20px;
             width: 70%;
-            background-color: #f1f1f1;
-            height: 300px; /* only for demonstration, should be removed */
+            
+           background-color: #12152e;
+            height: 300px;
+            font-style: italic;
+            font-size: 25px;
+            color: white;
+            text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+            border: double;
+            border-color: gold;
         }
 
-        /* Clear floats after the columns */
+       
         section:after {
             content: "";
             display: table;
             clear: both;
         }
 
-        /* Style the footer */
+
         footer {
-            background-color: cornflowerblue;
+            background-color: #12152e;
             padding: 10px;
             text-align: center;
-            color: white;
+            color: steelblue;
+            border: double;
+            border-color: gold;
         }
-
-        /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+       
+        li {
+            font-style: italic;
+            color:white;
+        }
+        
+        .zoom {
+            transition: transform .2s;
+        }
+            .zoom:hover {
+                -ms-transform: scale(1.5); /* IE 9 */
+                -webkit-transform: scale(1.5); /* Safari 3-8 */
+                transform: scale(1.5);
+            }
         @media (max-width: 1000px) {
             nav, article {
                 width: 100%;
@@ -74,26 +99,27 @@
    
 </head>
 <body>
-    <header>
-        <img src="We/IMG_0074.JPG" style="float:left" width="450" height="450" />
-        <h1 style="float:right">Our team</h1>
+    <header style="background-image:url(Slides/bridge.jpg); background-repeat:no-repeat; ">
+        <img src="We/IMG_0074.JPG" style="float:right" width="770" height="450" />
+        <h1 style="float:right; color: white;
+    text-shadow: 2px 2px 5px red;  font-size:85px; float:left"><strong>OUR TEAM</strong></h1>
     </header>
     <section>
         <nav>
             <ul>
-                <li><img width="60" height="60" src="We/Anjaly.jpg" />Anjali Patel</li>
-                <li><img width="60" height="60" src="We/Tracy.jpg" /> Tracy McCormack</li>
-                <li><img width="60" height="60" src="We/Nataly.jpg" /> Natalia Shmer</li>
-                <li><img width="60" height="60" src="We/Margo.jpg" /> Margarita Zamoshch</li>
+                <li><img class="zoom" style=" border-radius: 50%" width="60" height="60" src="We/Anjaly.jpg" /><strong> Anjali Patel</strong></li>
+                <li><img class="zoom" style=" border-radius: 50%" width="60" height="60" src="We/Tracy.jpg" /><strong> Tracy McCormack</strong></li>
+                <li><img class="zoom" style=" border-radius: 50%" width="60" height="60" src="We/Nataly.jpg" /><strong> Natalia Shmer</strong></li>
+                <li><img class="zoom" style=" border-radius: 50%" width="60" height="60" src="We/Margo.jpg" /><strong> Margarita Zamoshch</strong></li>
             </ul>
         </nav>
-        <article>
+        <article style="background-image:url(Slides/humanrig.jpg); ">
             <p>We are a very cool team who worked together to develope this wonderful website.  We worked
             really hard on this project to present Winnipeg to the world, and are deserving of our 110% marks!</p>
         </article>
     </section>
     <footer>
-        <p>Thanks</p>
+        <p style="color:white;  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;"><strong>ROBERTSON COLLEGE / SUMMER 2018</strong></p>
     </footer>
 
 
