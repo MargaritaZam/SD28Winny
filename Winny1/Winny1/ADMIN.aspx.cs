@@ -8,6 +8,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Globalization;
 using System.Threading;
+using System.Web.UI.HtmlControls;
 
 namespace Winny1
 {
@@ -19,7 +20,12 @@ namespace Winny1
             conn = new SqlConnection("Data Source= localhost; Initial Catalog=dbGroupProject; Integrated Security= SSPI");
             if (!IsPostBack)
             {
-               loadAttractions();
+                HtmlInputButton LogIn = (HtmlInputButton)Master.FindControl("btnLogIn");
+                HtmlInputButton LogOut = (HtmlInputButton)Master.FindControl("btnLogOut");
+                LogOut.Visible = true;
+                LogIn.Visible = false;
+               
+                loadAttractions();
                 loadRestaurants();
                 loadFoodCategory();
                 loadLocation();
