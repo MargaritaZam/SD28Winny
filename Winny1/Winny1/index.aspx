@@ -21,9 +21,9 @@
                   <ul class="service_list">
                     <li><a href="http://www.winnipegpass.com/city/" ><strong>Winnipeg City Pass</strong></a></li>
 
-                                <li><a href="https://www.theweathernetwork.com/ca/weather/manitoba/winnipeg" ><strong>Winnipeg Weather</strong></a></li>
-                                <li><a href="http://winnipegtransit.com/en" ><strong>Winnipeg Transit</strong></a></li>
-                                <li><a href="https://goo.gl/maps/Bg8GWt8qps52"><strong>Map</strong></a></li>
+                        <li><a href="https://www.theweathernetwork.com/ca/weather/manitoba/winnipeg" ><strong>Winnipeg Weather</strong></a></li>
+                        <li><a href="http://winnipegtransit.com/en" ><strong>Winnipeg Transit</strong></a></li>
+                        <li><a href="https://goo.gl/maps/Bg8GWt8qps52"><strong>Map</strong></a></li>
                   
                   </ul>
                 </div>
@@ -51,9 +51,7 @@
               </div>
         
   		<div id="footer">
-    
-       
-            
+
             <div id="footer_left">
 				
             	Copyright © 2018 <a href="#">The Omega Group (SD28)</a><br />
@@ -63,6 +61,7 @@
 			
             <div class="cleaner">
             </div>
+
  	    </div>
     </div>
 
