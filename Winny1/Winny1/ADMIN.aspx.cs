@@ -277,7 +277,7 @@ namespace Winny1
             string name = flRestImage.FileName;
             flRestImage.PostedFile.SaveAs(path + name);
             SqlCommand cmd = new SqlCommand("spRestaurants", conn);
-           // plUpdRest.Visible = false;
+            plUpdRest.Visible = false;
             //cmd.Connection = conn;
             cmd.CommandType = CommandType.StoredProcedure;
             if (lblRest.Text == "New")

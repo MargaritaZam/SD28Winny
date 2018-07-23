@@ -979,6 +979,10 @@ as begin
 	begin  
 	select RestaurantId, RestaurantName, Description, Address, PostalCode, ContactNo, Website, './Restaurant/' + path as path, FoodId, LocationId from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId) 
 	end
+	else if @crud='d'
+	begin
+	delete from tbRestaurants where RestaurantId=@RestaurantId
+	end
 	else if @crud='c'
 	begin
 		insert into tbRestaurants(RestaurantName,Description,Address,PostalCode,ContactNo,path,Website,FoodId,LocationId)
@@ -1952,7 +1956,7 @@ create procedure spHotelsCrud
 	@crud varchar(1)
 )
 as begin
-	if @crud='r'
+	if @crud='r'   --  Read   --
 	begin
 		select tbHotels.HotelID, tbHotels.HotelName, tbHotels.HotelPrice, tbHotelStars.Stars,
 			tbHotels.HotelDescription, tbHotels.HotelPhoneNumber, tbHotels.HotelAddress, 
@@ -1971,11 +1975,11 @@ as begin
 	--  Search
 	else if @crud='s'
 	begin
-		select tbHotels.HotelID, tbHotels.HotelName, tbHotels.HotelPrice, tbHotelStars.StarsID, 
+		SELECT tbHotels.HotelID, tbHotels.HotelName, tbHotels.HotelPrice, 
 			tbHotels.HotelDescription, tbHotels.HotelPhoneNumber, tbHotels.HotelAddress, 
-			tbHotels.HotelPostalCode, tbHotels.HotelWebsite, '.\HotelPictures\' + Hotel_path as Hotel_path 
-		from tbHotels inner join tbHotelStars on tbHotels.HotelStarsID=tbHotelStars.StarsID
-		where HotelID = isnull(@hotelID,HotelID)
+			tbHotels.HotelPostalCode, tbHotels.HotelWebsite, '.\HotelPictures\' + Hotel_path AS Hotel_path 
+		FROM tbHotels, tbLocation, tbHotelStars WHERE tbHotels.HotelLocationID = tbLocation.LocationID 
+		and tbHotels.HotelStarsID = tbHotelStars.StarsID
 	end
 	else if @crud='c'
 	begin
