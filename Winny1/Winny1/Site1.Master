@@ -420,8 +420,8 @@ window.onclick = function(event) {
            
             if (login == "c") {
 
-               
-                window.location = "Client.aspx";
+                
+                window.location = "client.aspx";
                  
             }
             else if (login == "a") {
