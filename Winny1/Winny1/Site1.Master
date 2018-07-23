@@ -227,7 +227,7 @@ var year = currentTime.getFullYear()
                         
                     </li>
 
-                    <li class="dropdown"><a href="Shopping.aspx" class="dropbtn">Buy</a>
+                    <li class="dropdown"><a href="Shopping.aspx" onclick="false" class="dropbtn">Buy</a>
                     <div class="dropdown-content">
                         <a href="Shopping.aspx?id=1">Antiques</a>
                         <a href="Shopping.aspx?id=2">Book Stores</a>
@@ -420,7 +420,7 @@ window.onclick = function(event) {
            
             if (login == "c") {
 
-               
+                
                 window.location = "client.aspx";
                  
             }

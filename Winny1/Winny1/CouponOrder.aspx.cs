@@ -6,11 +6,14 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
+using System.Web.UI.HtmlControls;
 
 namespace Winny1
 {
     public partial class CouponOrder : System.Web.UI.Page
     {
+       
+
         SqlConnection conn = new SqlConnection("Data Source= localhost; Initial Catalog=dbGroupProject; Integrated Security= SSPI");
         GetCoupon _coupon = new GetCoupon();
         string _coupon_id;
@@ -19,16 +22,22 @@ namespace Winny1
         {
             //Security security = new Security();
             //security.checkAccess("c");
-            if(!IsPostBack)
-            try
+            if (!IsPostBack)
             {
-                _coupon_id = Request["id"];
-                _qtty = Request["qtty"];
-                loadTotalCouponOrder();
-            }
-            catch (Exception)
-            {
+                HtmlInputButton LogIn = (HtmlInputButton)Master.FindControl("btnLogIn");
+                HtmlInputButton LogOut = (HtmlInputButton)Master.FindControl("btnLogOut");
+                LogOut.Visible = true;
+                LogIn.Visible = false;
+                try
+                {
+                    _coupon_id = Request["id"];
+                    _qtty = Request["qtty"];
+                    loadTotalCouponOrder();
+                }
+                catch (Exception)
+                {
 
+                }
             }
         }
         private void loadTotalCouponOrder()

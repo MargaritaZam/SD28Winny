@@ -513,10 +513,7 @@ exec spStores @Crud='c', @StoreName='Nerman*s Books & Collectibles',
 		@PhoneNumber='204.475.1050',@Web='http://www.nermansbooks.com/', @LocationId=5, @CategoryId=1 
 
 exec spStores @Crud='c', @StoreName='Selim*s Antiques', 
-        @Description='Selim’s Antiques has been in business for almost 50 years. 
-		They have established themselves by specializing in one thing… quality. 
-		Whether it is art, jewelry, furniture, fine collectibles, rugs, tableware or any number of items, 
-		they carry the finest that Winnipeg has to offer.',
+        @Description='Selim’s Antiques has been in business for almost 50 years',
         @Path='Selim Antiques.jpg',@Address='801 Corydon Avenue, Winnipeg, MB, R3M 0W6',
 		@PhoneNumber='204.284.9886',@Web='http://www.selimsantiques.com/', @LocationId=5, @CategoryId=1 
 
@@ -2426,13 +2423,31 @@ create procedure spLogin(
 @password varchar(30)
 )
 as begin
-
+if exists
 ( select accessLevel from tbUsers where email=@email and
           password=@password)
+begin
 
-
+select
+id ,
+firstName ,
+lastName ,
+phoneNumber,
+address ,
+email ,
+password ,
+accessLevel 
+from tbUsers where email=@email and
+          password=@password
+end
+else 
+select 'x' as accessLevel
+begin
+insert into tbWrongLogins(email,password,date) values(@email,@password,getdate())
+end
 end
 go
+exec spLogin @email='margo@winny', @password='pass2'
 --select * from tbUsers
 --go
 
