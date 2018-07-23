@@ -2410,6 +2410,7 @@ if exists
 ( select accessLevel from tbUsers where email=@email and
           password=@password)
 begin
+
 select
 id ,
 firstName ,
@@ -2419,14 +2420,17 @@ address ,
 email ,
 password ,
 accessLevel 
-from tbUsers
+from tbUsers where email=@email and
+          password=@password
 end
 else 
+select 'x' as accessLevel
 begin
 insert into tbWrongLogins(email,password,date) values(@email,@password,getdate())
 end
 end
 go
+exec spLogin @email='margo@winny', @password='pass2'
 --select * from tbUsers
 --go
 
