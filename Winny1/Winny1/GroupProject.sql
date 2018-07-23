@@ -984,6 +984,10 @@ as begin
 	begin  
 	select RestaurantId, RestaurantName, Description, Address, PostalCode, ContactNo, Website, './Restaurant/' + path as path, FoodId, LocationId from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId) 
 	end
+	else if @crud='d'
+	begin
+	delete from tbRestaurants where RestaurantId=@RestaurantId
+	end
 	else if @crud='c'
 	begin
 		insert into tbRestaurants(RestaurantName,Description,Address,PostalCode,ContactNo,path,Website,FoodId,LocationId)
@@ -1726,8 +1730,10 @@ exec spRestaurants @crud='c',
 		@Path='65.png',
 		@FoodId=12,
 		@LocationId=3
-
+		go
 --exec spRestaurants @crud='r'
+--select * from tbRestaurants
+--go
 
 
 --  'About Winnipeg' Table and Procedures  --
