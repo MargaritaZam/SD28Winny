@@ -24,7 +24,7 @@ namespace Winny1
 
             return message;
         }
-        public DataTable loadCoupons(int? couponId, int? categoryId)
+        public DataTable loadCoupons(int? couponId)
         {
             DataSet ds = new DataSet();
             SqlDataAdapter da = new SqlDataAdapter("spCoupon", _conn);
@@ -32,15 +32,25 @@ namespace Winny1
             da.SelectCommand.Parameters.AddWithValue("@Crud", 'r');
             if (couponId != null)
                 da.SelectCommand.Parameters.AddWithValue("@CouponId", couponId);
-            if (categoryId != null)
-                da.SelectCommand.Parameters.AddWithValue("@TypeId", categoryId);
+            //if (categoryId != null)
+            //    da.SelectCommand.Parameters.AddWithValue("@TypeId", categoryId);
             _conn.Open();
             da.Fill(ds);
             _conn.Close();
 
             return ds.Tables[0];
         }
+        public DataTable loadCouponOrders()
+        {
+            DataSet ds = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter("spGetOrder", _conn);
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
+            _conn.Open();
+            da.Fill(ds);
+            _conn.Close();
 
+            return ds.Tables[0];
+        }
     }
 
 }

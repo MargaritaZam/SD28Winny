@@ -30,7 +30,7 @@ namespace Winny1
             public void loadCoupons()
             {
                 //string id = Request.QueryString["id"].ToString();
-                dlCouponOrder.DataSource = _coupon.loadCoupons(null, null);
+                dlCouponOrder.DataSource = _coupon.loadCoupons(null);
                 dlCouponOrder.DataBind();
 
             }
@@ -43,13 +43,15 @@ namespace Winny1
         protected void dlCouponOrder_ItemCommand(object source, DataListCommandEventArgs e)
         {
             DropDownList ddl = (DropDownList)e.Item.FindControl("ddlNumofCoupons");
-            string id = e.CommandArgument.ToString();
-            AddCouponOrder(id, ddl.SelectedValue);
+            string id = e.CommandArgument.ToString();         
+           AddCouponOrder(id, ddl.SelectedValue);
 
         }
         private void AddCouponOrder(string coupon_id, string qtty)
         {
-
+           Response.Redirect(string.Format("CouponOrder.aspx?id={0}&qtty={1}", coupon_id,qtty));
+           
+        
         }
     }
 

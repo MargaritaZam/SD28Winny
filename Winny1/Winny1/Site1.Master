@@ -382,8 +382,6 @@ window.onclick = function(event) {
 }
 </script>
 
-
-
     <script>
         function LogOut()
         {
@@ -471,9 +469,6 @@ window.onclick = function(event) {
             return false;
         }
 </script>
-
-
-
 
 
 </body>
