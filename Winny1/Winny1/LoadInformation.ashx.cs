@@ -92,7 +92,7 @@ namespace Winny1
                                                   //"\", \"PostalCode\":\"" + ds.Tables[0].Rows[i]["PostalCode"].ToString() +
                                                   "\", \"ContactNo\":\"" + ds.Tables[0].Rows[i]["atPhone"].ToString() +
                                                      "\", \"Website\":\"" + ds.Tables[0].Rows[i]["atWebsite"].ToString() +
-                                            "\", \"path\":\"" + ds.Tables[0].Rows[i]["Image"].ToString() +
+                                            "\", \"path\":\"" + ds.Tables[0].Rows[i]["atImage"].ToString() +
                                       "\"}, ";
                 }
 

@@ -122,7 +122,17 @@ as begin
 			from tbAttractions
 			where attractionCategory=isnull (@category, attractionCategory)
 	end
-
+	else if @crud='x'  --  Select Attraction's Categories
+	begin
+		select attractionID, attractionCategory, atName, atDesc, atAddress, 
+				atPhone, atWebsite, './Attractions/'+ atImage as atImage, location 
+			from tbAttractions
+			where attractionCategory=@category
+	end
+	else if @crud='f'
+	begin
+	select distinct attractionCategory from tbAttractions
+	end
 	else if @crud='z'  --  Select attractions by Category
 	begin
 		select * from tbAttractions where attractionCategory=@category
@@ -425,7 +435,7 @@ create table tbStores
 	Address varchar(max) not null,
 	PhoneNumber varchar (50),
 	Web varchar (max),
-	LocationId int foreign key references tbLocation(LocationId) ,
+	LocationId int foreign key references tbLocation(locationID) ,
 	CategoryId int foreign key references tbShoppingCategories(CategoryId)
 )
 go
@@ -933,7 +943,7 @@ create table tbRestaurants
 	path varchar(500),
 	Website varchar(100), 
 	FoodId int foreign key references tbFood_Category(FoodId),
-	LocationId int foreign key references tbLocation(LocationId)
+	LocationId int foreign key references tbLocation(locationID)
 )
 go
 create procedure spRestaurants
@@ -998,7 +1008,8 @@ go
 --select * from tbFood_Category
 --select * from tbLocation
 --go
-
+select *from tbRestaurants
+go
 exec spRestaurants @crud='c',
 		@RestaurantName='Loveys BBQ',
 		@Description='Bring a bib and dig into slow-and-low-smoked meats. House-made sauces add extra pizzazz to this BBQ-lovers haunt. Brisket, pork shoulder and ribs are stars on the menu.',
@@ -1009,7 +1020,16 @@ exec spRestaurants @crud='c',
 		@Path='1.png',
 		@FoodId=1,
 		@LocationId=9
-
+exec spRestaurants @crud='u', @RestaurantId=1,
+@RestaurantName='Loveys BBQ',
+		@Description='Bring a bib and dig into slow-and-low-smoked meats. House-made sauces add extra pizzazz to this BBQ-lovers haunt. Brisket, pork shoulder and ribs are stars on the menu.',
+		@Address='2-208 Marion Sth',
+		@PostalCode='R2H 0T6',
+		@ContactNo='(204) 233-7427',
+		@Website='http://www.loveysbbq.ca/',
+		@Path='1.png',
+		@FoodId=1,
+		@LocationId=9
 exec spRestaurants @crud='c',
 		@RestaurantName='Muddy Waters',
 		@Description='Take a trip to Memphis inside this BBQ joint located at The Forks. Hickory-smoked ribs and pulled pork impress. Also boasts an eclectic menu of chicken wings.',
