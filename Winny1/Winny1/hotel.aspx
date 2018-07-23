@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-<style type="text/css">
+<style>
 div.gallery {
     margin: 5px;
     border: 1px solid #ccc;
@@ -47,7 +47,7 @@ table {
 }
 
 td {
-  padding: 10px 0;
+  padding-right: 10px 0;
   margin-right: 20px;
 }
  </style>
