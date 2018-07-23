@@ -2540,6 +2540,12 @@ select 'Great!' as message
 end
 end
 go
+create procedure spGetCouponOrder(
+@id int=null
+)
+as begin
+select* from tbtbCouponOrder where OrderId=isnull(@id,OrderId)
+end
 
 --create procedure spGetCouponType(
 --@CouponType varchar(max))
