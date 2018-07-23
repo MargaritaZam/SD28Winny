@@ -1721,8 +1721,10 @@ exec spRestaurants @crud='c',
 		@Path='65.png',
 		@FoodId=12,
 		@LocationId=3
-
+		go
 --exec spRestaurants @crud='r'
+--select * from tbRestaurants
+--go
 
 
 --  'About Winnipeg' Table and Procedures  --

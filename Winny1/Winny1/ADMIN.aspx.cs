@@ -261,8 +261,8 @@ namespace Winny1
             txtRPostal.Text = ds.Tables[0].Rows[0]["PostalCode"].ToString();
             txtRPhone.Text = ds.Tables[0].Rows[0]["ContactNo"].ToString();
             txtRWebsite.Text = ds.Tables[0].Rows[0]["Website"].ToString();
-            dlFood.SelectedItem.Value = ds.Tables[0].Rows[0]["FoodId"].ToString();
-            dlLoc.SelectedItem.Value = ds.Tables[0].Rows[0]["LocationId"].ToString();
+            dlFood.SelectedItem.Text = ds.Tables[0].Rows[0]["FoodId"].ToString();
+            dlLoc.SelectedItem.Text = ds.Tables[0].Rows[0]["LocationId"].ToString();
             plUpdRest.Visible = true;
         }
         protected void gvRestaurants_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -277,8 +277,8 @@ namespace Winny1
             string name = flRestImage.FileName;
             flRestImage.PostedFile.SaveAs(path + name);
             SqlCommand cmd = new SqlCommand("spRestaurants", conn);
-            plUpdRest.Visible = false;
-            cmd.Connection = conn;
+           // plUpdRest.Visible = false;
+            //cmd.Connection = conn;
             cmd.CommandType = CommandType.StoredProcedure;
             if (lblRest.Text == "New")
             {
@@ -297,11 +297,13 @@ namespace Winny1
                 conn.Open();
                 cmd.ExecuteNonQuery();
                 conn.Close();
+
+                loadRestaurants();
             }
             else
-            {
+            {        
                 cmd.Parameters.AddWithValue("@crud", "u");
-
+                cmd.Parameters.AddWithValue("@RestaurantId", lblRest.Text);
                 cmd.Parameters.AddWithValue("@RestaurantName", txtRname.Text);
                 cmd.Parameters.AddWithValue("@Description", txtRDesc.Text);
                 cmd.Parameters.AddWithValue("@Address", txtRAddress.Text);
@@ -309,14 +311,16 @@ namespace Winny1
                 cmd.Parameters.AddWithValue("@ContactNo", txtRPhone.Text);
                 cmd.Parameters.AddWithValue("@Path", name);
                 cmd.Parameters.AddWithValue("@website", txtRWebsite.Text);
-                cmd.Parameters.AddWithValue("@FoodId", dlFood.SelectedItem.Value.ToString());
-                cmd.Parameters.AddWithValue("@LocationId", dlLoc.SelectedItem.Value.ToString());
+                cmd.Parameters.AddWithValue("@FoodId", dlFood.SelectedItem.Value);
+                cmd.Parameters.AddWithValue("@LocationId", dlLoc.SelectedItem.Value);
 
                 conn.Open();
                 cmd.ExecuteNonQuery();
                 conn.Close();
+
+                loadRestaurants();
             }
-            loadRestaurants();
+           // loadRestaurants();
         }
 
         protected void gvRestaurants_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
