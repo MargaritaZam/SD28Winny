@@ -1954,7 +1954,7 @@ create procedure spHotelsCrud
 	@crud varchar(1)
 )
 as begin
-	if @crud='r'
+	if @crud='r'   --  Read   --
 	begin
 		select tbHotels.HotelID, tbHotels.HotelName, tbHotels.HotelPrice, tbHotelStars.Stars,
 			tbHotels.HotelDescription, tbHotels.HotelPhoneNumber, tbHotels.HotelAddress, 
@@ -1973,11 +1973,11 @@ as begin
 	--  Search
 	else if @crud='s'
 	begin
-		select tbHotels.HotelID, tbHotels.HotelName, tbHotels.HotelPrice, tbHotelStars.StarsID, 
+		SELECT tbHotels.HotelID, tbHotels.HotelName, tbHotels.HotelPrice, 
 			tbHotels.HotelDescription, tbHotels.HotelPhoneNumber, tbHotels.HotelAddress, 
-			tbHotels.HotelPostalCode, tbHotels.HotelWebsite, '.\HotelPictures\' + Hotel_path as Hotel_path 
-		from tbHotels inner join tbHotelStars on tbHotels.HotelStarsID=tbHotelStars.StarsID
-		where HotelID = isnull(@hotelID,HotelID)
+			tbHotels.HotelPostalCode, tbHotels.HotelWebsite, '.\HotelPictures\' + Hotel_path AS Hotel_path 
+		FROM tbHotels, tbLocation, tbHotelStars WHERE tbHotels.HotelLocationID = tbLocation.LocationID 
+		and tbHotels.HotelStarsID = tbHotelStars.StarsID
 	end
 	else if @crud='c'
 	begin

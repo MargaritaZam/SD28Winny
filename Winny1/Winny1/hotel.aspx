@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-<style>
+<style type="text/css">
 div.gallery {
     margin: 5px;
     border: 1px solid #ccc;
@@ -41,11 +41,14 @@ div.desc {
       }
 
 table {
+    border-collapse: separate;
+    border-spacing: 10px 0;
     margin-left: 25px;
 }
 
-tr {
-    height: 15px;
+td {
+  padding: 10px 0;
+  margin-right: 20px;
 }
  </style>
 
@@ -59,26 +62,13 @@ tr {
             <td>
                 <asp:Label ID="LblHotelStars" AutoPostBack="true" runat="server" Text="Browse by Rating" ForeColor="Black" Font-Bold="true"></asp:Label>
             </td>
-            <td>
-
-            </td>
         </tr>
         <tr>
-            <td>
+            <td style="padding-right: 20px; margin-right: 20px;">
                 <asp:DropDownList ID="DdlLocation" AutoPostBack="true" runat="server" Height="23px" Width="250px" BackColor="White"></asp:DropDownList>
             </td>
-            <td>
+            <td style="padding-right: 20px; margin-right: 20px;">
                 <asp:DropDownList ID="DdlHotelStars" AutoPostBack="true" runat="server" Height="23px" Width="250px" BackColor="White"></asp:DropDownList>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <asp:Label ID="LblSearch" runat="server" Text="Search by Name" ForeColor="Black" Font-Bold="true" BackColor="White"></asp:Label>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <asp:TextBox ID="TxtSearch" runat="server" Height="26px" Width="250px" ></asp:TextBox>
             </td>
             <td>
                 <asp:Button ID="BtnSearch" runat="server" Text="Search" BackColor="#CC0099" Font-Bold="True" ForeColor="White" Height="33px" Width="80px" OnClick="BtnSearch_Click" />

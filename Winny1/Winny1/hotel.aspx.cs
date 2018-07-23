@@ -76,10 +76,7 @@ namespace Winny1
         {
             string StarsID = DdlHotelStars.SelectedItem.Value;
             string LocationId = DdlLocation.SelectedItem.Value;
-            string Location = DdlLocation.SelectedItem.Text;
-
-            TxtSearch.Text = Location;
-
+            
             DAL myDal = new DAL(conn);
             adsource = new PagedDataSource();
             myDal.AddParam("@crud", "s");
