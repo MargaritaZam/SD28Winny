@@ -9,8 +9,8 @@
     </asp:ContentPlaceHolder>
     <link href="StyleSheet1.css" rel="stylesheet" />
     <link href="tooplate_style.css" rel="stylesheet" />
-
-    <script src="Scripts/jquery-3.3.1.min.js"></script>
+    <script src="Scripts/jquery-3.2.1.min.js"></script>
+   
     <style>
 body {font-family: Arial, Helvetica, sans-serif;}
 
@@ -392,7 +392,7 @@ window.onclick = function(event) {
        
         function Login()
         {
-               //alert("testing");
+              
                 var user = document.getElementById('txtUserName').value;
                 var pass = document.getElementById('txtPassword').value;
                 $.ajax(
@@ -405,7 +405,7 @@ window.onclick = function(event) {
                         "password": pass
                     },
                     success: function (login, status) {
-                          // alert("test");
+                          //alert("test");
                         processLogin(login);
                     },
                     err: function (error) {
@@ -427,10 +427,8 @@ window.onclick = function(event) {
                  
             }
             else if (login == "a") {
-              
-                
+
                 window.location = "ADMIN.aspx";
-                
             }
             else
             {
