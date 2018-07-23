@@ -104,6 +104,7 @@
     <Content Include="Chat.aspx" />
     <Content Include="ChatBot.html" />
     <Content Include="Client.aspx" />
+    <Content Include="CouponOrder.aspx" />
     <Content Include="Coupons\boston_pizza_coupon.jpg" />
     <Content Include="Coupons\HudsonBay_coupon.gif" />
     <Content Include="Coupons\Michaels_coupon.jpg" />
@@ -189,6 +190,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
+    <Content Include="login.ashx" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\angular-signalr-hub.js" />
     <Content Include="Scripts\angular-signalr-hub.min.js" />
@@ -222,6 +224,9 @@
     <Content Include="Team.JPG" />
     <Content Include="UniversityPictures\RedRiverCollege.jpg" />
     <Content Include="UniversityPictures\UniversityManitoba.png" />
+    <Content Include="w3images\hamburger.jpg" />
+    <Content Include="w3images\tablesetting.jpg" />
+    <Content Include="w3images\tablesetting2.jpg" />
     <Content Include="We\Anjaly.jpg" />
     <Content Include="We\IMG_0074.JPG" />
     <Content Include="We\Margo.jpg" />
@@ -457,6 +462,13 @@
       <DependentUpon>Client.aspx</DependentUpon>
     </Compile>
     <Compile Include="ConnClass.cs" />
+    <Compile Include="CouponOrder.aspx.cs">
+      <DependentUpon>CouponOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CouponOrder.aspx.designer.cs">
+      <DependentUpon>CouponOrder.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GetCoupon.cs" />
     <Compile Include="hotel.aspx.cs">
       <DependentUpon>hotel.aspx</DependentUpon>
@@ -565,6 +577,7 @@
     </Compile>
     <Compile Include="Winnipeg.cs" />
     <Compile Include="WinnipegAbout.cs" />
+    <Compile Include="WinnipegAttr.cs" />
     <Compile Include="WinnipegMain.cs" />
     <Compile Include="WinnipegSchools.cs" />
     <Compile Include="WinnipegShopping.cs" />

@@ -107,8 +107,8 @@
                     <asp:BoundField DataField="LocationId" HeaderText="LocationId" SortExpression="LocationId" />
 
 
-                    <asp:ButtonField ButtonType="Button" CommandName="Delete" HeaderText="Delete" ShowHeader="True" Text="Del" />
-                    <asp:ButtonField ButtonType="Button" CommandName="Update" HeaderText="Update" ShowHeader="True" Text="Upd" />
+                    <asp:ButtonField ButtonType="Button" CommandName="del" HeaderText="Delete" ShowHeader="True" Text="Del" />
+                    <asp:ButtonField ButtonType="Button" CommandName="upd" HeaderText="Update" ShowHeader="True" Text="Upd" />
 
 
                 </Columns>
@@ -223,13 +223,13 @@
             </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:dbGroupProjectConnectionString %>" SelectCommand="SELECT [StoreId], [StoreName], [Description], [Path], [Address], [PhoneNumber], [Web], [LocationId], [CategoryId] FROM [tbStores]"></asp:SqlDataSource>
             <br />
-            br />
+            <br />
         <asp:Button ID="btnStoreInsert" runat="server" Text="Insert" OnClick="btnStoreInsert_Click" />
             <asp:Label ID="lblStore" runat="server" Text=""></asp:Label>
             <asp:Panel ID="plUpdateStore" runat="server" Visible="false">
                 <table>
                     <tr>
-                        <td>StoreNAme</td>
+                        <td>StoreName</td>
                         <td>
                             <asp:TextBox ID="txtStoreName" runat="server"></asp:TextBox></td>
                     </tr>

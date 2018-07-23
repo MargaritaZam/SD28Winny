@@ -45,7 +45,7 @@ namespace Winny1
             da.Fill(ds);
             conn.Close();
             ddlStoreCategory.DataSource = ds.Tables[0];
-            ddlStoreCategory.DataTextField = "CategoryId";
+            ddlStoreCategory.DataValueField = "CategoryId";
             ddlStoreCategory.DataTextField = "CategoryType";
             ddlStoreCategory.DataBind();
 
@@ -60,7 +60,7 @@ namespace Winny1
             conn.Close();
 
             dlFood.DataSource = ds.Tables[0];
-            dlFood.DataTextField = "FoodId";
+            dlFood.DataValueField = "FoodId";
             dlFood.DataTextField = "FoodType";
             dlFood.DataBind();
         }
@@ -206,8 +206,8 @@ namespace Winny1
             txtRPostal.Text = "";
             txtRPhone.Text = "";
             txtRWebsite.Text = "";
-            dlFood.SelectedItem.Text = "";
-            dlLoc.SelectedItem.Text = "";
+            dlFood.SelectedItem.Value = "";
+            dlLoc.SelectedItem.Value = "";
         }
 
         protected void gvRestaurants_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -222,10 +222,10 @@ namespace Winny1
 
             switch (e.CommandName)
             {
-                case "Delete":
+                case "del":
                     Delete(rid);
                     break;
-                case "Update":
+                case "upd":
                     plUpdRest.Visible = true;
                     Update(rid);
                     break;
@@ -261,8 +261,8 @@ namespace Winny1
             txtRPostal.Text = ds.Tables[0].Rows[0]["PostalCode"].ToString();
             txtRPhone.Text = ds.Tables[0].Rows[0]["ContactNo"].ToString();
             txtRWebsite.Text = ds.Tables[0].Rows[0]["Website"].ToString();
-            dlFood.SelectedItem.Text = ds.Tables[0].Rows[0]["FoodId"].ToString();
-            dlLoc.SelectedItem.Text = ds.Tables[0].Rows[0]["LocationId"].ToString();
+            dlFood.SelectedItem.Value = ds.Tables[0].Rows[0]["FoodId"].ToString();
+            dlLoc.SelectedItem.Value = ds.Tables[0].Rows[0]["LocationId"].ToString();
             plUpdRest.Visible = true;
         }
         protected void gvRestaurants_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -290,8 +290,8 @@ namespace Winny1
                 cmd.Parameters.AddWithValue("@ContactNo", txtRPhone.Text);
                 cmd.Parameters.AddWithValue("@Path", name);
                 cmd.Parameters.AddWithValue("@website", txtRWebsite.Text);
-                cmd.Parameters.AddWithValue("@FoodId", dlFood.SelectedItem.Text);
-                cmd.Parameters.AddWithValue("@LocationId", dlLoc.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("@FoodId", dlFood.SelectedItem.Value.ToString());
+                cmd.Parameters.AddWithValue("@LocationId", dlLoc.SelectedItem.Value.ToString());
 
 
                 conn.Open();
@@ -309,8 +309,8 @@ namespace Winny1
                 cmd.Parameters.AddWithValue("@ContactNo", txtRPhone.Text);
                 cmd.Parameters.AddWithValue("@Path", name);
                 cmd.Parameters.AddWithValue("@website", txtRWebsite.Text);
-                cmd.Parameters.AddWithValue("@FoodId", dlFood.SelectedItem.Text);
-                cmd.Parameters.AddWithValue("@LocationId", dlLoc.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("@FoodId", dlFood.SelectedItem.Value.ToString());
+                cmd.Parameters.AddWithValue("@LocationId", dlLoc.SelectedItem.Value.ToString());
 
                 conn.Open();
                 cmd.ExecuteNonQuery();
@@ -414,8 +414,8 @@ namespace Winny1
             txtStoreAddress.Text = "";
             txtStorePhone.Text = "";
             txtStoreWeb.Text = "";
-            ddlStoreCategory.SelectedItem.Text = "";
-            ddlLoc.SelectedItem.Text = "";
+            ddlStoreCategory.SelectedItem.Value = "";
+            ddlLoc.SelectedItem.Value = "";
         }
 
         protected void btnSavestore_Click(object sender, EventArgs e)
@@ -436,8 +436,8 @@ namespace Winny1
                 comm.Parameters.AddWithValue("@Address", txtStoreAddress.Text);
                 comm.Parameters.AddWithValue("@PhoneNumber", txtStorePhone.Text);
                 comm.Parameters.AddWithValue("@Web", txtStoreWeb.Text);
-                comm.Parameters.AddWithValue("@LocationId", ddlLoc.SelectedItem.Text);
-                comm.Parameters.AddWithValue("@CategoryId", ddlStoreCategory.SelectedItem.Text);
+                comm.Parameters.AddWithValue("@LocationId", ddlLoc.SelectedItem.Value);
+                comm.Parameters.AddWithValue("@CategoryId", ddlStoreCategory.SelectedItem.Value);
                 comm.Parameters.AddWithValue("@Path", Name);
 
                 conn.Open();
@@ -453,8 +453,8 @@ namespace Winny1
                 comm.Parameters.AddWithValue("@Address", txtStoreAddress.Text);
                 comm.Parameters.AddWithValue("@PhoneNumber", txtStorePhone.Text);
                 comm.Parameters.AddWithValue("@Web", txtStoreWeb.Text);
-                comm.Parameters.AddWithValue("@LocationId", ddlLoc.SelectedItem.Text);
-                comm.Parameters.AddWithValue("@CategoryId", ddlStoreCategory.SelectedItem.Text);
+                comm.Parameters.AddWithValue("@LocationId", ddlLoc.SelectedItem.Value);
+                comm.Parameters.AddWithValue("@CategoryId", ddlStoreCategory.SelectedItem.Value);
                 comm.Parameters.AddWithValue("@Path", Name);
 
                 conn.Open();
@@ -549,7 +549,7 @@ namespace Winny1
             {
                 return;
             }
-            // string com = e.CommandName;
+            string com = e.CommandName;
             gvAttractions.SelectedIndex = Convert.ToInt32(e.CommandArgument);
             string aid = gvAttractions.SelectedDataKey["attractionID"].ToString();
 
