@@ -14,7 +14,8 @@ namespace Winny1
     {
         PagedDataSource adsource;
         int pss;
-        SqlConnection conn = new SqlConnection("Data Source=localhost; Initial Catalog=dbShopping; Integrated Security=SSPI");
+
+        string conn= "Data Source=localhost; Initial Catalog=dbShopping; Integrated Security=SSPI";
         WinnipegShopping _shop = new WinnipegShopping();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -29,6 +30,20 @@ namespace Winny1
         }
         public void loadStores()
         {
+            DAL myDal = new DAL(conn);
+            adsource = new PagedDataSource();
+            myDal.AddParam("@crud", "r");
+            DataSet ds = myDal.ExecuteProcedure("spStores");
+            adsource.DataSource = ds.Tables[0].DefaultView;
+            adsource.PageSize = 5;
+            adsource.AllowPaging = true;
+            adsource.CurrentPageIndex = pss;
+            btnfirst.Enabled = !adsource.IsFirstPage;
+            btnprevious.Enabled = !adsource.IsFirstPage;
+            btnlast.Enabled = !adsource.IsLastPage;
+            btnnext.Enabled = !adsource.IsLastPage;
+            dlStores.DataSource = adsource;
+            dlStores.DataBind();
             //DataSet ds = new DataSet();
             //SqlDataAdapter da = new SqlDataAdapter("spStores", conn);
             //da.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -41,11 +56,12 @@ namespace Winny1
             //dlStores.DataBind();
 
 
-            string id = Request.QueryString["id"].ToString();
-            dlStores.DataSource = _shop.LoadStores(null, Convert.ToInt32(id));
-            dlStores.DataBind();
+            //string id = Request.QueryString["id"].ToString();
+            //dlStores.DataSource = _shop.LoadStores(null, Convert.ToInt32(id));
+            //dlStores.DataBind();
         }
 
+    
         protected void btnfirst_Click(object sender, EventArgs e)
         {
             pss = 0;
@@ -66,7 +82,6 @@ namespace Winny1
             pss += 1;
             this.ViewState["vs"] = pss;
             loadStores();
-
         }
 
         protected void btnlast_Click(object sender, EventArgs e)
@@ -75,26 +90,5 @@ namespace Winny1
             loadStores();
         }
 
-        //protected void btnSearch_Click(object sender, EventArgs e)
-        //{
-            //string id = ddlCategory.SelectedItem.Value;
-            //string LocationID = ddlLocation.SelectedItem.Value;
-            //DAL myDal = new DAL(conn);
-            //adsource = new PagedDataSource();
-            //myDal.AddParam("@Crud", "x");
-            //myDal.AddParam("@id", id);
-            //myDal.AddParam("@Location", LocationID);
-            //DataSet ds = myDal.ExecuteProcedure("spStores");
-            //adsource.DataSource = ds.Tables[0].DefaultView;
-            //adsource.PageSize = 3;
-            //adsource.AllowPaging = true;
-            //adsource.CurrentPageIndex = ps;
-            //btnfirst.Enabled = !adsource.IsFirstPage;
-            //btnprevious.Enabled = !adsource.IsFirstPage;
-            //btnlast.Enabled = !adsource.IsLastPage;
-            //btnnext.Enabled = !adsource.IsLastPage;
-            //dlStores.DataSource = adsource;
-            //dlStores.DataBind();
-       // }
     }
 }
