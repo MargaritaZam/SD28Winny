@@ -15,6 +15,9 @@ namespace Winny1
         int pos;
         string conn = "Data Source=localhost;Initial Catalog=dbGroupProject;Integrated Security=SSPI";
 
+        public string HotelStarsID { get; private set; }
+        public string Stars { get; private set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -44,10 +47,10 @@ namespace Winny1
             DAL myDal = new DAL(conn);
 
             DataSet ds = myDal.ExecuteProcedure("spHotelStars");
-            DdlLocation.DataSource = ds.Tables[0];
-            DdlLocation.DataTextField = "NumberOfStars";
-            DdlLocation.DataValueField = "StarsID";
-            DdlLocation.DataBind();
+            DdlHotelStars.DataSource = ds.Tables[0];
+            DdlHotelStars.DataTextField = "Stars";
+            DdlHotelStars.DataValueField = "StarsID";
+            DdlHotelStars.DataBind();
         }
 
         public void loadHotels()
@@ -73,11 +76,15 @@ namespace Winny1
         {
             string StarsID = DdlHotelStars.SelectedItem.Value;
             string LocationId = DdlLocation.SelectedItem.Value;
+            string Location = DdlLocation.SelectedItem.Text;
+
+            TxtSearch.Text = Location;
+
             DAL myDal = new DAL(conn);
             adsource = new PagedDataSource();
             myDal.AddParam("@crud", "s");
-            myDal.AddParam("@starsID", StarsID);
-            myDal.AddParam("@LocationID", LocationId);
+            myDal.AddParam("@hotelStarsID", HotelStarsID);
+            myDal.AddParam("@hotelLocationID", LocationId);
             DataSet ds = myDal.ExecuteProcedure("spHotelsCrud");
             adsource.DataSource = ds.Tables[0].DefaultView;
             adsource.PageSize = 2;

@@ -8,9 +8,9 @@ use dbGroupProject;
 
 
 create table tbSlide(
-slideID int identity(1,1) primary key,
-slidedesc varchar(60),
-path varchar(60)
+	slideID int identity(1,1) primary key,
+	slidedesc varchar(60),
+	path varchar(60)
 )
 go
 
@@ -1881,17 +1881,17 @@ go
 create table tbHotelStars
 (
 	StarsID		  int identity(0,1) primary key,
-	NumberOfStars varchar(12)
+	Stars varchar(12)
 )
-insert into tbHotelStars (NumberOfStars) values
-	('0'),   ('*'),    ('* *'),
+insert into tbHotelStars (Stars) values
+	('--'),   ('*'),    ('* *'),
 	('* * *'), ('* * * *'), ('* * * * *')
 go
 
 create procedure spHotelStars
 (
 	@starsID int = null,
-	@numberStars varchar(12) = null
+	@stars varchar(12) = null
 )
 as begin
 	select * from tbHotelStars where StarsID = isnull(@starsID, StarsID)
@@ -1935,7 +1935,7 @@ create procedure spHotelsCrud
 as begin
 	if @crud='r'
 	begin
-		select tbHotels.HotelID, tbHotels.HotelName, tbHotels.HotelPrice, tbHotelStars.NumberOfStars,
+		select tbHotels.HotelID, tbHotels.HotelName, tbHotels.HotelPrice, tbHotelStars.Stars,
 			tbHotels.HotelDescription, tbHotels.HotelPhoneNumber, tbHotels.HotelAddress, 
 			tbHotels.HotelPostalCode, tbHotels.HotelWebsite, tbHotels.HotelLocationID,
 			'.\HotelPictures\' + Hotel_path as Hotel_path 
@@ -1949,11 +1949,14 @@ as begin
 			HotelAddress, HotelPostalCode, HotelWebsite, HotelLocationID, '.\HotelPictures\' + Hotel_path as Hotel_path 
 		from tbHotels where HotelID = isnull(@hotelID,HotelID)
 	end
+	--  Search
 	else if @crud='s'
 	begin
-		select HotelID, HotelName, HotelPrice, HotelStarsID, HotelDescription, HotelPhoneNumber,
-			HotelAddress, HotelPostalCode, HotelWebsite,'.\HotelPictures\' + Hotel_path as Hotel_path 
-		from tbHotels where HotelID = isnull(@hotelID,HotelID)
+		select tbHotels.HotelID, tbHotels.HotelName, tbHotels.HotelPrice, tbHotelStars.StarsID, 
+			tbHotels.HotelDescription, tbHotels.HotelPhoneNumber, tbHotels.HotelAddress, 
+			tbHotels.HotelPostalCode, tbHotels.HotelWebsite, '.\HotelPictures\' + Hotel_path as Hotel_path 
+		from tbHotels inner join tbHotelStars on tbHotels.HotelStarsID=tbHotelStars.StarsID
+		where HotelID = isnull(@hotelID,HotelID)
 	end
 	else if @crud='c'
 	begin
@@ -1982,7 +1985,9 @@ as begin
 	end
 end
 go
+
 exec spHotelsCrud @crud='s'
+
 exec spHotelsCrud @crud = 'c',
 		@hotelName = 'Alt Hotel Winnipeg',
 		@hotelPrice = 159,
@@ -2540,6 +2545,12 @@ select 'Great!' as message
 end
 end
 go
+create procedure spGetCouponOrder(
+@id int=null
+)
+as begin
+select* from tbtbCouponOrder where OrderId=isnull(@id,OrderId)
+end
 
 --create procedure spGetCouponType(
 --@CouponType varchar(max))

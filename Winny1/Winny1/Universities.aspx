@@ -61,10 +61,10 @@ tr {
         </tr>
         <tr>
             <td>
-                    <asp:DropDownList ID="DdlLocation" runat="server" Height="23px" Width="250px" BackColor="White"></asp:DropDownList>
+                    <asp:DropDownList ID="DdlLocation" AutoPostBack="true" runat="server" Height="23px" Width="250px" BackColor="White"></asp:DropDownList>
             </td>
             <td>
-                    <asp:DropDownList ID="DdlTypeOfSchool"  runat="server" Height="23px" Width="250px" BackColor="White"></asp:DropDownList>
+                    <asp:DropDownList ID="DdlTypeOfSchool" AutoPostBack="true" runat="server" Height="23px" Width="250px" BackColor="White"></asp:DropDownList>
             </td>
         </tr>
         <tr>
