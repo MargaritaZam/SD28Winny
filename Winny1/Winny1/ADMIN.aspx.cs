@@ -60,7 +60,7 @@ namespace Winny1
             conn.Close();
 
             dlFood.DataSource = ds.Tables[0];
-            dlFood.DataTextField = "FoodId";
+            dlFood.DataValueField = "FoodId";
             dlFood.DataTextField = "FoodType";
             dlFood.DataBind();
         }
@@ -222,10 +222,10 @@ namespace Winny1
 
             switch (e.CommandName)
             {
-                case "Delete":
+                case "del":
                     Delete(rid);
                     break;
-                case "Update":
+                case "upd":
                     plUpdRest.Visible = true;
                     Update(rid);
                     break;
@@ -290,8 +290,8 @@ namespace Winny1
                 cmd.Parameters.AddWithValue("@ContactNo", txtRPhone.Text);
                 cmd.Parameters.AddWithValue("@Path", name);
                 cmd.Parameters.AddWithValue("@website", txtRWebsite.Text);
-                cmd.Parameters.AddWithValue("@FoodId", dlFood.SelectedItem.Text);
-                cmd.Parameters.AddWithValue("@LocationId", dlLoc.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("@FoodId", dlFood.SelectedItem.Value);
+                cmd.Parameters.AddWithValue("@LocationId", dlLoc.SelectedItem.Value);
 
 
                 conn.Open();
@@ -549,7 +549,7 @@ namespace Winny1
             {
                 return;
             }
-            // string com = e.CommandName;
+            string com = e.CommandName;
             gvAttractions.SelectedIndex = Convert.ToInt32(e.CommandArgument);
             string aid = gvAttractions.SelectedDataKey["attractionID"].ToString();
 

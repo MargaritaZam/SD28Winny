@@ -107,8 +107,8 @@
                     <asp:BoundField DataField="LocationId" HeaderText="LocationId" SortExpression="LocationId" />
 
 
-                    <asp:ButtonField ButtonType="Button" CommandName="Delete" HeaderText="Delete" ShowHeader="True" Text="Del" />
-                    <asp:ButtonField ButtonType="Button" CommandName="Update" HeaderText="Update" ShowHeader="True" Text="Upd" />
+                    <asp:ButtonField ButtonType="Button" CommandName="del" HeaderText="Delete" ShowHeader="True" Text="Del" />
+                    <asp:ButtonField ButtonType="Button" CommandName="upd" HeaderText="Update" ShowHeader="True" Text="Upd" />
 
 
                 </Columns>
