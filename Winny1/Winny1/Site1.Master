@@ -421,7 +421,7 @@ window.onclick = function(event) {
             if (login == "c") {
 
                
-                window.location = "client.aspx";
+                window.location = "Client.aspx";
                  
             }
             else if (login == "a") {

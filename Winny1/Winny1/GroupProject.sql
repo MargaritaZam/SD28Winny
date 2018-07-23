@@ -2406,25 +2406,26 @@ create procedure spLogin(
 @password varchar(30)
 )
 as begin
-if exists
+--if exists
 ( select accessLevel from tbUsers where email=@email and
           password=@password)
-begin
-select
-id ,
-firstName ,
-lastName ,
-phoneNumber,
-address ,
-email ,
-password ,
-accessLevel 
-from tbUsers
-end
-else 
-begin
-insert into tbWrongLogins(email,password,date) values(@email,@password,getdate())
-end
+--begin
+--select
+--id ,
+--firstName ,
+--lastName ,
+--phoneNumber,
+--address ,
+--email ,
+--password ,
+--accessLevel 
+--from tbUsers
+--end
+--else 
+--begin
+--select 'x' as accessLevel
+--insert into tbWrongLogins(email,password,date) values(@email,@password,getdate())
+--end
 end
 go
 --select * from tbUsers
