@@ -41,7 +41,7 @@
     <div class="image">
         <img src="Team.JPG" width="350" height="300" />
     </div>
-    <div id="main">
+  <div id="main">
         <div>You:<span id="user"></span></div>
         <br />
         <br />
@@ -56,29 +56,21 @@
 
     <script type="text/javascript">
         var trigger = [
-            ['Hello'],
-            ['restaurant'],
-            ['hotel']
-            //['shopping'],
-            //['Who are you?']
-         
+            ["Hello"],
+            ["Are you a human?"],
+            ["bad","bored","tired"]
         ];
         var reply = [
-            ['Hi :)'],
-            ['We recommend clicking on the relevant link on the main page'],
-            ['Robot']
-            //["We recommend clicking on the Hotels link on the main page"],
-            //["We recommend clicking on the Shopping link on the main page"],
-            //["We recommend clicking on the Attractions link on the main page"]
+            ["Hello and Welcome to Winnipeg!How may I help you ?"],
+            ["I am a bot"],
+            ["try watching TV"]
         ];
         var alternative = [
-            ['Hello and Welcome to Winnipeg!How may I help you?'],
-            ['Pick one'],
-            ['I am just a bot']
-            //["We recommend clicking on the Hotels link on the main page"],
-            //["We recommend clicking on the Shopping link on the main page"],
-            //["We recommend clicking on the Attractions link on the main page"]
+            ["Hello and Welcome to Winnipeg!How may I help you ?"],
+            ["I am a bot"],
+            ["try watching TV"]
         ];
+            
         document.querySelector("#input").addEventListener("keypress", function(e){
             var key = e.which || e.keyCode;
             if (key === 13) {
@@ -92,11 +84,11 @@
                 var product = input + "=" + eval(input);
             } catch(e) {
                 var text = (input.toLowerCase()).replace(/[^\w\s\d]/gi, "");
-                text = text.replace(/a/g, "").replace(/I am looking/g, "");
-                //.replace(/hotel/g, "").replace(/shopping/g, "").replace(/attraction/g, "");
+                text = text.replace(/ a /g, " ").replace(/ I feel /g, "");
                 if (compare(trigger, reply, text)) {
                     var product = compare(trigger, reply, text);
                 } else {
+                    
                     var product =alternative[Math.floor(Math.random()*alternative.length)];
                 }
             }

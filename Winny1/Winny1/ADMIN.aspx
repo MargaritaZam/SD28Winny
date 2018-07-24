@@ -80,7 +80,7 @@
         <br />
         <asp:Panel ID="panelRestaurants" runat="server" Visible="false">
             <h2><strong>Restaurants</strong></h2>
-            <asp:GridView ID="gvRestaurants" runat="server" 
+            <asp:GridView ID="gvRestaurants" runat="server" PageSize="3" Font-Size="smaller" 
                 CellPadding="3" DataKeyNames="RestaurantId" AllowPaging="True" AllowSorting="True" 
                 AutoGenerateColumns="False"
                 OnPageIndexChanging="gvRestaurants_PageIndexChanging"
@@ -188,8 +188,8 @@
             <br />
             <br />
             <br />
-            <asp:GridView ID="gvShoping" runat="server" PageSize="5" AutoGenerateColumns="False" AllowPaging="True" BackColor="White"
-                BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3"
+            <asp:GridView ID="gvShoping" runat="server" PageSize="3" AutoGenerateColumns="False" AllowPaging="True" BackColor="White"
+                BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3"  Font-Size="smaller" 
                 DataKeyNames="StoreId" OnPageIndexChanging="gvShoping_PageIndexChanging"
                 OnRowCommand="gvShoping_RowCommand" 
                 OnSorting="gvShoping_Sorting" OnSelectedIndexChanged="gvShoping_SelectedIndexChanged" GridLines="Horizontal">
@@ -286,8 +286,8 @@
             <br />
             <br />
 
-            <asp:GridView ID="gvAttractions" runat="server" AutoGenerateColumns="False" AllowPaging="True" AllowSorting="True"
-                BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" 
+            <asp:GridView ID="gvAttractions" runat="server" AutoGenerateColumns="False" AllowPaging="True" AllowSorting="True" 
+                BackColor="White" BorderColor="#E7E7FF" BorderStyle="None"  PageSize="3" Font-Size="smaller" 
                 BorderWidth="1px" CellPadding="3" DataKeyNames="attractionID" GridLines="Horizontal" OnRowCommand="gvAttractions_RowCommand"
                 OnPageIndexChanging="gvAttractions_PageIndexChanging" OnSelectedIndexChanged="gvAttractions_SelectedIndexChanged"
                 OnSorting="gvAttractions_Sorting">
@@ -385,7 +385,7 @@
             <br />
             <br />
             <br />
-            <asp:GridView ID="gvHotels" runat="server" AutoGenerateColumns="False"
+            <asp:GridView ID="gvHotels" runat="server" AutoGenerateColumns="False" PageSize="3" Font-Size="smaller"
                 DataKeyNames="HotelID" BackColor="White" AllowPaging="True" AllowSorting="True"
                 BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3"
                 GridLines="Horizontal" OnSelectedIndexChanged="gvHotels_SelectedIndexChanged"
