@@ -80,7 +80,7 @@
         <br />
         <asp:Panel ID="panelRestaurants" runat="server" Visible="false">
             <h2><strong>Restaurants</strong></h2>
-            <asp:GridView ID="gvRestaurants" runat="server" 
+            <asp:GridView ID="gvRestaurants" runat="server" PageSize="3" Font-Size="smaller" 
                 CellPadding="3" DataKeyNames="RestaurantId" AllowPaging="True" AllowSorting="True" 
                 AutoGenerateColumns="False"
                 OnPageIndexChanging="gvRestaurants_PageIndexChanging"
