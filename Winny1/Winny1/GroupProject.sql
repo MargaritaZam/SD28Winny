@@ -14,30 +14,33 @@ create table tbSlide(
 )
 go
 
-create procedure spSlide(
-@slideID int=null,
-@slidedesc varchar(60)=null,
-@path varchar(60)=null,
-@crud varchar(1)
+create procedure spSlide
+(
+	@slideID int=null,
+	@slidedesc varchar(60)=null,
+	@path varchar(60)=null,
+	@crud varchar(1)
 )
 as begin
-if @crud='r'
-begin
-select slideID, slidedesc, './Slides/'+ path as path from tbSlide
-where slideID=isnull(@slideID, slideID)
-end
-else if @crud='n'
-begin
-insert into tbSlide(slidedesc, path)values
-                   (@slidedesc, @path)
-end
+	if @crud='r'
+	begin
+		select slideID, slidedesc, './Slides/'+ path as path from tbSlide
+		where slideID=isnull(@slideID, slideID)
+	end
+	else if @crud='n'
+	begin
+		insert into tbSlide(slidedesc, path)values
+						   (@slidedesc, @path)
+	end
 end
 go
-exec spSlide @crud='r'
+
+--exec spSlide @crud='r'
 go
+
 create procedure spGetSlides
 as begin
-select*from tbSlide
+	select*from tbSlide
 end
 go
 
@@ -177,7 +180,9 @@ as begin
 	select distinct attractionCategory as Category from tbAttractions
 end
 go
-exec spGetCategory
+
+--exec spGetCategory
+
 exec spAttractions @crud='c', @category='Museums',
         @name='Winnipeg Police Museum',
         @desc='The Museum is displays artifacts related to the history of the Winnipeg Police Force, dating from its beginning in 1874.', 
@@ -955,7 +960,8 @@ create procedure spRestaurants
 	@website varchar(100)=null,
 	@FoodId int=null,
 	@LocationId int=null,
-	@crud varchar(1)=null
+	@crud varchar(10)=null,
+	@search varchar(50)=null
 )
 as begin
 	if @crud='a'
@@ -975,6 +981,16 @@ as begin
 		where tbRestaurants.LocationId=ISNULL(@LocationId,tbRestaurants.LocationId)
 		and	tbRestaurants.FoodId=ISNULL(@FoodId,tbRestaurants.FoodId)
 	end
+	else if @crud='search'
+	begin
+			select RestaurantName,Description,RestaurantId,'./Restaurant/' + path as path from tbRestaurants  join tbFood_Category  on tbRestaurants.FoodId=tbFood_Category.FoodId					
+						 join tbLocation  on tbRestaurants.LocationId=tbLocation.LocationId 
+						 
+where RestaurantName like'%'+ @search+'%'
+    or FoodType like'%'+ @search+'%'
+	or locationName like'%'+ @search+'%'
+	end
+	
 	else if @crud='w' 
 	begin  
 	select RestaurantId, RestaurantName, Description, Address, PostalCode, ContactNo, Website, './Restaurant/' + path as path, FoodId, LocationId from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId) 
@@ -1007,7 +1023,7 @@ end
 go
 
 --select * from tbFood_Category
---select * from tbLocation
+--select * from location
 --go
 select *from tbRestaurants
 go
@@ -1794,7 +1810,7 @@ exec spAboutCrud @crud = 'c',
 			     @aboutTopic = 'Average Monthly Temperatures',
 			     @aboutDescription = 'Being in the middle of the continent, Winnipeg''s weather varies greatly between summer and winter.  The following table shows the average monthly highs and lows:'
 
-exec spAboutCrud @crud = 'r'
+--exec spAboutCrud @crud = 'r'
 
 create table tbAvgTemps
 (
@@ -1895,8 +1911,7 @@ exec spAvgTempCrud @crud = 'c',
 				   @avgHigh = ' -8 C',
 				   @avgLow = '-17 C'
 
-exec spAvgTempCrud @crud = 'r'
-
+--exec spAvgTempCrud @crud = 'r'
 
 --  Hotel Table and Procedures  --
 
@@ -1975,11 +1990,11 @@ as begin
 	--  Search
 	else if @crud='s'
 	begin
-		SELECT tbHotels.HotelID, tbHotels.HotelName, tbHotels.HotelPrice, 
+		SELECT tbHotels.HotelID, tbHotelStars.Stars, tbHotels.HotelName, tbHotels.HotelPrice, 
 			tbHotels.HotelDescription, tbHotels.HotelPhoneNumber, tbHotels.HotelAddress, 
 			tbHotels.HotelPostalCode, tbHotels.HotelWebsite, '.\HotelPictures\' + Hotel_path AS Hotel_path 
 		FROM tbHotels, tbLocation, tbHotelStars WHERE tbHotels.HotelLocationID = tbLocation.LocationID 
-		and tbHotels.HotelStarsID = tbHotelStars.StarsID
+		and tbHotels.HotelStarsID = tbHotelStars.StarsID ORDER BY HotelName
 	end
 	else if @crud='c'
 	begin
@@ -2008,8 +2023,6 @@ as begin
 	end
 end
 go
-
-exec spHotelsCrud @crud='s'
 
 exec spHotelsCrud @crud = 'c',
 		@hotelName = 'Alt Hotel Winnipeg',
@@ -2168,8 +2181,10 @@ exec spHotelsCrud @crud='c',
 		@hotelLocationId=7
 go
 
---exec spHotelsCrud @crud = 'r'
---go
+exec spHotelsCrud @crud='s', @hotelLocationID=3, @hotelStarsID=2
+
+exec spHotelsCrud @crud = 'r'
+go
 
 --  Universities and Colleges  --
 
@@ -2625,3 +2640,5 @@ end
 --insert into [dbo].[tbl_Users] (UserName,Email,Password)values('admin','admin@admin.com','12345'); 
 --insert into [dbo].[tbl_Users] (UserName,Email,Password)values('Anjali','user1@user.com','12345');  
 --insert into [dbo].[tbl_Users] (UserName,Email,Password)values('Margo','user2@user.com','12345');  
+select * from tbRestaurants
+select * from tbFood_Category
