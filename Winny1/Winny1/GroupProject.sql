@@ -78,9 +78,9 @@ create table tbAttractions
 	attractionCategory varchar(150),
 	atName varchar(100),
 	atDesc varchar(650),
-	atAddress varchar(100),
+	atAddress varchar(200),
 	atPhone varchar(20),
-	atWebsite varchar(200),
+	atWebsite varchar(300),
 	atImage varchar(60),
 	location int foreign key references tbLocation(locationID)
 )
@@ -99,7 +99,7 @@ create procedure spAttractions
 	@phone varchar(20)=null,
 	@website varchar(200)=null,
 	@image varchar(60)=null,
-	@location varchar(60)=null,
+	@location int=null,
 	@crud varchar(1)
 )
 as begin
@@ -200,6 +200,7 @@ exec spAttractions @crud='c', @category='Museums',
         @website='https://humanrights.ca/', 
 		@image='Canadian-Museum-for-Human-Rights.jpg', 
 		@location=9
+
 
 exec spAttractions @crud='c', @category='Museums',
         @name='Winnipeg Railway Museum',
@@ -373,12 +374,15 @@ exec spAttractions @crud='c', @category='Parks',
 		@image='forks.jpg', 
 		@location=9
 
+		
+		exec spAttractions @crud='r'
+go
 --exec spAttractions @crud='a', @category='Museums'
 --exec spAttractions @crud='a', @category='Galleries'
 --exec spAttractions @crud='a', @category='Parks'
 --exec spAttractions @crud='z', @category='Museums'
 
---exec spAttractions @crud='r'
+
 --exec spGetCategory
 
 --  Shopping Category Table and Procedures  --
@@ -2596,7 +2600,17 @@ create procedure spGetCouponOrder(
 as begin
 select* from tbtbCouponOrder where OrderId=isnull(@id,OrderId)
 end
-
+go
+exec spAttractions @crud='u', @id=1, @category='Museums',
+        @name='Winnipeg Police Museum1111',
+        @desc='The Museum is displays artifacts related to the history of the Winnipeg Police Force, dating from its beginning in 1874.', 
+		@address='245 Smith Street, Winnipeg', 
+		@phone='(204) 986-3976',
+        @website='http://winnipeg.ca/police/Museum/', 
+		@image='Winnipeg-Police-Museum.jpg', 
+		@location=9
+		go
+		select*from tbAttractions
 --create procedure spGetCouponType(
 --@CouponType varchar(max))
 --as begin
