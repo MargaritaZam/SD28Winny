@@ -82,7 +82,6 @@ span.psw {
         #right {
             position: absolute;
             top:0;
-            left:1350px;
              right:0;
              width: 134px;
              height:280px;
