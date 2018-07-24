@@ -53,10 +53,9 @@
   		<div id="footer">
 
             <div id="footer_left">
-				
-            	Copyright © 2018 <a href="#">The Omega Group (SD28)</a><br />
-            	 <%--Winnipeg by <a rel="nofollow" href="htp://www.tooplate.com">Templates</a><br /> --%>
-                
+                <%--Copyright © 2018--%> 
+                <a href="#">The Omega Group (SD28)</a>
+                <br />
             </div>
 			
             <div class="cleaner">

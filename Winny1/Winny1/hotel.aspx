@@ -99,7 +99,16 @@ td {
                             Rating: 
                         </td>
                         <td style="width:80%; color:black; text-align: left;">
-                            <%# Eval ("Stars") %>
+                            <%# Eval ("HotelStars") %>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td style="width:20%">
+                            Location: 
+                        </td>
+                        <td style="width:80%; color:black; text-align: left;">
+                            <%# Eval ("LocationName") %>
                         </td>
                         <td></td>
                     </tr>
