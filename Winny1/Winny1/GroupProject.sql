@@ -948,7 +948,8 @@ create procedure spRestaurants
 	@website varchar(100)=null,
 	@FoodId int=null,
 	@LocationId int=null,
-	@crud varchar(1)=null
+	@crud varchar(10)=null,
+	@search varchar(50)=null
 )
 as begin
 	if @crud='a'
@@ -968,6 +969,16 @@ as begin
 		where tbRestaurants.LocationId=ISNULL(@LocationId,tbRestaurants.LocationId)
 		and	tbRestaurants.FoodId=ISNULL(@FoodId,tbRestaurants.FoodId)
 	end
+	else if @crud='search'
+	begin
+			select RestaurantName,Description,RestaurantId,'./Restaurant/' + path as path from tbRestaurants  join tbFood_Category  on tbRestaurants.FoodId=tbFood_Category.FoodId					
+						 join tbLocation  on tbRestaurants.LocationId=tbLocation.LocationId 
+						 
+where RestaurantName like'%'+ @search+'%'
+    or FoodType like'%'+ @search+'%'
+	or locationName like'%'+ @search+'%'
+	end
+	
 	else if @crud='w' 
 	begin  
 	select RestaurantId, RestaurantName, Description, Address, PostalCode, ContactNo, Website, './Restaurant/' + path as path, FoodId, LocationId from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId) 
@@ -996,7 +1007,7 @@ end
 go
 
 --select * from tbFood_Category
---select * from tbLocation
+--select * from location
 --go
 
 exec spRestaurants @crud='c',
@@ -2602,3 +2613,5 @@ end
 --insert into [dbo].[tbl_Users] (UserName,Email,Password)values('admin','admin@admin.com','12345'); 
 --insert into [dbo].[tbl_Users] (UserName,Email,Password)values('Anjali','user1@user.com','12345');  
 --insert into [dbo].[tbl_Users] (UserName,Email,Password)values('Margo','user2@user.com','12345');  
+select * from tbRestaurants
+select * from tbFood_Category

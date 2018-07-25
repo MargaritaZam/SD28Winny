@@ -301,7 +301,7 @@ namespace Winny1
             else
             {
                 cmd.Parameters.AddWithValue("@crud", "u");
-
+                cmd.Parameters.AddWithValue("@RestaurantId", lblRest.Text);
                 cmd.Parameters.AddWithValue("@RestaurantName", txtRname.Text);
                 cmd.Parameters.AddWithValue("@Description", txtRDesc.Text);
                 cmd.Parameters.AddWithValue("@Address", txtRAddress.Text);
