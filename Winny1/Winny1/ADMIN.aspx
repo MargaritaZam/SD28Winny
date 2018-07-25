@@ -80,7 +80,7 @@
         <br />
         <asp:Panel ID="panelRestaurants" runat="server" Visible="false">
             <h2><strong>Restaurants</strong></h2>
-            <asp:GridView ID="gvRestaurants" runat="server" 
+            <asp:GridView ID="gvRestaurants" runat="server" PageSize="3" Font-Size="smaller" 
                 CellPadding="3" DataKeyNames="RestaurantId" AllowPaging="True" AllowSorting="True" 
                 AutoGenerateColumns="False"
                 OnPageIndexChanging="gvRestaurants_PageIndexChanging"
@@ -223,13 +223,13 @@
             </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:dbGroupProjectConnectionString %>" SelectCommand="SELECT [StoreId], [StoreName], [Description], [Path], [Address], [PhoneNumber], [Web], [LocationId], [CategoryId] FROM [tbStores]"></asp:SqlDataSource>
             <br />
-            br />
+            <br />
         <asp:Button ID="btnStoreInsert" runat="server" Text="Insert" OnClick="btnStoreInsert_Click" />
             <asp:Label ID="lblStore" runat="server" Text=""></asp:Label>
             <asp:Panel ID="plUpdateStore" runat="server" Visible="false">
                 <table>
                     <tr>
-                        <td>StoreNAme</td>
+                        <td>StoreName</td>
                         <td>
                             <asp:TextBox ID="txtStoreName" runat="server"></asp:TextBox></td>
                     </tr>

@@ -14,30 +14,33 @@ create table tbSlide(
 )
 go
 
-create procedure spSlide(
-@slideID int=null,
-@slidedesc varchar(60)=null,
-@path varchar(60)=null,
-@crud varchar(1)
+create procedure spSlide
+(
+	@slideID int=null,
+	@slidedesc varchar(60)=null,
+	@path varchar(60)=null,
+	@crud varchar(1)
 )
 as begin
-if @crud='r'
-begin
-select slideID, slidedesc, './Slides/'+ path as path from tbSlide
-where slideID=isnull(@slideID, slideID)
-end
-else if @crud='n'
-begin
-insert into tbSlide(slidedesc, path)values
-                   (@slidedesc, @path)
-end
+	if @crud='r'
+	begin
+		select slideID, slidedesc, './Slides/'+ path as path from tbSlide
+		where slideID=isnull(@slideID, slideID)
+	end
+	else if @crud='n'
+	begin
+		insert into tbSlide(slidedesc, path)values
+						   (@slidedesc, @path)
+	end
 end
 go
-exec spSlide @crud='r'
+
+--exec spSlide @crud='r'
 go
+
 create procedure spGetSlides
 as begin
-select*from tbSlide
+	select*from tbSlide
 end
 go
 
@@ -122,7 +125,17 @@ as begin
 			from tbAttractions
 			where attractionCategory=isnull (@category, attractionCategory)
 	end
-
+	else if @crud='x'  --  Select Attraction's Categories
+	begin
+		select attractionID, attractionCategory, atName, atDesc, atAddress, 
+				atPhone, atWebsite, './Attractions/'+ atImage as atImage, location 
+			from tbAttractions
+			where attractionCategory=@category
+	end
+	else if @crud='f'
+	begin
+	select distinct attractionCategory from tbAttractions
+	end
 	else if @crud='z'  --  Select attractions by Category
 	begin
 		select * from tbAttractions where attractionCategory=@category
@@ -167,7 +180,9 @@ as begin
 	select distinct attractionCategory as Category from tbAttractions
 end
 go
-exec spGetCategory
+
+--exec spGetCategory
+
 exec spAttractions @crud='c', @category='Museums',
         @name='Winnipeg Police Museum',
         @desc='The Museum is displays artifacts related to the history of the Winnipeg Police Force, dating from its beginning in 1874.', 
@@ -425,7 +440,7 @@ create table tbStores
 	Address varchar(max) not null,
 	PhoneNumber varchar (50),
 	Web varchar (max),
-	LocationId int foreign key references tbLocation(LocationId) ,
+	LocationId int foreign key references tbLocation(locationID) ,
 	CategoryId int foreign key references tbShoppingCategories(CategoryId)
 )
 go
@@ -503,10 +518,7 @@ exec spStores @Crud='c', @StoreName='Nerman*s Books & Collectibles',
 		@PhoneNumber='204.475.1050',@Web='http://www.nermansbooks.com/', @LocationId=5, @CategoryId=1 
 
 exec spStores @Crud='c', @StoreName='Selim*s Antiques', 
-        @Description='Selim’s Antiques has been in business for almost 50 years. 
-		They have established themselves by specializing in one thing… quality. 
-		Whether it is art, jewelry, furniture, fine collectibles, rugs, tableware or any number of items, 
-		they carry the finest that Winnipeg has to offer.',
+        @Description='Selim’s Antiques has been in business for almost 50 years',
         @Path='Selim Antiques.jpg',@Address='801 Corydon Avenue, Winnipeg, MB, R3M 0W6',
 		@PhoneNumber='204.284.9886',@Web='http://www.selimsantiques.com/', @LocationId=5, @CategoryId=1 
 
@@ -933,7 +945,7 @@ create table tbRestaurants
 	path varchar(500),
 	Website varchar(100), 
 	FoodId int foreign key references tbFood_Category(FoodId),
-	LocationId int foreign key references tbLocation(LocationId)
+	LocationId int foreign key references tbLocation(locationID)
 )
 go
 create procedure spRestaurants
@@ -983,6 +995,10 @@ where RestaurantName like'%'+ @search+'%'
 	begin  
 	select RestaurantId, RestaurantName, Description, Address, PostalCode, ContactNo, Website, './Restaurant/' + path as path, FoodId, LocationId from tbRestaurants where RestaurantId=isnull(@RestaurantId,RestaurantId) 
 	end
+	else if @crud='d'
+	begin
+	delete from tbRestaurants where RestaurantId=@RestaurantId
+	end
 	else if @crud='c'
 	begin
 		insert into tbRestaurants(RestaurantName,Description,Address,PostalCode,ContactNo,path,Website,FoodId,LocationId)
@@ -1009,7 +1025,8 @@ go
 --select * from tbFood_Category
 --select * from location
 --go
-
+select *from tbRestaurants
+go
 exec spRestaurants @crud='c',
 		@RestaurantName='Loveys BBQ',
 		@Description='Bring a bib and dig into slow-and-low-smoked meats. House-made sauces add extra pizzazz to this BBQ-lovers haunt. Brisket, pork shoulder and ribs are stars on the menu.',
@@ -1020,7 +1037,16 @@ exec spRestaurants @crud='c',
 		@Path='1.png',
 		@FoodId=1,
 		@LocationId=9
-
+exec spRestaurants @crud='u', @RestaurantId=1,
+@RestaurantName='Loveys BBQ',
+		@Description='Bring a bib and dig into slow-and-low-smoked meats. House-made sauces add extra pizzazz to this BBQ-lovers haunt. Brisket, pork shoulder and ribs are stars on the menu.',
+		@Address='2-208 Marion Sth',
+		@PostalCode='R2H 0T6',
+		@ContactNo='(204) 233-7427',
+		@Website='http://www.loveysbbq.ca/',
+		@Path='1.png',
+		@FoodId=1,
+		@LocationId=9
 exec spRestaurants @crud='c',
 		@RestaurantName='Muddy Waters',
 		@Description='Take a trip to Memphis inside this BBQ joint located at The Forks. Hickory-smoked ribs and pulled pork impress. Also boasts an eclectic menu of chicken wings.',
@@ -1715,8 +1741,10 @@ exec spRestaurants @crud='c',
 		@Path='65.png',
 		@FoodId=12,
 		@LocationId=3
-
+		go
 --exec spRestaurants @crud='r'
+--select * from tbRestaurants
+--go
 
 
 --  'About Winnipeg' Table and Procedures  --
@@ -1782,7 +1810,7 @@ exec spAboutCrud @crud = 'c',
 			     @aboutTopic = 'Average Monthly Temperatures',
 			     @aboutDescription = 'Being in the middle of the continent, Winnipeg''s weather varies greatly between summer and winter.  The following table shows the average monthly highs and lows:'
 
-exec spAboutCrud @crud = 'r'
+--exec spAboutCrud @crud = 'r'
 
 create table tbAvgTemps
 (
@@ -1883,8 +1911,7 @@ exec spAvgTempCrud @crud = 'c',
 				   @avgHigh = ' -8 C',
 				   @avgLow = '-17 C'
 
-exec spAvgTempCrud @crud = 'r'
-
+--exec spAvgTempCrud @crud = 'r'
 
 --  Hotel Table and Procedures  --
 
@@ -1944,7 +1971,7 @@ create procedure spHotelsCrud
 	@crud varchar(1)
 )
 as begin
-	if @crud='r'
+	if @crud='r'   --  Read   --
 	begin
 		select tbHotels.HotelID, tbHotels.HotelName, tbHotels.HotelPrice, tbHotelStars.Stars,
 			tbHotels.HotelDescription, tbHotels.HotelPhoneNumber, tbHotels.HotelAddress, 
@@ -1963,11 +1990,11 @@ as begin
 	--  Search
 	else if @crud='s'
 	begin
-		select tbHotels.HotelID, tbHotels.HotelName, tbHotels.HotelPrice, tbHotelStars.StarsID, 
+		SELECT tbHotels.HotelID, tbHotelStars.Stars, tbHotels.HotelName, tbHotels.HotelPrice, 
 			tbHotels.HotelDescription, tbHotels.HotelPhoneNumber, tbHotels.HotelAddress, 
-			tbHotels.HotelPostalCode, tbHotels.HotelWebsite, '.\HotelPictures\' + Hotel_path as Hotel_path 
-		from tbHotels inner join tbHotelStars on tbHotels.HotelStarsID=tbHotelStars.StarsID
-		where HotelID = isnull(@hotelID,HotelID)
+			tbHotels.HotelPostalCode, tbHotels.HotelWebsite, '.\HotelPictures\' + Hotel_path AS Hotel_path 
+		FROM tbHotels, tbLocation, tbHotelStars WHERE tbHotels.HotelLocationID = tbLocation.LocationID 
+		and tbHotels.HotelStarsID = tbHotelStars.StarsID ORDER BY HotelName
 	end
 	else if @crud='c'
 	begin
@@ -1996,8 +2023,6 @@ as begin
 	end
 end
 go
-
-exec spHotelsCrud @crud='s'
 
 exec spHotelsCrud @crud = 'c',
 		@hotelName = 'Alt Hotel Winnipeg',
@@ -2156,8 +2181,10 @@ exec spHotelsCrud @crud='c',
 		@hotelLocationId=7
 go
 
---exec spHotelsCrud @crud = 'r'
---go
+exec spHotelsCrud @crud='s', @hotelLocationID=3, @hotelStarsID=2
+
+exec spHotelsCrud @crud = 'r'
+go
 
 --  Universities and Colleges  --
 

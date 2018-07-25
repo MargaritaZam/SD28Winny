@@ -40,11 +40,16 @@ div.desc {
       .auto-style6 {
           width: 268px;
       }
+
 table {
+    border-collapse: separate;
+    border-spacing: 10px 0;
     margin-left: 25px;
 }
-tr {
-    height: 15px;
+
+td {
+  padding-right: 10px 0;
+  margin-right: 20px;
 }
 </style>
 
@@ -56,25 +61,15 @@ tr {
                 <asp:Label ID="lblLocation" runat="server" Text="Browse by Location" ForeColor="Black" Font-Bold="true"></asp:Label>
             </td>
             <td>
-                    <asp:Label ID="lblTypeOfSchool" runat="server" Text="Browse by Type of School" ForeColor="Black" Font-Bold="true"></asp:Label>
+                <asp:Label ID="lblTypeOfSchool" runat="server" Text="Browse by Type of School" ForeColor="Black" Font-Bold="true"></asp:Label>
             </td>
         </tr>
         <tr>
             <td>
-                    <asp:DropDownList ID="DdlLocation" AutoPostBack="true" runat="server" Height="23px" Width="250px" BackColor="White"></asp:DropDownList>
+                <asp:DropDownList ID="DdlLocation" AutoPostBack="true" runat="server" Height="23px" Width="250px" BackColor="White"></asp:DropDownList>
             </td>
             <td>
-                    <asp:DropDownList ID="DdlTypeOfSchool" AutoPostBack="true" runat="server" Height="23px" Width="250px" BackColor="White"></asp:DropDownList>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <asp:Label ID="lblSearch" runat="server" Text="Search by Name" ForeColor="Black" Font-Bold="true" BackColor="White"></asp:Label>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                    <asp:TextBox ID="TxtSearch" runat="server" Height="26px" Width="250px"></asp:TextBox>
+                <asp:DropDownList ID="DdlTypeOfSchool" AutoPostBack="true" runat="server" Height="23px" Width="250px" BackColor="White"></asp:DropDownList>
             </td>
             <td>
                 <asp:Button ID="BtnSearch" runat="server" Text="Search" BackColor="#CC0099" Font-Bold="True" ForeColor="White" Height="33px" Width="80px" OnClick="BtnSearch_Click" />

@@ -577,6 +577,7 @@
     </Compile>
     <Compile Include="Winnipeg.cs" />
     <Compile Include="WinnipegAbout.cs" />
+    <Compile Include="WinnipegAttr.cs" />
     <Compile Include="WinnipegMain.cs" />
     <Compile Include="WinnipegSchools.cs" />
     <Compile Include="WinnipegShopping.cs" />

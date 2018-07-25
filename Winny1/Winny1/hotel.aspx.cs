@@ -74,17 +74,14 @@ namespace Winny1
 
         protected void BtnSearch_Click(object sender, EventArgs e)
         {
-            string StarsID = DdlHotelStars.SelectedItem.Value;
+            string Stars = DdlHotelStars.SelectedItem.Value;
             string LocationId = DdlLocation.SelectedItem.Value;
-            string Location = DdlLocation.SelectedItem.Text;
-
-            TxtSearch.Text = Location;
-
+            
             DAL myDal = new DAL(conn);
             adsource = new PagedDataSource();
             myDal.AddParam("@crud", "s");
             myDal.AddParam("@hotelStarsID", HotelStarsID);
-            myDal.AddParam("@hotelLocationID", LocationId);
+            //myDal.AddParam("@hotelLocationID", LocationId);
             DataSet ds = myDal.ExecuteProcedure("spHotelsCrud");
             adsource.DataSource = ds.Tables[0].DefaultView;
             adsource.PageSize = 2;

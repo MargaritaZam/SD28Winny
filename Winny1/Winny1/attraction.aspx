@@ -32,7 +32,7 @@
     <br />
      <br />
     <br />
-<%--<table>
+<table>
     <tr>
         <td>
             <asp:Label ID="lblLocation" runat="server" Text="Browse by Location" ForeColor="Black" Font-Bold="true"></asp:Label>
@@ -52,13 +52,13 @@
                  <asp:ListItem>Parks</asp:ListItem>
              </asp:DropDownList>
         </td>
-    </tr>--%>
-   <%-- <tr>
+    </tr>
+   <tr>
         <td>
             <asp:Label ID="lblSearch" runat="server" Text="Searh by Name" ForeColor="Black" Font-Bold="true" BackColor="White"></asp:Label>
         </td>
-    </tr>--%>
-   <%-- <tr>
+    </tr>
+   <tr>
         <td>
              <asp:TextBox ID="txtSearch" runat="server" Height="26px" Width="258px"></asp:TextBox>
         </td>
@@ -67,8 +67,8 @@
         <td>
             <asp:Button ID="btnSearch" runat="server" Text="Search" BackColor="#CC0099" Font-Bold="True" ForeColor="White" Height="33px" Width="80px" OnClick="btnSearch_Click" />
         </td>
-    </tr>--%>
-<%--</table>--%>
+    </tr>
+</table>
         <br />
         <br />
         <asp:DataList ID="dlAttraction" runat="server" CssClass="11">
