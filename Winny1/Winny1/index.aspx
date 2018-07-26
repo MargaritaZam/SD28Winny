@@ -43,10 +43,10 @@
             </div>
         </div>
 			  
-              <div class="panel" id="gallery">
+             <%-- <div class="panel" id="gallery">
                 <h1>Our Gallery</h1>
-                <div id="gallery_container">
-                  <div class="gallery_box"> <a href="WpgImages/WinnipegSign.jpg"><img src="WpgImages/WinnipegSign.jpg" /></a> </div>
+                <div id="gallery_container" >
+                  <div class="gallery_box" > <a href="WpgImages/WinnipegSign.jpg" ><img src="WpgImages/WinnipegSign.jpg" /></a> </div>
                   <div class="gallery_box"> <a href="WpgImages/ForksHarbour.jpg"><img src="WpgImages/ForksHarbour.jpg" /></a> </div>
                   <div class="gallery_box"> <a href="WpgImages/GoldenBoy.png"><img src="WpgImages/GoldenBoy.png" /></a> </div>
                   <div class="gallery_box gb_rm"> <a href="WpgImages/InsideLegislature.png"><img src="WpgImages/InsideLegislature.png" /></a> </div>
@@ -60,8 +60,9 @@
                   <div class="gallery_box gb_rm"> <a href="WpgImages/Winter.jpg"><img src="WpgImages/Winter.jpg" /></a> </div>
                   <div class="cleaner"></div>
                 </div>
-              </div>
-        
+              </div>--%>
+        <br />
+           <br />
   		<div id="footer">
 
            <%-- <div id="footer_left">

@@ -470,7 +470,7 @@
     <Compile Include="attraction.aspx.designer.cs">
       <DependentUpon>attraction.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Attraction.cs" />
+    <Compile Include="Events.cs" />
     <Compile Include="Chat.aspx.cs">
       <DependentUpon>Chat.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -551,7 +551,6 @@
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
     <Compile Include="Restaurant.cs" />
-    <Compile Include="Restclass.cs" />
     <Compile Include="Restaurants.aspx.cs">
       <DependentUpon>Restaurants.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -575,7 +574,6 @@
       <DependentUpon>Site1.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
-    <Compile Include="Store.cs" />
     <Compile Include="Universities.aspx.cs">
       <DependentUpon>Universities.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -600,10 +598,10 @@
     <Compile Include="Winnipeg.aspx.designer.cs">
       <DependentUpon>Winnipeg.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Winnipeg.cs" />
+    <Compile Include="WinnipegEvent.cs" />
     <Compile Include="WinnipegAbout.cs" />
     <Compile Include="WinnipegAttr.cs" />
-    <Compile Include="WinnipegMain.cs" />
+    <Compile Include="WinnipegEventMain.cs" />
     <Compile Include="WinnipegSchools.cs" />
     <Compile Include="WinnipegShopping.cs" />
   </ItemGroup>
