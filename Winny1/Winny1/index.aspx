@@ -2,6 +2,18 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <style>
+        #footer {
+            background-color: #12152e;
+            padding: 10px;
+            text-align: center;
+            /*color: steelblue;*/
+            border: double;
+            border-color: gold;
+            width:100%;
+            height:15px;
+        }
+    </style>
     <div class="cleaner">
  </div>
      
@@ -34,34 +46,35 @@
               <div class="panel" id="gallery">
                 <h1>Our Gallery</h1>
                 <div id="gallery_container">
-                  <div class="gallery_box"> <a href="#"><img src="WpgImages/WinnipegSign.jpg" /></a> </div>
-                  <div class="gallery_box"> <a href="#"><img src="WpgImages/ForksHarbour.jpg" /></a> </div>
-                  <div class="gallery_box"> <a href="#"><img src="WpgImages/GoldenBoy.png" /></a> </div>
-                  <div class="gallery_box gb_rm"> <a href="#"><img src="WpgImages/InsideLegislature.png" /></a> </div>
-                  <div class="gallery_box"> <a href="#"><img src="WpgImages/PortageMain.jpg" /></a> </div>
-                  <div class="gallery_box"> <a href="#"><img src="WpgImages/WinnieBear.jpg" /></a> </div>
-                  <div class="gallery_box"> <a href="#"><img src="WpgImages/BoyAndBoot.jpg" /></a> </div>
-                  <div class="gallery_box gb_rm"> <a href="#"><img src="WpgImages/AcrossRiver.jpg" /></a> </div>
-                  <div class="gallery_box"> <a href="#"><img src="WpgImages/Pool.jpg" /></a> </div>
-                  <div class="gallery_box"> <a href="#"><img src="WpgImages/PortageAve.jpg" /></a> </div>
-                  <div class="gallery_box"> <a href="#"><img src="WpgImages/TheForks.jpg" /></a> </div>
-                  <div class="gallery_box gb_rm"> <a href="#"><img src="WpgImages/Winter.jpg" /></a> </div>
+                  <div class="gallery_box"> <a href="WpgImages/WinnipegSign.jpg"><img src="WpgImages/WinnipegSign.jpg" /></a> </div>
+                  <div class="gallery_box"> <a href="WpgImages/ForksHarbour.jpg"><img src="WpgImages/ForksHarbour.jpg" /></a> </div>
+                  <div class="gallery_box"> <a href="WpgImages/GoldenBoy.png"><img src="WpgImages/GoldenBoy.png" /></a> </div>
+                  <div class="gallery_box gb_rm"> <a href="WpgImages/InsideLegislature.png"><img src="WpgImages/InsideLegislature.png" /></a> </div>
+                  <div class="gallery_box"> <a href="WpgImages/PortageMain.jpg"><img src="WpgImages/PortageMain.jpg" /></a> </div>
+                  <div class="gallery_box"> <a href="WpgImages/WinnieBear.jpg"><img src="WpgImages/WinnieBear.jpg" /></a> </div>
+                  <div class="gallery_box"> <a href="WpgImages/BoyAndBoot.jpg"><img src="WpgImages/BoyAndBoot.jpg" /></a> </div>
+                  <div class="gallery_box gb_rm"> <a href="WpgImages/AcrossRiver.jpg"><img src="WpgImages/AcrossRiver.jpg" /></a> </div>
+                  <div class="gallery_box"> <a href="WpgImages/Pool.jpg"><img src="WpgImages/Pool.jpg" /></a> </div>
+                  <div class="gallery_box"> <a href="WpgImages/PortageAve.jpg"><img src="WpgImages/PortageAve.jpg" /></a> </div>
+                  <div class="gallery_box"> <a href="WpgImages/TheForks.jpg"><img src="WpgImages/TheForks.jpg" /></a> </div>
+                  <div class="gallery_box gb_rm"> <a href="WpgImages/Winter.jpg"><img src="WpgImages/Winter.jpg" /></a> </div>
                   <div class="cleaner"></div>
                 </div>
               </div>
         
   		<div id="footer">
 
-            <div id="footer_left">
+           <%-- <div id="footer_left">
                 <%--Copyright © 2018--%> 
-                <a href="#">The Omega Group (SD28)</a>
+               <%-- <a href="#">The Omega Group (SD28)</a>--%>
+                 <p style="color:white;  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;"><strong>ROBERTSON COLLEGE / THE OMEGA GROUP(SD28) / SUMMER 2018</strong></p>
                 <br />
             </div>
 			
-            <div class="cleaner">
-            </div>
+            <%--<div class="cleaner">
+            </div>--%>
 
- 	    </div>
+ 	   
     </div>
 
 </asp:Content>
