@@ -100,7 +100,8 @@ create procedure spAttractions
 	@website varchar(200)=null,
 	@image varchar(60)=null,
 	@location int=null,
-	@crud varchar(1)
+	@crud varchar(10),
+	@search varchar(50)=null
 )
 as begin
 	if @crud ='r'
@@ -110,7 +111,15 @@ as begin
 		atWebsite, './Attractions/'+ atImage as atImage, location from tbAttractions
 		where attractionID=isnull(@id, attractionID)
 	end
-
+	else if @crud='search'
+	begin
+			select attractionCategory,atName,atDesc,atAddress,atPhone,atWebsite,attractionID,location, './Attractions/' + atImage as atImage from tbAttractions  
+						 
+						 
+where atName like'%'+ @search+'%'
+    or attractionCategory like'%'+ @search+'%'
+	or location like'%'+ @search+'%'
+	end
 	else if @crud='c'
 	begin
 		insert into tbAttractions(attractionCategory, atName, atDesc, 
@@ -159,6 +168,7 @@ as begin
 			 location =@location
 			 where attractionID=@id
 	end
+
 end
 go
 
@@ -376,6 +386,7 @@ exec spAttractions @crud='c', @category='Parks',
 
 		
 		exec spAttractions @crud='r'
+		exec spAttractions @crud='search'
 go
 --exec spAttractions @crud='a', @category='Museums'
 --exec spAttractions @crud='a', @category='Galleries'

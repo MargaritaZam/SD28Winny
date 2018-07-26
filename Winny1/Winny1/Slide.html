@@ -6,7 +6,9 @@
         * {
             box-sizing: border-box
         }
-
+        #btn{
+            color:aqua;
+        }
         .mySlides {
             display: none
         }
@@ -56,90 +58,92 @@
             }
             </style>
         </head >
-        <body>
-        <h1 style="text-align:center; color:gold" > Welcome to Winnipeg</h1 >
-            <br />
+<body>
+  
+    <h1 style="text-align:center; color:gold"> Welcome to Winnipeg</h1>
+    <br />
+   
 
-        <div class="slideshow-container">
+    <div class="slideshow-container">
 
-            <div class="mySlides">
-                <img src="Slides/main.jpg" style=" width:100%">
-            </div>
-
-            <div class="mySlides">
-                <img src="Slides/bridge.jpg" style=" width:100%">
-            </div>
-
-            <div class="mySlides">
-                <img src="Slides/canHumanightview.jpg" style=" width:100%">
-            </div>
-
-            <div class="mySlides">
-                <img src="Slides/downtown.jpg" style="width:100%">
-            </div>
-
-            <div class="mySlides">
-                <img src="Slides/forks.jpg" style="width:100%">
-            </div>
-
-            <div class="mySlides">
-                <img src="Slides/goldenboy.jpg" style="width:100%">
-            </div>
-
-            <div class="mySlides">
-                <img src="Slides/highview.jpg" style="width:100%">
-            </div>
-
-            <div class="mySlides">
-                <img src="Slides/humanrig.jpg" style="width:100%">
-            </div>
-
-            <div class="mySlides">
-                <img src="Slides/mts_centre.jpg" style="width:100%">
-            </div>
-
-            <div class="mySlides">
-                <img src="Slides/nightdowntown.jpg" style="width:100%">
-            </div>
-
-            <div class="mySlides">
-                <img src="Slides/nightview.jpg" style="width:100%">
-            </div>
-
-            <div class="mySlides">
-                <img src="Slides/riverview.jpg" style="width:100%">
-            </div>
-
-            <div class="mySlides">
-                <img src="Slides/street.jpg" style=" width:100%">
-            </div>
-            <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
+        <div class="mySlides">
+            <img src="Slides/main.jpg" style=" width:100%">
         </div>
+
+        <div class="mySlides">
+            <img src="Slides/bridge.jpg" style=" width:100%">
+        </div>
+
+        <div class="mySlides">
+            <img src="Slides/canHumanightview.jpg" style=" width:100%">
+        </div>
+
+        <div class="mySlides">
+            <img src="Slides/downtown.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <img src="Slides/forks.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <img src="Slides/goldenboy.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <img src="Slides/highview.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <img src="Slides/humanrig.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <img src="Slides/mts_centre.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <img src="Slides/nightdowntown.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <img src="Slides/nightview.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <img src="Slides/riverview.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <img src="Slides/street.jpg" style=" width:100%">
+        </div>
+        <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
+    </div>
+
+
+
+    <script>
+        var slideIndex = [1, 1];
+        var slideId = ["mySlides"]
+        showSlides(1, 0);
+        showSlides(1, 1);
+
+        function plusSlides(n, no) {
+            showSlides(slideIndex[no] += n, no);
+        }
         
-        
-
-        <script >
-            var slideIndex = [1, 1];
-            var slideId = ["mySlides"]
-            showSlides(1, 0);
-            showSlides(1, 1);
-
-            function plusSlides(n, no) {
-                showSlides(slideIndex[no] += n, no);
+        function showSlides(n, no) {
+            var i;
+            var x = document.getElementsByClassName(slideId[no]);
+            if (n > x.length) { slideIndex[no] = 1 }
+            if (n < 1) { slideIndex[no] = x.length }
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
             }
+            x[slideIndex[no] - 1].style.display = "block";
+        }
 
-            function showSlides(n, no) {
-                var i;
-                var x = document.getElementsByClassName(slideId[no]);
-                if (n > x.length) { slideIndex[no] = 1 }
-                if (n < 1) { slideIndex[no] = x.length }
-                for (i = 0; i < x.length; i++) {
-                    x[i].style.display = "none";
-                }
-                x[slideIndex[no] - 1].style.display = "block";
-            }
-
-        </script >
-        </body >
+    </script>
+</body>
         </html >
