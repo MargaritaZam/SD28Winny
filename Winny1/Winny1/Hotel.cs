@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Winny1
 {
-    public class Hotel:Winnipeg
+    public class Hotel:WinnipegEvent
     {
         //public string HotelPostalCode { get; set; }
 
