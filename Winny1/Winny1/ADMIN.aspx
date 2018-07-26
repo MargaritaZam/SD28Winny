@@ -398,7 +398,7 @@
                     <asp:BoundField DataField="HotelID" HeaderText="HotelID" InsertVisible="False" ReadOnly="True" SortExpression="HotelID" />
                     <asp:BoundField DataField="HotelName" HeaderText="HotelName" SortExpression="HotelName" />
                     <asp:BoundField DataField="HotelPrice" HeaderText="HotelPrice" SortExpression="HotelPrice" />
-                    <asp:BoundField DataField="HotelStarsID" HeaderText="HotelStarsID" SortExpression="HotelStarsID" />
+                    <asp:BoundField DataField="HotelRatingID" HeaderText="HotelRatingID" SortExpression="HotelRatingID" />
                     <asp:BoundField DataField="HotelDescription" HeaderText="HotelDescription" SortExpression="HotelDescription" />
                     <asp:BoundField DataField="HotelPhoneNumber" HeaderText="HotelPhoneNumber" SortExpression="HotelPhoneNumber" />
                     <asp:BoundField DataField="HotelAddress" HeaderText="HotelAddress" SortExpression="HotelAddress" />
@@ -422,7 +422,7 @@
                 <SortedDescendingHeaderStyle BackColor="#3E3277" />
 
             </asp:GridView>
-            <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:dbGroupProjectConnectionString %>" SelectCommand="SELECT [HotelID], [HotelName], [HotelPrice], [HotelStars], [HotelDescription], [HotelPhoneNumber], [HotelAddress], [HotelPostalCode], [HotelLocationID], [Hotel_path], [HotelWebsite] FROM [tbHotels]"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:dbGroupProjectConnectionString %>" SelectCommand="SELECT [HotelID], [HotelName], [HotelPrice], [HotelRatingID], [HotelDescription], [HotelPhoneNumber], [HotelAddress], [HotelPostalCode], [HotelLocationID], [Hotel_path], [HotelWebsite] FROM [tbHotels]"></asp:SqlDataSource>
 
             <br />
             <br />
@@ -441,9 +441,9 @@
                             <asp:TextBox ID="txtHotelPrice" runat="server"></asp:TextBox></td>
                     </tr>
                     <tr>
-                        <td>HotelStars</td>
+                        <td>HotelRating</td>
                         <td>
-                            <asp:TextBox ID="txtHotelStars" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtHotelRating" runat="server"></asp:TextBox></td>
                     </tr>
                     <tr>
                         <td>HotelDesc</td>
