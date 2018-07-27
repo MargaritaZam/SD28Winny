@@ -669,7 +669,7 @@ namespace Winny1
 
             txtHotelName.Text = dataset.Tables[0].Rows[0]["HotelName"].ToString();
             txtHotelPrice.Text = dataset.Tables[0].Rows[0]["HotelPrice"].ToString();
-            txtHotelStars.Text = dataset.Tables[0].Rows[0]["HotelStarsID"].ToString();
+            txtHotelRating.Text = dataset.Tables[0].Rows[0]["Rating"].ToString();
             txtHotelDesc.Text = dataset.Tables[0].Rows[0]["HotelDescription"].ToString();
             txtHotelPhone.Text = dataset.Tables[0].Rows[0]["HotelPhoneNumber"].ToString();
             txtHotelAddress.Text = dataset.Tables[0].Rows[0]["HotelAddress"].ToString();
@@ -692,7 +692,7 @@ namespace Winny1
             lblHotel.Text = "New";
             txtHotelName.Text = "";
             txtHotelPrice.Text = "";
-            txtHotelStars.Text = "";
+            txtHotelRating.Text = "";
             txtHotelDesc.Text = "";
             txtHotelPhone.Text = "";
             txtHotelAddress.Text = "";
@@ -717,7 +717,7 @@ namespace Winny1
                 com.Parameters.AddWithValue("@crud", "c");
                 com.Parameters.AddWithValue("@hotelName", txtHotelName.Text);
                 com.Parameters.AddWithValue("@hotelPrice", txtHotelPrice.Text);
-                com.Parameters.AddWithValue("@hotelStarsID", txtHotelStars.Text);
+                com.Parameters.AddWithValue("@hotelRatingIDID", txtHotelRating.Text);
                 com.Parameters.AddWithValue("@hotelDescription", txtHotelDesc.Text);
                 com.Parameters.AddWithValue("@hotelPhoneNumber", txtHotelPhone.Text);
                 com.Parameters.AddWithValue("@hotelAddress", txtHotelAddress.Text);
@@ -737,7 +737,7 @@ namespace Winny1
                 com.Parameters.AddWithValue("@hotelID", lblHotel.Text);
                 com.Parameters.AddWithValue("@hotelName", txtHotelName.Text);
                 com.Parameters.AddWithValue("@hotelPrice", txtHotelPrice.Text);
-                com.Parameters.AddWithValue("@hotelStarsID", txtHotelStars.Text);
+                com.Parameters.AddWithValue("@hotelRatingID", txtHotelRating.Text);
                 com.Parameters.AddWithValue("@hotelDescription", txtHotelDesc.Text);
                 com.Parameters.AddWithValue("@hotelPhoneNumber", txtHotelPhone.Text);
                 com.Parameters.AddWithValue("@hotelAddress", txtHotelAddress.Text);
