@@ -99,6 +99,7 @@
     <Content Include="AboutUs.html" />
     <Content Include="ADMIN.aspx" />
     <Content Include="Anjali.sql" />
+    <Content Include="Articles.html" />
     <Content Include="attraction.aspx" />
     <Content Include="Attractions\antennae.jpg" />
     <Content Include="Attractions\art-gallery.jpg" />
@@ -255,7 +256,7 @@
     <Content Include="We\Anjaly.jpg" />
     <Content Include="We\IMG_0074.JPG" />
     <Content Include="We\Margo.jpg" />
-    <Content Include="We\Nataly.jpg" />
+    <Content Include="We\Nata.jpg" />
     <Content Include="We\Tracy.jpg" />
     <Content Include="Winnipeg.aspx" />
     <Content Include="WpgImages\AcrossRiver.jpg" />
