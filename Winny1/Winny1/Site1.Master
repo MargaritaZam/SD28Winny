@@ -205,7 +205,7 @@ var year = currentTime.getFullYear()
              <div id="menu">
                 <ul class="navigation">
            
-                    <li><a href="#home" class="selected">Home</a></li>
+                    <li><a href="index.aspx" class="selected">Home</a></li>
                      <li><a href="Slide.html" class="selected">Gallery</a></li>
 
                     <li class="dropdown">
