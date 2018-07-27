@@ -8,7 +8,7 @@ using DAL_Project;
 
 namespace Winny1
 {
-    public class School : Winnipeg
+    public class School : WinnipegEvent
     {
 
         //public string SchoolPostalCode { get; set; }

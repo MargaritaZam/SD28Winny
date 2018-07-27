@@ -206,8 +206,7 @@ namespace Winny1
             txtRPostal.Text = "";
             txtRPhone.Text = "";
             txtRWebsite.Text = "";
-            dlFood.SelectedItem.Value = "";
-            dlLoc.SelectedItem.Value = "";
+           
         }
 
         protected void gvRestaurants_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -273,7 +272,7 @@ namespace Winny1
 
         protected void btbRestSave_Click(object sender, EventArgs e)
         {
-            string path = Server.MapPath(@".\Restaurant");
+            string path = Server.MapPath(@".\Restaurant\");
             string name = flRestImage.FileName;
             flRestImage.PostedFile.SaveAs(path + name);
             SqlCommand cmd = new SqlCommand("spRestaurants", conn);
@@ -290,8 +289,8 @@ namespace Winny1
                 cmd.Parameters.AddWithValue("@ContactNo", txtRPhone.Text);
                 cmd.Parameters.AddWithValue("@Path", name);
                 cmd.Parameters.AddWithValue("@website", txtRWebsite.Text);
-                cmd.Parameters.AddWithValue("@FoodId", dlFood.SelectedItem.Value.ToString());
-                cmd.Parameters.AddWithValue("@LocationId", dlLoc.SelectedItem.Value.ToString());
+                cmd.Parameters.AddWithValue("@FoodId", dlFood.SelectedItem.Value);
+                cmd.Parameters.AddWithValue("@LocationId", dlLoc.SelectedItem.Value);
 
 
                 conn.Open();
@@ -418,8 +417,7 @@ namespace Winny1
             txtStoreAddress.Text = "";
             txtStorePhone.Text = "";
             txtStoreWeb.Text = "";
-            ddlStoreCategory.SelectedItem.Value = "";
-            ddlLoc.SelectedItem.Value = "";
+           
         }
 
         protected void btnSavestore_Click(object sender, EventArgs e)
@@ -447,6 +445,7 @@ namespace Winny1
                 conn.Open();
                 comm.ExecuteNonQuery();
                 conn.Close();
+                loadStores();
             }
             else
             {
@@ -464,8 +463,9 @@ namespace Winny1
                 conn.Open();
                 comm.ExecuteNonQuery();
                 conn.Close();
+                loadStores();
             }
-            loadStores();
+          //loadStores();
         }
         private void loadAttractions()
         {
@@ -491,8 +491,7 @@ namespace Winny1
             txtAttrAddress.Text = "";
             txtAttrPhone.Text = "";
             txtAttrWeb.Text = "";
-            //ddlAttrCategory.SelectedItem.Text = "";
-            //ddllocat.SelectedItem.Text = "";
+           
         }
 
         protected void gvAttractions_SelectedIndexChanged(object sender, EventArgs e)
@@ -507,10 +506,10 @@ namespace Winny1
             flAttrImage.PostedFile.SaveAs(PATH + NAME);
             pnlUpdateAttr.Visible = false;
             SqlCommand com = new SqlCommand("spAttractions", conn);
-            com.Connection = conn;
+            //com.Connection = conn;
             com.CommandType = CommandType.StoredProcedure;
 
-            if (lblStore.Text == "New")
+            if (lblAttr.Text == "New")
             {
                 com.Parameters.AddWithValue("@crud", "c");
                 com.Parameters.AddWithValue("@name", txtAttrName.Text);
@@ -518,13 +517,14 @@ namespace Winny1
                 com.Parameters.AddWithValue("@address", txtAttrAddress.Text);
                 com.Parameters.AddWithValue("@phone", txtAttrPhone.Text);
                 com.Parameters.AddWithValue("@website", txtAttrWeb.Text);
-                com.Parameters.AddWithValue("@location", ddllocat.SelectedItem.Text);
+                com.Parameters.AddWithValue("@location", ddllocat.SelectedItem.Value);
                 com.Parameters.AddWithValue("@category", ddlAttrCategory.SelectedItem.Text);
                 com.Parameters.AddWithValue("@image", NAME);
 
                 conn.Open();
                 com.ExecuteNonQuery();
                 conn.Close();
+                loadAttractions();
             }
             else
             {
@@ -535,7 +535,7 @@ namespace Winny1
                 com.Parameters.AddWithValue("@address", txtAttrAddress.Text);
                 com.Parameters.AddWithValue("@phone", txtAttrPhone.Text);
                 com.Parameters.AddWithValue("@website", txtAttrWeb.Text);
-                com.Parameters.AddWithValue("@location", ddllocat.SelectedItem.Text);
+                com.Parameters.AddWithValue("@location", ddllocat.SelectedItem.Value);
                 com.Parameters.AddWithValue("@category", ddlAttrCategory.SelectedItem.Text);
                 com.Parameters.AddWithValue("@image", NAME);
 
@@ -543,8 +543,9 @@ namespace Winny1
                 conn.Open();
                 com.ExecuteNonQuery();
                 conn.Close();
+                loadAttractions();
             }
-            loadAttractions();
+           // loadAttractions();
     }
 
         protected void gvAttractions_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -599,6 +600,11 @@ namespace Winny1
             txtAttrAddress.Text = dS.Tables[0].Rows[0]["atAddress"].ToString();
             txtAttrPhone.Text = dS.Tables[0].Rows[0]["atPhone"].ToString();
             txtAttrWeb.Text = dS.Tables[0].Rows[0]["atWebsite"].ToString();
+            ddlAttrCategory.SelectedItem.Text = dS.Tables[0].Rows[0]["attractionCategory"].ToString();
+            ddllocat.SelectedItem.Value = dS.Tables[0].Rows[0]["location"].ToString();
+            pnlUpdateAttr.Visible = true;
+
+
 
         }
         private void loadHotels()
@@ -622,7 +628,7 @@ namespace Winny1
                 return;
             }
             string comd = e.CommandName;
-            gvHotels.SelectedIndex = Convert.ToInt32(e.CommandName);
+            gvHotels.SelectedIndex = Convert.ToInt32(e.CommandArgument);
             string hid = gvHotels.SelectedDataKey["HotelID"].ToString();
 
             switch (e.CommandName)
@@ -654,7 +660,7 @@ namespace Winny1
             DataSet dataset = new DataSet();
             SqlDataAdapter sda = new SqlDataAdapter("spHotelsCrud", conn);
             sda.SelectCommand.CommandType = CommandType.StoredProcedure;
-            sda.SelectCommand.Parameters.AddWithValue("@crud", "r");
+            sda.SelectCommand.Parameters.AddWithValue("@crud", "h");
             sda.SelectCommand.Parameters.AddWithValue("@hotelID", hid);
             conn.Open();
             sda.Fill(dataset);
@@ -663,12 +669,14 @@ namespace Winny1
 
             txtHotelName.Text = dataset.Tables[0].Rows[0]["HotelName"].ToString();
             txtHotelPrice.Text = dataset.Tables[0].Rows[0]["HotelPrice"].ToString();
-            txtHotelStars.Text = dataset.Tables[0].Rows[0]["HotelStarsID"].ToString();
+            txtHotelRating.Text = dataset.Tables[0].Rows[0]["Rating"].ToString();
             txtHotelDesc.Text = dataset.Tables[0].Rows[0]["HotelDescription"].ToString();
             txtHotelPhone.Text = dataset.Tables[0].Rows[0]["HotelPhoneNumber"].ToString();
             txtHotelAddress.Text = dataset.Tables[0].Rows[0]["HotelAddress"].ToString();
             txtHotelPostal.Text = dataset.Tables[0].Rows[0]["HotelPostalCode"].ToString();
             txtHotelWeb.Text = dataset.Tables[0].Rows[0]["HotelWebsite"].ToString();
+            ddlHotelLoc.SelectedItem.Value = dataset.Tables[0].Rows[0]["HotelLocationID"].ToString();
+            pnlUpdateHotel.Visible = true;
 
 
         }
@@ -684,14 +692,14 @@ namespace Winny1
             lblHotel.Text = "New";
             txtHotelName.Text = "";
             txtHotelPrice.Text = "";
-            txtHotelStars.Text = "";
+            txtHotelRating.Text = "";
             txtHotelDesc.Text = "";
             txtHotelPhone.Text = "";
             txtHotelAddress.Text = "";
             txtHotelPostal.Text = "";
             txtHotelWeb.Text = "";
             txtHotelPhone.Text = "";
-            ddllocat.SelectedItem.Text = "";
+           
         }
 
         protected void btnSaveHotel_Click(object sender, EventArgs e)
@@ -701,7 +709,7 @@ namespace Winny1
             flHotelImage.PostedFile.SaveAs(Hpath + Hname);
             pnlUpdateHotel.Visible = false;
             SqlCommand com = new SqlCommand("spHotelsCrud", conn);
-            com.Connection = conn;
+           // com.Connection = conn;
             com.CommandType = CommandType.StoredProcedure;
 
             if (lblHotel.Text == "New")
@@ -709,18 +717,19 @@ namespace Winny1
                 com.Parameters.AddWithValue("@crud", "c");
                 com.Parameters.AddWithValue("@hotelName", txtHotelName.Text);
                 com.Parameters.AddWithValue("@hotelPrice", txtHotelPrice.Text);
-                com.Parameters.AddWithValue("@hotelStarsID", txtHotelStars.Text);
+                com.Parameters.AddWithValue("@hotelRatingIDID", txtHotelRating.Text);
                 com.Parameters.AddWithValue("@hotelDescription", txtHotelDesc.Text);
                 com.Parameters.AddWithValue("@hotelPhoneNumber", txtHotelPhone.Text);
                 com.Parameters.AddWithValue("@hotelAddress", txtHotelAddress.Text);
                 com.Parameters.AddWithValue("@hotelPostalCode", txtHotelPostal.Text);
                 com.Parameters.AddWithValue("@hotelWebsite", txtHotelWeb.Text);
-                com.Parameters.AddWithValue("@hotelLocationID", ddlHotelLoc.SelectedItem.Text);
+                com.Parameters.AddWithValue("@hotelLocationID", ddlHotelLoc.SelectedItem.Value);
                 com.Parameters.AddWithValue("@hotel_path", Hname);
 
                 conn.Open();
                 com.ExecuteNonQuery();
                 conn.Close();
+                loadHotels();
             }
             else
             {
@@ -728,21 +737,22 @@ namespace Winny1
                 com.Parameters.AddWithValue("@hotelID", lblHotel.Text);
                 com.Parameters.AddWithValue("@hotelName", txtHotelName.Text);
                 com.Parameters.AddWithValue("@hotelPrice", txtHotelPrice.Text);
-                com.Parameters.AddWithValue("@hotelStarsID", txtHotelStars.Text);
+                com.Parameters.AddWithValue("@hotelRatingID", txtHotelRating.Text);
                 com.Parameters.AddWithValue("@hotelDescription", txtHotelDesc.Text);
                 com.Parameters.AddWithValue("@hotelPhoneNumber", txtHotelPhone.Text);
                 com.Parameters.AddWithValue("@hotelAddress", txtHotelAddress.Text);
                 com.Parameters.AddWithValue("@hotelPostalCode", txtHotelPostal.Text);
                 com.Parameters.AddWithValue("@hotelWebsite", txtHotelWeb.Text);
-                com.Parameters.AddWithValue("@hotelLocationID", ddlHotelLoc.SelectedItem.Text);
+                com.Parameters.AddWithValue("@hotelLocationID", ddlHotelLoc.SelectedItem.Value);
                 com.Parameters.AddWithValue("@hotel_path", Hname);
 
 
                 conn.Open();
                 com.ExecuteNonQuery();
                 conn.Close();
+                loadHotels();
             }
-            loadHotels();
+           // loadHotels();
         }
 
         protected void gvAttractions_PageIndexChanging(object sender, GridViewPageEventArgs e)

@@ -31,13 +31,13 @@ namespace Winny1 {
         protected global::System.Web.UI.WebControls.Label LblLocation;
         
         /// <summary>
-        /// LblHotelStars control.
+        /// LblHotelRating control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblHotelStars;
+        protected global::System.Web.UI.WebControls.Label LblHotelRating;
         
         /// <summary>
         /// DdlLocation control.
@@ -49,13 +49,13 @@ namespace Winny1 {
         protected global::System.Web.UI.WebControls.DropDownList DdlLocation;
         
         /// <summary>
-        /// DdlHotelStars control.
+        /// DdlHotelRating control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DdlHotelStars;
+        protected global::System.Web.UI.WebControls.DropDownList DdlHotelRating;
         
         /// <summary>
         /// BtnSearch control.

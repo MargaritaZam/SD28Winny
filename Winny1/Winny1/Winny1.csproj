@@ -100,6 +100,31 @@
     <Content Include="ADMIN.aspx" />
     <Content Include="Anjali.sql" />
     <Content Include="attraction.aspx" />
+    <Content Include="Attractions\antennae.jpg" />
+    <Content Include="Attractions\art-gallery.jpg" />
+    <Content Include="Attractions\assiniboine-park-zoo.jpg" />
+    <Content Include="Attractions\assinpark.jpg" />
+    <Content Include="Attractions\birdshill.png" />
+    <Content Include="Attractions\Canadian-Museum-for-Human-Rights.jpg" />
+    <Content Include="Attractions\childrenmuseum.jpg" />
+    <Content Include="Attractions\Costume-Museum-of-Canada.jpg" />
+    <Content Include="Attractions\forks.jpg" />
+    <Content Include="Attractions\kildonanpark.jpg" />
+    <Content Include="Attractions\King.jpg" />
+    <Content Include="Attractions\loch_winnipeg.jpg" />
+    <Content Include="Attractions\Manitoba-Museum.jpg" />
+    <Content Include="Attractions\manitogahan.jpg" />
+    <Content Include="Attractions\oseredok.jpg" />
+    <Content Include="Attractions\pulse.jpg" />
+    <Content Include="Attractions\redriverex.jpg" />
+    <Content Include="Attractions\Royal-Winnipeg-Rifles-Museum-Archives.jpg" />
+    <Content Include="Attractions\stVital.jpg" />
+    <Content Include="Attractions\warehouse.jpg" />
+    <Content Include="Attractions\whytefort.jpg" />
+    <Content Include="Attractions\Winnipeg-Police-Museum.jpg" />
+    <Content Include="Attractions\Winnipeg-Railway-Museum.jpg" />
+    <Content Include="Attractions\woodland %282%29.jpg" />
+    <Content Include="Attractions\woodland.jpg" />
     <Content Include="Avatar.png" />
     <Content Include="Chat.aspx" />
     <Content Include="ChatBot.html" />
@@ -445,7 +470,7 @@
     <Compile Include="attraction.aspx.designer.cs">
       <DependentUpon>attraction.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Attraction.cs" />
+    <Compile Include="Events.cs" />
     <Compile Include="Chat.aspx.cs">
       <DependentUpon>Chat.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -526,7 +551,6 @@
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
     <Compile Include="Restaurant.cs" />
-    <Compile Include="Restclass.cs" />
     <Compile Include="Restaurants.aspx.cs">
       <DependentUpon>Restaurants.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -550,7 +574,6 @@
       <DependentUpon>Site1.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
-    <Compile Include="Store.cs" />
     <Compile Include="Universities.aspx.cs">
       <DependentUpon>Universities.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -575,10 +598,10 @@
     <Compile Include="Winnipeg.aspx.designer.cs">
       <DependentUpon>Winnipeg.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Winnipeg.cs" />
+    <Compile Include="WinnipegEvent.cs" />
     <Compile Include="WinnipegAbout.cs" />
     <Compile Include="WinnipegAttr.cs" />
-    <Compile Include="WinnipegMain.cs" />
+    <Compile Include="WinnipegEventMain.cs" />
     <Compile Include="WinnipegSchools.cs" />
     <Compile Include="WinnipegShopping.cs" />
   </ItemGroup>

@@ -15,7 +15,7 @@ namespace Winny1
         int pos;
         string conn = "Data Source=localhost;Initial Catalog=dbGroupProject;Integrated Security=SSPI";
 
-        public string HotelStarsID { get; private set; }
+        public string HotelRating { get; private set; }
         public string Stars { get; private set; }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -24,8 +24,7 @@ namespace Winny1
             {
                 this.ViewState["vs"] = 0;
                 loadLocation();
-                this.ViewState["vs"] = 0;
-                loadHotelStars();
+                loadRating();
             }
             pos = (int)this.ViewState["vs"];
             loadHotels();
@@ -41,18 +40,7 @@ namespace Winny1
             DdlLocation.DataValueField = "LocationID";
             DdlLocation.DataBind();
         }
-
-        public void loadHotelStars()
-        {
-            DAL myDal = new DAL(conn);
-
-            DataSet ds = myDal.ExecuteProcedure("spHotelStars");
-            DdlHotelStars.DataSource = ds.Tables[0];
-            DdlHotelStars.DataTextField = "Stars";
-            DdlHotelStars.DataValueField = "StarsID";
-            DdlHotelStars.DataBind();
-        }
-
+        
         public void loadHotels()
         {
             DAL myDal = new DAL(conn);
@@ -60,6 +48,7 @@ namespace Winny1
             adsource = new PagedDataSource();
             myDal.AddParam("@crud", "r");
             DataSet ds = myDal.ExecuteProcedure("spHotelsCrud");
+            DdlLocation.DataTextField = "HotelRating";
             adsource.DataSource = ds.Tables[0].DefaultView;
             adsource.PageSize = 2;
             adsource.AllowPaging = true;
@@ -74,14 +63,14 @@ namespace Winny1
 
         protected void BtnSearch_Click(object sender, EventArgs e)
         {
-            string Stars = DdlHotelStars.SelectedItem.Value;
+            string HotelRating = DdlHotelRating.SelectedItem.Value;
             string LocationId = DdlLocation.SelectedItem.Value;
             
             DAL myDal = new DAL(conn);
             adsource = new PagedDataSource();
-            myDal.AddParam("@crud", "s");
-            myDal.AddParam("@hotelStarsID", HotelStarsID);
-            //myDal.AddParam("@hotelLocationID", LocationId);
+            myDal.AddParam("@crud", "r");
+            myDal.AddParam("@hotelRatingID", HotelRatingID);
+            myDal.AddParam("@hotelLocationID", LocationId);
             DataSet ds = myDal.ExecuteProcedure("spHotelsCrud");
             adsource.DataSource = ds.Tables[0].DefaultView;
             adsource.PageSize = 2;

@@ -60,7 +60,7 @@ td {
                 <asp:Label ID="LblLocation" AutoPostBack="true" runat="server" Text="Browse by Location" ForeColor="Black" Font-Bold="true"></asp:Label>
             </td>
             <td>
-                <asp:Label ID="LblHotelStars" AutoPostBack="true" runat="server" Text="Browse by Rating" ForeColor="Black" Font-Bold="true"></asp:Label>
+                <asp:Label ID="LblHotelRating" AutoPostBack="true" runat="server" Text="Browse by Rating" ForeColor="Black" Font-Bold="true"></asp:Label>
             </td>
         </tr>
         <tr>
@@ -68,7 +68,7 @@ td {
                 <asp:DropDownList ID="DdlLocation" AutoPostBack="true" runat="server" Height="23px" Width="250px" BackColor="White"></asp:DropDownList>
             </td>
             <td style="padding-right: 20px; margin-right: 20px;">
-                <asp:DropDownList ID="DdlHotelStars" AutoPostBack="true" runat="server" Height="23px" Width="250px" BackColor="White"></asp:DropDownList>
+                <asp:DropDownList ID="DdlHotelRating" AutoPostBack="true" runat="server" Height="23px" Width="250px" BackColor="White"></asp:DropDownList>
             </td>
             <td>
                 <asp:Button ID="BtnSearch" runat="server" Text="Search" BackColor="#CC0099" Font-Bold="True" ForeColor="White" Height="33px" Width="80px" OnClick="BtnSearch_Click" />
@@ -78,11 +78,11 @@ td {
 
     <asp:DataList ID="DlHotels" DataKeyField="HotelID" RepeatColumns="1" RepeatDirection="Horizontal" runat="server" CssClass="auto-style7">
         <ItemTemplate>
-            <div class="Hotels" style="width:650px;" onclick="return ViewHotel(<%#Eval("HotelID") %>)">
+            <div class="Hotels" style="width: 700px;" onclick="return ViewHotel(<%#Eval("HotelID") %>)">
                 
                 <table>
                     <tr>
-                        <td colspan="2" rowspan="8" style="padding: 10px;">
+                        <td colspan="2" rowspan="9" style="padding: 10px;">
                             <asp:Image ID="ImgHotel" runat="server" ImageUrl='<%# Eval("Hotel_path") %>' />
                         </td>
                         <td colspan="3" style="text-align: center; color:red; font-weight:bold;">
@@ -95,11 +95,20 @@ td {
                         </td>
                     </tr>
                     <tr>
-                        <td style="width:20%">
+                        <td style="width:40%">
                             Rating: 
                         </td>
-                        <td style="width:80%; color:black; text-align: left;">
-                            <%# Eval ("Stars") %>
+                        <td style="width:60%; color:black; text-align: left;">
+                            <%# Eval ("HotelRating") %>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td style="width:40%">
+                            Location: 
+                        </td>
+                        <td style="width:60%; color:black; text-align: left;">
+                            <%# Eval ("LocationName") %>
                         </td>
                         <td></td>
                     </tr>
@@ -140,7 +149,7 @@ td {
                             Website: 
                         </td>
                         <td colspan="2" style="color:black; text-align: left;">
-                            <asp:HyperLink ID="HyperLinkHotel" runat="server" NavigateUrl='<%# Eval ("HotelWebsite") %>' ></asp:HyperLink>
+                            <asp:HyperLink ID="HlHotel" runat="server" NavigateUrl='<%# Eval ("HotelWebsite") %>' Text='<%# Eval ("HotelWebsite") %>'></asp:HyperLink>
                         </td>
                     </tr>
                 </table>
