@@ -58,17 +58,21 @@
         var trigger = [
             ["Hello"],
             ["Are you a human?"],
-            ["bad","bored","tired"]
+            ["restaurant"],
+            ["hotel"]
         ];
         var reply = [
-            ["Hello and Welcome to Winnipeg!How may I help you ?"],
-            ["I am a bot"],
-            ["try watching TV"]
+            ["Welcome"],
+            ["I am just a bot"],
+            ["pick eat on the main page"],
+            ["pick stay on Winnipeg website "]
         ];
         var alternative = [
             ["Hello and Welcome to Winnipeg!How may I help you ?"],
-            ["I am a bot"],
-            ["try watching TV"]
+            ["I am a bot, I am not a human"],
+            ["Click on eat section"],
+            ["Click on stay"]
+              
         ];
             
         document.querySelector("#input").addEventListener("keypress", function(e){
@@ -84,11 +88,13 @@
                 var product = input + "=" + eval(input);
             } catch(e) {
                 var text = (input.toLowerCase()).replace(/[^\w\s\d]/gi, "");
-                text = text.replace(/ a /g, " ").replace(/ I feel /g, "");
+                text = text.replace(/ a /g, " ").replace(/ hello /g, "Hello and Welcome to Winnipeg!How may I help you ?")
+                    .replace(/ are you a human? /g, "I am a bot, I am not a human")
+                    .replace(/ restaurant /g, "Click on eat section")
+                    .replace(/ hotel /g, "Click on stay");
                 if (compare(trigger, reply, text)) {
                     var product = compare(trigger, reply, text);
-                } else {
-                    
+                } else {                  
                     var product =alternative[Math.floor(Math.random()*alternative.length)];
                 }
             }
@@ -107,6 +113,7 @@
             }
             return item;
         }
+      
     </script>
 </body>
 </html>

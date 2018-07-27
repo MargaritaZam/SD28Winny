@@ -2642,3 +2642,4 @@ end
 --insert into [dbo].[tbl_Users] (UserName,Email,Password)values('Margo','user2@user.com','12345');  
 select * from tbRestaurants
 select * from tbFood_Category
+
