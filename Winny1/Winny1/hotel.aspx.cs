@@ -21,7 +21,7 @@ namespace Winny1
             {
                 this.ViewState["vs"] = 0;
                 loadLocation();
-                loadRating();
+               // loadRating();
             }
             pos = (int)this.ViewState["vs"];
             loadHotels();
@@ -72,15 +72,15 @@ namespace Winny1
 
         protected void BtnSearch_Click(object sender, EventArgs e)
         {
+            string HotelRating = DdlHotelRating.SelectedItem.Value;
             string LocationId = DdlLocation.SelectedItem.Value;
-            string RatingId = DdlRating.SelectedItem.Value;
-
+            
             DAL myDal = new DAL(conn);
             adsource = new PagedDataSource();
-            myDal.AddParam("@crud", "s");
+            myDal.AddParam("@crud", "r");
+            myDal.AddParam("@hotelRatingID", HotelRatingID);
             myDal.AddParam("@hotelLocationID", LocationId);
-            myDal.AddParam("@hotelRatingID", RatingId);
-            DataSet ds = myDal.ExecuteProcedure("spHotelCrud");
+            DataSet ds = myDal.ExecuteProcedure("spHotelsCrud");
             adsource.DataSource = ds.Tables[0].DefaultView;
             adsource.PageSize = 2;
             adsource.AllowPaging = true;
@@ -120,5 +120,6 @@ namespace Winny1
             pos = adsource.PageCount - 1;
             loadHotels();
         }
+
     }
 }
