@@ -65,7 +65,7 @@ namespace Winny1
         {
             string HotelRating = DdlHotelRating.SelectedItem.Value;
             string LocationId = DdlLocation.SelectedItem.Value;
-            
+
             DAL myDal = new DAL(conn);
             adsource = new PagedDataSource();
             myDal.AddParam("@crud", "r");
@@ -111,5 +111,6 @@ namespace Winny1
             pos = adsource.PageCount - 1;
             loadHotels();
         }
+
     }
 }
