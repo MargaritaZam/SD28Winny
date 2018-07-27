@@ -24,7 +24,7 @@ namespace Winny1
             {
                 this.ViewState["vs"] = 0;
                 loadLocation();
-                loadRating();
+                //loadRating();
             }
             pos = (int)this.ViewState["vs"];
             loadHotels();
@@ -63,25 +63,25 @@ namespace Winny1
 
         protected void BtnSearch_Click(object sender, EventArgs e)
         {
-            string HotelRating = DdlHotelRating.SelectedItem.Value;
-            string LocationId = DdlLocation.SelectedItem.Value;
+            //string HotelRating = DdlHotelRating.SelectedItem.Value;
+            //string LocationId = DdlLocation.SelectedItem.Value;
 
-            DAL myDal = new DAL(conn);
-            adsource = new PagedDataSource();
-            myDal.AddParam("@crud", "r");
-            myDal.AddParam("@hotelRatingID", HotelRatingID);
-            myDal.AddParam("@hotelLocationID", LocationId);
-            DataSet ds = myDal.ExecuteProcedure("spHotelsCrud");
-            adsource.DataSource = ds.Tables[0].DefaultView;
-            adsource.PageSize = 2;
-            adsource.AllowPaging = true;
-            adsource.CurrentPageIndex = pos;
-            btnFirst.Enabled = !adsource.IsFirstPage;
-            btnPrevious.Enabled = !adsource.IsFirstPage;
-            btnLast.Enabled = !adsource.IsLastPage;
-            btnNext.Enabled = !adsource.IsLastPage;
-            DlHotels.DataSource = adsource;
-            DlHotels.DataBind();
+            //DAL myDal = new DAL(conn);
+            //adsource = new PagedDataSource();
+            //myDal.AddParam("@crud", "r");
+            //myDal.AddParam("@hotelRatingID", HotelRatingID);
+            //myDal.AddParam("@hotelLocationID", LocationId);
+            //DataSet ds = myDal.ExecuteProcedure("spHotelsCrud");
+            //adsource.DataSource = ds.Tables[0].DefaultView;
+            //adsource.PageSize = 2;
+            //adsource.AllowPaging = true;
+            //adsource.CurrentPageIndex = pos;
+            //btnFirst.Enabled = !adsource.IsFirstPage;
+            //btnPrevious.Enabled = !adsource.IsFirstPage;
+            //btnLast.Enabled = !adsource.IsLastPage;
+            //btnNext.Enabled = !adsource.IsLastPage;
+            //DlHotels.DataSource = adsource;
+            //DlHotels.DataBind();
         }
 
         protected void btnFirst_Click(object sender, EventArgs e)
