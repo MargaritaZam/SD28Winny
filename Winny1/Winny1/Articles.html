@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        /*body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+        }*/
+
+        #myBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 99;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background-color: red;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 4px;
+        }
+
+            #myBtn:hover {
+                background-color: #555;
+            }
+            p{
+                font-family:'Times New Roman', Times, serif;
+                font-size:24px;
+                /*padding-right:200px;*/
+            }
+        .a {
+            background-color: darkblue;
+            padding: 30px;
+            text-align: center;
+            text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+            font-size:40px;
+            color:white;
+
+        }
+        img{
+            position:center;
+            width:350px;
+            height:200px;
+        }
+    </style>
+</head>
+<body>
+
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+    <div><input id="btn" type="button" value="Back" onclick="GoHome()" /></div>
+    <div class="a">Some Fun, Weird and Interesting Facts About Winnipeg</div>
+    <div style="padding:30px 30px 2500px; text-align:left;">
+        <br />
+        <br />
+        <p> Winnipeg is the capital of Manitoba – and the <mark>geographical center of North America</mark>. It was incorporated as a city in 1873.</p>
+        <img src="Slides/centre.jpg" />
+        <br />
+        <p>
+            The city sits at the junction of the Red and Assiniboine Rivers – a place referred to as The Forks.
+        </p>
+        <img src="Slides/2rivers.jpg" />
+        <br />
+        <p>
+            The closest city to Winnipeg with a population of over a million is Minneapolis-Saint Paul, Minnesota – 700 kilometres away.<br />
+        </p>
+        <img src="Slides/Minneapolis.jpg" />
+        <br />
+        <p>
+            Winnipeg averages <mark>27</mark> thunderstorms per year.
+        </p>
+        <img src="Slides/thunderstorms.png" />
+        <br />
+        <p>
+            On the shortest day of the year the sun rises at 8:24 am and sets at 4:29 pm. On the longest day of the year the sun rises<br />
+            at 5:20 am and sets at 9:41 pm.
+        </p>
+        <img src="Slides/sunset.jpg" />
+        <p>
+            Winnipeg’s train station was designed by the same architects who designed New York City’s Union Station.
+        </p>
+        <img src="Slides/trainsstation.jpg" />
+        <br />
+        <p>Winnipeg was the first city in the world to develop the 911 emergency number.</p>
+
+        <br />
+
+        <p>The Royal Winnipeg Ballet is Canada’s oldest dance company. It’s also the longest continuously operating ballet company in North America.</p>
+        <img src="Slides/Ballet.jpg" />
+        <br />
+        <p>The Winnipeg Art Gallery has the biggest collection of contemporary Inuit art in the world.<p>
+            <img src="Attractions/art-gallery.jpg" />
+            <br />
+        <p>
+            The <mark>LONGEST</mark> skating rink in the world – that freezes naturally is found in Winnipeg – and not in Ottawa as was recently reported<br />
+            in Outside Magazine. The skating takes you along the Red and Assiniboine Rivers over a length of 8.5 kilometers.
+        </p>
+        <img src="Slides/1.jpg" />
+        <br />
+        <p>
+            Curling is big – so big it might be the curling capital of Canada.
+        </p>
+        <img src="Slides/curling.jpg" />
+        <br />
+
+        <p>
+            The Festival du Voyageur celebrates Canada’s fur trading past and French heritage and culture. It’s the biggest winter festival in western Canada.<br />
+            Every year it takes place over 10 days in February. This year it runs from February 15-24th.
+        </p>
+        <img src="Slides/voyageur.jpg" />
+        <br />
+        <p>
+            The Winnipeg Jets – one of the professional hockey teams in the NHL – has an amazing fan base. Although they have the smallest market of all the NHL<br />
+            teams they sold more merchandise than any others.
+        </p>
+        <img src="Slides/jets.jpg" />
+        <br />
+        <p>Other professional sports teams include the Winnipeg Blue Bombers (football) and the Winnipeg Goldeyes (baseball).</p>
+        <img src="Slides/BlueBombers.jpg" />
+        <img src="Slides/Goldeye.jpg" />
+        <br />
+        <p>Universities in Winnipeg include the University of Manitoba, the University of Winnipeg, the Canadian Mennonite University and the University of St. Boniface.</p>
+        <img src="Slides/UniversityOfManitoba.jpg" />
+        <img src="Slides/UniversityWinnipeg.jpg" />
+        <img src="Slides/canadian_mennonite.jpg" />
+        <img src="Slides/UniversityBoniface..jpg" />
+        <br />
+        <p>
+            Canada’s newest National Museum – the Canadian Museum for Human Rights – is the first national museum to be located outside of the capital region.
+        </p>
+        <img src="Attractions/Canadian-Museum-for-Human-Rights.jpg" />
+        <br />
+        <p>
+
+        </p>
+    </div>
+
+    <script>
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("myBtn").style.display = "block";
+    } else {
+        document.getElementById("myBtn").style.display = "none";
+    }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+        }
+        function GoHome() {
+            window.location = "index.aspx";
+        }
+    </script>
+
+</body>
+</html>
