@@ -24,7 +24,7 @@ namespace Winny1
             {
                 this.ViewState["vs"] = 0;
                 loadLocation();
-              //  loadRating();
+                //loadRating();
             }
             pos = (int)this.ViewState["vs"];
             loadHotels();
