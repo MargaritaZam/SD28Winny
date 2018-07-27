@@ -70,9 +70,6 @@ namespace Winny1
             dlRestaurant.DataSource = adsource;
             dlRestaurant.DataBind();
 
-
-
-
         }
 
         protected void btnfirst_Click(object sender, EventArgs e)
@@ -103,14 +100,13 @@ namespace Winny1
             loadRestaurants();
         }
 
-       
-
         protected void btnSearch_Click(object sender, EventArgs e)
         {
             if (txtSearch.Text == "")
             {
                 string id = ddlCulinary.SelectedItem.Value;
                 string LocationId = ddlLocation.SelectedItem.Value;
+
                 DAL myDal = new DAL(conn);
                 adsource = new PagedDataSource();
                 myDal.AddParam("@crud", "s");

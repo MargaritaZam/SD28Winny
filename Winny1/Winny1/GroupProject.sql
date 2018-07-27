@@ -48,11 +48,11 @@ go
 
 create table tbLocation
 (
-	locationID int identity(1,1) primary key,
+	locationID int identity(0,1) primary key,
 	locationName varchar(60)
 )
 insert into tbLocation(locationName)values
-('North'),('Northeast'),('East'),('Southeast'),
+('All'),('North'),('Northeast'),('East'),('Southeast'),
 ('South'),('Southwest'),('West'),('Northwest'),
 ('Downtown'),('Airport/West'),('Just Outside Winnipeg')
 go
@@ -385,8 +385,8 @@ exec spAttractions @crud='c', @category='Parks',
 		@location=9
 
 		
-		exec spAttractions @crud='r'
-		exec spAttractions @crud='search'
+		--exec spAttractions @crud='r'
+		--exec spAttractions @crud='search'
 go
 --exec spAttractions @crud='a', @category='Museums'
 --exec spAttractions @crud='a', @category='Galleries'
@@ -429,11 +429,11 @@ end
 go
 
 create procedure spGetStoreCategory(
-@storetype varchar(50)=null
+	@storetype varchar(50)=null
 )
 as begin
-select CategoryType from tbShoppingCategories
-where CategoryType=isnull(@storetype, CategoryType)
+	select CategoryType from tbShoppingCategories
+	where CategoryType=isnull(@storetype, CategoryType)
 end
 go
 
@@ -448,30 +448,30 @@ go
 
 create table tbStores
 (
-	StoreId int identity (1,1) primary key,
-	StoreName varchar (max) not null,
+	StoreId		int identity (1,1) primary key,
+	StoreName	varchar (max) not null,
 	Description varchar (max),
-	Path varchar (100),
-	Address varchar(max) not null,
+	Path		varchar (100),
+	Address		varchar(max) not null,
 	PhoneNumber varchar (50),
-	Web varchar (max),
-	LocationId int foreign key references tbLocation(locationID) ,
-	CategoryId int foreign key references tbShoppingCategories(CategoryId)
+	Web			varchar (max),
+	LocationId	int foreign key references tbLocation(locationID) ,
+	CategoryId	int foreign key references tbShoppingCategories(CategoryId)
 )
 go
 
 create procedure spStores
 (
-	@StoreId int=null,
-	@StoreName varchar(max)=null,
+	@StoreId	 int=null,
+	@StoreName	 varchar(max)=null,
 	@Description varchar(max)=null,
-	@Path varchar(100)=null,
-	@Address varchar(max)=null,
+	@Path		 varchar(100)=null,
+	@Address	 varchar(max)=null,
 	@PhoneNumber varchar (50)=null,
-	@Web varchar (max)=null,
-	@LocationId int=null,
-	@CategoryId int=null,
-	@Crud varchar (10)
+	@Web		 varchar (max)=null,
+	@LocationId  int=null,
+	@CategoryId  int=null,
+	@Crud		 varchar (10)
 )
 as begin
 	if @Crud='r'
@@ -937,16 +937,6 @@ as begin
 end
 go
 
---create procedure spLocation
---(
---@LocationId int=null ,
---@LocationName varchar(30)=null
---)
---as begin
---	select * from tbLocation where locationID=isnull(@LocationId,locationID)
---end
---go
-
 --  Restaurant Table and Procedures  --
 
 create table tbRestaurants
@@ -965,18 +955,18 @@ create table tbRestaurants
 go
 create procedure spRestaurants
 (
-	@RestaurantId int=null,
+	@RestaurantId   int=null,
 	@RestaurantName varchar(50)=null,
-	@Description varchar(800)=null,
-	@Address varchar(30)=null,
-	@PostalCode varchar(7)=null,
-	@ContactNo varchar(20)=null,
-	@Path varchar(500)=null,
-	@website varchar(100)=null,
-	@FoodId int=null,
-	@LocationId int=null,
-	@crud varchar(10)=null,
-	@search varchar(50)=null
+	@Description	varchar(800)=null,
+	@Address		varchar(30)=null,
+	@PostalCode		varchar(7)=null,
+	@ContactNo		varchar(20)=null,
+	@Path			varchar(500)=null,
+	@website		varchar(100)=null,
+	@FoodId			int=null,
+	@LocationId		int=null,
+	@crud			varchar(10)=null,
+	@search			varchar(50)=null
 )
 as begin
 	if @crud='a'
@@ -990,7 +980,7 @@ as begin
 	else if @crud='s'  --  Select Restaurants, join with Location and Food Category
 	begin
 		
-			select RestaurantName,Description,RestaurantId,'./Restaurant/' + path as path  from tbRestaurants join tbFood_Category on
+		select RestaurantName,Description,RestaurantId,'./Restaurant/' + path as path  from tbRestaurants join tbFood_Category on
 			tbRestaurants.FoodId=tbFood_Category.FoodId join tbLocation on 
 			tbRestaurants.LocationId=tbLocation.LocationId 
 		where tbRestaurants.LocationId=ISNULL(@LocationId,tbRestaurants.LocationId)
@@ -998,12 +988,13 @@ as begin
 	end
 	else if @crud='search'
 	begin
-			select RestaurantName,Description,RestaurantId,'./Restaurant/' + path as path from tbRestaurants  join tbFood_Category  on tbRestaurants.FoodId=tbFood_Category.FoodId					
-						 join tbLocation  on tbRestaurants.LocationId=tbLocation.LocationId 
+		select RestaurantName,Description,RestaurantId,'./Restaurant/' + path as path from tbRestaurants 
+			join tbFood_Category on tbRestaurants.FoodId=tbFood_Category.FoodId					
+			join tbLocation  on tbRestaurants.LocationId=tbLocation.LocationId 
 						 
-where RestaurantName like'%'+ @search+'%'
-    or FoodType like'%'+ @search+'%'
-	or locationName like'%'+ @search+'%'
+		where RestaurantName like'%'+ @search+'%'
+			or FoodType like'%'+ @search+'%'
+			or locationName like'%'+ @search+'%'
 	end
 	
 	else if @crud='w' 
@@ -1040,7 +1031,7 @@ go
 --select * from tbFood_Category
 --select * from location
 --go
-select *from tbRestaurants
+--select *from tbRestaurants
 go
 exec spRestaurants @crud='c',
 		@RestaurantName='Loveys BBQ',
@@ -1926,50 +1917,29 @@ exec spAvgTempCrud @crud = 'c',
 				   @avgHigh = ' -8 C',
 				   @avgLow = '-17 C'
 
-create table tbHotelRating
+create table tbRating
 (
 	RatingID int identity(0,1) primary key,
 	Rating	 varchar(12)
 )
 go
+insert into tbRating(Rating)values
+	('- -'), ('*'), ('* *'), ('* * *'), ('* * * *'), ('* * * * *')
+go
 
-create procedure spHotelRatingCrud
+create procedure spGetRating
 (
 	@ratingID int = null,
-	@rating	  varchar(12) = null,
-	@crud     varchar(1)
+	@rating   varchar(12) = null
 )
 as begin
-	if @crud='c'
-	begin
-		insert into tbHotelRating (Rating) values (@rating)
-	end
-	else if @crud = 'r'
-	begin
-		select * from tbHotelRating
-	end
-	else if @crud = 'u'
-	begin
-		update tbHotelRating set
-			   Rating = @rating
-		where RatingID = @ratingID
-	end
+	select * from tbRating where RatingID = isnull(@ratingID, RatingID)
 end
 go
 
-exec spHotelRatingCrud @crud = 'c', @rating = '- -'
+--exec spGetRating
 
-exec spHotelRatingCrud @crud = 'c', @rating = '*'
-
-exec spHotelRatingCrud @crud = 'c', @rating = '* *'
-
-exec spHotelRatingCrud @crud = 'c', @rating = '* * *'
-
-exec spHotelRatingCrud @crud = 'c', @rating = '* * * *'
-
-exec spHotelRatingCrud @crud = 'c', @rating = '* * * * *'
-
-exec spHotelRatingCrud @crud = 'r'
+--exec spGetRating @ratingID = 4
 
 go
 create table tbHotels
@@ -1977,7 +1947,7 @@ create table tbHotels
 	HotelID			 int identity(1,1) primary key,
 	HotelName		 varchar(30),
 	HotelPrice		 int,
-	HotelRatingID	 int foreign key references tbHotelRating (RatingID),
+	HotelRatingID	 int foreign key references tbRating (RatingID),
 	HotelDescription varchar(800),
 	HotelPhoneNumber varchar(15),
 	HotelAddress	 varchar(100),
@@ -1988,7 +1958,7 @@ create table tbHotels
 )
 go
 
-create procedure spHotelsCrud
+create procedure spHotelCrud
 (
 	@hotelID		  int = null,
 	@hotelName		  varchar(30) = null,
@@ -2006,11 +1976,11 @@ create procedure spHotelsCrud
 as begin
 	if @crud='r'  --  Read & Search
 	begin
-		SELECT h.HotelID, hr.Rating, l.LocationName, h.HotelName, h.HotelPrice, 
+		SELECT h.HotelID, r.Rating, l.LocationName, h.HotelName, h.HotelPrice, 
 			h.HotelDescription, h.HotelPhoneNumber, h.HotelAddress, h.HotelPostalCode, 
 			h.HotelWebsite, '.\HotelPictures\' + Hotel_path AS Hotel_path 
 			FROM tbHotels h JOIN tbLocation l ON h.HotelLocationID = l.LocationID
-			JOIN  tbHotelRating hr ON h.HotelRatingID = hr.RatingID
+			JOIN  tbRating r ON h.HotelRatingID = r.RatingID
 			where H.HotelRatingID = isnull(@hotelRatingID,HotelRatingID) AND h.HotelLocationID = isnull(@hotelLocationID, HotelLocationID)
 	end
 	else if @crud='c'  --  Create
@@ -2041,7 +2011,7 @@ as begin
 end
 go
 
-exec spHotelsCrud @crud = 'c',
+exec spHotelCrud @crud = 'c',
 		@hotelName = 'Alt Hotel Winnipeg',
 		@hotelPrice = 159,
 		@hotelRatingID = 3,
@@ -2053,7 +2023,7 @@ exec spHotelsCrud @crud = 'c',
 		@hotel_path = 'AltHotel.jpg',
 		@hotelLocationID = 9
 
-exec spHotelsCrud @crud = 'c',
+exec spHotelCrud @crud = 'c',
 		@hotelName = 'Canad Inns Destination Centre Health Sciences Centre',
 		@hotelPrice = 143,
 		@hotelRatingID = 3,
@@ -2065,7 +2035,7 @@ exec spHotelsCrud @crud = 'c',
 		@hotel_path = 'CanadInnsHSC.png',
 		@hotelLocationID = 9
 			  
-exec spHotelsCrud @crud = 'c',
+exec spHotelCrud @crud = 'c',
 		@hotelName = 'Clarion Hotel & Suites',
 		@hotelPrice = 149,
 		@hotelRatingID = 2,
@@ -2077,7 +2047,7 @@ exec spHotelsCrud @crud = 'c',
 		@hotel_path = 'ClarionPoloPark.jpg',
 		@hotelLocationID = 7
 
-exec spHotelsCrud @crud = 'c',
+exec spHotelCrud @crud = 'c',
 		@hotelName = 'Delta Hotels by Marriott Winnipeg',
 		@hotelPrice = 175,
 		@hotelRatingID = 4,
@@ -2089,7 +2059,7 @@ exec spHotelsCrud @crud = 'c',
 		@hotel_path = 'DeltaHotel.png',
 		@hotelLocationID = 9
 
-exec spHotelsCrud @crud = 'c',
+exec spHotelCrud @crud = 'c',
 		@hotelName = 'Econo Lodge',
 		@hotelPrice = 110,
 		@hotelRatingID = 2,
@@ -2101,7 +2071,7 @@ exec spHotelsCrud @crud = 'c',
 		@hotel_path = 'EconoLodgeND.jpg',
 		@hotelLocationID = 9
 
-exec spHotelsCrud @crud = 'c',
+exec spHotelCrud @crud = 'c',
 		@hotelName = 'The Fort Garry Hotel',
 		@hotelPrice = 149,
 		@hotelRatingID = 3,
@@ -2113,7 +2083,7 @@ exec spHotelsCrud @crud = 'c',
 		@hotel_path = 'FortGarryHotel.jpg',
 		@hotelLocationID = 9
 
-exec spHotelsCrud @crud = 'c',
+exec spHotelCrud @crud = 'c',
 		@hotelName = 'Hilton Winnipeg Airport Suites',
 		@hotelPrice = 123,
 		@hotelRatingID = 3,
@@ -2125,7 +2095,7 @@ exec spHotelsCrud @crud = 'c',
 		@hotel_path = 'HiltonAirport.jpg',
 		@hotelLocationID = 10
 
-exec spHotelsCrud @crud = 'c',
+exec spHotelCrud @crud = 'c',
 		@hotelName = 'Inn at the Forks',
 		@hotelPrice = 186,
 		@hotelRatingID = 3,
@@ -2137,7 +2107,7 @@ exec spHotelsCrud @crud = 'c',
 		@hotel_path = 'InnAtTheForks.jpg',
 		@hotelLocationID = 9
 
-exec spHotelsCrud @crud = 'c',
+exec spHotelCrud @crud = 'c',
 		@hotelName = 'Queen Bee Hotel',
 		@hotelPrice = 89,
 		@hotelRatingID = 2,
@@ -2149,7 +2119,7 @@ exec spHotelsCrud @crud = 'c',
 		@hotel_path = 'QueenBee.jpg',
 		@hotelLocationID = 5
 
-exec spHotelsCrud @crud = 'c',
+exec spHotelCrud @crud = 'c',
 		@hotelName = 'Radisson Hotel Winnipeg Downtown',
 		@hotelPrice = 152,
 		@hotelRatingID = 3,
@@ -2161,7 +2131,7 @@ exec spHotelsCrud @crud = 'c',
 		@hotel_path = 'RadissonHotel.jpg',
 		@hotelLocationID = 9
 
-exec spHotelsCrud @crud = 'c',
+exec spHotelCrud @crud = 'c',
 		@hotelName = 'Royal Albert Arms',
 		@hotelPrice = 0,
 		@hotelRatingID = 0,
@@ -2173,7 +2143,7 @@ exec spHotelsCrud @crud = 'c',
 		@hotel_path = 'RoyalAlbertArmsHotel.jpg',
 		@hotelLocationID = 9
 
-exec spHotelsCrud @crud = 'c',
+exec spHotelCrud @crud = 'c',
 		@hotelName = 'Travelodge Winnipeg East',
 		@hotelPrice = 95,
 		@hotelRatingID = 2,
@@ -2185,7 +2155,7 @@ exec spHotelsCrud @crud = 'c',
 		@hotel_path = 'TravelodgeEast.jpg',
 		@hotelLocationID = 4
 
-exec spHotelsCrud @crud = 'c',
+exec spHotelCrud @crud = 'c',
 		@hotelName = 'Viscount Gort Hotel',
 		@hotelPrice = 115,
 		@hotelRatingID = 3,
@@ -2198,9 +2168,12 @@ exec spHotelsCrud @crud = 'c',
 		@hotelLocationID = 7
 go
 
-exec spHotelsCrud @crud = 'r', @hotelLocationID = 4, @hotelRatingID = 2
+exec spHotelCrud @crud = 'r'
 
-exec spHotelsCrud @crud = 'r'
+exec spHotelCrud @crud = 'r', @hotelLocationID = 4, @hotelRatingID = 2
+
+exec spHotelCrud @crud = 'r', @hotelLocationID = 9, @hotelRatingID = 4
+
 go
 
 --  Universities and Colleges  --
@@ -2211,15 +2184,19 @@ go
 create table tbSchoolTypes
 (
 	SchTypeID int identity(1,1) primary key,
-	SchType varchar(40)
+	SchType   varchar(40)
 )
 insert into tbSchoolTypes (SchType) values
 	('Undergraduate'), ('Graduate & Undergraduate'), ('College')
 go
 
 create procedure spGetSchoolTypes
+(
+	@schTypeID int = null,
+	@schType   varchar(40) = null
+)
 as begin
-	select * from tbSchoolTypes
+	select * from tbSchoolTypes where SchTypeID = isnull(@schTypeID, SchTypeID)
 end
 go
 
