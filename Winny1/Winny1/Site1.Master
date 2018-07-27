@@ -253,7 +253,7 @@ var year = currentTime.getFullYear()
                         <a href="Universities.aspx">Schools</a>
                     </li>
 
-                      <li class="dropdown"><a href="ChatBot.html">Have a question?</a>                    
+                      <li class="dropdown"><a href="https://bot.dialogflow.com/4ba825dd-d3d3-4027-9f1a-ca69c00b07cb">Talk to us</a>                    
                     </li>                      
                 </ul>    	
             </div> <!-- end of tooplate_menu -->
