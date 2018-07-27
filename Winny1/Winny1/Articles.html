@@ -51,12 +51,12 @@
 <body>
 
     <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
-
-    <div class="a">28 Fun, Weird and Interesting Facts About Winnipeg</div>
+    <div><input id="btn" type="button" value="Back" onclick="GoHome()" /></div>
+    <div class="a">Some Fun, Weird and Interesting Facts About Winnipeg</div>
     <div style="padding:30px 30px 2500px; text-align:left;">
         <br />
         <br />
-        <p> Winnipeg is the capital of Manitoba – and the geographical center of North America. It was incorporated as a city in 1873.</p>
+        <p> Winnipeg is the capital of Manitoba – and the <mark>geographical center of North America</mark>. It was incorporated as a city in 1873.</p>
         <img src="Slides/centre.jpg" />
         <br />
         <p>
@@ -70,7 +70,7 @@
         <img src="Slides/Minneapolis.jpg" />
         <br />
         <p>
-            Winnipeg averages 27 thunderstorms per year.
+            Winnipeg averages <mark>27</mark> thunderstorms per year.
         </p>
         <img src="Slides/thunderstorms.png" />
         <br />
@@ -154,7 +154,10 @@ function scrollFunction() {
 function topFunction() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
-}
+        }
+        function GoHome() {
+            window.location = "index.aspx";
+        }
     </script>
 
 </body>
