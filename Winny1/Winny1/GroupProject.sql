@@ -51,7 +51,7 @@ create table tbLocation
 	locationID int identity(0,1) primary key,
 	locationName varchar(60)
 )
-insert into tbLocation(locationName)values
+insert into tbLocation(locationName) values
 ('All'),('North'),('Northeast'),('East'),('Southeast'),
 ('South'),('Southwest'),('West'),('Northwest'),
 ('Downtown'),('Airport/West'),('Just Outside Winnipeg')
