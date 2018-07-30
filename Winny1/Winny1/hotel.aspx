@@ -99,7 +99,7 @@ td {
                             Rating: 
                         </td>
                         <td style="width:60%; color:black; text-align: left;">
-                            <%# Eval ("HotelRating") %>
+                         <%--   <%# Eval ("HotelRating") %>--%>
                         </td>
                         <td></td>
                     </tr>
