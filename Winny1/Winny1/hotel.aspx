@@ -65,10 +65,10 @@ td {
         </tr>
         <tr>
             <td style="padding-right: 20px; margin-right: 20px;">
-                <asp:DropDownList ID="DdlLocation" AutoPostBack="true" runat="server" Height="23px" Width="250px" BackColor="White"></asp:DropDownList>
+                <asp:DropDownList ID="DdlLocation" AutoPostBack="true" runat="server" Height="23px" Width="250px" BackColor="White" ></asp:DropDownList>
             </td>
             <td style="padding-right: 20px; margin-right: 20px;">
-                <asp:DropDownList ID="DdlHotelRating" AutoPostBack="true" runat="server" Height="23px" Width="250px" BackColor="White"></asp:DropDownList>
+                <asp:DropDownList ID="DdlRating" AutoPostBack="true" runat="server" Height="23px" Width="250px" BackColor="White"></asp:DropDownList>
             </td>
             <td>
                 <asp:Button ID="BtnSearch" runat="server" Text="Search" BackColor="#CC0099" Font-Bold="True" ForeColor="White" Height="33px" Width="80px" OnClick="BtnSearch_Click" />
@@ -99,7 +99,7 @@ td {
                             Rating: 
                         </td>
                         <td style="width:60%; color:black; text-align: left;">
-                         <%--   <%# Eval ("HotelRating") %>--%>
+                            <%# Eval ("Rating") %>
                         </td>
                         <td></td>
                     </tr>
@@ -117,8 +117,7 @@ td {
                             Price:
                         </td>
                         <td style="color:black; text-align: left;">
-                            $<%# Eval ("HotelPrice") %>
-                        </td>
+                            $<%# Eval ("HotelPrice") %></td>
                     </tr>
                     <tr>
                         <td>

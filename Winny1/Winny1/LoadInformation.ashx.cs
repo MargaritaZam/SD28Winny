@@ -103,7 +103,7 @@ namespace Winny1
                 DAL myDal = new DAL(conn);
                 myDal.AddParam("@crud", "r");
                 myDal.AddParam("@id", id);
-                DataSet ds = myDal.ExecuteProcedure("spHotelsCrud");
+                DataSet ds = myDal.ExecuteProcedure("spHotelCrud");
 
                 for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
                 {

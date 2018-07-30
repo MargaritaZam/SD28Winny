@@ -610,7 +610,7 @@ namespace Winny1
         private void loadHotels()
         {
             DataSet ds = new DataSet();
-            SqlDataAdapter da = new SqlDataAdapter("spHotelsCrud", conn);
+            SqlDataAdapter da = new SqlDataAdapter("spHotelCrud", conn);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
             da.SelectCommand.Parameters.AddWithValue("@crud", "h");
             conn.Open();
@@ -645,7 +645,7 @@ namespace Winny1
         }
         public void DeleteHotel(string hid)
         {
-            SqlCommand comd = new SqlCommand("spHotelsCrud", conn);
+            SqlCommand comd = new SqlCommand("spHotelCrud", conn);
             comd.CommandType = CommandType.StoredProcedure;
             comd.Parameters.AddWithValue("@crud", "d");
             comd.Parameters.AddWithValue("@hotelID", hid);
@@ -658,7 +658,7 @@ namespace Winny1
         public void UpdateHotel(string hid)
         {
             DataSet dataset = new DataSet();
-            SqlDataAdapter sda = new SqlDataAdapter("spHotelsCrud", conn);
+            SqlDataAdapter sda = new SqlDataAdapter("spHotelCrud", conn);
             sda.SelectCommand.CommandType = CommandType.StoredProcedure;
             sda.SelectCommand.Parameters.AddWithValue("@crud", "h");
             sda.SelectCommand.Parameters.AddWithValue("@hotelID", hid);
@@ -708,7 +708,7 @@ namespace Winny1
             string Hname = flHotelImage.FileName;
             flHotelImage.PostedFile.SaveAs(Hpath + Hname);
             pnlUpdateHotel.Visible = false;
-            SqlCommand com = new SqlCommand("spHotelsCrud", conn);
+            SqlCommand com = new SqlCommand("spHotelCrud", conn);
            // com.Connection = conn;
             com.CommandType = CommandType.StoredProcedure;
 

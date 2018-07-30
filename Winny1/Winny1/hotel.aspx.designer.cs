@@ -49,13 +49,13 @@ namespace Winny1 {
         protected global::System.Web.UI.WebControls.DropDownList DdlLocation;
         
         /// <summary>
-        /// DdlHotelRating control.
+        /// DdlRating control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DdlHotelRating;
+        protected global::System.Web.UI.WebControls.DropDownList DdlRating;
         
         /// <summary>
         /// BtnSearch control.
