@@ -28,33 +28,41 @@ namespace Winny1
             HttpContext.Current.Session["Winnipeg"] = _Events;
 
         }
-        public void Add(Events events)
+        public void Add(Fest fest)
         {
-            _Events.Add(events);
+            _Events.Add(fest);
             Save();
         }
-                    
+        public void Add(Play play)
+        {
+            _Events.Add(play);
+            Save();
+        }
+        public void Add(Exhibition exhib)
+        {
+            _Events.Add(exhib);
+            Save();
+        }
+
         public DataTable Get()
         {
             DataTable dt = new DataTable();
             dt.Columns.Add("Name");
             dt.Columns.Add("Description");        
-            dt.Columns.Add("Image");           
-            
+            dt.Columns.Add("Image");
+            dt.Columns.Add("Website");
+            dt.Columns.Add("Date");
+
             foreach (WinnipegEvent w in _Events)
             {
                 DataRow dr = dt.NewRow();
                 dr["Name"] = w.Name;
                 dr["Description"] = w.Description;              
-                dr["Image"] = w.Image;             
-                switch (w.GetType().Name)
-                {
-                    case "Events":
-                        Events at = (Events)(w);
-                      
-                        break;                  
+                dr["Image"] = w.Image;
+                dr["Website"] = w.Website;
+                dr["Date"] = w.Date;
 
-                }
+                
                 dt.Rows.Add(dr);
             }
             return dt;

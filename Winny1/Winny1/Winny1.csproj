@@ -137,6 +137,11 @@
     <Content Include="Coupons\Rona_coupon.jpg" />
     <Content Include="Coupons\TacoDelMar_coupon.jpg" />
     <Content Include="Coupons\TimHortons_coupon.jpg" />
+    <Content Include="Events.aspx" />
+    <Content Include="Events\beerfest.jpg" />
+    <Content Include="Events\folklorama.png" />
+    <Content Include="Events\lights.jpg" />
+    <Content Include="Events\night_market.jpg" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="gethint.asp" />
@@ -488,7 +493,15 @@
     <Compile Include="attraction.aspx.designer.cs">
       <DependentUpon>attraction.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Events.cs" />
+    <Compile Include="Events.aspx.cs">
+      <DependentUpon>Events.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Events.aspx.designer.cs">
+      <DependentUpon>Events.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Exhibition.cs" />
+    <Compile Include="Fest.cs" />
     <Compile Include="Chat.aspx.cs">
       <DependentUpon>Chat.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -557,6 +570,7 @@
     </Compile>
     <Compile Include="Messages.cs" />
     <Compile Include="MyInfo.cs" />
+    <Compile Include="Play.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Register.ashx.cs">
       <DependentUpon>Register.ashx</DependentUpon>

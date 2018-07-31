@@ -7,6 +7,106 @@ go
 use dbGroupProject;
 
 
+
+create table tbEvents(
+eventID int identity(1,1) primary key,
+type varchar(60),
+name varchar(200),
+description varchar(2000),
+website varchar(100),
+image varchar(100),
+date varchar(30)
+)
+go
+--Alter table [dbo].[tbEvents] Add constraint [DF_tbEvents_date]
+--Default (getdate()) for [date]
+--go
+create procedure spEvents(
+@eventID int=null,
+@name varchar(200)=null,
+@type varchar(60) =null,
+@description varchar(2000)=null,
+@web varchar(100)=null,
+@image varchar(100)=null,
+@date varchar(30)=null,
+@crud varchar(1)
+)
+as begin
+if @crud='r'
+begin
+select eventID, name, type, description, website, './Events/' + image as image, date from tbEvents
+where eventID=isnull(@eventID, eventID)
+end
+else if @crud='c'
+begin
+insert into tbEvents(name,type, description, website, image, date)values
+                   (@name, @type, @description, @web, @image, @date)
+ end
+ end
+ go
+
+ exec spEvents @crud='c',@name='Folklorama',
+                         @type='Festival',
+                         @description='Experience the energy and excitement of the largest and longest-running multicultural event of its kind in the world! From traditional meals to lively performances by local, national and international entertainers, Folklorama creates a feast for the senses as you experience over 40 cultural pavilions that feature amazing hospitality and a fun, celebratory atmosphere. Enjoy our two-week Festival, the highlight of August in Winnipeg!',
+						 @web='https://www.folklorama.ca',
+						 @image='folklorama.png',
+						 @date='August 5, 2018 to August 18, 2018'
+
+exec spEvents @crud='c',@name='Winnipeg Beer Festival',
+                         @type='Festival',
+                         @description='Join us for the second Annual Winnipeg Beer Festival! Enjoy locally brewed beer and delicious food inside Fort Gibraltar*s walls. This event is made possible in conjuction with the Manitoba Brewers Association. It will feature over ten Winnipeg breweries and over 20 beers for you to sample on the historic grounds of Fort Gibraltar.',
+						 @web='https://www.facebook.com/wpgbeerfest/',
+						 @image='beerfest.jpg',
+						 @date='August 12, 2018'
+
+exec spEvents @crud='c',@name='Manitoba Night Market & Festival',
+                         @type='Festival',
+                         @description='Join us for our 3rd Manitoba Night Market & Festival! More than 20 food trucks, 150 plus vendors, live music, beer gardens, microbreweries, kids activities. ',
+						 @web='https://www.asdowns.com',
+						 @image='night_market.jpg',
+						 @date='August 2, 2018'
+
+exec spEvents @crud='c',@name='Lights of the North - Chinese Lantern Light Festival ',
+                         @type='Festival',
+                         @description='Occupying over 10 acres, the scale of this giant exposition of Chinese lantern art will be sure to amaze! In addition to specially designed lantern exhibits depicting Manitoba, Canada and Chinese icons and symbols illuminated by millions of LED lights, there will be live performances by Chengdu acrobats and dancers. Chinese artisans will demonstrate their talents on site making heritage handcrafts to the delight of audiences and shoppers.',
+						 @web='https://www.lightsofthenorth.ca',
+						 @image='lights.jpg',
+						 @date='August 31, 2018 to October 14, 2018 '
+exec spEvents @crud='r'
+go
+select*from tbEvents
+go
+
+create procedure spSearchFest(
+@festival varchar(60)
+)
+as begin
+select eventID,type,name,description,website,date,'/Events/'+image as image from tbEvents
+where type=@festival
+end
+go
+create procedure spSearchExhibition(
+@exhibition varchar(60)
+)
+as begin
+select eventID,type,name,description,website,date,'/Events/'+image as image from tbEvents
+where type=@exhibition
+end
+go
+create procedure spSearchPlay(
+@play varchar(60)
+)
+as begin
+select eventID,type,name,description,website,date,'/Events/'+image as image from tbEvents
+where type=@play
+end
+go
+
+
+
+
+
+
 create table tbSlide(
 	slideID int identity(1,1) primary key,
 	slidedesc varchar(60),
