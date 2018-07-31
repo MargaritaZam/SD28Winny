@@ -128,7 +128,6 @@
     <Content Include="Attractions\woodland.jpg" />
     <Content Include="Avatar.png" />
     <Content Include="Chat.aspx" />
-    <Content Include="ChatBot.html" />
     <Content Include="Client.aspx" />
     <Content Include="CouponOrder.aspx" />
     <Content Include="Coupons\boston_pizza_coupon.jpg" />
@@ -269,6 +268,7 @@
     <Content Include="Slides\UniversityWinnipeg.jpg" />
     <Content Include="Slides\voyageur.jpg" />
     <Content Include="Slides\winnipeg.jpg" />
+    <Content Include="TalkToUs.aspx" />
     <Content Include="Team.JPG" />
     <Content Include="UniversityPictures\RedRiverCollege.jpg" />
     <Content Include="UniversityPictures\UniversityManitoba.png" />
@@ -606,6 +606,13 @@
       <DependentUpon>Site1.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="TalkToUs.aspx.cs">
+      <DependentUpon>TalkToUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TalkToUs.aspx.designer.cs">
+      <DependentUpon>TalkToUs.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Universities.aspx.cs">
       <DependentUpon>Universities.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
