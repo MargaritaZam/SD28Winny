@@ -3,32 +3,32 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
    <style>
+       
+       table {
+    border-collapse: separate;
+    border-spacing: 10px 0;
+    margin-left: 25px;
+}
+
+td {
+  padding-right: 10px 0;
+  margin-right: 20px;
+}
        .dl{
            background-color:white;
        }
-       a{
-           font-size:20px;
-           color:black;
-           font-family:Arial;
-           width:400px;
-            text-align: center;
-       }
+      
        #dlEvents{
             border-collapse: separate;
     border-spacing: 10px 0;
     margin-left: 25px;
        }
-       .dataList{
-           border:double;
-           border-color:gold;
-            border-collapse: separate;
-    border-spacing: 10px 0;
-    margin-left: 25px;
-       }
+      
        #Image{
-           border:5px solid gold;
-           
+           width:250px;
+           height:200px;
        }
+      
    </style>
      <div>
             <asp:RadioButtonList ID="rblEvents" AutoPostBack="true"
@@ -41,26 +41,42 @@
     <br />
     <asp:DataList ID="dlEvents" CssClass="dl" DataKeyField="eventID" RepeatColumns="1"
          runat="server" OnItemCommand="dlEvents_ItemCommand" OnSelectedIndexChanged="dlEvents_SelectedIndexChanged" >
-<ItemTemplate>
-    <div class="DataList">
-        <asp:Image ID="Image"  runat="server" Width="250" Height="250"
-            ImageUrl='<%#Eval("image") %>'/>
-        <br />
-         <a style="font-size:35px; font-style:italic; color:red;"><strong><%#Eval("name")%></strong></a>
-                    <br />
-        <br />
-         <%-- <a ><%#Eval("type")%></a>
-                    <br />--%>
-          <a ><%#Eval("description")%></a>
-                    <br />
-         <a><asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%#Eval("website")%>'></asp:HyperLink></a>
-                    <br />
-         <a><%#Eval("date")%></a>
-                    <br />
-        <br />
-        <br />
-                    
-    </div>
+    <ItemTemplate>
+            <div class="Events" style="width: 700px;">
+                
+                <table>
+                    <tr>
+                        <td colspan="2" rowspan="9" style="padding: 10px; ">
+                            <asp:Image  ID="Image"  runat="server" ImageUrl='<%# Eval("image") %>' />
+                        </td>
+                        <td colspan="3" style="text-align: center; color:red; font-weight:bold;">
+                            <%# Eval("name") %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="color:black; text-align:left; " >
+                            <%# Eval("description") %>
+                        </td>
+                    </tr>
+                   
+                    <tr>
+                       
+                        <td colspan="2" style="color:black; text-align: left;">
+                            <asp:HyperLink ID="HlHotel" runat="server" NavigateUrl='<%# Eval ("website") %>' Text='<%# Eval ("website") %>'></asp:HyperLink>
+                        </td>
+                    </tr>
+                     <tr>
+                        
+                        <td style="color:black; text-align: left;">
+                            <%# Eval ("date") %>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+ 
+
+
 </ItemTemplate>
+
     </asp:DataList>
 </asp:Content>

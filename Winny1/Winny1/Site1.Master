@@ -254,7 +254,7 @@ var year = currentTime.getFullYear()
                         <a href="Universities.aspx">Schools</a>
                     </li>
                     <li class="dropdown"><a href="TalkToUs.aspx"  class="dropbtn">Talk 2 Us</a>
-                          <li class="dropdown"><a href="Events.aspx" onclick="false" class="dropbtn">Upcoming Events</a>
+                        <a href="Events.aspx">Upcoming Events</a>
              <%--         <li class="dropdown"><a href="https://bot.dialogflow.com/4ba825dd-d3d3-4027-9f1a-ca69c00b07cb">Talk to us</a>                    
                     </li>  --%>                    
                 </ul>    	
