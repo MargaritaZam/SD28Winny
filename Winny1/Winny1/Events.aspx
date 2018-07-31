@@ -42,15 +42,15 @@ td {
     <asp:DataList ID="dlEvents" CssClass="dl" DataKeyField="eventID" RepeatColumns="1"
          runat="server" OnItemCommand="dlEvents_ItemCommand" OnSelectedIndexChanged="dlEvents_SelectedIndexChanged" >
     <ItemTemplate>
-            <div class="Events" style="width: 700px;">
+            <div class="Events" style="width: 900px;">
                 
                 <table>
                     <tr>
                         <td colspan="2" rowspan="9" style="padding: 10px; ">
-                            <asp:Image  ID="Image"  runat="server" ImageUrl='<%# Eval("image") %>' />
+                            <asp:Image  ID="Image" Width="250" Height="200"  runat="server" ImageUrl='<%# Eval("image") %>' />
                         </td>
-                        <td colspan="3" style="text-align: center; color:red; font-weight:bold;">
-                            <%# Eval("name") %>
+                        <td colspan="3" style="text-align: center; color:red; font-weight:bold;"  >
+                          <%# Eval("name") %>
                         </td>
                     </tr>
                     <tr>
@@ -61,17 +61,19 @@ td {
                    
                     <tr>
                        
-                        <td colspan="2" style="color:black; text-align: left;">
-                            <asp:HyperLink ID="HlHotel" runat="server" NavigateUrl='<%# Eval ("website") %>' Text='<%# Eval ("website") %>'></asp:HyperLink>
+                        <td colspan="2" style="color:black; text-align: left;">More details:
+                            <asp:HyperLink ID="hlevent" runat="server" NavigateUrl='<%# Eval ("website") %>' Text='<%# Eval ("website") %>'></asp:HyperLink>
                         </td>
                     </tr>
+                    <br />
                      <tr>
                         
-                        <td style="color:black; text-align: left;">
+                        <td style="color:green; text-align: left;">
                             <%# Eval ("date") %>
                         </td>
                     </tr>
                 </table>
+                 <br />
             </div>
  
 
@@ -79,4 +81,5 @@ td {
 </ItemTemplate>
 
     </asp:DataList>
+    
 </asp:Content>
