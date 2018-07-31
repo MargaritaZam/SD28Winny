@@ -103,14 +103,14 @@ namespace Winny1
                 DAL myDal = new DAL(conn);
                 myDal.AddParam("@crud", "r");
                 myDal.AddParam("@id", id);
-                DataSet ds = myDal.ExecuteProcedure("spHotelsCrud");
+                DataSet ds = myDal.ExecuteProcedure("spHotelCrud");
 
                 for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
                 {
                     result = result +/* "{\"Id\": \"" + ds.Tables[0].Rows[i]["HotelId"].ToString() +*/
                                      /* "\",*/ "{\"Name\":\"" + ds.Tables[0].Rows[i]["HotelName"].ToString() +
                                          "\", \"Price\":\"" + ds.Tables[0].Rows[i]["HotelPrice"].ToString() +
-                                         "\", \"Stars\":\"" + ds.Tables[0].Rows[i]["HotelStars"].ToString() +
+                                         "\", \"Stars\":\"" + ds.Tables[0].Rows[i]["HotelRating"].ToString() +
                                          "\", \"Description\":\"" + ds.Tables[0].Rows[i]["HotelDescription"].ToString() +
                                          "\", \"ContactNo\":\"" + ds.Tables[0].Rows[i]["HotelPhoneNumber"].ToString() +
                                          "\", \"Address\":\"" + ds.Tables[0].Rows[i]["HotelAddress"].ToString() +

@@ -99,10 +99,35 @@
     <Content Include="AboutUs.html" />
     <Content Include="ADMIN.aspx" />
     <Content Include="Anjali.sql" />
+    <Content Include="Articles.html" />
     <Content Include="attraction.aspx" />
+    <Content Include="Attractions\antennae.jpg" />
+    <Content Include="Attractions\art-gallery.jpg" />
+    <Content Include="Attractions\assiniboine-park-zoo.jpg" />
+    <Content Include="Attractions\assinpark.jpg" />
+    <Content Include="Attractions\birdshill.png" />
+    <Content Include="Attractions\Canadian-Museum-for-Human-Rights.jpg" />
+    <Content Include="Attractions\childrenmuseum.jpg" />
+    <Content Include="Attractions\Costume-Museum-of-Canada.jpg" />
+    <Content Include="Attractions\forks.jpg" />
+    <Content Include="Attractions\kildonanpark.jpg" />
+    <Content Include="Attractions\King.jpg" />
+    <Content Include="Attractions\loch_winnipeg.jpg" />
+    <Content Include="Attractions\Manitoba-Museum.jpg" />
+    <Content Include="Attractions\manitogahan.jpg" />
+    <Content Include="Attractions\oseredok.jpg" />
+    <Content Include="Attractions\pulse.jpg" />
+    <Content Include="Attractions\redriverex.jpg" />
+    <Content Include="Attractions\Royal-Winnipeg-Rifles-Museum-Archives.jpg" />
+    <Content Include="Attractions\stVital.jpg" />
+    <Content Include="Attractions\warehouse.jpg" />
+    <Content Include="Attractions\whytefort.jpg" />
+    <Content Include="Attractions\Winnipeg-Police-Museum.jpg" />
+    <Content Include="Attractions\Winnipeg-Railway-Museum.jpg" />
+    <Content Include="Attractions\woodland %282%29.jpg" />
+    <Content Include="Attractions\woodland.jpg" />
     <Content Include="Avatar.png" />
     <Content Include="Chat.aspx" />
-    <Content Include="ChatBot.html" />
     <Content Include="Client.aspx" />
     <Content Include="CouponOrder.aspx" />
     <Content Include="Coupons\boston_pizza_coupon.jpg" />
@@ -207,20 +232,38 @@
     <Content Include="Scripts\jquery.signalR-2.2.2.js" />
     <Content Include="Scripts\jquery.signalR-2.2.2.min.js" />
     <Content Include="Slide.html" />
+    <Content Include="Slides\1.jpg" />
+    <Content Include="Slides\2rivers.jpg" />
+    <Content Include="Slides\Ballet.jpg" />
+    <Content Include="Slides\BlueBombers.jpg" />
     <Content Include="Slides\bridge.jpg" />
+    <Content Include="Slides\canadian_mennonite.jpg" />
     <Content Include="Slides\canHumanightview.jpg" />
+    <Content Include="Slides\centre.jpg" />
+    <Content Include="Slides\curling.jpg" />
     <Content Include="Slides\downtown.jpg" />
     <Content Include="Slides\forks.jpg" />
     <Content Include="Slides\goldenboy.jpg" />
+    <Content Include="Slides\Goldeye.jpg" />
     <Content Include="Slides\highview.jpg" />
     <Content Include="Slides\humanrig.jpg" />
+    <Content Include="Slides\jets.jpg" />
     <Content Include="Slides\main.jpg" />
+    <Content Include="Slides\Minneapolis.jpg" />
     <Content Include="Slides\mts_centre.jpg" />
     <Content Include="Slides\nightdowntown.jpg" />
     <Content Include="Slides\nightview.jpg" />
     <Content Include="Slides\riverview.jpg" />
     <Content Include="Slides\street.jpg" />
+    <Content Include="Slides\sunset.jpg" />
+    <Content Include="Slides\thunderstorms.png" />
+    <Content Include="Slides\trainsstation.jpg" />
+    <Content Include="Slides\UniversityBoniface..jpg" />
+    <Content Include="Slides\UniversityOfManitoba.jpg" />
+    <Content Include="Slides\UniversityWinnipeg.jpg" />
+    <Content Include="Slides\voyageur.jpg" />
     <Content Include="Slides\winnipeg.jpg" />
+    <Content Include="TalkToUs.aspx" />
     <Content Include="Team.JPG" />
     <Content Include="UniversityPictures\RedRiverCollege.jpg" />
     <Content Include="UniversityPictures\UniversityManitoba.png" />
@@ -230,7 +273,7 @@
     <Content Include="We\Anjaly.jpg" />
     <Content Include="We\IMG_0074.JPG" />
     <Content Include="We\Margo.jpg" />
-    <Content Include="We\Nataly.jpg" />
+    <Content Include="We\Natasha.jpg" />
     <Content Include="We\Tracy.jpg" />
     <Content Include="Winnipeg.aspx" />
     <Content Include="WpgImages\AcrossRiver.jpg" />
@@ -445,7 +488,7 @@
     <Compile Include="attraction.aspx.designer.cs">
       <DependentUpon>attraction.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Attraction.cs" />
+    <Compile Include="Events.cs" />
     <Compile Include="Chat.aspx.cs">
       <DependentUpon>Chat.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -526,7 +569,6 @@
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
     <Compile Include="Restaurant.cs" />
-    <Compile Include="Restclass.cs" />
     <Compile Include="Restaurants.aspx.cs">
       <DependentUpon>Restaurants.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -550,7 +592,13 @@
       <DependentUpon>Site1.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
-    <Compile Include="Store.cs" />
+    <Compile Include="TalkToUs.aspx.cs">
+      <DependentUpon>TalkToUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TalkToUs.aspx.designer.cs">
+      <DependentUpon>TalkToUs.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Universities.aspx.cs">
       <DependentUpon>Universities.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -575,10 +623,10 @@
     <Compile Include="Winnipeg.aspx.designer.cs">
       <DependentUpon>Winnipeg.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Winnipeg.cs" />
+    <Compile Include="WinnipegEvent.cs" />
     <Compile Include="WinnipegAbout.cs" />
     <Compile Include="WinnipegAttr.cs" />
-    <Compile Include="WinnipegMain.cs" />
+    <Compile Include="WinnipegEventMain.cs" />
     <Compile Include="WinnipegSchools.cs" />
     <Compile Include="WinnipegShopping.cs" />
   </ItemGroup>

@@ -82,7 +82,6 @@ span.psw {
         #right {
             position: absolute;
             top:0;
-            left:1350px;
              right:0;
              width: 134px;
              height:280px;
@@ -206,7 +205,7 @@ var year = currentTime.getFullYear()
              <div id="menu">
                 <ul class="navigation">
            
-                    <li><a href="#home" class="selected">Home</a></li>
+                    <li><a href="index.aspx" class="selected">Home</a></li>
                      <li><a href="Slide.html" class="selected">Gallery</a></li>
 
                     <li class="dropdown">
@@ -219,14 +218,15 @@ var year = currentTime.getFullYear()
                                 <a href="about.aspx?id=4">Population</a>
                                 <a href="about.aspx?id=5">Monthly Temperatures</a>
                                 <a href="AboutUs.html">About Us</a>
+                                <a href="Articles.html">More</a>
                             </div>
                     </li>
 
                      <li class="dropdown"><a href="attraction.aspx" class="dropbtn">See</a>
                     <div class="dropdown-content">
-                        <a href="attraction.aspx?id=1">Museums</a>                     
+                        <%--<a href="attraction.aspx?id=1">Museums</a>                     
                         <a href="attraction.aspx?id=2">Galleries</a>
-                        <a href="attraction.aspx?id=3">Parks/Zoo</a>
+                        <a href="attraction.aspx?id=3">Parks/Zoo</a>--%>
                         
                         </div>
                     </li>
@@ -253,11 +253,9 @@ var year = currentTime.getFullYear()
                     <li class="dropdown">
                         <a href="Universities.aspx">Schools</a>
                     </li>
-
-                      <li class="dropdown"><a href="ChatBot.html">Have a question?</a>                    
-                    </li>    
-                      
-
+                    <li class="dropdown"><a href="TalkToUs.aspx"  class="dropbtn">Talk 2 Us</a>
+             <%--         <li class="dropdown"><a href="https://bot.dialogflow.com/4ba825dd-d3d3-4027-9f1a-ca69c00b07cb">Talk to us</a>                    
+                    </li>  --%>                    
                 </ul>    	
             </div> <!-- end of tooplate_menu -->
             </div>
