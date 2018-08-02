@@ -129,6 +129,7 @@
     <Content Include="Avatar.png" />
     <Content Include="Chat.aspx" />
     <Content Include="Client.aspx" />
+    <Content Include="ConformPassword.aspx" />
     <Content Include="CouponOrder.aspx" />
     <Content Include="Coupons\boston_pizza_coupon.jpg" />
     <Content Include="Coupons\HudsonBay_coupon.gif" />
@@ -218,6 +219,7 @@
     <Content Include="Natalia.sql" />
     <Content Include="planetarium.jpg" />
     <Content Include="Register.aspx" />
+    <Content Include="ResetPassword.aspx" />
     <Content Include="Restaurants.aspx" />
     <Content Include="LoadInformation.ashx" />
     <Content Include="Content\bootstrap-theme.css.map" />
@@ -497,6 +499,13 @@
     <Compile Include="attraction.aspx.designer.cs">
       <DependentUpon>attraction.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ConformPassword.aspx.cs">
+      <DependentUpon>ConformPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConformPassword.aspx.designer.cs">
+      <DependentUpon>ConformPassword.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Events.aspx.cs">
       <DependentUpon>Events.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -585,6 +594,13 @@
     </Compile>
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ResetPassword.aspx.cs">
+      <DependentUpon>ResetPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ResetPassword.aspx.designer.cs">
+      <DependentUpon>ResetPassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="Restaurant.cs" />
     <Compile Include="Restaurants.aspx.cs">
