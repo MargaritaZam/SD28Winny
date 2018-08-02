@@ -9,7 +9,7 @@
             font-style:italic;
         }
     </style>
-       <div class="review">
+       <div class="review" style="color:gold">
            <h1>Enjoy your deal!</h1>
          <asp:Image ID="ImgCoupons" runat="server" Height="250px" Width="250px"/>
          <br />
