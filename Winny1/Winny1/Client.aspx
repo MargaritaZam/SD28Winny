@@ -2,6 +2,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <style>
+        #ImgCoupons.CouponName{
+            color:gold;
+            font-size:15px;
+        }
+    </style>
         <div style="float:right; padding:50px; vertical-align:top">
                            <iframe  width="350" height="430" allow="microphone;"
     src="https://console.dialogflow.com/api-client/demo/embedded/4ba825dd-d3d3-4027-9f1a-ca69c00b07cb">
@@ -16,7 +22,7 @@
                     ImageUrl='<%# Eval("Path") %>'
                     Height="200px" Width="200px" />
                 <br />              
-                '<%# Eval("CouponName") %><br /><asp:DropDownList ID="ddlNumofCoupons" runat="server">
+                <%# Eval("CouponName") %><br /><asp:DropDownList ID="ddlNumofCoupons" runat="server">
                     <asp:listitem Value="1" Selected="True">1</asp:listitem>
                     <asp:listitem Value="2">2</asp:listitem>
                     <asp:listitem Value="3">3</asp:listitem>
