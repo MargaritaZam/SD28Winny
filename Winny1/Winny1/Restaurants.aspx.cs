@@ -106,7 +106,6 @@ namespace Winny1
             {
                 string id = ddlCulinary.SelectedItem.Value;
                 string LocationId = ddlLocation.SelectedItem.Value;
-
                 DAL myDal = new DAL(conn);
                 adsource = new PagedDataSource();
                 myDal.AddParam("@crud", "s");
@@ -128,7 +127,7 @@ namespace Winny1
             {
                 DAL myDal = new DAL(conn);
                 adsource = new PagedDataSource();
-                myDal.AddParam("@crud", "search");
+                myDal.AddParam("@crud","search");
                 myDal.AddParam("@search", txtSearch.Text);               
                 DataSet ds = myDal.ExecuteProcedure("spRestaurants");
                 adsource.DataSource = ds.Tables[0].DefaultView;
@@ -146,10 +145,7 @@ namespace Winny1
 
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("login.aspx");
-        }
+        
 
         protected void rdChoice_SelectedIndexChanged(object sender, EventArgs e)
         {

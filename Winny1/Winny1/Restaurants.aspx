@@ -40,7 +40,7 @@ div.desc {
           width: 268px;
       }
 </style>
-    <asp:Button ID="Button1" runat="server" Text="Join Chat" OnClick="Button1_Click" />
+    
     <asp:Panel ID="Panel1" runat="server" style="background-color:antiquewhite; width:800px " Visible="true">
 <%--<div class="gallery">
   <a target="_blank" href="images/a6.jpg">

@@ -183,7 +183,7 @@ create table tbLocation
 	locationName varchar(60)
 )
 insert into tbLocation(locationName) values
-('All'),('North'),('Northeast'),('East'),('Southeast'),
+('North'),('Northeast'),('East'),('Southeast'),
 ('South'),('Southwest'),('West'),('Northwest'),
 ('Downtown'),('Airport/West'),('Just Outside Winnipeg')
 go
@@ -2126,6 +2126,7 @@ create procedure spHotelCrud
 	@crud			  varchar(1)
 )
 as begin
+
 	if @crud='r'  --  Read & Search
 	begin
 		SELECT h.HotelID, r.Rating, l.LocationName, h.HotelName, h.HotelPrice, 
@@ -2133,7 +2134,12 @@ as begin
 			h.HotelWebsite, '.\HotelPictures\' + Hotel_path AS Hotel_path 
 			FROM tbHotels h JOIN tbLocation l ON h.HotelLocationID = l.LocationID
 			JOIN  tbRating r ON h.HotelRatingID = r.RatingID
-			where H.HotelRatingID = isnull(@hotelRatingID,HotelRatingID) AND h.HotelLocationID = isnull(@hotelLocationID, HotelLocationID)
+			where H.HotelRatingID = isnull(@hotelRatingID,HotelRatingID) or h.HotelLocationID = isnull(@hotelLocationID, HotelLocationID)
+	end
+	else if @crud='h'
+	begin
+	select HotelID,HotelName,HotelPrice,HotelRatingID,HotelDescription,HotelPhoneNumber,HotelAddress,HotelPostalCode,HotelWebsite,HotelLocationID, '.\HotelPictures\' + Hotel_path as Hotel_path from tbHotels
+	where HotelID=isnull(@hotelID,HotelID)
 	end
 	else if @crud='c'  --  Create
 	begin

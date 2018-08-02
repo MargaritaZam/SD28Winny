@@ -28,12 +28,15 @@ td {
            width:250px;
            height:200px;
        }
-      
+     #rblEvents{
+         font-size:25px;
+         color:gold;
+     }
    </style>
      <div>
             <asp:RadioButtonList ID="rblEvents" AutoPostBack="true"
                 RepeatDirection="Horizontal" runat="server" OnSelectedIndexChanged="rblEvents_SelectedIndexChanged" >
-                <asp:ListItem Value="f"  Text="Festivals"></asp:ListItem>
+                <asp:ListItem Value="f"   Text="Festivals"></asp:ListItem>
                 <asp:ListItem Value="e"  Text="Exhibition"></asp:ListItem>
                 <asp:ListItem Value="p"  Text="Plays"></asp:ListItem>              
             </asp:RadioButtonList>
