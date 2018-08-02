@@ -22,6 +22,15 @@ namespace Winny1 {
         protected global::System.Web.UI.WebControls.Panel Attr;
         
         /// <summary>
+        /// rdChoice1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rdChoice1;
+        
+        /// <summary>
         /// lblLocation control.
         /// </summary>
         /// <remarks>

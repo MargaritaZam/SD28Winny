@@ -35,6 +35,7 @@ button {
     border: none;
     cursor: pointer;
     width: 100%;
+    
    
 }
 input[type=button]
@@ -73,6 +74,7 @@ img.avatar {
 
 .container {
     padding: 16px;
+   
 }
 
 span.psw {
@@ -109,6 +111,9 @@ span.psw {
     margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
+ 
+    
+       
 }
 
 /* The Close Button (x) */
@@ -164,7 +169,7 @@ span.psw {
 </head>
 <body>
        <div class="float_l">
-    <h6> Current Date:  
+    <h5> Current Date:  
 <script type="text/javascript">
 var currentTime = new Date()
 var month = currentTime.getMonth() + 1
@@ -173,8 +178,8 @@ var year = currentTime.getFullYear()
     document.write(month + "/" + day + "/" + year)
         & nbsp;
     </script>
-        </h6>
-        <h6> Current Time:
+        </h5>
+        <h5> Current Time:
     <script type="text/javascript">
     var currentTime = new Date()
     var hours = currentTime.getHours()
@@ -193,7 +198,7 @@ var year = currentTime.getFullYear()
             
 
 
-</h6>
+</h5>
         </div>
     
 
@@ -206,8 +211,8 @@ var year = currentTime.getFullYear()
              <div id="menu">
                 <ul class="navigation">
            
-                    <li><a href="index.aspx" class="selected">Home</a></li>
-                     <li><a href="Slide.html" class="selected">Gallery</a></li>
+                    <li><a href="index.aspx" class="dropbtn">Home</a></li>
+                     <li><a href="Slide.html" class="dropbtn">Gallery</a></li>
 
                     <li class="dropdown">
                         <a href="About.aspx" class="dropbtn">Who?</a>
@@ -224,12 +229,7 @@ var year = currentTime.getFullYear()
                     </li>
 
                      <li class="dropdown"><a href="attraction.aspx" class="dropbtn">See</a>
-                    <div class="dropdown-content">
-                        <%--<a href="attraction.aspx?id=1">Museums</a>                     
-                        <a href="attraction.aspx?id=2">Galleries</a>
-                        <a href="attraction.aspx?id=3">Parks/Zoo</a>--%>
-                        
-                        </div>
+                    
                     </li>
 
                     <li class="dropdown">
@@ -263,7 +263,7 @@ var year = currentTime.getFullYear()
            </div>
   </div>
    <div id="right" class="auto-style1">
-         <p>Translate this page:</p>
+         <p style="color:gold; font-size:15px">Translate this page:</p>
 
 <div id="google_translate_element"></div>
 
@@ -272,9 +272,9 @@ function googleTranslateElementInit() {
   new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
 }
 </script>  
-       <input id="btnLogIn" type="button" value="LogIn" onclick="document.getElementById('id01').style.display='block'" style="width:auto; " runat="server"/>
-        <button  onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Register</button>
-       <input id="btnLogOut" type="button" value="LogOut" runat="server" style="width:auto;" visible="false" onclick="return LogOut()"/>
+       <input id="btnLogIn"  type="button" value="LogIn" onclick="document.getElementById('id01').style.display='block'" style="width:auto; color:gold; " runat="server"/>
+        <button  onclick="document.getElementById('id02').style.display='block'" style="width:auto;color:gold;">Register</button>
+       <input id="btnLogOut" type="button" value="LogOut" runat="server" style="width:auto;color:gold;" visible="false" onclick="return LogOut()"/>
   
        
    
@@ -292,7 +292,7 @@ function googleTranslateElementInit() {
         </div>
     </form>
 
-    <div id="id01" class="modal">
+    <div id="id01" class="modal" >
   
   <form class="modal-content animate">
     <div class="imgcontainer">
@@ -306,7 +306,7 @@ function googleTranslateElementInit() {
 
       <label for="psw"><b>Password</b></label>
       <input type="password" placeholder="Enter Password" id="txtPassword" required="required"/>
-       <button type="submit" onclick="return Login()">Login</button>
+       <button  type="submit" onclick="return Login()">Login</button>
      
     </div>
 

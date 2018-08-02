@@ -155,5 +155,112 @@ namespace Winny1
             }
 
         }
+
+        protected void rdChoice1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (rdChoice1.SelectedValue == "1")
+            {
+                DAL myDal = new DAL(conn);
+                adsource = new PagedDataSource();
+                myDal.AddParam("@crud", "AtoF");
+                DataSet ds = myDal.ExecuteProcedure("spAttractions");
+                adsource.DataSource = ds.Tables[0].DefaultView;
+                adsource.PageSize = 3;
+                adsource.AllowPaging = true;
+                adsource.CurrentPageIndex = ps;
+                btnfirst.Enabled = !adsource.IsFirstPage;
+                btnprevious.Enabled = !adsource.IsFirstPage;
+                btnlast.Enabled = !adsource.IsLastPage;
+                btnnext.Enabled = !adsource.IsLastPage;
+                dlAttraction.DataSource = adsource;
+                dlAttraction.DataBind();
+            }
+            else if (rdChoice1.SelectedValue == "2")
+            {
+                DAL myDal = new DAL(conn);
+                adsource = new PagedDataSource();
+                myDal.AddParam("@crud", "GtoL");
+                DataSet ds = myDal.ExecuteProcedure("spAttractions");
+                adsource.DataSource = ds.Tables[0].DefaultView;
+                adsource.PageSize = 3;
+                adsource.AllowPaging = true;
+                adsource.CurrentPageIndex = ps;
+                btnfirst.Enabled = !adsource.IsFirstPage;
+                btnprevious.Enabled = !adsource.IsFirstPage;
+                btnlast.Enabled = !adsource.IsLastPage;
+                btnnext.Enabled = !adsource.IsLastPage;
+                dlAttraction.DataSource = adsource;
+                dlAttraction.DataBind();
+            }
+            else if (rdChoice1.SelectedValue == "3")
+            {
+                DAL myDal = new DAL(conn);
+                adsource = new PagedDataSource();
+                myDal.AddParam("@crud", "MtoR");
+                DataSet ds = myDal.ExecuteProcedure("spAttractions");
+                adsource.DataSource = ds.Tables[0].DefaultView;
+                adsource.PageSize = 3;
+                adsource.AllowPaging = true;
+                adsource.CurrentPageIndex = ps;
+                btnfirst.Enabled = !adsource.IsFirstPage;
+                btnprevious.Enabled = !adsource.IsFirstPage;
+                btnlast.Enabled = !adsource.IsLastPage;
+                btnnext.Enabled = !adsource.IsLastPage;
+                dlAttraction.DataSource = adsource;
+                dlAttraction.DataBind();
+            }
+            else if (rdChoice1.SelectedValue == "4")
+            {
+                DAL myDal = new DAL(conn);
+                adsource = new PagedDataSource();
+                myDal.AddParam("@crud", "StoZ");
+                DataSet ds = myDal.ExecuteProcedure("spAttractions");
+                adsource.DataSource = ds.Tables[0].DefaultView;
+                adsource.PageSize = 3;
+                adsource.AllowPaging = true;
+                adsource.CurrentPageIndex = ps;
+                btnfirst.Enabled = !adsource.IsFirstPage;
+                btnprevious.Enabled = !adsource.IsFirstPage;
+                btnlast.Enabled = !adsource.IsLastPage;
+                btnnext.Enabled = !adsource.IsLastPage;
+                dlAttraction.DataSource = adsource;
+                dlAttraction.DataBind();
+            }
+            else if (rdChoice1.SelectedValue == "a")
+            {
+                DAL myDal = new DAL(conn);
+                adsource = new PagedDataSource();
+                myDal.AddParam("@crud", "a");
+                DataSet ds = myDal.ExecuteProcedure("spAttractions");
+                adsource.DataSource = ds.Tables[0].DefaultView;
+                adsource.PageSize = 3;
+                adsource.AllowPaging = true;
+                adsource.CurrentPageIndex = ps;
+                btnfirst.Enabled = !adsource.IsFirstPage;
+                btnprevious.Enabled = !adsource.IsFirstPage;
+                btnlast.Enabled = !adsource.IsLastPage;
+                btnnext.Enabled = !adsource.IsLastPage;
+
+                dlAttraction.DataSource = adsource;
+                dlAttraction.DataBind();
+            }
+            else if (rdChoice1.SelectedValue == "0")
+            {
+                DAL myDal = new DAL(conn);
+                adsource = new PagedDataSource();
+                myDal.AddParam("@crud", "1to10");
+                DataSet ds = myDal.ExecuteProcedure("spAttractions");
+                adsource.DataSource = ds.Tables[0].DefaultView;
+                adsource.PageSize = 3;
+                adsource.AllowPaging = true;
+                adsource.CurrentPageIndex = ps;
+                btnfirst.Enabled = !adsource.IsFirstPage;
+                btnprevious.Enabled = !adsource.IsFirstPage;
+                btnlast.Enabled = !adsource.IsLastPage;
+                btnnext.Enabled = !adsource.IsLastPage;
+                dlAttraction.DataSource = adsource;
+                dlAttraction.DataBind();
+            }
+        }
     }
 }
