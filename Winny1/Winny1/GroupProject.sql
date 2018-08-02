@@ -2631,7 +2631,7 @@ exec spLogin @email='margo@winny', @password='pass2'
  exec spUser @crud='c', @firstName='Tracy', @lastName='McCormack', @phoneNumber='333-55-55', @address='444 Main Str., Winnipeg, MB ',
               @email='tracy@winny', @password='pass3', @accessLevel='c' 
  exec spUser @crud='c', @firstName='Natalia', @lastName='Shmer', @phoneNumber='555-55-55', @address='777 Main Str., Winnipeg, MB ',
-              @email='natalia@winny', @password='pass4', @accessLevel='c' 
+              @email='natalia.shmer@robertsoncollege.net', @password='pass4', @accessLevel='c' 
 
 select * from tbUsers
 go

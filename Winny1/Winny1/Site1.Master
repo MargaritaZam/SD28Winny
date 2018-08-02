@@ -272,6 +272,7 @@ function googleTranslateElementInit() {
   new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
 }
 </script>  
+       <h4>For getting coupons please login or register: </h4>
        <input id="btnLogIn" type="button" value="LogIn" onclick="document.getElementById('id01').style.display='block'" style="width:auto; " runat="server"/>
         <button  onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Register</button>
        <input id="btnLogOut" type="button" value="LogOut" runat="server" style="width:auto;" visible="false" onclick="return LogOut()"/>
