@@ -2627,9 +2627,9 @@ exec spLogin @email='margo@winny', @password='pass2'
  exec spUser @crud='c', @firstName='Anjali', @lastName='Patel', @phoneNumber='777-55-55', @address='555 Main Str., Winnipeg, MB ',
               @email='anjali.patel@robertsoncollege.net', @password='pass1', @accessLevel='a' --a=admin
  exec spUser @crud='c', @firstName='Margarita', @lastName='Zamoshch', @phoneNumber='222-55-55', @address='111 Main Str., Winnipeg, MB ',
-              @email='margo@winny', @password='pass2', @accessLevel='c' --c=client
+              @email='margarita.zamoshch@robertsoncollege.net', @password='pass2', @accessLevel='c' --c=client
  exec spUser @crud='c', @firstName='Tracy', @lastName='McCormack', @phoneNumber='333-55-55', @address='444 Main Str., Winnipeg, MB ',
-              @email='tracy@winny', @password='pass3', @accessLevel='c' 
+              @email='tracy.mccormack@robertsoncollege.net', @password='pass3', @accessLevel='c' 
  exec spUser @crud='c', @firstName='Natalia', @lastName='Shmer', @phoneNumber='555-55-55', @address='777 Main Str., Winnipeg, MB ',
               @email='natalia.shmer@robertsoncollege.net', @password='pass4', @accessLevel='c' 
 
