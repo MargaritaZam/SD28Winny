@@ -12,7 +12,8 @@
     <script src="Scripts/jquery-3.2.1.min.js"></script>
    
     <style>
-body {font-family: Arial, Helvetica, sans-serif;}
+        
+body {font-family: Arial, Helvetica, sans-serif;background-color:darkblue;}
 
 /* Full-width input fields */
 input[type=text], input[type=password] {
@@ -253,10 +254,9 @@ var year = currentTime.getFullYear()
                     <li class="dropdown">
                         <a href="Universities.aspx">Schools</a>
                     </li>
-                    <li class="dropdown"><a href="TalkToUs.aspx"  class="dropbtn">Talk 2 Us</a>
-                        <a href="Events.aspx">Upcoming Events</a>
-             <%--         <li class="dropdown"><a href="https://bot.dialogflow.com/4ba825dd-d3d3-4027-9f1a-ca69c00b07cb">Talk to us</a>                    
-                    </li>  --%>                    
+             
+                       <li class="dropdown"> <a href="Events.aspx">Upcoming Events</a></li>
+                            
                 </ul>    	
             </div> <!-- end of tooplate_menu -->
             </div>
