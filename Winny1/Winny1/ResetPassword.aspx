@@ -17,7 +17,7 @@
                 <div class="text-center">
                   <h3><i class="fa fa-lock fa-4x"></i></h3>
                   <h2 class="text-center">Forgot Password?</h2>
-                  <p>You can reset your password here.</p>
+                   <h4>To reset your password please enter your email address:</h4>
                   <div class="panel-body">
     
                     <div id="register-form"   class="form" >
@@ -25,7 +25,7 @@
                       <div class="form-group">
                         <div class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
-                          <asp:TextBox ID="txtConformEmail"  runat="server"></asp:TextBox>
+                          <asp:TextBox ID="txtConformEmail"  runat="server" Width="400" Height="20"></asp:TextBox>
                          <asp:Label ID="lblError" runat="server" Text=""></asp:Label> 
                         </div>
                       </div>
