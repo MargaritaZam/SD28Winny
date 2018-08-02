@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-   <style>
+    <style>
        
        table {
     border-collapse: separate;
@@ -38,7 +38,7 @@ td {
             <asp:RadioButtonList ID="rblEvents" AutoPostBack="true" Font-Italic="true" Font-Size="Large" ForeColor="gold" Font-Bold="true"
                 RepeatDirection="Horizontal" runat="server" OnSelectedIndexChanged="rblEvents_SelectedIndexChanged" >
                 <asp:ListItem Value="f"   Text="Festivals"></asp:ListItem>
-                <asp:ListItem Value="e"  Text="Exhibition"></asp:ListItem>
+                <asp:ListItem Value="e"  Text="Exhibitions"></asp:ListItem>
                 <asp:ListItem Value="p"  Text="Plays"></asp:ListItem>              
             </asp:RadioButtonList>
         </div>

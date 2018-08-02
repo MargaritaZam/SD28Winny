@@ -257,7 +257,26 @@ where atName like'%'+ @search+'%'
 			atAddress, atPhone, atWebsite, atImage, location) values
 			(@category, @name, @desc, @address, @phone, @website, @image, @location)
 	end
-
+	else if @crud='AtoF'
+	begin
+		select atName,atDesc,atAddress,atPhone,atWebsite,attractionID,location, './Attractions/' + atImage as atImage from tbAttractions where atName between 'A%' and 'F%'
+	end
+	else if @crud='GtoL'
+	begin
+		select atName,atDesc,atAddress,atPhone,atWebsite,attractionID,location, './Attractions/' + atImage as atImage from tbAttractions where atName between 'G%' and 'L%'
+	end
+	else if @crud='MtoR'
+	begin
+		select atName,atDesc,atAddress,atPhone,atWebsite,attractionID,location, './Attractions/' + atImage as atImage from tbAttractions where atName between 'M%' and 'R%'
+	end
+	else if @crud='StoZ'
+	begin
+		select atName,atDesc,atAddress,atPhone,atWebsite,attractionID,location, './Attractions/' + atImage as atImage from tbAttractions where atName between 'S%' and 'Z%'
+	end
+	else if @crud='1to10'
+	begin
+		select atName,atDesc,atAddress,atPhone,atWebsite,attractionID,location, './Attractions/' + atImage as atImage from tbAttractions  where attractionID between 1 and 10
+	end
 	else if @crud='a'  --  Select Attractions 
 	begin
 		select attractionID, attractionCategory, atName, atDesc, atAddress, 

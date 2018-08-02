@@ -4,12 +4,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <style>
         #footer {
-            background-color: #12152e;
+            /*background-color: #12152e;*/
             padding: 10px;
             text-align: center;
             /*color: steelblue;*/
-            border: double;
-            border-color: gold;
+            /*border: double;
+            border-color: gold;*/
             width:100%;
             height:15px;
         }

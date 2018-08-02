@@ -32,6 +32,14 @@
     <br />
      <br />
     <br />
+        <asp:RadioButtonList ID="rdChoice1" runat="server"  Font-Size="X-Large" eColor="Black" Font-Bold="True" RepeatDirection="Horizontal" ForeColor="Black" CellSpacing="10" CellPadding="10" Width="598px" AutoPostBack="True" OnSelectedIndexChanged="rdChoice1_SelectedIndexChanged">
+        <asp:ListItem Value="a">All</asp:ListItem>
+        <asp:ListItem Value="0">1-10</asp:ListItem>
+        <asp:ListItem Value="1">A-F</asp:ListItem>
+        <asp:ListItem Value="2">G-L</asp:ListItem>
+        <asp:ListItem Value="3">M-R</asp:ListItem>
+        <asp:ListItem Value="4">S-Z</asp:ListItem>
+</asp:RadioButtonList>
 <table>
     <tr>
         <td>
@@ -47,8 +55,9 @@
         </td>
         <td>
              <asp:DropDownList ID="ddlCategory" runat="server" Height="23px" Width="268px" BackColor="White">
+                 <asp:ListItem></asp:ListItem>
                  <asp:ListItem>Museums</asp:ListItem>
-                 <asp:ListItem>Galleies</asp:ListItem>
+                 <asp:ListItem>Galleries</asp:ListItem>
                  <asp:ListItem>Parks</asp:ListItem>
              </asp:DropDownList>
         </td>
