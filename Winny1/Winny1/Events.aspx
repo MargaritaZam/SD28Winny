@@ -31,6 +31,7 @@ td {
      #rblEvents{
          font-size:25px;
          color:gold;
+         font-style:italic;
      }
    </style>
      <div>
