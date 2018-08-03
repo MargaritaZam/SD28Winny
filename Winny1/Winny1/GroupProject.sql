@@ -655,7 +655,8 @@ as begin
 	end
 	else if @Crud='x'
 	begin
-		select StoreId,StoreName, Description,'.\Shopping\'+ Path as Path,Address,PhoneNumber,
+		select StoreId,StoreName, Description,'.\Shopping\'+ 
+		Path as Path,Address,PhoneNumber,
 			Web,LocationId,CategoryId
 		from tbStores where CategoryId=@CategoryId
 	end
@@ -718,9 +719,7 @@ exec spStores @Crud='c', @StoreName='Winnipeg Trading Post',
 		@PhoneNumber='204.947.0513',@Web='http://www.winnipegtradingpost.com/', @LocationId=7, @CategoryId=1 
 
 exec spStores @Crud='c', @StoreName='Collectibles Canada', 
-        @Description='Collectibles Canada features all types of coins and currency from North America and around the world, 
-		gold and silver in many forms, and has an extensive selection of Royal Canadian Mint product both past and present.
-		Our “one stop coin shop” display of mint product and supplies begins where the mint leaves off.',
+        @Description='Collectibles Canada features all types of coins and currency from North America and around the world',
         @Path='Collectibles Canada.png',
 		@Address='2211 McPhillips Street, Winnipeg, MB, R2V 3M5 ',
 		@PhoneNumber='204.586.6263',@Web='http://www.collectiblescanada.com/', @LocationId=8, @CategoryId=1 
