@@ -29,13 +29,12 @@
                   <p><em>The city was founded in 1873 and the word 'Winnipeg' comes from the Western Cree words that mean 'muddy water'.</em></p>
                 </div>
                 <div class="col_270 float_r">
-                  <h2>Our Services</h2>
+                  <h2 style="margin-left: 60px">Our Services</h2>
                   <ul class="service_list">
-                    <li><a href="http://www.winnipegpass.com/city/" ><strong>Winnipeg City Pass</strong></a></li>
-
-                        <li><a href="https://www.theweathernetwork.com/ca/weather/manitoba/winnipeg" ><strong>Winnipeg Weather</strong></a></li>
-                        <li><a href="http://winnipegtransit.com/en" ><strong>Winnipeg Transit</strong></a></li>
-                        <li><a href="https://goo.gl/maps/Bg8GWt8qps52"><strong>Map</strong></a></li>
+                    <li><a href="http://www.winnipegpass.com/city/" ><img id="img" src="Events/City.png" style="width:30px; height:30px; border:double; border-color:gold; border-radius:50%" /><strong> Winnipeg City Pass</strong></a></li>
+                    <li><a href="https://www.theweathernetwork.com/ca/weather/manitoba/winnipeg" ><img id="img1" src="Events/the-weather-network-logo.png" style="width:30px; height:30px; border:double; border-color:gold;border-radius:50%"" /><strong> Winnipeg Weather</strong></a></li>
+                    <li><a href="http://winnipegtransit.com/en" ><img id="img2" src="Events/transit.jpg" style="width:30px; height:30px; border:double; border-color:gold;border-radius:50%"" /><strong> Winnipeg Transit</strong></a></li>
+                    <li style="margin-right:95px"><a  href="https://goo.gl/maps/Bg8GWt8qps52"><img id="img3" src="Events/maps.jpg" style="width:30px; height:30px; border:double; border-color:gold;border-radius:50%"" /><strong>Map</strong></a></li>
                   
                   </ul>
                 </div>

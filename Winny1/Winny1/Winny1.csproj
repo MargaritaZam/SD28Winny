@@ -141,11 +141,15 @@
     <Content Include="Events\beauty.jpg" />
     <Content Include="Events\beerfest.jpg" />
     <Content Include="Events\capture.jpg" />
+    <Content Include="Events\City.png" />
     <Content Include="Events\folklorama.png" />
     <Content Include="Events\impr.jpg" />
     <Content Include="Events\lights.jpg" />
+    <Content Include="Events\maps.jpg" />
     <Content Include="Events\night_market.jpg" />
     <Content Include="Events\planetarium.jpg" />
+    <Content Include="Events\the-weather-network-logo.png" />
+    <Content Include="Events\transit.jpg" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="gethint.asp" />
