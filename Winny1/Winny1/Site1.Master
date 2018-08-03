@@ -336,7 +336,7 @@ function googleTranslateElementInit() {
             <td><strong>First Name</strong></td>
             
             <td>
-                <input id="txtNewFirstName" type="text" />
+                <input id="txtNewFirstName" type="text"  onkeyup="showHint(this.value)"/>
                 
              <%--   For names Suggestion--%>
                 <p>Suggestions: <span id="txtHint"></span></p>
@@ -496,7 +496,23 @@ window.onclick = function(event) {
             return false;
         }
 </script>
-
+<script>
+function showHint(str) {
+  var xhttp;
+  if (str.length == 0) { 
+    document.getElementById("txtHint").innerHTML = "";
+    return;
+  }
+  xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("txtHint").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "gethint.asp?q="+str, true);
+  xhttp.send();
+}
+</script>
 
 </body>
 </html>
