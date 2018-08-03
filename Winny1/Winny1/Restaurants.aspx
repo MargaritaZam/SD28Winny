@@ -75,13 +75,13 @@ div.desc {
         <asp:Button ID="btnLoadMore" runat="server" Text="Load more Photos" BackColor="#CC0099" ForeColor="White" Height="43px" Width="602px" Font-Bold="True" />
  --%>
 
-        <asp:RadioButtonList ID="rdChoice" runat="server"  Font-Size="X-Large" eColor="Black" Font-Bold="True" RepeatDirection="Horizontal" ForeColor="Black" CellSpacing="10" CellPadding="10" Width="598px">
-        <asp:ListItem>All</asp:ListItem>
-        <asp:ListItem>0-9</asp:ListItem>
-        <asp:ListItem>A-F</asp:ListItem>
-        <asp:ListItem>G-L</asp:ListItem>
-        <asp:ListItem>M-R</asp:ListItem>
-        <asp:ListItem>S-Z</asp:ListItem>
+        <asp:RadioButtonList ID="rdChoice" runat="server"  Font-Size="X-Large" eColor="Black" Font-Bold="True" RepeatDirection="Horizontal" ForeColor="Black" CellSpacing="10" CellPadding="10" Width="598px" AutoPostBack="True" OnSelectedIndexChanged="rdChoice_SelectedIndexChanged">
+        <asp:ListItem Value="a">All</asp:ListItem>
+        <asp:ListItem Value="0">1-10</asp:ListItem>
+        <asp:ListItem Value="1">A-F</asp:ListItem>
+        <asp:ListItem Value="2">G-L</asp:ListItem>
+        <asp:ListItem Value="3">M-R</asp:ListItem>
+        <asp:ListItem Value="4">S-Z</asp:ListItem>
 
     </asp:RadioButtonList>
 

@@ -124,7 +124,7 @@ namespace Winny1
                 dlRestaurant.DataSource = adsource;
                 dlRestaurant.DataBind();
             }
-            else
+            else 
             {
                 DAL myDal = new DAL(conn);
                 adsource = new PagedDataSource();
@@ -142,12 +142,120 @@ namespace Winny1
                 dlRestaurant.DataSource = adsource;
                 dlRestaurant.DataBind();
             }
+            
 
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
             Response.Redirect("login.aspx");
+        }
+
+        protected void rdChoice_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(rdChoice.SelectedValue=="1")
+            {
+                DAL myDal = new DAL(conn);
+                adsource = new PagedDataSource();
+                myDal.AddParam("@crud","AtoF");                
+                DataSet ds = myDal.ExecuteProcedure("spRestaurants");
+                adsource.DataSource = ds.Tables[0].DefaultView;
+                adsource.PageSize = 3;
+                adsource.AllowPaging = true;
+                adsource.CurrentPageIndex = pos;
+                btnfirst.Enabled = !adsource.IsFirstPage;
+                btnprevious.Enabled = !adsource.IsFirstPage;
+                btnlast.Enabled = !adsource.IsLastPage;
+                btnnext.Enabled = !adsource.IsLastPage;
+                dlRestaurant.DataSource = adsource;
+                dlRestaurant.DataBind();
+            }
+            else if (rdChoice.SelectedValue == "2")
+            {
+                DAL myDal = new DAL(conn);
+                adsource = new PagedDataSource();
+                myDal.AddParam("@crud", "GtoL");
+                DataSet ds = myDal.ExecuteProcedure("spRestaurants");
+                adsource.DataSource = ds.Tables[0].DefaultView;
+                adsource.PageSize = 3;
+                adsource.AllowPaging = true;
+                adsource.CurrentPageIndex = pos;
+                btnfirst.Enabled = !adsource.IsFirstPage;
+                btnprevious.Enabled = !adsource.IsFirstPage;
+                btnlast.Enabled = !adsource.IsLastPage;
+                btnnext.Enabled = !adsource.IsLastPage;
+                dlRestaurant.DataSource = adsource;
+                dlRestaurant.DataBind();
+            }
+           else if (rdChoice.SelectedValue == "3")
+            {
+                DAL myDal = new DAL(conn);
+                adsource = new PagedDataSource();
+                myDal.AddParam("@crud", "MtoR");
+                DataSet ds = myDal.ExecuteProcedure("spRestaurants");
+                adsource.DataSource = ds.Tables[0].DefaultView;
+                adsource.PageSize = 3;
+                adsource.AllowPaging = true;
+                adsource.CurrentPageIndex = pos;
+                btnfirst.Enabled = !adsource.IsFirstPage;
+                btnprevious.Enabled = !adsource.IsFirstPage;
+                btnlast.Enabled = !adsource.IsLastPage;
+                btnnext.Enabled = !adsource.IsLastPage;
+                dlRestaurant.DataSource = adsource;
+                dlRestaurant.DataBind();
+            }
+           else if (rdChoice.SelectedValue == "4")
+            {
+                DAL myDal = new DAL(conn);
+                adsource = new PagedDataSource();
+                myDal.AddParam("@crud", "StoZ");
+                DataSet ds = myDal.ExecuteProcedure("spRestaurants");
+                adsource.DataSource = ds.Tables[0].DefaultView;
+                adsource.PageSize = 3;
+                adsource.AllowPaging = true;
+                adsource.CurrentPageIndex = pos;
+                btnfirst.Enabled = !adsource.IsFirstPage;
+                btnprevious.Enabled = !adsource.IsFirstPage;
+                btnlast.Enabled = !adsource.IsLastPage;
+                btnnext.Enabled = !adsource.IsLastPage;
+                dlRestaurant.DataSource = adsource;
+                dlRestaurant.DataBind();
+            }
+           else if(rdChoice.SelectedValue == "a")
+            {
+                DAL myDal = new DAL(conn);
+                adsource = new PagedDataSource();
+                myDal.AddParam("@crud", "a");
+                DataSet ds = myDal.ExecuteProcedure("spRestaurants");
+                adsource.DataSource = ds.Tables[0].DefaultView;
+                adsource.PageSize = 3;
+                adsource.AllowPaging = true;
+                adsource.CurrentPageIndex = pos;
+                btnfirst.Enabled = !adsource.IsFirstPage;
+                btnprevious.Enabled = !adsource.IsFirstPage;
+                btnlast.Enabled = !adsource.IsLastPage;
+                btnnext.Enabled = !adsource.IsLastPage;
+
+                dlRestaurant.DataSource = adsource;
+                dlRestaurant.DataBind();
+            }
+            else if (rdChoice.SelectedValue == "0")
+            {
+                DAL myDal = new DAL(conn);
+                adsource = new PagedDataSource();
+                myDal.AddParam("@crud", "1to10");
+                DataSet ds = myDal.ExecuteProcedure("spRestaurants");
+                adsource.DataSource = ds.Tables[0].DefaultView;
+                adsource.PageSize = 3;
+                adsource.AllowPaging = true;
+                adsource.CurrentPageIndex = pos;
+                btnfirst.Enabled = !adsource.IsFirstPage;
+                btnprevious.Enabled = !adsource.IsFirstPage;
+                btnlast.Enabled = !adsource.IsLastPage;
+                btnnext.Enabled = !adsource.IsLastPage;
+                dlRestaurant.DataSource = adsource;
+                dlRestaurant.DataBind();
+            }
         }
     }
 }

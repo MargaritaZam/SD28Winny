@@ -1125,6 +1125,27 @@ as begin
 			LocationId=@LocationId
 		 where RestaurantId=@RestaurantId
 	end
+	else if @crud='AtoF'
+	begin
+		select RestaurantName,Description,RestaurantId,'./Restaurant/' + path as path  from tbRestaurants where RestaurantName between 'A%' and 'F%'
+	end
+	else if @crud='GtoL'
+	begin
+		select RestaurantName,Description,RestaurantId,'./Restaurant/' + path as path  from tbRestaurants where RestaurantName between 'G%' and 'L%'
+	end
+	else if @crud='MtoR'
+	begin
+		select RestaurantName,Description,RestaurantId,'./Restaurant/' + path as path  from tbRestaurants where RestaurantName between 'M%' and 'R%'
+	end
+	else if @crud='StoZ'
+	begin
+		select RestaurantName,Description,RestaurantId,'./Restaurant/' + path as path  from tbRestaurants where RestaurantName between 'S%' and 'Z%'
+	end
+	else if @crud='1to10'
+	begin
+		select RestaurantName,Description,RestaurantId,'./Restaurant/' + path as path  from tbRestaurants where RestaurantId between 1 and 10
+	end
+	
 end
 go
 
