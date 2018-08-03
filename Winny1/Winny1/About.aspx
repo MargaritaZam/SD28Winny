@@ -51,11 +51,11 @@ tr {
 }
 </style>
 
-<asp:Panel ID="PnlAbout" style="background-color:antiquewhite; width:800px; align-self: center; " runat="server">
+<asp:Panel ID="PnlAbout" style="background-color:antiquewhite; width:500px; align-self: center; " runat="server">
    
     <asp:DataList ID="DlAbout" DataKeyField="AboutID" RepeatColumns="1" RepeatDirection="Horizontal" runat="server" >
         <ItemTemplate>
-            <div class="About" style="width:650px; align-self: center;"  onclick="return ViewAbout(<%#Eval("AboutID") %>)" >
+            <div class="About" style="width:450px; align-self: center;"  onclick="return ViewAbout(<%#Eval("AboutID") %>)" >
 
                 <table style="width: 100%">
                     <tr>
@@ -66,7 +66,7 @@ tr {
                         </td>
                     </tr>
                     <tr>
-                        <td  colspan="2" style="color:black; text-align:left;">
+                        <td  colspan="2" style="color:black; text-align:left; width:auto">
                             <%#Eval ("AboutDescription")%>
                         </td>
                     </tr>
