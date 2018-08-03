@@ -2821,6 +2821,6 @@ exec spAttractions @crud='u', @id=1, @category='Museums',
 --insert into [dbo].[tbl_Users] (UserName,Email,Password)values('admin','admin@admin.com','12345'); 
 --insert into [dbo].[tbl_Users] (UserName,Email,Password)values('Anjali','user1@user.com','12345');  
 --insert into [dbo].[tbl_Users] (UserName,Email,Password)values('Margo','user2@user.com','12345');  
-select * from tbRestaurants
+select * from tbRestaurants where LocationId=9
 select * from tbFood_Category
 select * from tbUsers

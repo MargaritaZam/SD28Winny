@@ -22,10 +22,11 @@ namespace Winny1
             {
                 HtmlInputButton LogIn = (HtmlInputButton)Master.FindControl("btnLogIn");
                 HtmlInputButton LogOut = (HtmlInputButton)Master.FindControl("btnLogOut");
-            
+                Label masterlbl = (Label)Master.FindControl("Label1");
+                masterlbl.Visible = false;
                 LogOut.Visible = true;
                 LogIn.Visible = false;
-                
+               
 
 
                 loadAttractions();
