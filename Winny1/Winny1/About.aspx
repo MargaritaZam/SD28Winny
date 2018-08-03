@@ -51,7 +51,7 @@ tr {
 }
 </style>
 
-<asp:Panel ID="PnlAbout" style="background-color:antiquewhite; width:500px; align-self: center; " runat="server">
+<asp:Panel ID="PnlAbout" style="background-color:#a1a0e8; font-family:Arial, Helvetica, sans-serif; font-style:italic; width:500px;height:auto; align-self: center; " runat="server">
    
     <asp:DataList ID="DlAbout" DataKeyField="AboutID" RepeatColumns="1" RepeatDirection="Horizontal" runat="server" >
         <ItemTemplate>
@@ -59,14 +59,14 @@ tr {
 
                 <table style="width: 100%">
                     <tr>
-                        <td colspan="2" style="width: 100px; text-align: center; color:red; font-weight:bold;">
+                        <td colspan="2" style="width: 100px; font-size:20px;text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue; text-align: center; color:gold; font-weight:bold;">
                             <%#Eval ("AboutTopic")%>
                             <br />
                             <hr />
                         </td>
                     </tr>
                     <tr>
-                        <td  colspan="2" style="color:black; text-align:left; width:auto">
+                        <td  colspan="2" style="color:darkblue; font-size:15px; text-align:left; width:auto">
                             <%#Eval ("AboutDescription")%>
                         </td>
                     </tr>
