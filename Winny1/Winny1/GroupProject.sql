@@ -2619,7 +2619,7 @@ exec spLogin @email='margo@winny', @password='pass2'
 --go
 
  exec spUser @crud='c', @firstName='Anjali', @lastName='Patel', @phoneNumber='777-55-55', @address='555 Main Str., Winnipeg, MB ',
-              @email='admin@winny', @password='pass1', @accessLevel='a' --a=admin
+              @email='anjali.patel@robertsoncollege.net', @password='pass1', @accessLevel='a' --a=admin
  exec spUser @crud='c', @firstName='Margarita', @lastName='Zamoshch', @phoneNumber='222-55-55', @address='111 Main Str., Winnipeg, MB ',
               @email='margo@winny', @password='pass2', @accessLevel='c' --c=client
  exec spUser @crud='c', @firstName='Tracy', @lastName='McCormack', @phoneNumber='333-55-55', @address='444 Main Str., Winnipeg, MB ',
@@ -2798,4 +2798,4 @@ exec spAttractions @crud='u', @id=1, @category='Museums',
 --insert into [dbo].[tbl_Users] (UserName,Email,Password)values('Margo','user2@user.com','12345');  
 select * from tbRestaurants
 select * from tbFood_Category
-
+select * from tbUsers
