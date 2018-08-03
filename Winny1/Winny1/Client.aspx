@@ -19,8 +19,8 @@
                 <br />              
                 <%# Eval("CouponName") %><br /><asp:DropDownList ID="ddlNumofCoupons" runat="server">
                     <asp:listitem Value="1" Selected="True">1</asp:listitem>
-                    <asp:listitem Value="2">2</asp:listitem>
-                    <asp:listitem Value="3">3</asp:listitem>
+                    <%--<asp:listitem Value="2">2</asp:listitem>
+                    <asp:listitem Value="3">3</asp:listitem>--%>
                 </asp:DropDownList>
                 <asp:Button ID="btnGetCoupon" runat="server" Text="Get Coupon"
                 commandArgument='<%# Eval("CouponId") %>'/>
