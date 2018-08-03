@@ -203,7 +203,7 @@ var year = currentTime.getFullYear()
     
 
        
-        <div id="slider">
+        <div id="slider" >
    	<div id="tooplate_wrapper">
     	
         <div id="tooplate_header">
@@ -268,7 +268,9 @@ var year = currentTime.getFullYear()
   </div>
    <div id="right" class="auto-style1">
          <p style="color:gold; font-size:15px">Translate this page:</p>
-
+       <div>
+           <a href="http://www.animatedimages.org/cat-earth-1160.htm"><img src="http://www.animatedimages.org/data/media/1160/animated-earth-image-0007.gif" border="0" alt="animated-earth-image-0007" /></a>
+       </div>
 <div id="google_translate_element"></div>
 
 <script type="text/javascript">

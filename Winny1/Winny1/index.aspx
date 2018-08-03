@@ -61,6 +61,7 @@
                       </span>
                       </h2>
                   <img src="images/tooplate_image_01.jpg" alt="Image 01" class="image_wrapper" />
+                    
                   <p style="text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue; font-size:15px"><em>Winnipeg is located at the confluence of the Red and Assiniboine Rivers.  Known as the "Gateway to the West", Winnipeg is a railway and transportation hub with a diversified economy.</em></p>
                   <p style="text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;font-size:15px"><em>The city was founded in 1873 and the word 'Winnipeg' comes from the Western Cree words that mean 'muddy water'.</em></p>
                 </div>
@@ -100,7 +101,7 @@
         <br />
            <br />
   		<div id="footer">
-
+            
            <%-- <div id="footer_left">
                 <%--Copyright © 2018--%> 
                <%-- <a href="#">The Omega Group (SD28)</a>--%>
