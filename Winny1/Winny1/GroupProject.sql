@@ -15,7 +15,7 @@ name varchar(200),
 description varchar(2000),
 website varchar(100),
 image varchar(100),
-date varchar(30)
+date varchar(max)
 )
 go
 --Alter table [dbo].[tbEvents] Add constraint [DF_tbEvents_date]
@@ -28,7 +28,7 @@ create procedure spEvents(
 @description varchar(2000)=null,
 @web varchar(100)=null,
 @image varchar(100)=null,
-@date varchar(30)=null,
+@date varchar(max)=null,
 @crud varchar(1)
 )
 as begin
@@ -72,6 +72,37 @@ exec spEvents @crud='c',@name='Lights of the North - Chinese Lantern Light Festi
 						 @web='https://www.lightsofthenorth.ca',
 						 @image='lights.jpg',
 						 @date='August 31, 2018 to October 14, 2018 '
+
+exec spEvents @crud='c',@name='Summer with the Impressionists',
+                         @type='Exhibition',
+                         @description='Spend summer with the Impressionists and experience 100 works spanning 100 years. See two exhibits – French Moderns: Monet to Matisse, 1850-1950 organized in collaboration with the Brooklyn Museum, New York, and The Impressionists on Paper, organized in partnership with the National Gallery of Canada.',
+						 @web='http://impress.wag.ca/',
+						 @image='impr.jpg',
+						 @date='July 31, 2018 to September 9, 2018 '
+
+ exec spEvents @crud='c',@name='Planetarium*s 50TH Anniversary Laser Shows',
+                         @type='Exhibition',
+                         @description='A laser show is a music-based Planetarium program combining music with synchronized laser light effects. Take some awesome music. Classic rock, electronic, retro, whatever. Play it really loud in the Planetarium. Shoot lasers at the dome in all sorts of amazing patterns, from hypnotic abstract patterns to animated characters. ',
+						 @web='https://manitobamuseum.ca/main/visit/planetarium/lasers/',
+						 @image='planetarium.jpg',
+						 @date='July 31, 2018 to September 3, 2018 '
+
+exec spEvents @crud='c',@name='Jerry Rubin: Art That Pops',
+                         @type='Exhibition',
+                         @description='I fall asleep every night thinking about the piece I’m currently painting; working out in my subconscious mind the details, colours, placements, and surmountable obstacles. Every morning I awake with joy, anxious to begin the fun. ',
+						 @web='http://pulsegallery.ca/',
+						 @image='capture.jpg',
+						 @date='August 1, 2018 to August 31, 2018 '
+
+exec spEvents @crud='c',@name='Beauty and the Beast',
+                         @type='Play',
+                         @description='Step into the enchanted world of Broadway’s modern classic, Disney’s Beauty and the Beast, an international sensation that has played to over 35 million people worldwide in 13 countries. Based on the Academy Award-winning animated feature, the stage version includes all of the wonderful songs written by Alan Menken and the late Howard Ashman, along with new songs by Mr. Menken and Tim Rice. The original Broadway production ran for over thirteen years and was nominated for nine Tony Awards, including Best Musical. The classic story tells of Belle, a young woman in a provincial town, and the Beast, who is really a young prince trapped under the spell of an enchantress. If the Beast can learn to love and be loved, the curse will end and he will be transformed into his former self. But time is running out. If the Beast does not learn his lesson soon, he and his household will be doomed for all eternity.',
+						 @web='http://www.rainbowstage.ca/',
+						 @image='beauty.jpg',
+						 @date='August 14, 2018 to August 30, 2018 '
+
+
+
 exec spEvents @crud='r'
 go
 select*from tbEvents
