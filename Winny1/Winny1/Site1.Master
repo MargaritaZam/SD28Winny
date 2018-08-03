@@ -241,7 +241,7 @@ var year = currentTime.getFullYear()
                         
                     </li>
 
-                    <li class="dropdown" aria-readonly="true"><a href="Shopping.aspx" onclick="false" class="dropbtn" >Buy</a>
+                    <li class="dropdown" ><a href="Shopping.aspx"  class="dropbtn" >Buy</a>
                     <div class="dropdown-content">
                         <a href="Shopping.aspx?id=1">Antiques</a>
                         <a href="Shopping.aspx?id=2">Book Stores</a>
@@ -273,6 +273,8 @@ function googleTranslateElementInit() {
   new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
 }
 </script>  
+      
+       <asp:Label ID="Label1" runat="server" Text="For getting coupons please login or register:"></asp:Label>
        <input id="btnLogIn"  type="button" value="LogIn" onclick="document.getElementById('id01').style.display='block'" style="width:auto; color:gold; " runat="server"/>
         <button  onclick="document.getElementById('id02').style.display='block'" style="width:auto;color:gold;">Register</button>
        <input id="btnLogOut" type="button" value="LogOut" runat="server" style="width:auto;color:gold;" visible="false" onclick="return LogOut()"/>
