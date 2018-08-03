@@ -257,7 +257,26 @@ where atName like'%'+ @search+'%'
 			atAddress, atPhone, atWebsite, atImage, location) values
 			(@category, @name, @desc, @address, @phone, @website, @image, @location)
 	end
-
+	else if @crud='AtoF'
+	begin
+		select atName,atDesc,atAddress,atPhone,atWebsite,attractionID,location, './Attractions/' + atImage as atImage from tbAttractions where atName between 'A%' and 'F%'
+	end
+	else if @crud='GtoL'
+	begin
+		select atName,atDesc,atAddress,atPhone,atWebsite,attractionID,location, './Attractions/' + atImage as atImage from tbAttractions where atName between 'G%' and 'L%'
+	end
+	else if @crud='MtoR'
+	begin
+		select atName,atDesc,atAddress,atPhone,atWebsite,attractionID,location, './Attractions/' + atImage as atImage from tbAttractions where atName between 'M%' and 'R%'
+	end
+	else if @crud='StoZ'
+	begin
+		select atName,atDesc,atAddress,atPhone,atWebsite,attractionID,location, './Attractions/' + atImage as atImage from tbAttractions where atName between 'S%' and 'Z%'
+	end
+	else if @crud='1to10'
+	begin
+		select atName,atDesc,atAddress,atPhone,atWebsite,attractionID,location, './Attractions/' + atImage as atImage from tbAttractions  where attractionID between 1 and 10
+	end
 	else if @crud='a'  --  Select Attractions 
 	begin
 		select attractionID, attractionCategory, atName, atDesc, atAddress, 
@@ -2627,11 +2646,11 @@ exec spLogin @email='margo@winny', @password='pass2'
  exec spUser @crud='c', @firstName='Anjali', @lastName='Patel', @phoneNumber='777-55-55', @address='555 Main Str., Winnipeg, MB ',
               @email='anjali.patel@robertsoncollege.net', @password='pass1', @accessLevel='a' --a=admin
  exec spUser @crud='c', @firstName='Margarita', @lastName='Zamoshch', @phoneNumber='222-55-55', @address='111 Main Str., Winnipeg, MB ',
-              @email='margo@winny', @password='pass2', @accessLevel='c' --c=client
+              @email='margarita.zamoshch@robertsoncollege.net', @password='pass2', @accessLevel='c' --c=client
  exec spUser @crud='c', @firstName='Tracy', @lastName='McCormack', @phoneNumber='333-55-55', @address='444 Main Str., Winnipeg, MB ',
-              @email='tracy@winny', @password='pass3', @accessLevel='c' 
+              @email='tracy.mccormack@robertsoncollege.net', @password='pass3', @accessLevel='c' 
  exec spUser @crud='c', @firstName='Natalia', @lastName='Shmer', @phoneNumber='555-55-55', @address='777 Main Str., Winnipeg, MB ',
-              @email='natalia@winny', @password='pass4', @accessLevel='c' 
+              @email='natalia.shmer@robertsoncollege.net', @password='pass4', @accessLevel='c' 
 
 select * from tbUsers
 go
