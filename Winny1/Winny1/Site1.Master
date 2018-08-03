@@ -214,8 +214,9 @@ var year = currentTime.getFullYear()
                     <li><a href="index.aspx" class="dropbtn">Home</a></li>
                      <li><a href="Slide.html" class="dropbtn">Gallery</a></li>
 
-                    <li class="dropdown" aria-readonly="true">
-                        <a href="About.aspx" class="dropbtn">Who?</a>
+                    <li class="dropdown" area-readonly="true" >
+                        <a 
+                            href="About.aspx" class="dropbtn" onclick="false">Who?</a>
                             <div class="dropdown-content">
 
                                 <a href="about.aspx?id=1">Origins</a>                     
