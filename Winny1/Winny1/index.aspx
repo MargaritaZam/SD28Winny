@@ -47,7 +47,7 @@
     </style>
     <div class="cleaner">
  </div>
-     
+    
      <div id="content" >
         <div class="scroll">
            <div class="scrollContainer">
@@ -77,6 +77,7 @@
               </div>
             </div>
         </div>
+        
 			  
              <%-- <div class="panel" id="gallery">
                 <h1>Our Gallery</h1>
