@@ -56,9 +56,9 @@ namespace Winny1
             //dlStores.DataBind();
 
 
-            //string id = Request.QueryString["id"].ToString();
-            //dlStores.DataSource = _shop.LoadStores(null, Convert.ToInt32(id));
-            //dlStores.DataBind();
+            string id = Request.QueryString["id"].ToString();
+            dlStores.DataSource = _shop.LoadStores(null, Convert.ToInt32(id));
+            dlStores.DataBind();
         }
 
     
