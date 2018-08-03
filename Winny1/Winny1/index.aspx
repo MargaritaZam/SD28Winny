@@ -13,17 +13,18 @@
             width:100%;
             height:15px;
         }
+       
     </style>
     <div class="cleaner">
  </div>
      
-     <div id="content">
+     <div id="content" >
         <div class="scroll">
            <div class="scrollContainer">
 			
-              <div class="panel" id="home">
+              <div class="panel" id="home" >
                 <div class="col_380 float_l">
-                  <h2>Welcome to Winnipeg</h2>
+                  <h2 style="color:whitesmoke; text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;"><strong>Welcome to Winnipeg</strong></h2>
                   <img src="images/tooplate_image_01.jpg" alt="Image 01" class="image_wrapper" />
                   <p><em>Winnipeg is located at the confluence of the Red and Assiniboine Rivers.  Known as the "Gateway to the West", Winnipeg is a railway and transportation hub with a diversified economy.</em></p>
                   <p><em>The city was founded in 1873 and the word 'Winnipeg' comes from the Western Cree words that mean 'muddy water'.</em></p>
