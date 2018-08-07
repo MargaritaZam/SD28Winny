@@ -277,7 +277,10 @@ function googleTranslateElementInit() {
         <button  onclick="document.getElementById('id02').style.display='block'" style="width:auto;color:gold;">Register</button>
        <input id="btnLogOut" type="button" value="LogOut" runat="server" style="width:auto;color:gold;" visible="false" onclick="return LogOut()"/>
   
-   <%--</div>--%>
+   </div>
+    <script>
+        
+    </script>
     <br />
     <br />
 
