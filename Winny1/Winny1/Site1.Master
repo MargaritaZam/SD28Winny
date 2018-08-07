@@ -194,15 +194,8 @@ var year = currentTime.getFullYear()
         document.write()
     }
 </script>
-     
-            
-
-
 </h5>
-        </div>
-    
-
-       
+        </div>     
         <div id="slider" >
    	<div id="tooplate_wrapper">
     	
@@ -280,12 +273,10 @@ function googleTranslateElementInit() {
 </script>  
       
        <h5><asp:Label ID="Label1" runat="server" Text="For getting coupons please login or register:"></asp:Label></h5>
-       <input id="btnLogIn"  type="button" value="LogIn" onclick="document.getElementById('id01').style.display='block'" style="width:auto; color:gold; " runat="server"/>
+       <input id="btnLogIn"  type="button" value="LogIn"  onclick="document.getElementById('id01').style.display='block'" style="width:auto; color:gold; " runat="server"/>
         <button  onclick="document.getElementById('id02').style.display='block'" style="width:auto;color:gold;">Register</button>
        <input id="btnLogOut" type="button" value="LogOut" runat="server" style="width:auto;color:gold;" visible="false" onclick="return LogOut()"/>
   
-       
-   
    </div>
     <script>
         

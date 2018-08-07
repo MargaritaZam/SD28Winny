@@ -17,10 +17,8 @@
                     ImageUrl='<%# Eval("Path") %>'
                     Height="200px" Width="200px" />
                 <br />              
-                <%# Eval("CouponName") %><br /><asp:DropDownList ID="ddlNumofCoupons" runat="server">
-                    <asp:listitem Value="1" Selected="True">1</asp:listitem>
-                    <%--<asp:listitem Value="2">2</asp:listitem>
-                    <asp:listitem Value="3">3</asp:listitem>--%>
+                <%# Eval("CouponName") %><br /><asp:DropDownList ID="ddlNumofCoupons" visible="false" runat="server">
+                    <asp:listitem  Selected="True"></asp:listitem>
                 </asp:DropDownList>
                 <asp:Button ID="btnGetCoupon" runat="server" Text="Get Coupon"
                 commandArgument='<%# Eval("CouponId") %>'/>
