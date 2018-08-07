@@ -673,7 +673,7 @@ namespace Winny1
 
             txtHotelName.Text = dataset.Tables[0].Rows[0]["HotelName"].ToString();
             txtHotelPrice.Text = dataset.Tables[0].Rows[0]["HotelPrice"].ToString();
-            txtHotelRating.Text = dataset.Tables[0].Rows[0]["Rating"].ToString();
+            txtHotelRating.Text = dataset.Tables[0].Rows[0]["HotelRatingID"].ToString();
             txtHotelDesc.Text = dataset.Tables[0].Rows[0]["HotelDescription"].ToString();
             txtHotelPhone.Text = dataset.Tables[0].Rows[0]["HotelPhoneNumber"].ToString();
             txtHotelAddress.Text = dataset.Tables[0].Rows[0]["HotelAddress"].ToString();
