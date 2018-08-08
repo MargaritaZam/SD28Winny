@@ -7,15 +7,20 @@ namespace Winny1
 {
     public class Exhibition : WinnipegEvent
     {
-       
-        public Exhibition(string name, string desc, string image, string web, string date)
+        public Exhibition(string text1, string text2, string text3, string text4, string v)
+        {
+        }
+
+        public Exhibition(int id, string type,string name, string desc, string image, string web, string date)
 
         {
-            base.Date = date;
-            base.Name = name;
-            base.Description = desc;
-            base.Image = image;
-            base.Website = web;
+            base.eventID = id;
+            base.type = type;
+            base.date = date;
+            base.name = name;
+            base.description = desc;
+            base.image = image;
+            base.website = web;
         }
     }
 }

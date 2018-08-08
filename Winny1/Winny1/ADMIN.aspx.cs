@@ -14,6 +14,7 @@ namespace Winny1
 {
     public partial class ADMIN : System.Web.UI.Page
     {
+        WinnipegEventMain winevents;
         SqlConnection conn;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -26,7 +27,7 @@ namespace Winny1
                 masterlbl.Visible = false;
                 LogOut.Visible = true;
                 LogIn.Visible = false;
-               
+
 
 
                 loadAttractions();
@@ -36,8 +37,9 @@ namespace Winny1
                 loadStoreCategory();
                 loadStores();
                 //loadAttractionCategory();
-               loadHotels();
-               loadSchools();
+                loadHotels();
+                loadSchools();
+                loadEvents();
             }
         }
         private void loadStoreCategory()
@@ -149,7 +151,7 @@ namespace Winny1
                     gvreport.DataBind();
                     break;
             }
-            }
+        }
 
         protected void rblAdmin_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -176,6 +178,13 @@ namespace Winny1
                     break;
                 case "H":
                     panelHotel.Visible = true;
+                    panelRestaurants.Visible = false;
+                    panelStores.Visible = false;
+                    panelAttraction.Visible = false;
+                    break;
+                case "E":
+                    pnlNew.Visible = true;
+                    panelHotel.Visible = false;
                     panelRestaurants.Visible = false;
                     panelStores.Visible = false;
                     panelAttraction.Visible = false;
@@ -210,7 +219,7 @@ namespace Winny1
             txtRPostal.Text = "";
             txtRPhone.Text = "";
             txtRWebsite.Text = "";
-           
+
         }
 
         protected void gvRestaurants_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -304,7 +313,7 @@ namespace Winny1
                 loadRestaurants();
             }
             else
-            {        
+            {
                 cmd.Parameters.AddWithValue("@crud", "u");
                 cmd.Parameters.AddWithValue("@RestaurantId", lblRest.Text);
                 cmd.Parameters.AddWithValue("@RestaurantName", txtRname.Text);
@@ -323,7 +332,7 @@ namespace Winny1
 
                 loadRestaurants();
             }
-           // loadRestaurants();
+            // loadRestaurants();
         }
 
         protected void gvRestaurants_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
@@ -350,7 +359,7 @@ namespace Winny1
             {
                 return;
             }
-            
+
             gvShoping.SelectedIndex = Convert.ToInt32(e.CommandArgument);
             string sid = gvShoping.SelectedDataKey["StoreId"].ToString();
 
@@ -421,7 +430,7 @@ namespace Winny1
             txtStoreAddress.Text = "";
             txtStorePhone.Text = "";
             txtStoreWeb.Text = "";
-           
+
         }
 
         protected void btnSavestore_Click(object sender, EventArgs e)
@@ -469,11 +478,11 @@ namespace Winny1
                 conn.Close();
                 loadStores();
             }
-          //loadStores();
+            //loadStores();
         }
         private void loadAttractions()
         {
-            
+
             DataSet ds = new DataSet();
             SqlDataAdapter da = new SqlDataAdapter("spAttractions", conn);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -495,7 +504,7 @@ namespace Winny1
             txtAttrAddress.Text = "";
             txtAttrPhone.Text = "";
             txtAttrWeb.Text = "";
-           
+
         }
 
         protected void gvAttractions_SelectedIndexChanged(object sender, EventArgs e)
@@ -549,8 +558,8 @@ namespace Winny1
                 conn.Close();
                 loadAttractions();
             }
-           // loadAttractions();
-    }
+            // loadAttractions();
+        }
 
         protected void gvAttractions_RowCommand(object sender, GridViewCommandEventArgs e)
         {
@@ -703,7 +712,7 @@ namespace Winny1
             txtHotelPostal.Text = "";
             txtHotelWeb.Text = "";
             txtHotelPhone.Text = "";
-           
+
         }
 
         protected void btnSaveHotel_Click(object sender, EventArgs e)
@@ -713,7 +722,7 @@ namespace Winny1
             flHotelImage.PostedFile.SaveAs(Hpath + Hname);
             pnlUpdateHotel.Visible = false;
             SqlCommand com = new SqlCommand("spHotelCrud", conn);
-           // com.Connection = conn;
+            // com.Connection = conn;
             com.CommandType = CommandType.StoredProcedure;
 
             if (lblHotel.Text == "New")
@@ -756,7 +765,7 @@ namespace Winny1
                 conn.Close();
                 loadHotels();
             }
-           // loadHotels();
+            // loadHotels();
         }
 
         protected void gvAttractions_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -798,7 +807,116 @@ namespace Winny1
         {
 
         }
+        public void loadEvents()
+        {
+            DataSet ds = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter("spEvents", conn);
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
+            da.SelectCommand.Parameters.AddWithValue("@crud", "r");
+            conn.Open();
+            da.Fill(ds);
+            conn.Close();
+
+            gvEvents.DataSource = ds.Tables[0];
+            gvEvents.DataBind();
+        }
+       
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
+
+
+            string path = Server.MapPath(@".\Events\");
+            string nm = flImage.FileName;
+            flImage.PostedFile.SaveAs(path + nm);
+            SqlCommand comd = new SqlCommand("spEvents",conn);
+            comd.Connection = conn;
+            comd.CommandType = CommandType.StoredProcedure;
+
+            if (lblNew.Text == "New")
+            {
+
+
+                comd.Parameters.AddWithValue("@crud", "c");
+                comd.Parameters.AddWithValue("@name", txtName.Text);
+                comd.Parameters.AddWithValue("@type", ddlType.SelectedValue);
+                comd.Parameters.AddWithValue("@description", txtDesc.Text);
+                comd.Parameters.AddWithValue("@web", txtWeb.Text);
+                comd.Parameters.AddWithValue("@date", txtDate.Text);
+                comd.Parameters.AddWithValue("@image", nm);
+
+                conn.Open();
+                comd.ExecuteNonQuery();
+                conn.Close();
+                loadEvents();
+            }
+            else
+            {
+                comd.Parameters.AddWithValue("@crud", "u");
+                comd.Parameters.AddWithValue("@eventID", lblNew.Text);
+                comd.Parameters.AddWithValue("@name", txtName.Text);
+                comd.Parameters.AddWithValue("@type", ddlType.SelectedValue);
+                comd.Parameters.AddWithValue("@description", txtDesc.Text);
+                comd.Parameters.AddWithValue("@web", txtWeb.Text);
+                comd.Parameters.AddWithValue("@date", txtDate.Text);
+                comd.Parameters.AddWithValue("@image", nm);
+
+                conn.Open();
+                comd.ExecuteNonQuery();
+                conn.Close();
+                loadEvents();
+            }
+      
     }
-    
-    
+
+        protected void gvEvents_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvEvents.PageIndex = Convert.ToInt32(e.NewPageIndex);
+            loadEvents();
+        }
+
+        protected void gvEvents_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "Page" || e.CommandName == "Sorting")
+            {
+                return;
+            }
+            string comd = e.CommandName;
+            gvEvents.SelectedIndex = Convert.ToInt32(e.CommandArgument);
+            string ID = gvEvents.SelectedDataKey["eventID"].ToString();
+
+            switch (e.CommandName)
+            {
+                case "del":
+                    DeleteEvent(ID);
+                    break;
+            }
+        }
+        public void DeleteEvent(string ID)
+        {
+            SqlCommand comd = new SqlCommand("spEvents", conn);
+            comd.CommandType = CommandType.StoredProcedure;
+            comd.Parameters.AddWithValue("@crud", "d");
+            comd.Parameters.AddWithValue("@eventID", ID);
+            conn.Open();
+            comd.ExecuteNonQuery();
+            conn.Close();
+
+            loadEvents();
+        }
+
+        protected void btnIns_Click(object sender, EventArgs e)
+        {
+            pnlInsertEvents.Visible = true;
+            lblNew.Text = "New";
+            txtName.Text = "";
+            txtDesc.Text = "";
+            txtDate.Text = "";
+            txtWeb.Text = "";
+
+           
+        }
+    }
+
 }
+
+

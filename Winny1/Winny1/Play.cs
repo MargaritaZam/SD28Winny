@@ -7,15 +7,20 @@ namespace Winny1
 {
     public class Play: WinnipegEvent
     {
-       
-        public Play(string name, string desc, string image, string web, string date)
+        public Play(string text1, string text2, string text3, string text4, string v)
+        {
+        }
+
+        public Play(int id,string name, string type, string desc, string image, string web, string date)
 
         {
-            base.Date = date;
-            base.Name = name;
-            base.Description = desc;
-            base.Image = image;
-            base.Website = web;
+            base.eventID = id;
+            base.date = date;
+            base.name = name;
+            base.type = type;
+            base.description = desc;
+            base.image = image;
+            base.website = web;
         }
     }
 }
