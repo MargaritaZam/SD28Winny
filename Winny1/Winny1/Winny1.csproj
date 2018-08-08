@@ -221,7 +221,6 @@
     <Content Include="LoginPage.aspx" />
     <Content Include="Margo.sql" />
     <Content Include="Natalia.sql" />
-    <Content Include="planetarium.jpg" />
     <Content Include="Register.aspx" />
     <Content Include="ResetPassword.aspx" />
     <Content Include="Restaurants.aspx" />

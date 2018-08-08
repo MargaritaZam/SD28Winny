@@ -132,7 +132,7 @@ td {
                             Website: 
                         </td>
                         <td colspan="2">
-                            <asp:HyperLink ID="HyperLinkSchool" runat="server" NavigateUrl='<%# Eval ("SchoolWebsite") %>' ></asp:HyperLink>
+                            <asp:HyperLink ID="HyperLinkSchool" runat="server" NavigateUrl='<%# Eval ("SchoolWebsite") %>' Text='<%# Eval ("SchoolWebsite") %>' ></asp:HyperLink>
                         </td>
                     </tr>
                 </table>             

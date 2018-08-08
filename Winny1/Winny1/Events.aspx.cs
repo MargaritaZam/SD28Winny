@@ -11,10 +11,17 @@ namespace Winny1
 {
     public partial class Events : System.Web.UI.Page
     {
-        SqlConnection conn = new SqlConnection("Data Source= localhost; Initial Catalog=dbGroupProject; Integrated Security= SSPI");
         WinnipegEventMain winevents;
+        SqlConnection conn = new SqlConnection("Data Source= localhost; Initial Catalog=dbGroupProject; Integrated Security= SSPI");
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            Security security = new Security();
+
+
+
+            winevents = new WinnipegEventMain();
+
             if (!IsPostBack)
             {
                 loadEvents();
@@ -33,14 +40,20 @@ namespace Winny1
             dlEvents.DataSource = ds.Tables[0];
             dlEvents.DataBind();
         }
+        public void AddEvents()
+        {
+            dlEvents.DataSource = winevents.Get();
+            dlEvents.DataBind();
+        }
 
         protected void dlEvents_ItemCommand(object source, DataListCommandEventArgs e)
         {
-            
+
         }
 
         protected void dlEvents_SelectedIndexChanged(object sender, EventArgs e)
         {
+
 
         }
 
@@ -86,6 +99,8 @@ namespace Winny1
 
             }
         }
+
+        
+        
     }
-    
 }

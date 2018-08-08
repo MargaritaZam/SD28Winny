@@ -7,15 +7,20 @@ namespace Winny1
 {
     public class Fest : WinnipegEvent
     {
-       
-       public Fest(string name, string desc, string image, string web, string date )
+        public Fest(string text1, string text2, string text3, string text4, string v)
+        {
+        }
+
+        public Fest(int eventID, string name,string type, string desc, string image, string web, string date )
 
         {
-            this.Date = date;
-            base.Name = name;
-            base.Description = desc;
-            base.Image = image;
-            base.Website = web;
+            base.eventID = eventID;
+            base.type = type;
+            base.date = date;
+            base.name = name;
+            base.description = desc;
+            base.image = image;
+            base.website = web;
         }
 
 
