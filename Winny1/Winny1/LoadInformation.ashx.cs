@@ -62,7 +62,7 @@ namespace Winny1
 
                 for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
                 {
-                    result = result +/* "{\"Id\": \"" + ds.Tables[0].Rows[i]["RestaurantId"].ToString() +*/
+                    result = result +/* "{\"Id\": \"" + ds.Tables[0].Rows[i]["StoreId"].ToString() +*/
                                      /* "\",*/ "{\"Name\":\"" + ds.Tables[0].Rows[i]["StoreName"].ToString() +
                                          "\", \"Description\":\"" + ds.Tables[0].Rows[i]["Description"].ToString() +
                                             "\", \"Address\":\"" + ds.Tables[0].Rows[i]["Address"].ToString() +

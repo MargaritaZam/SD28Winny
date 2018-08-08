@@ -12,7 +12,7 @@ create table tbEvents(
 eventID int identity(1,1) primary key,
 type varchar(60),
 name varchar(200),
-description varchar(2000),
+description varchar(max),
 website varchar(100),
 image varchar(100),
 date varchar(max)
@@ -23,7 +23,7 @@ create procedure spEvents(
 @eventID int=null,
 @name varchar(200)=null,
 @type varchar(60) =null,
-@description varchar(2000)=null,
+@description varchar(max)=null,
 @web varchar(100)=null,
 @image varchar(100)=null,
 @date varchar(max)=null,
@@ -40,6 +40,10 @@ begin
 insert into tbEvents(name,type, description, website, image, date)values
                    (@name, @type, @description, @web, @image, @date)
  end
+ else if @crud='d'
+ begin
+ delete from tbEvents where eventID=@eventID
+	end
  end
  go
 
