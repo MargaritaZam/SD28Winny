@@ -7,9 +7,6 @@ namespace Winny1
 {
     public class Play: WinnipegEvent
     {
-        public Play(string text1, string text2, string text3, string text4, string v)
-        {
-        }
 
         public Play(int id,string name, string type, string desc, string image, string web, string date)
 

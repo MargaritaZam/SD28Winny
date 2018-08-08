@@ -7,10 +7,7 @@ namespace Winny1
 {
     public class Exhibition : WinnipegEvent
     {
-        public Exhibition(string text1, string text2, string text3, string text4, string v)
-        {
-        }
-
+        
         public Exhibition(int id, string type,string name, string desc, string image, string web, string date)
 
         {
