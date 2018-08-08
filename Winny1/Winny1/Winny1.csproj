@@ -217,7 +217,6 @@
     <Content Include="index.aspx" />
     <Content Include="info.aspx" />
     <Content Include="Information.html" />
-    <Content Include="Login.aspx" />
     <Content Include="LoginPage.aspx" />
     <Content Include="Margo.sql" />
     <Content Include="Natalia.sql" />
@@ -569,13 +568,6 @@
     </Compile>
     <Compile Include="login.ashx.cs">
       <DependentUpon>login.ashx</DependentUpon>
-    </Compile>
-    <Compile Include="Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="LoginPage.aspx.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
