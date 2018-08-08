@@ -14,7 +14,7 @@ namespace Winny1
 {
     public partial class ADMIN : System.Web.UI.Page
     {
-        WinnipegEventMain winevents;
+       
         SqlConnection conn;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -184,6 +184,7 @@ namespace Winny1
                     break;
                 case "E":
                     pnlNew.Visible = true;
+                    pnlInsertEvents.Visible = true;
                     panelHotel.Visible = false;
                     panelRestaurants.Visible = false;
                     panelStores.Visible = false;

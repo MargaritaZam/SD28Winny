@@ -2667,3 +2667,4 @@ select*from tbAttractions
 select * from tbRestaurants where LocationId=9
 select * from tbFood_Category
 select * from tbUsers
+select * from tbStores
