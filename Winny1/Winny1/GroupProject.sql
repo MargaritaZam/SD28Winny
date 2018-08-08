@@ -103,8 +103,6 @@ exec spEvents @crud='c',@name='Beauty and the Beast',
 						 @image='beauty.jpg',
 						 @date='August 14, 2018 to August 30, 2018 '
 
-
-
 exec spEvents @crud='r'
 go
 select*from tbEvents
@@ -135,11 +133,6 @@ where type=@play
 end
 go
 
-
-
-
-
-
 create table tbSlide(
 	slideID int identity(1,1) primary key,
 	slidedesc varchar(60),
@@ -168,7 +161,6 @@ as begin
 end
 go
 
---exec spSlide @crud='r'
 go
 
 create procedure spGetSlides
@@ -190,7 +182,6 @@ insert into tbLocation(locationName) values
 ('Downtown'),('Airport/West'),('Just Outside Winnipeg')
 go
 
---select*from tbLocation
 go
 
 create procedure spLocation
@@ -218,9 +209,6 @@ create table tbAttractions
 	location int foreign key references tbLocation(locationID)
 )
 go
-
---select*from tbAttractions
---go
 
 create procedure spAttractions
 (
@@ -323,9 +311,6 @@ where atName like'%'+ @search+'%'
 
 end
 go
-
---exec spAttractions @crud='r'
---go
 
 create procedure spGetAttraction
 (
@@ -536,17 +521,7 @@ exec spAttractions @crud='c', @category='Parks',
 		@image='forks.jpg', 
 		@location=9
 
-		
-		--exec spAttractions @crud='r'
-		--exec spAttractions @crud='search'
 go
---exec spAttractions @crud='a', @category='Museums'
---exec spAttractions @crud='a', @category='Galleries'
---exec spAttractions @crud='a', @category='Parks'
---exec spAttractions @crud='z', @category='Museums'
-
-
---exec spGetCategory
 
 --  Shopping Category Table and Procedures  --
 
@@ -589,12 +564,6 @@ as begin
 end
 go
 
---exec spGetStoreCategory
---go
-
-
---exec spGetShoppingCategories
---go
 
 --  Stores Table and Procedures  --
 
@@ -1147,10 +1116,6 @@ as begin
 end
 go
 
---select * from tbFood_Category
---select * from location
---go
---select *from tbRestaurants
 go
 exec spRestaurants @crud='c',
 		@RestaurantName='Loveys BBQ',
@@ -1867,10 +1832,6 @@ exec spRestaurants @crud='c',
 		@FoodId=12,
 		@LocationId=3
 		go
---exec spRestaurants @crud='r'
---select * from tbRestaurants
---go
-
 
 --  'About Winnipeg' Table and Procedures  --
 
@@ -1935,7 +1896,6 @@ exec spAboutCrud @crud = 'c',
 			     @aboutTopic = 'Average Monthly Temperatures',
 			     @aboutDescription = 'Being in the middle of the continent, Winnipeg''s weather varies greatly between summer and winter.  The following table shows the average monthly highs and lows:'
 
---exec spAboutCrud @crud = 'r'
 
 create table tbAvgTemps
 (
@@ -2056,9 +2016,6 @@ as begin
 end
 go
 
---exec spGetRating
-
---exec spGetRating @ratingID = 4
 
 go
 create table tbHotels
@@ -2325,9 +2282,6 @@ as begin
 end
 go
 
---exec spGetSchoolTypes
---go
-
 --  School Table and Procedures  --
 
 create table tbUniversitiesColleges
@@ -2469,9 +2423,6 @@ exec spSchoolsCrud @schoolCrud = 'c',
 		@schoolLocationId = 5
 go
 
---exec spSchoolsCrud @schoolCrud='r'
---go
-
 create table tbUsers(
 id int identity (1,1) primary key,
 firstName varchar (50) not null,
@@ -2482,6 +2433,8 @@ email varchar (60) not null,
 password varchar (30) not null,
 accessLevel varchar(1)
 )
+go
+select * from tbUsers
 go
 create table tbWrongLogins(
 id int identity(1,1) primary key,
@@ -2533,31 +2486,7 @@ where id=@id
 end
 end
 go
---create procedure spLogin(
---@email varchar(60),
---@password varchar(30)
---)
---as begin
---declare @accessLevel varchar(1);
---if exists( select* from tbUsers where email=@email and
---          password=@password)
---begin
---select @accessLevel= accessLevel from tbUsers where email=@email and
---          password=@password
---select @accessLevel as access;
---if @accessLevel='c'or @accessLevel='a'
---begin
---select id, firstName +' ' +lastName as fullName from tbUsers 
---where email=@email
---end
---end
---else
---begin
---select 'x' as access, 'Invalid' as Id
---insert into tbWrongLogins(email,password,date) values(@email,@password,getdate())
---end
---end
---go
+
 create procedure spLogin(
 @email varchar(60),
 @password varchar(30)
@@ -2588,8 +2517,6 @@ end
 end
 go
 exec spLogin @email='margo@winny', @password='pass2'
---select * from tbUsers
---go
 
  exec spUser @crud='c', @firstName='Anjali', @lastName='Patel', @phoneNumber='777-55-55', @address='555 Main Str., Winnipeg, MB ',
               @email='anjali.patel@robertsoncollege.net', @password='pass1', @accessLevel='a' --a=admin
@@ -2736,39 +2663,7 @@ exec spAttractions @crud='u', @id=1, @category='Museums',
 		@image='Winnipeg-Police-Museum.jpg', 
 		@location=9
 		go
-		select*from tbAttractions
---create procedure spGetCouponType(
---@CouponType varchar(max))
---as begin
---select CouponName,'.\Coupons\'+ Path as Path from tbCoupons inner join
---tbCouponType on tbCoupons.TypeId=tbCouponType.TypeId
---where tbCouponType.CouponType=@CouponType
---end
---go
---exec spGetCouponType @CouponType=1
-
-
-
-  
---CREATE TABLE [dbo].[tbl_Users](  
-  
---[ID] [int] IDENTITY(1,1) NOT NULL,  
---[UserName] [varchar](50) NULL,  
---[Email] [varchar](50) NULL,  
---[Password] [varchar](50) NULL,  
---[Photo] [varchar](50) NULL,  
-  
---CONSTRAINT [PK_tbl_Users] PRIMARY KEY CLUSTERED   
---(   
---  [ID] ASC   
---)
---WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]  
-  
---) ON [PRIMARY]  
-  
---insert into [dbo].[tbl_Users] (UserName,Email,Password)values('admin','admin@admin.com','12345'); 
---insert into [dbo].[tbl_Users] (UserName,Email,Password)values('Anjali','user1@user.com','12345');  
---insert into [dbo].[tbl_Users] (UserName,Email,Password)values('Margo','user2@user.com','12345');  
+select*from tbAttractions
 select * from tbRestaurants where LocationId=9
 select * from tbFood_Category
 select * from tbUsers
